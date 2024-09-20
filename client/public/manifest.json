@@ -4,10 +4,11 @@
   "icons": [
     {
       "src": "images/jo.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sizes": "421x421"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
