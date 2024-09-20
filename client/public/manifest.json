@@ -1,11 +1,10 @@
 {
-  "short_name": "jo-website",
-  "name": "jog with a blog",
+  "short_name": "jo site",
+  "name": "woo! jo site",
   "icons": [
     {
-      "src": "jo.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "images/jo.png",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
