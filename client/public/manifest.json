@@ -1,0 +1,15 @@
+{
+  "short_name": "jo-website",
+  "name": "jog with a blog",
+  "icons": [
+    {
+      "src": "jo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
