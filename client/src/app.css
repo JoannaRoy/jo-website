@@ -1,3 +1,4 @@
+/* Home */
 .App {
   text-align: center;
 }
@@ -14,6 +15,8 @@
   .Sparkles {
     size: small;
     animation: Sparkles-shimmer infinite 5s linear;
+    height: 10px;
+    margin: 0 10px;
   }
 }
 
@@ -51,4 +54,99 @@
   to {
     opacity: 0.5;
   }
+}
+
+/* Header */
+.headerContainer {
+  z-index: 2;
+  display: flex;
+}
+
+.toolbar {
+  justify-content: center;
+  background-color: #497750;
+  z-index: 2;
+  min-height: 30px !important;
+}
+
+.toolbox {
+  align-items: center;
+  background-color: #497750;
+  z-index: 2;
+  display: flex;
+}
+
+.headerName {
+  animation: show 0.5s;
+  font-weight: bold !important;
+  font-size: 0.5rem !important;
+}
+
+.nav {
+  font-size: 0.5rem;
+  padding: 0 5px;
+}
+
+.toolbar-links {
+  padding: 0 10px !important;
+  font-size: 8px !important;
+}
+
+.toolbar-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  padding: 0 10px;
+}
+
+.img {
+  height: 10px;
+  margin: 0 10px;
+}
+
+.iconButton {
+  padding: 0px;
+  size: 5px;
+}
+
+/* About */
+.about-root {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.avatar {
+  height: 50px !important;
+  width: 50px !important;
+}
+
+.bio-head {
+  font-size: small !important;
+  padding: 5px;
+  font-weight: bold !important;
+  color: #497750;
+}
+
+.bio {
+  font-size: xx-small !important;
+  padding: 2px;
+}
+
+/* Projects */
+.Project-slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+  margin-bottom: 64px;
+  background-color: #f8f5c8;
+}
+
+/* Footer */
+.root {
+  text-align: center;
+  padding: 10px;
+}
+
+.icon {
+  font-size: 12px;
 }

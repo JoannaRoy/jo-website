@@ -8,95 +8,36 @@ import {
   Link,
   Box,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import sparkles from "../assets/sparkles.svg";
-
-const useStyles = makeStyles((theme) => ({
-  headerContainer: {
-    justifyContent: "center",
-    zIndex: 2,
-    display: "flex",
-    padding: "0",
-  },
-  toolbar: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#497750",
-    zIndex: 2,
-    minHeight: "30px !important",
-  },
-  toolbox: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#497750",
-    zIndex: 2,
-    display: "flex",
-  },
-  headerName: {
-    margin: "0 5px",
-    animation: "show 0.5s",
-    position: "flex",
-    fontWeight: "bold !important",
-    fontSize: "0.5rem !important",
-    padding: "0 2px",
-  },
-  nav: {
-    justifyContent: "center",
-    display: "flex",
-    alignItems: "center",
-    fontSize: "0.5rem",
-    padding: "0 5px",
-  },
-  link: {
-    padding: "0 10px",
-  },
-  img: {
-    height: 10,
-    padding: "0 5px",
-  },
-
-  iconButton: {
-    padding: "0px", // Reduce padding of icon button
-  },
-}));
+import "../App.css"; // Import the CSS file
 
 const Header = () => {
-  const classes = useStyles();
-
   return (
-    <AppBar position="fixed" className={classes.headerContainer} height="15px">
-      <Toolbar className={classes.toolbar}>
-        <Box className={classes.toolbox}>
-          <Typography className={classes.headerName}>jo's website</Typography>
-          <IconButton edge="start" color="inherit" aria-label="sparkles">
-            <img src={sparkles} alt="sparkles" className={classes.img} />
+    <AppBar position="fixed" className="headerContainer" height="15px">
+      <Toolbar className="toolbar">
+        <Box className="toolbox">
+          <Link href="." color="inherit" underline="none" className="link">
+            <Typography className="headerName">jo's website</Typography>
+          </Link>
+          <IconButton edge="start" aria-label="sparkles">
+            <img src={sparkles} alt="sparkles" className="Sparkles" />
           </IconButton>
         </Box>
-        <nav className={classes.nav}>
-          <Link
-            href="#home"
-            color="inherit"
-            underline="none"
-            className={classes.link}
-          >
-            home 🪹
-          </Link>
-          <Link
-            href="#about"
-            color="inherit"
-            underline="none"
-            className={classes.link}
-          >
-            about me 🧍‍♀️
-          </Link>
-          <Link
-            href="#projects"
-            color="inherit"
-            underline="none"
-            className={classes.link}
-          >
-            my projects 🌻
-          </Link>
+        <nav className="nav">
+          <Typography className="toolbar-links">
+            <Link href="#home" className="toolbar-link">
+              home 🪹
+            </Link>
+            <Link href="#about" className="toolbar-link">
+              about me 🧍‍♀️
+            </Link>
+            <Link href="#projects" className="toolbar-link">
+              my projects 🌻
+            </Link>
+            <Link href="#jog-with-a-blog" className="toolbar-link">
+              blog 🏃‍♀️‍➡️
+            </Link>
+          </Typography>
         </nav>
       </Toolbar>
     </AppBar>
