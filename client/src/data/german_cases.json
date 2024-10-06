@@ -1,0 +1,122 @@
+[
+  {
+    "sentence": "Der Mann sieht ___ Hund.",
+    "highlighted": "___ Hund",
+    "correctCase": "Accusative",
+    "explanation": "‘Hund’ is the direct object, so it's in the accusative case."
+  },
+  {
+    "sentence": "Ich gebe dem Kind ___ Buch.",
+    "highlighted": "___ Buch",
+    "correctCase": "Accusative",
+    "explanation": "‘Buch’ is the direct object, while ‘dem Kind’ is in the dative case."
+  },
+  {
+    "sentence": "Die Tasche des Lehrers ist auf ___ Tisch.",
+    "highlighted": "___ Tisch",
+    "correctCase": "Dative",
+    "explanation": "‘auf’ is a two-way preposition, and here it shows location, so ‘Tisch’ is dative."
+  },
+  {
+    "sentence": "Das ist der Ball ___ Kindes.",
+    "highlighted": "___ Kindes",
+    "correctCase": "Genitive",
+    "explanation": "‘Kindes’ is showing possession, so it's in the genitive case."
+  },
+  {
+    "sentence": "___ Hund bellt.",
+    "highlighted": "___ Hund",
+    "correctCase": "Nominative",
+    "explanation": "‘Hund’ is the subject of the sentence, so it's in the nominative case."
+  },
+  {
+    "sentence": "Ich schenke meiner Mutter ___ Blumen.",
+    "highlighted": "___ Blumen",
+    "correctCase": "Accusative",
+    "explanation": "‘Blumen’ is the direct object, so it is in the accusative case."
+  },
+  {
+    "sentence": "Das Buch gehört ___ Lehrer.",
+    "highlighted": "___ Lehrer",
+    "correctCase": "Dative",
+    "explanation": "‘Lehrer’ is the indirect object of the sentence, so it is in the dative case."
+  },
+  {
+    "sentence": "___ Auto ist neu.",
+    "highlighted": "___ Auto",
+    "correctCase": "Nominative",
+    "explanation": "‘Auto’ is the subject of the sentence, so it is in the nominative case."
+  },
+  {
+    "sentence": "Er gedenkt ___ Freundes.",
+    "highlighted": "___ Freundes",
+    "correctCase": "Genitive",
+    "explanation": "‘Freundes’ is showing possession or belonging, so it is in the genitive case."
+  },
+  {
+    "sentence": "Er legt das Buch auf ___ Tisch.",
+    "highlighted": "___ Tisch",
+    "correctCase": "Accusative",
+    "explanation": "‘Tisch’ is a direction of movement, making it accusative since the preposition ‘auf’ indicates direction."
+  },
+  {
+    "sentence": "Der Mann sieht ___ Hund.",
+    "highlighted": "___ Hund",
+    "correctCase": "Accusative",
+    "explanation": "‘Hund’ is the direct object, so it's in the accusative case."
+  },
+  {
+    "sentence": "Ich gebe dem Kind ___ Buch.",
+    "highlighted": "___ Buch",
+    "correctCase": "Accusative",
+    "explanation": "‘Buch’ is the direct object, while ‘dem Kind’ is in the dative case."
+  },
+  {
+    "sentence": "Die Tasche des Lehrers ist auf ___ Tisch.",
+    "highlighted": "___ Tisch",
+    "correctCase": "Dative",
+    "explanation": "‘auf’ is a two-way preposition, and here it shows location, so ‘Tisch’ is dative."
+  },
+  {
+    "sentence": "Das ist der Ball ___ Kindes.",
+    "highlighted": "___ Kindes",
+    "correctCase": "Genitive",
+    "explanation": "‘Kindes’ is showing possession, so it's in the genitive case."
+  },
+  {
+    "sentence": "___ Hund bellt.",
+    "highlighted": "___ Hund",
+    "correctCase": "Nominative",
+    "explanation": "‘Hund’ is the subject of the sentence, so it's in the nominative case."
+  },
+  {
+    "sentence": "Ich schenke meiner Mutter ___ Blumen.",
+    "highlighted": "___ Blumen",
+    "correctCase": "Accusative",
+    "explanation": "‘Blumen’ is the direct object, so it is in the accusative case."
+  },
+  {
+    "sentence": "Das Buch gehört ___ Lehrer.",
+    "highlighted": "___ Lehrer",
+    "correctCase": "Dative",
+    "explanation": "‘Lehrer’ is the indirect object of the sentence, so it is in the dative case."
+  },
+  {
+    "sentence": "___ Auto ist neu.",
+    "highlighted": "___ Auto",
+    "correctCase": "Nominative",
+    "explanation": "‘Auto’ is the subject of the sentence, so it is in the nominative case."
+  },
+  {
+    "sentence": "Er gedenkt ___ Freundes.",
+    "highlighted": "___ Freundes",
+    "correctCase": "Genitive",
+    "explanation": "‘Freundes’ is showing possession or belonging, so it is in the genitive case."
+  },
+  {
+    "sentence": "Er legt das Buch auf ___ Tisch.",
+    "highlighted": "___ Tisch",
+    "correctCase": "Accusative",
+    "explanation": "‘Tisch’ is a direction of movement, making it accusative since the preposition ‘auf’ indicates direction."
+  }
+]

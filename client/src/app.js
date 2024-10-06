@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import GermanLessons from "./components/GermanLessons";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
@@ -12,14 +13,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <div className="App-home">
+        <div className="App-home" id="home">
           <img src={butterflies} className="Butterflies" alt="butterflies" />
           <Typography>welcome!</Typography>
         </div>
         <Header />
-        <About />
+        <div>
+          <About />
+        </div>
         <div className="Project-slides">
           <Projects />
+        </div>
+        <div>
+          <GermanLessons />
         </div>
         <Footer />
       </div>

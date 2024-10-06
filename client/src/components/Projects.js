@@ -26,12 +26,18 @@ const Projects = () => {
   };
 
   return (
-    <Box id="projects" sx={{ padding: "2rem 0", width: "100%" }}>
-      <Container sx={{ maxWidth: "100%" }}>
+    <Box
+      id="projects"
+      sx={{ padding: "2rem 0", width: "100%", alignContent: "center" }}
+    >
+      <Container sx={{ maxWidth: "80%" }}>
         <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>
-          <Typography>WORKS</Typography>
+          <Typography className="section-head">projects</Typography>
         </Box>
-        <Box className="projects-container" sx={{ width: "100%" }}>
+        <Box
+          className="projects-container"
+          sx={{ width: "100%", position: "relative" }}
+        >
           <Slider {...settings}>
             {projects.map((project, key) => {
               return (
@@ -42,7 +48,7 @@ const Projects = () => {
                     padding: "1rem",
                     border: "1px solid #ccc",
                     borderRadius: "8px",
-                    width: "80% !important",
+                    width: "70% !important",
                   }}
                 >
                   <Box
@@ -66,8 +72,10 @@ const Projects = () => {
                         style={{ maxWidth: "100%" }}
                       />
                     </Box>
-                    <Typography className="bio-head">{project.name}</Typography>
-                    <Typography className="bio">
+                    <Typography className="subsection-head">
+                      {project.name}
+                    </Typography>
+                    <Typography className="subsection-text">
                       {project.description}
                     </Typography>
                     <Box sx={{ marginTop: "1rem" }}>

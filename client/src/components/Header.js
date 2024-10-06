@@ -28,7 +28,7 @@ const Header = () => {
             <Link href="#home" className="toolbar-link">
               home 🪹
             </Link>
-            <Link href="#about" className="toolbar-link">
+            <Link href="#about-me" className="toolbar-link">
               about me 🧍‍♀️
             </Link>
             <Link href="#projects" className="toolbar-link">
@@ -36,6 +36,9 @@ const Header = () => {
             </Link>
             <Link href="#jog-with-a-blog" className="toolbar-link">
               blog 🏃‍♀️‍➡️
+            </Link>
+            <Link href="#german" className="toolbar-link">
+              german 🥨
             </Link>
           </Typography>
         </nav>
