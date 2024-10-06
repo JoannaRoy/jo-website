@@ -17,6 +17,12 @@
   padding: 2px;
 }
 
+.subpage-box {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 3.5rem;
+}
+
 /* Home */
 .App {
   text-align: center;
@@ -151,6 +157,15 @@
   margin-bottom: 64px;
   background-color: #f8f5c8;
   width: 100%;
+}
+
+.Project-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f5c8 !important;
+  padding: auto;
+  width: "100%";
 }
 
 /* German */

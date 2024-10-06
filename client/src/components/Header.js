@@ -1,22 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Link,
-  Box,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import sparkles from "../assets/sparkles.svg";
 import "../App.css"; // Import the CSS file
 
 const Header = () => {
   return (
-    <AppBar position="fixed" className="headerContainer" height="15px">
+    <AppBar position="fixed" className="headerContainer">
       <Toolbar className="toolbar">
         <Box className="toolbox">
-          <Link href="." color="inherit" underline="none" className="link">
+          <Link
+            to="/"
+            className="toolbar-links"
+            style={{ textDecoration: "none", color: "inherit" }} // This ensures the Link styling
+          >
             <Typography className="headerName">jo's website</Typography>
           </Link>
           <IconButton edge="start" aria-label="sparkles">
@@ -25,19 +23,19 @@ const Header = () => {
         </Box>
         <nav className="nav">
           <Typography className="toolbar-links">
-            <Link href="#home" className="toolbar-link">
+            <Link to="/" className="toolbar-link">
               home 🪹
             </Link>
-            <Link href="#about-me" className="toolbar-link">
+            <Link to="/about" className="toolbar-link">
               about me 🧍‍♀️
             </Link>
-            <Link href="#projects" className="toolbar-link">
+            <Link to="/projects" className="toolbar-link">
               my projects 🌻
             </Link>
-            <Link href="#jog-with-a-blog" className="toolbar-link">
+            <Link to="/blog" className="toolbar-link">
               blog 🏃‍♀️‍➡️
             </Link>
-            <Link href="#german" className="toolbar-link">
+            <Link to="/german" className="toolbar-link">
               german 🥨
             </Link>
           </Typography>

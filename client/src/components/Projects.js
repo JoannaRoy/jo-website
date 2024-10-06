@@ -26,17 +26,14 @@ const Projects = () => {
   };
 
   return (
-    <Box
-      id="projects"
-      sx={{ padding: "2rem 0", width: "100%", alignContent: "center" }}
-    >
+    <Box id="projects" className="Project-page">
       <Container sx={{ maxWidth: "80%" }}>
-        <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>
+        <Box className="subpage-box">
           <Typography className="section-head">projects</Typography>
         </Box>
         <Box
           className="projects-container"
-          sx={{ width: "100%", position: "relative" }}
+          sx={{ width: "100%", position: "relative", marginBottom: "5rem" }}
         >
           <Slider {...settings}>
             {projects.map((project, key) => {
