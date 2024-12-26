@@ -10,12 +10,14 @@ const BaseGrid: React.FC<GridProps> = ({ columns, children }) => {
     <div
       style={{
         width: "100%",
-        display: "grid",
+        display: columns === 0 ? "flex" : "grid",
+        flexDirection: columns === 0 ? "row" : undefined,
         justifyItems: "center",
         justifyContent: "center",
         alignItems: "center",
         gap: "10px",
-        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        gridTemplateColumns:
+          columns === 0 ? undefined : `repeat(${columns}, 1fr)`,
       }}
     >
       {children}

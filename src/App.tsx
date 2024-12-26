@@ -5,7 +5,6 @@ import Blog from "./pages/Blog";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-import "./styling/App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import More from "./pages/More";
 

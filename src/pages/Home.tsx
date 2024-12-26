@@ -1,4 +1,4 @@
-import { CheckerBox, PlainBox } from "../components/ItemBoxes.tsx";
+import { CheckerBox, PlainBox, SparkleBox } from "../components/ItemBoxes.tsx";
 import { PageGrid, RegularGrid } from "../components/ItemGrids.tsx";
 import "../styling/Backgrounds.css";
 
@@ -6,31 +6,29 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="home-bgd">
-        <PageGrid columns={1}>
-          <RegularGrid columns={2}>
-            <CheckerBox
-              title=""
-              imageUrl="/src/assets/jo.jpg"
-              width="100%"
-              height="30rem"
-            ></CheckerBox>
-            <PlainBox
-              title="welcome :)"
-              borderColor="var(--white)"
-              width="80%"
-              height="30rem"
-            >
-              <p>hello i am jo! welcome to my website</p>
-              <RegularGrid columns={2}>
-                <PlainBox width="80%" height="10rem">
-                  <p>bla bla</p>
-                </PlainBox>
-                <PlainBox width="80%" height="10rem">
-                  <p>bla bla</p>
-                </PlainBox>
-              </RegularGrid>
-            </PlainBox>
-          </RegularGrid>
+        <PageGrid columns={0}>
+          <CheckerBox
+            title=""
+            imageUrl="/src/assets/jo.jpg"
+            width="30%"
+            height="20rem"
+          ></CheckerBox>
+          <SparkleBox
+            title="hello!"
+            borderColor="var(--white)"
+            width="60%"
+            height="20rem"
+          >
+            <p>my name is joanna :) welcome to my website</p>
+            <RegularGrid columns={2}>
+              <PlainBox width="11rem" height="10rem">
+                <p>bla bla</p>
+              </PlainBox>
+              <PlainBox width="10rem" height="10rem">
+                <p>bla bla</p>
+              </PlainBox>
+            </RegularGrid>
+          </SparkleBox>
         </PageGrid>
       </div>
     </>

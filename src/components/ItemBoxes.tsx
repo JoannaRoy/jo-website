@@ -10,6 +10,7 @@ interface ItemBoxProps {
   children?: React.ReactNode;
   backgroundImage?: string;
   backgroundColor?: string;
+  style?: React.CSSProperties;
 }
 
 const ItemBox: React.FC<ItemBoxProps> = ({
@@ -22,6 +23,7 @@ const ItemBox: React.FC<ItemBoxProps> = ({
   children,
   backgroundImage,
   backgroundColor,
+  style,
 }) => {
   return (
     <div
@@ -36,12 +38,11 @@ const ItemBox: React.FC<ItemBoxProps> = ({
         alignItems: "center",
         // size
         aspectRatio: 1,
-        minWidth: "10rem",
-        minHeight: "10rem",
+        minWidth: "5rem",
+        minHeight: "5rem",
         fontSize: "small",
         borderRadius: "20px",
         // background
-        backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         // customizables
@@ -52,6 +53,7 @@ const ItemBox: React.FC<ItemBoxProps> = ({
         height: height ? height : "",
         backgroundImage: backgroundImage ? backgroundImage : "",
         backgroundColor: backgroundColor ? backgroundColor : "",
+        ...style,
       }}
     >
       {title && <h2>{title}</h2>}
@@ -60,7 +62,7 @@ const ItemBox: React.FC<ItemBoxProps> = ({
           src={imageUrl}
           alt="Item Box Image"
           style={{
-            width: "50%",
+            width: "40%",
             height: "auto",
             display: "block",
             borderRadius: "20px",
@@ -75,13 +77,23 @@ const ItemBox: React.FC<ItemBoxProps> = ({
 
 const CheckerBox: React.FC<ItemBoxProps> = (props) => {
   return (
-    <ItemBox {...props} backgroundImage={`url(src/assets/checkers.png)`} />
+    <ItemBox
+      {...props}
+      backgroundImage={`url(src/assets/checkers.png)`}
+      style={{
+        backgroundSize: "contain",
+      }}
+    />
   );
 };
 
 const SparkleBox: React.FC<ItemBoxProps> = (props) => {
   return (
-    <ItemBox {...props} backgroundImage={`url(src/assets/sparkley-bgd.png)`} />
+    <ItemBox
+      {...props}
+      backgroundImage={`url(src/assets/sparkley-bgd.png)`}
+      style={{ filter: "blur(2px)", backgroundSize: "cover" }}
+    />
   );
 };
 

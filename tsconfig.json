@@ -5,6 +5,6 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["node", "react", "react-dom"] // Add "node" here
+    "types": ["node", "react", "react-dom"]
   }
 }

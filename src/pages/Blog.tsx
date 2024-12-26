@@ -1,7 +1,7 @@
 import React from "react";
 import "../styling/Backgrounds.css";
 import { CheckerBox } from "../components/ItemBoxes";
-import PageGrid from "../components/ItemGrids";
+import { PageGrid } from "../components/ItemGrids";
 
 const Blog: React.FC = () => {
   return (

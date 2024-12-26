@@ -1,6 +1,6 @@
 import React from "react";
 import "../styling/Backgrounds.css";
-import PageGrid from "../components/ItemGrids";
+import { PageGrid } from "../components/ItemGrids";
 import { PlainBox } from "../components/ItemBoxes";
 
 const About: React.FC = () => {
