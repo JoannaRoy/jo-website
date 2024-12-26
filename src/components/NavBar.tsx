@@ -6,7 +6,7 @@ const linkStyle = {
   fontSize: "1rem",
   transition: "color 0.3s",
   fontWeight: "bold",
-  color: "var(--white)",
+  color: "black",
   margin: "0 10px",
 };
 
@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
       className="navbar"
       style={{
         display: "flex",
-        height: "3rem",
+        height: "2rem",
         justifyContent: "space-between",
         alignItems: "center",
         padding: "1rem 2rem",
@@ -25,8 +25,9 @@ const NavBar: React.FC = () => {
         left: "20px",
         right: "20px",
         zIndex: "1000",
-        borderRadius: "20px",
-        outline: "4px solid var(--white)",
+        borderRadius: "10px",
+        // border: "3px solid white",
+        backgroundColor: "var(--white)",
       }}
     >
       <div

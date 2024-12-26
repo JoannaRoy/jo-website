@@ -36,17 +36,18 @@ const ItemBox: React.FC<ItemBoxProps> = ({
         gap: "10px",
         justifyContent: "center",
         alignItems: "center",
+        padding: "10px",
         // size
         aspectRatio: 1,
         minWidth: "5rem",
         minHeight: "5rem",
         fontSize: "small",
-        borderRadius: "20px",
+        borderRadius: "10px",
         // background
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         // customizables
-        border: borderColor ? `4px solid ${borderColor}` : "",
+        border: borderColor ? `3px solid ${borderColor}` : "",
         color: textColor ? textColor : "var(--white)",
         maxWidth: width ? width : "40rem",
         width: width ? width : "",
@@ -65,7 +66,7 @@ const ItemBox: React.FC<ItemBoxProps> = ({
             width: "40%",
             height: "auto",
             display: "block",
-            borderRadius: "20px",
+            borderRadius: "10px",
           }}
         />
       )}
@@ -75,24 +76,27 @@ const ItemBox: React.FC<ItemBoxProps> = ({
   );
 };
 
-const CheckerBox: React.FC<ItemBoxProps> = (props) => {
+const CheckerBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
   return (
     <ItemBox
       {...props}
       backgroundImage={`url(src/assets/checkers.png)`}
       style={{
         backgroundSize: "contain",
+        ...style,
       }}
     />
   );
 };
 
-const SparkleBox: React.FC<ItemBoxProps> = (props) => {
+const SparkleBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
   return (
     <ItemBox
       {...props}
-      backgroundImage={`url(src/assets/sparkley-bgd.png)`}
-      style={{ filter: "blur(2px)", backgroundSize: "cover" }}
+      style={{
+        backgroundSize: "cover",
+        ...style,
+      }}
     />
   );
 };

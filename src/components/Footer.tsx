@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "100vw",
+        width: "90%",
         left: "0",
         right: "0",
         bottom: "0",
