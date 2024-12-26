@@ -1,0 +1,73 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --pastel-purple: #b09af6;
+  --pastel-red: #f9c6e4;
+  --pastel-yellow: #fff9c0;
+  --pastel-green: #cff8ce;
+  --pastel-light-blue: #bff9f6;
+  --pastel-blue: #cce5ff;
+  --red: #cf3d6d;
+  --orange: #ec6e2e;
+  --yellow: #eec210;
+  --green: #2bd877;
+  --blue: #444cac;
+  --light-blue: #3497da;
+  --purple: #8c54d3;
+  --white: #fffdee;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+p {
+  font-size: medium;
+  padding: 0px 20px;
+}
+
+/* .polka-section {
+z-index: -1;
+  height: 100vw;
+  width: 100vw;
+  align-items: center;
+  background-image: url("/src/assets/polka-dots.svg");
+  background-repeat: repeat;
+  background-size: 5rem;
+  background-attachment: fixed;
+} */

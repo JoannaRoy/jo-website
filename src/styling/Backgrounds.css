@@ -1,0 +1,53 @@
+.home-bgd {
+  background-image: url("/src/assets/spiffs-gradient.png");
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.about-bgd {
+  background-image: url("/src/assets/poofs-gradient.png");
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.blog-bgd {
+  background-image: url("/src/assets/shooting-stars-gradient.png");
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.contact-bgd {
+  background-image: url("/src/assets/flowers-gradient.png");
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.projects-bgd {
+  background-image: url("/src/assets/rainbow-circles-gradient.png");
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.more-bgd {
+  background-image: url("/src/assets/butterfly-gradient.png");
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
