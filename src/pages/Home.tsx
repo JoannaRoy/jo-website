@@ -14,6 +14,13 @@ const Home: React.FC = () => {
     });
   };
 
+  const divStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+  };
+
   const aboutMeStyle = {
     width: "30vw",
     height: "30vw",
@@ -30,31 +37,23 @@ const Home: React.FC = () => {
         <PageGrid columns={0} style={{ width: "100vw" }}>
           <div
             style={{
-              display: "flex",
               flexDirection: "column",
               width: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-              alignContent: "center",
+              ...divStyle,
             }}
           >
             <div
               style={{
-                display: "flex",
                 flexDirection: "row",
                 width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                alignContent: "center",
+                ...divStyle,
               }}
             >
               <div
                 style={{
                   width: "20vw",
                   height: "30vw",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  alignContent: "center",
+                  ...divStyle,
                   zIndex: 1000,
                 }}
               >
@@ -71,13 +70,10 @@ const Home: React.FC = () => {
                 style={{
                   width: "80vw",
                   height: "20vw",
-                  borderRadius: "0px",
                   flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  alignContent: "center",
                   right: "0",
                   backgroundImage: "url('/src/assets/spiffs-gradient.png')",
+                  ...divStyle,
                 }}
               >
                 <h1 style={{ fontSize: "5rem" }}>hello!</h1>
@@ -141,9 +137,7 @@ const Home: React.FC = () => {
                   <div
                     className="front"
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      ...divStyle,
                       height: "100%",
                     }}
                   >
@@ -152,9 +146,7 @@ const Home: React.FC = () => {
                   <div
                     className="back"
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      ...divStyle,
                       height: "100%",
                     }}
                   >
@@ -187,9 +179,7 @@ const Home: React.FC = () => {
                   <div
                     className="front"
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      ...divStyle,
                       height: "100%",
                     }}
                   >
@@ -198,9 +188,7 @@ const Home: React.FC = () => {
                   <div
                     className="back"
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      ...divStyle,
                       height: "100%",
                     }}
                   >
@@ -232,9 +220,7 @@ const Home: React.FC = () => {
                   <div
                     className="front"
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      ...divStyle,
                       height: "100%",
                     }}
                   >
@@ -243,9 +229,7 @@ const Home: React.FC = () => {
                   <div
                     className="back"
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      ...divStyle,
                       height: "100%",
                     }}
                   >
