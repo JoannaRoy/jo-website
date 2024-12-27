@@ -20,6 +20,7 @@ const BaseGrid: React.FC<GridProps> = ({ columns, children, style }) => {
         gridTemplateColumns:
           columns === 0 ? undefined : `repeat(${columns}, 1fr)`,
         ...style,
+        backgroundColor: "var(--white)",
       }}
     >
       {children}
