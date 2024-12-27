@@ -2,27 +2,17 @@ import React from "react";
 
 interface ItemBoxProps {
   title?: React.ReactNode;
-  borderColor?: string;
-  textColor?: string;
   imageUrl?: string;
-  width?: string;
-  height?: string;
+  borderColor?: string;
   children?: React.ReactNode;
-  backgroundImage?: string;
-  backgroundColor?: string;
   style?: React.CSSProperties;
 }
 
 const ItemBox: React.FC<ItemBoxProps> = ({
   title,
-  borderColor,
-  textColor,
-  width,
-  height,
   imageUrl,
+  borderColor,
   children,
-  backgroundImage,
-  backgroundColor,
   style,
 }) => {
   return (
@@ -38,22 +28,14 @@ const ItemBox: React.FC<ItemBoxProps> = ({
         alignItems: "center",
         padding: "10px",
         // size
-        aspectRatio: 1,
         minWidth: "5rem",
         minHeight: "5rem",
-        fontSize: "small",
         borderRadius: "10px",
         // background
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         // customizables
         border: borderColor ? `3px solid ${borderColor}` : "",
-        color: textColor ? textColor : "var(--white)",
-        maxWidth: width ? width : "40rem",
-        width: width ? width : "",
-        height: height ? height : "",
-        backgroundImage: backgroundImage ? backgroundImage : "",
-        backgroundColor: backgroundColor ? backgroundColor : "",
         ...style,
       }}
     >
@@ -80,8 +62,8 @@ const CheckerBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
   return (
     <ItemBox
       {...props}
-      backgroundImage={`url(src/assets/checkers.png)`}
       style={{
+        backgroundImage: `url(src/assets/checkers.png)`,
         backgroundSize: "contain",
         ...style,
       }}

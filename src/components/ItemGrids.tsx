@@ -30,11 +30,11 @@ const BaseGrid: React.FC<GridProps> = ({ columns, children, style }) => {
 const PageGrid: React.FC<GridProps> = ({ columns, children, style }) => {
   return (
     <>
-      <div style={{ width: "100%", height: "8rem" }}></div>
+      <div style={{ width: "100%", height: "4rem" }}></div>
       <BaseGrid columns={columns} style={style}>
         {children}
       </BaseGrid>
-      <div style={{ width: "100%", height: "10rem" }}></div>
+      <div style={{ width: "100%", height: "1rem" }}></div>
     </>
   );
 };

@@ -10,13 +10,14 @@ const Footer: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        alignContent: "center",
         width: "90%",
         left: "0",
         right: "0",
         bottom: "0",
       }}
     >
-      welcome to my little corner of the internet :P
+      <p>welcome to my little corner of the internet :)</p>
     </div>
   );
 };

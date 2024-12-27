@@ -11,8 +11,7 @@ const About: React.FC = () => {
           <PlainBox
             title="welcome :)"
             borderColor="var(--white)"
-            width="80%"
-            height="auto"
+            style={{ width: "80%", height: "auto" }}
           >
             <p>hello i am jo! welcome to my website</p>
           </PlainBox>
