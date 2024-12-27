@@ -1,68 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styling/Backgrounds.css";
 import { PageGrid } from "../components/ItemGrids";
-import { PlainBox } from "../components/ItemBoxes";
 
 const Blog: React.FC = () => {
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [rotation, setRotation] = useState(0);
-
-  const handleSpinClick = () => {
-    setIsSpinning(true);
-    setRotation(Math.random() * 360);
-    setTimeout(() => setIsSpinning(false), 4000);
+  const divStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
   };
-
-  const spinStyle = {
-    transform: `rotate(${rotation}deg)`,
-    transition: `transform ${(Math.abs(rotation) / 360) * 4}s linear`,
-  };
-
-  const finalStyle = {
-    transform: `rotate(${rotation}deg)`,
-  };
+  const infoList = [
+    { title: "Title 1", content: "Content 1" },
+    { title: "Title 2", content: "Content 2" },
+    { title: "Title 3", content: "Content 3" },
+  ];
+  const imageList = ["/src/assets/blog-bgd1.png", "/src/assets/blog-bgd2.png"];
 
   return (
-    <div className="blog-bgd">
-      <PageGrid columns={2}>
-        <img src="/src/assets/binjo.png" alt="Binjo" width="80%" />
-        <PlainBox borderColor="white">
-          this is some context for the bingo
-        </PlainBox>
-        <PlainBox borderColor="white">
-          this is some context for the wheel
-        </PlainBox>
+    <div>
+      <PageGrid columns={1}>
         <div
           style={{
-            position: "relative",
-            width: "80%",
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
+            flexDirection: "row",
+            width: "100%",
+            ...divStyle,
           }}
         >
-          <img
-            src="/src/assets/WOW.png"
-            alt="WOW"
+          <div
             style={{
-              width: "60%",
-              cursor: "pointer",
-              ...(isSpinning ? spinStyle : finalStyle),
-              zIndex: 1,
+              width: "90vw",
+              flexDirection: "column",
+              right: "0",
+              padding: "2rem",
+              ...divStyle,
             }}
-            onClick={handleSpinClick}
-          />
-          <img
-            src="/src/assets/WOW-bgd.png"
-            alt="Background"
-            style={{
-              width: "100%",
-              height: "auto",
-              position: "absolute",
-              zIndex: 0,
-            }}
-          />
+          >
+            <h1 style={{ fontSize: "3rem" }}>hummus purée</h1>
+            <h2 style={{ fontSize: "1rem" }}>a blog</h2>
+          </div>
         </div>
+        {infoList.map((info, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundImage: `url(${imageList[index % 2]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              width: "90vw",
+              paddingLeft: "50px",
+              paddingRight: "50px",
+              paddingTop: "20px",
+              paddingBottom: "20px",
+            }}
+          >
+            <h1>{info.title}</h1>
+            <p>{info.content}</p>
+          </div>
+        ))}
       </PageGrid>
     </div>
   );

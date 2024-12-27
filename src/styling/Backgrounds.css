@@ -7,7 +7,7 @@
   background-repeat: repeat-y;
 }
 
-.about-bgd {
+.contact-bgd {
   background-image: url("/src/assets/poofs-gradient.png");
   z-index: -1;
   width: 100%;
@@ -16,7 +16,7 @@
   background-repeat: repeat-y;
 }
 
-.blog-bgd {
+.new-years-resolution-bgd {
   background-image: url("/src/assets/shooting-stars-gradient.png");
   z-index: -1;
   width: 100%;
@@ -25,7 +25,7 @@
   background-repeat: repeat-y;
 }
 
-.contact-bgd {
+.blog-bgd {
   background-image: url("/src/assets/flowers-gradient.png");
   z-index: -1;
   width: 100%;
