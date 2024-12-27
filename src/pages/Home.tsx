@@ -193,10 +193,9 @@ const Home: React.FC = () => {
                     }}
                   >
                     <p>
-                      I grew up in Canada but I'm currently living in Germany.
-                      <br />
-                      <br />I have a cat named Barney, a dog named Buddy, and
-                      three guinea pigs named Larry, Curly, and Moe.
+                      I grew up in Canada but I'm currently living in Germany. I
+                      have a cat named Barney, a dog named Buddy, and three
+                      guinea pigs named Larry, Curly, and Moe.
                       <br />
                       <br />I love running, cycling, cross-country skiing, and
                       generally exploring outside & trying new sports or races.

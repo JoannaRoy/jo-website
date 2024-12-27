@@ -1,10 +1,11 @@
 import React from "react";
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "../styling/Backgrounds.css";
 import { PageGrid } from "../components/ItemGrids";
+import { SubPage, SubPagePreview, Content } from "../components/SubPage";
 
 const imageList = ["/src/assets/blog-bgd1.png", "/src/assets/blog-bgd2.png"];
-const infoList = [
+const blogList = [
   {
     title: "Title 1",
     content:
@@ -39,13 +40,13 @@ const Blog: React.FC = () => {
             <h2 style={{ fontSize: "1rem" }}>a blog</h2>
           </div>
         </div>
-        {infoList.map((info, index) => (
+        {blogList.map((info, index) => (
           <div key={index}>
             <Link to={`/blog/${index}`}>
               <BlogPostPreview
-                title={info.title}
-                content={info.content}
+                content={info}
                 index={index}
+                boxStyle={{ width: "90vw" }}
               />
             </Link>
           </div>
@@ -60,92 +61,25 @@ const Blog: React.FC = () => {
 };
 
 const BlogPostPreview = ({
-  title,
   content,
   index,
+  boxStyle,
 }: {
-  title: string;
-  content: string;
+  content: Content;
   index: number;
+  boxStyle?: React.CSSProperties;
 }) => {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${imageList[index % 2]})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        width: "90vw",
-        paddingLeft: "50px",
-        paddingRight: "50px",
-        paddingTop: "20px",
-        paddingBottom: "20px",
-      }}
-    >
-      <h1>{title}</h1>
-      <p>
-        {content.length > 100 ? content.substring(0, 100) + " ..." : content}
-      </p>
-    </div>
+    <SubPagePreview
+      content={content}
+      image={imageList[index % imageList.length]}
+      boxStyle={boxStyle}
+    />
   );
 };
 
 const BlogPost = () => {
-  const { index } = useParams<"index">();
-  const selectedIndex = index ? Number(index) : -1;
-  const selectedBlog = infoList[selectedIndex];
-
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        backgroundColor: "var(--white)",
-        zIndex: 1000,
-        boxShadow: "0 4px 8px rgba(0,0,0,0.05)",
-        width: "90vw",
-        height: "90vh",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "auto",
-      }}
-    >
-      <button
-        style={{
-          position: "absolute",
-          top: "5px",
-          right: "10px",
-          cursor: "pointer",
-          border: "none",
-          backgroundColor: "transparent",
-          color: "black",
-          fontSize: "24px",
-        }}
-        onClick={() => (window.location.href = "/blog")}
-      >
-        X
-      </button>
-      <div
-        style={{
-          backgroundImage: `url(${imageList[selectedIndex % 2]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          paddingLeft: "50px",
-          paddingRight: "50px",
-          paddingTop: "20px",
-          paddingBottom: "20px",
-          width: "90%",
-        }}
-      >
-        <h1>{selectedBlog.title}</h1>
-      </div>
-      <p>{selectedBlog.content}</p>
-    </div>
-  );
+  return <SubPage contentList={blogList} imageList={imageList} />;
 };
 
 export { Blog, BlogPost };
