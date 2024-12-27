@@ -20,7 +20,6 @@ const BaseGrid: React.FC<GridProps> = ({ columns, children, style }) => {
         gridTemplateColumns:
           columns === 0 ? undefined : `repeat(${columns}, 1fr)`,
         ...style,
-        backgroundColor: "var(--white)",
       }}
     >
       {children}
@@ -44,4 +43,47 @@ const RegularGrid: React.FC<GridProps> = ({ columns, children }) => {
   return <BaseGrid columns={columns}>{children}</BaseGrid>;
 };
 
-export { PageGrid, RegularGrid };
+const ItemGroup: React.FC<{
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+  columns?: number;
+  rows?: number;
+  title: string;
+}> = ({ columns, rows, children, style, title }) => {
+  return (
+    <div
+      style={{
+        width: "100vw",
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
+      <div
+        style={{
+          width: "100vw",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <h1 style={{ textAlign: "left", marginLeft: "20px" }}>{title}</h1>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: columns
+              ? `repeat(${columns}, 1fr)`
+              : undefined,
+            gridTemplateRows: rows ? `repeat(${rows}, 1fr)` : undefined,
+            placeItems: "center",
+            gap: "10px",
+            ...style,
+          }}
+        >
+          {children}
+        </div>
+      </div>
+      <div style={{ width: "10vw" }}></div>
+    </div>
+  );
+};
+
+export { PageGrid, RegularGrid, ItemGroup };

@@ -76,7 +76,8 @@ const SparkleBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
     <ItemBox
       {...props}
       style={{
-        backgroundSize: "cover",
+        backgroundSize: "contain",
+        aspectRatio: "1/1",
         ...style,
       }}
     />
