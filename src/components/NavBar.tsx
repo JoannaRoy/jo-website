@@ -1,11 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-export interface HamburgerProps {
-  onClick: () => void;
-  isInitiallyOpen?: boolean;
-}
-
 const commonStyle = {
   width: "25px",
   height: "3px",
@@ -13,68 +8,7 @@ const commonStyle = {
   transition: "transform 0.4s",
 };
 
-export function Hamburger(props: HamburgerProps) {
-  const { onClick, isInitiallyOpen } = props;
-  const [isOpen, setIsOpen] = useState<boolean>(isInitiallyOpen ?? false);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
-
-  const handleClick = () => {
-    setIsOpen((prev) => !prev);
-    onClick();
-  };
-
-  const handleOutsideClick = (event: MouseEvent) => {
-    if (
-      hamburgerRef.current &&
-      !hamburgerRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  };
-
-  document.addEventListener("click", handleOutsideClick);
-
-  return (
-    <button
-      ref={hamburgerRef}
-      onClick={handleClick}
-      type="button"
-      style={{
-        backgroundColor: "transparent",
-        border: "none",
-        zIndex: isOpen ? 1001 : 0,
-        margin: "1rem",
-        position: "absolute",
-        right: 0,
-      }}
-    >
-      <div
-        style={{
-          ...commonStyle,
-          backgroundColor: "black",
-          transform: `rotate(${isOpen ? "45deg" : "0"})`,
-          transformOrigin: "left center",
-        }}
-      />
-      <div
-        style={{
-          ...commonStyle,
-          backgroundColor: isOpen ? "transparent" : "black",
-        }}
-      />
-      <div
-        style={{
-          ...commonStyle,
-          backgroundColor: "black",
-          transform: `rotate(${isOpen ? "-45deg" : "0"})`,
-          transformOrigin: "left center",
-        }}
-      />
-    </button>
-  );
-}
-
-const linkStyle = {
+const linkStyles = {
   color: "black",
   fontWeight: "bold",
   fontSize: "1rem",
@@ -85,6 +19,7 @@ const linkStyle = {
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navBarRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   const handleHamburgerClick = () => {
     setIsOpen((prev) => !prev);
@@ -92,8 +27,10 @@ const NavBar: React.FC = () => {
 
   const handleOutsideClick = (event: MouseEvent) => {
     if (
-      navBarRef.current &&
-      !navBarRef.current.contains(event.target as Node)
+      (navBarRef.current &&
+        !navBarRef.current.contains(event.target as Node)) ||
+      (hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target as Node))
     ) {
       setIsOpen(false);
     }
@@ -115,7 +52,42 @@ const NavBar: React.FC = () => {
         transition: "z-index 0.5s",
       }}
     >
-      <Hamburger onClick={handleHamburgerClick} isInitiallyOpen={isOpen} />
+      <button
+        ref={hamburgerRef}
+        onClick={handleHamburgerClick}
+        type="button"
+        style={{
+          backgroundColor: "transparent",
+          border: "none",
+          zIndex: isOpen ? 1001 : 0,
+          margin: "1rem",
+          position: "absolute",
+          right: 0,
+        }}
+      >
+        <div
+          style={{
+            ...commonStyle,
+            backgroundColor: "black",
+            transform: `rotate(${isOpen ? "45deg" : "0"})`,
+            transformOrigin: "left center",
+          }}
+        />
+        <div
+          style={{
+            ...commonStyle,
+            backgroundColor: isOpen ? "transparent" : "black",
+          }}
+        />
+        <div
+          style={{
+            ...commonStyle,
+            backgroundColor: "black",
+            transform: `rotate(${isOpen ? "-45deg" : "0"})`,
+            transformOrigin: "left center",
+          }}
+        />
+      </button>
       <div
         style={{
           display: "flex",
@@ -131,22 +103,19 @@ const NavBar: React.FC = () => {
         }}
       >
         <div style={{ height: "3rem" }}></div>
-        <Link to="/" style={linkStyle}>
+        <Link to="/" style={linkStyles}>
           Home
         </Link>
-        <Link to="/about" style={linkStyle}>
-          About
-        </Link>
-        <Link to="/blog" style={linkStyle}>
+        <Link to="/blog" style={linkStyles}>
           Blog
         </Link>
-        <Link to="/projects" style={linkStyle}>
+        <Link to="/projects" style={linkStyles}>
           Projects
         </Link>
-        <Link to="/contact" style={linkStyle}>
+        <Link to="/contact" style={linkStyles}>
           Contact
         </Link>
-        <Link to="/more" style={linkStyle}>
+        <Link to="/more" style={linkStyles}>
           More
         </Link>
       </div>
