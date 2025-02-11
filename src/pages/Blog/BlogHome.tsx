@@ -1,9 +1,8 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styling/Backgrounds.css";
 import { PageGrid } from "../../components/ItemGrids";
 import { PlainBox } from "../../components/ItemBoxes";
-// import BlogPost from "./BlogPost";
 
 const imageList = ["/src/assets/blog-bgd1.png", "/src/assets/blog-bgd2.png"];
 const blogSectionHeaderList = [
@@ -82,7 +81,7 @@ const Blog: React.FC = () => {
             >
               {blogSectionList.map((info, index) => (
                 <Link to={`/blog/${index}`}>
-                  <BlogPostPreview title={info.title} content={info.content} />
+                  <BlogPostPreview title={info.title} />
                 </Link>
               ))}
             </div>
@@ -122,17 +121,14 @@ const BlogPostSectionHeader = ({
 
 const BlogPostPreview = ({
   title,
-  content,
   boxStyle,
 }: {
   title: string;
-  content: string;
   boxStyle?: React.CSSProperties;
 }) => {
   return (
     <PlainBox
       borderColor="var(--turquoise)"
-      // borderColor="black"
       style={{
         backgroundColor: "var(--white)",
         justifyContent: "center",
@@ -141,19 +137,11 @@ const BlogPostPreview = ({
         ...boxStyle,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          // padding: "1rem",
-        }}
-      >
+      <div style={{}}>
         <h2>{title}</h2>
-        {/* <p style={{ margin: 2, textAlign: "left" }}>
-          {content.length > 100 ? content.substring(0, 100) + "..." : content}
-        </p> */}
       </div>
     </PlainBox>
   );
 };
 
-export default Blog;
+export { Blog, BlogPostSectionHeader };
