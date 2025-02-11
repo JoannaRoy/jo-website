@@ -109,7 +109,7 @@ const NavBar: React.FC = () => {
         <Link to="/blog" style={linkStyles}>
           Blog
         </Link>
-        <Link to="/projects" style={linkStyles}>
+        {/* <Link to="/projects" style={linkStyles}>
           Projects
         </Link>
         <Link to="/contact" style={linkStyles}>
@@ -117,7 +117,7 @@ const NavBar: React.FC = () => {
         </Link>
         <Link to="/more" style={linkStyles}>
           More
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

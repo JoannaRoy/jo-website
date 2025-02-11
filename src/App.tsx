@@ -1,11 +1,13 @@
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import { Blog, BlogPost } from "./pages/Blog";
-import { Projects, ProjectSubPage } from "./pages/Projects";
-import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import More from "./pages/More";
+import Blog from "./pages/Blog/BlogHome";
+import BlogPost from "./pages/Blog/BlogPost";
+// import { Projects, ProjectSubPage } from "./pages/Projects";
+// import Contact from "./pages/Contact";
+// import More from "./pages/More";
+// import NewYearsResolution from "./pages/NewYearsResolution";
 
 function App() {
   return (
@@ -15,11 +17,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/blog/:index" element={<BlogPost />} />
+          {/* <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:index" element={<ProjectSubPage />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/more" element={<More />} />
-          <Route path="/blog/:index" element={<BlogPost />} />
+          <Route path="/more" element={<NewYearsResolution />} /> */}
         </Routes>
       </Router>
       <Footer />
