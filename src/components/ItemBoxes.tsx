@@ -24,13 +24,11 @@ const ItemBox: React.FC<ItemBoxProps> = ({
         zIndex: 10,
         flexDirection: "column",
         gap: "10px",
-        justifyContent: "center",
-        alignItems: "center",
         padding: "10px",
         // size
-        minWidth: "5rem",
-        minHeight: "5rem",
-        borderRadius: "10px",
+        minWidth: "2rem",
+        minHeight: "2rem",
+        borderRadius: "5px",
         // background
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
