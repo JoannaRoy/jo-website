@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Blog } from "./pages/Blog/BlogHome";
 import BlogPost from "./pages/Blog/BlogPost";
+import BINJOHome from "./pages/BINJO/BINJOHome";
 // import { Projects, ProjectSubPage } from "./pages/Projects";
 // import Contact from "./pages/Contact";
 // import More from "./pages/More";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:header/:title" element={<BlogPost />} />
+          <Route path="/binjo" element={<BINJOHome />} />
           {/* <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:index" element={<ProjectSubPage />} />
           <Route path="/contact" element={<Contact />} />

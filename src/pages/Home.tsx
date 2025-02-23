@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                   src="/src/assets/jo.jpg"
                   alt="jo"
                   style={{
-                    height: "90%",
+                    height: "80%",
                     width: "auto",
                   }}
                 />

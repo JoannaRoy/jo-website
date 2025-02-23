@@ -109,6 +109,9 @@ const NavBar: React.FC = () => {
         <Link to="/blog" style={linkStyles}>
           Blog
         </Link>
+        <Link to="/binjo" style={linkStyles}>
+          BINJO
+        </Link>
         {/* <Link to="/projects" style={linkStyles}>
           Projects
         </Link>

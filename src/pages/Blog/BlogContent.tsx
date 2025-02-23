@@ -1,11 +1,11 @@
 import matter from "gray-matter";
-// Add buffer polyfill
 import { Buffer } from "buffer";
+
 globalThis.Buffer = Buffer;
 
 // Import all Markdown files from the "posts" folder
 const markdownFiles = import.meta.glob("../../blog_data/*/*.md", {
-  as: "raw", // Import files as raw text
+  as: "raw",
   eager: true,
 });
 
@@ -14,9 +14,10 @@ export const BlogContent = Object.entries(markdownFiles).reduce(
     const { data, content: markdownContent } = matter(content as string);
     const header = filePath.replace("../../blog_data/", "").split("/")[0];
     const formattedHeader = header
-      .replace(/^[0-9]{2}(?=\D)/, "")
-      .replace(/_/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase());
+      .replace(/^0/, "")
+      .replace(/^[0-9]{2}(?=\D)/, "chapter $&:")
+      .replace(/^[0-9]{1}(?=\D)/, "chapter $&:")
+      .replace(/_/g, " ");
 
     if (!acc[header]) {
       acc[header] = [];

@@ -27,7 +27,9 @@ const Blog: React.FC = () => {
               ...divStyle,
             }}
           >
-            <h1 style={{ fontSize: "3rem" }}>hummus purée</h1>
+            <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>
+              hummus purée
+            </h1>
             <h2 style={{ fontSize: "1rem" }}>a blog</h2>
           </div>
         </div>
@@ -44,7 +46,11 @@ const Blog: React.FC = () => {
             <BlogPostSectionHeader
               title={posts[0].data.header}
               index={Object.keys(BlogContent).indexOf(header)}
-              boxStyle={{ width: "90vw" }}
+              boxStyle={{
+                width: "90vw",
+                padding: "1rem",
+                margin: ".5rem",
+              }}
             />
 
             <div
@@ -84,8 +90,8 @@ const BlogPostSectionHeader = ({
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        paddingTop: "20px",
-        paddingBottom: "20px",
+        paddingTop: "5px",
+        paddingBottom: "5px",
         marginBottom: "1rem",
         ...boxStyle,
       }}

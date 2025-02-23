@@ -6,6 +6,7 @@ interface ItemBoxProps {
   borderColor?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 const ItemBox: React.FC<ItemBoxProps> = ({
@@ -14,10 +15,11 @@ const ItemBox: React.FC<ItemBoxProps> = ({
   borderColor,
   children,
   style,
+  className,
 }) => {
   return (
     <div
-      className="item-box"
+      className={`item-box ${className}`}
       style={{
         // position
         display: "flex",

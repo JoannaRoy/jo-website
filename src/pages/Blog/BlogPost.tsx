@@ -17,9 +17,7 @@ interface BlogPostProps {
 const BlogPost: React.FC<BlogPostProps> = () => {
   const { header, title } = useParams();
   const slug = `${header}/${title}`;
-  console.log(BlogContent);
   const post = BlogContent[header as string].find((post) => post.slug === slug);
-  console.log(post);
   return (
     <PageGrid columns={1}>
       <div
