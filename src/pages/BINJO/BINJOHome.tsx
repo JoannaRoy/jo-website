@@ -1,31 +1,12 @@
-// import React, { useState } from "react";
 import React from "react";
 import "../../styling/Backgrounds.css";
 import { PageGrid } from "../../components/ItemGrids";
 import ProgressChart from "./BINJOProgress";
 import { PlainBox } from "../../components/ItemBoxes";
 import BinjoBingo from "./BINJO";
-// import WOW from "./WOW";
+import WOW from "./WOW";
 
 const BINJOHome: React.FC = () => {
-  // const [isSpinning, setIsSpinning] = useState(false);
-  // const [rotation, setRotation] = useState(0);
-
-  // const handleSpinClick = () => {
-  //   setIsSpinning(true);
-  //   setRotation(Math.random() * 360);
-  //   setTimeout(() => setIsSpinning(false), 4000);
-  // };
-
-  // const spinStyle = {
-  //   transform: `rotate(${rotation}deg)`,
-  //   transition: `transform ${(Math.abs(rotation) / 360) * 4}s linear`,
-  // };
-
-  // const finalStyle = {
-  //   transform: `rotate(${rotation}deg)`,
-  // };
-
   return (
     <div>
       <PageGrid columns={1} style={{ alignItems: "left" }}>
@@ -67,47 +48,7 @@ const BINJOHome: React.FC = () => {
             marginTop: "100px",
           }}
         >
-          {/* <WOW /> */}
-          {/* <div
-            style={{
-              position: "relative",
-              justifyContent: "center",
-              alignItems: "center",
-              display: "flex",
-              width: "50%",
-            }}
-          >
-            <img
-              src="/src/assets/WOW.png"
-              alt="WOW"
-              style={{
-                width: "60%",
-                cursor: "pointer",
-                ...(isSpinning ? spinStyle : finalStyle),
-                zIndex: 1,
-              }}
-              onClick={handleSpinClick}
-            />
-            <img
-              src="/src/assets/WOW-bgd.png"
-              alt="Background"
-              style={{
-                width: "100%",
-                height: "auto",
-                position: "absolute",
-                zIndex: 0,
-              }}
-            />
-          </div>
-          <div
-            style={{
-              position: "relative",
-              width: "40%",
-              justifyContent: "center",
-              alignItems: "center",
-              display: "flex",
-            }}
-          ></div> */}
+          <WOW />
         </div>
       </PageGrid>
     </div>
