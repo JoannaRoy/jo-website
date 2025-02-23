@@ -29,9 +29,9 @@ const Blog: React.FC = () => {
             />
 
             <div className="flex flex-col gap-4 w-[90vw]">
-              {posts.map((post) => (
+              {posts.map((post, index) => (
                 <Link key={post.slug} to={`/blog/${post.slug}`}>
-                  <BlogPostPreview title={post.data.title} />
+                  <BlogPostPreview title={post.data.title} index={index} />
                 </Link>
               ))}
             </div>
@@ -52,33 +52,34 @@ const BlogPostSectionHeader = ({
   className?: string;
 }) => {
   const colors = [
-    "bg-pink-300",
-    "bg-red-300",
-    "bg-orange-300",
-    "bg-purple-300",
-    "bg-yellow-300",
-    "bg-green-300",
-    "bg-blue-300",
-    "bg-gray-300",
+    "bg-gradient-to-r from-pink-200 via-rose-200 to-orange-200",
+    "bg-gradient-to-r from-orange-200 via-rose-200 to-pink-200",
   ];
 
   return (
     <div className={`${colors[index % colors.length]} rounded-sm ${className}`}>
-      <h1 className="text-xl font-bold text-xxl drop-shadow-sm ">{title}</h1>
+      <h1 className="text-xl font-bold text-xxl drop-shadow-sm text-center">
+        {title}
+      </h1>
     </div>
   );
 };
 
 const BlogPostPreview = ({
   title,
+  index,
   className,
 }: {
   title: string;
+  index: number;
   className?: string;
 }) => {
+  const fillColors = ["bg-pink-100", "bg-orange-100"];
   return (
     <div
-      className={`bg-[var(--white)] rounded-sm justify-center text-center m-1 p-2 outline-2 outline-pink-200 drop-shadow-sm 
+      className={`rounded-sm justify-center text-center m-1 p-2 ${
+        fillColors[index % fillColors.length]
+      } drop-shadow-sm 
       transition-all duration-200 hover:transform hover:-translate-y-.5 hover:-translate-x-1 hover:drop-shadow-md ${className}`}
     >
       <h2>{title}</h2>

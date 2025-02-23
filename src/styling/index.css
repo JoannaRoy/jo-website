@@ -59,7 +59,7 @@ h1 {
   line-height: 1.1;
   /* color: var(--white); */
   color: black;
-  text-align: center;
+  /* text-align: center; */
 }
 
 h2 {
@@ -70,11 +70,9 @@ h2 {
 
 p {
   font-size: medium;
-  padding: 0px 20px;
   /* color: var(--white); */
   color: black;
   text-align: left;
-  margin-top: 10px;
   font-family: monospace;
 }
 
