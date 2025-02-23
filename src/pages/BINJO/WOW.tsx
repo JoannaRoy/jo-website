@@ -42,7 +42,7 @@ const WOW: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-cream px-6">
+    <div className="flex flex-col items-center justify-center bg-cream p-10">
       <h1 className="text-4xl font-bold text-gray-800 mb-6">
         Spin the Prize Wheel!
       </h1>
@@ -75,9 +75,10 @@ const WOW: React.FC = () => {
           <Confetti
             width={window.innerWidth}
             height={window.innerHeight * 5}
-            numberOfPieces={400}
+            numberOfPieces={8000}
+            recycle={false}
             gravity={0.5}
-            initialVelocityY={10}
+            initialVelocityY={50}
           />
         )}
       </div>

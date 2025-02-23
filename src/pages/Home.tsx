@@ -28,7 +28,6 @@ const Home: React.FC = () => {
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    backgroundImage: "url('/src/assets/spiffs-gradient.png')",
   };
 
   return (
@@ -124,7 +123,9 @@ const Home: React.FC = () => {
               }}
             >
               <div
-                className={`flip-container ${flipped[0] ? "flipped" : ""}`}
+                className={`flip-container ${
+                  flipped[0] ? "flipped" : ""
+                } bg-radial-[at_25%_25%] from-purple-400 via-pink-350 to-orange-300 to-75%`}
                 onClick={() => handleFlip(0)}
                 style={{
                   ...aboutMeStyle,
@@ -166,7 +167,9 @@ const Home: React.FC = () => {
                 </div>
               </div>
               <div
-                className={`flip-container ${flipped[1] ? "flipped" : ""}`}
+                className={`flip-container ${
+                  flipped[1] ? "flipped" : ""
+                } bg-radial from-pink-400 from-20% via-fuchsia-350 to-orange-200`}
                 onClick={() => handleFlip(1)}
                 style={{
                   ...aboutMeStyle,
@@ -206,7 +209,9 @@ const Home: React.FC = () => {
                 </div>
               </div>
               <div
-                className={`flip-container ${flipped[2] ? "flipped" : ""}`}
+                className={`flip-container ${
+                  flipped[2] ? "flipped" : ""
+                } bg-radial-[at_30%_30%] from-indigo-200 via-fuchsia-400 to-pink-300 to-90%`}
                 onClick={() => handleFlip(2)}
                 style={{
                   ...aboutMeStyle,
