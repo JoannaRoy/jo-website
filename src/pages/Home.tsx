@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         <PageGrid columns={0} style={{ width: "100vw" }}>
           <div className="flex flex-col w-full justify-center items-center">
             <div className="flex flex-row w-full items-center mb-20">
-              <div className="flex flex-col w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-100 to-purple-200" />
+              <div className="flex flex-col w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300" />
               <div className="flex justify-center items-center z-10">
                 <img src="/src/assets/jo.jpg" alt="jo" className="h-50" />
               </div>
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
                 frontContent={<h2>professionally</h2>}
                 backContent={
                   <p>
-                    I am a software engineer, especially interested in AI ethics
+                    I am a software engineer, especially interested in AI safety
                     and governance.
                     <br />
                     <br />I currently work at{" "}
