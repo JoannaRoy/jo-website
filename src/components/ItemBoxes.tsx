@@ -19,23 +19,11 @@ const ItemBox: React.FC<ItemBoxProps> = ({
 }) => {
   return (
     <div
-      className={`item-box ${className}`}
+      className={`flex flex-col gap-2.5 p-2.5 min-w-8 min-h-8 rounded bg-center bg-no-repeat z-10 ${
+        borderColor ? `border-[3px] border-solid` : ""
+      } ${className || ""}`}
       style={{
-        // position
-        display: "flex",
-        zIndex: 10,
-        flexDirection: "column",
-        gap: "10px",
-        padding: "10px",
-        // size
-        minWidth: "2rem",
-        minHeight: "2rem",
-        borderRadius: "5px",
-        // background
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        // customizables
-        border: borderColor ? `3px solid ${borderColor}` : "",
+        borderColor: borderColor || "",
         ...style,
       }}
     >
@@ -44,12 +32,7 @@ const ItemBox: React.FC<ItemBoxProps> = ({
         <img
           src={imageUrl}
           alt="Item Box Image"
-          style={{
-            width: "40%",
-            height: "auto",
-            display: "block",
-            borderRadius: "10px",
-          }}
+          className="w-2/5 h-auto block rounded-lg"
         />
       )}
 
@@ -67,6 +50,7 @@ const CheckerBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
         backgroundSize: "contain",
         ...style,
       }}
+      className="bg-contain"
     />
   );
 };
@@ -76,10 +60,10 @@ const SparkleBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
     <ItemBox
       {...props}
       style={{
-        backgroundSize: "contain",
         aspectRatio: "1/1",
         ...style,
       }}
+      className="bg-contain"
     />
   );
 };

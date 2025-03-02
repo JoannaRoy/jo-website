@@ -58,7 +58,6 @@ h1 {
   font-size: x-large;
   line-height: 1.1;
   /* color: var(--white); */
-  color: black;
   /* text-align: center; */
 }
 
@@ -69,7 +68,7 @@ h2 {
 }
 
 p {
-  font-size: medium;
+  /* font-size: medium; */
   /* color: var(--white); */
   color: black;
   font-family: monospace;

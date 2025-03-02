@@ -32,7 +32,7 @@ const Home: React.FC = () => {
             <div className="flex flex-row w-full items-center mb-20">
               <div className="flex flex-col w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300" />
               <div className="flex justify-center items-center z-10">
-                <img src="/src/assets/jo.jpg" alt="jo" className="h-50" />
+                <img src="/assets/jo.jpg" alt="jo" className="h-50" />
               </div>
               <div className="flex flex-col w-8/10 h-30 text-left align-middle">
                 <h1 className="font-bold ml-10 mb-5 mt-10">hello!</h1>
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
               <FlipCard
                 isFlipped={flipped[0]}
                 onFlip={() => handleFlip(0)}
-                frontContent={<h2>professionally</h2>}
+                frontContent={"professionally"}
                 backContent={
                   <p>
                     I am a software engineer, especially interested in AI safety
@@ -70,12 +70,12 @@ const Home: React.FC = () => {
               <FlipCard
                 isFlipped={flipped[1]}
                 onFlip={() => handleFlip(1)}
-                frontContent={<h2>personally</h2>}
+                frontContent={"personally"}
                 backContent={
                   <p>
                     I grew up in Canada but I'm currently living in Germany. I
-                    have a cat named Barney, a dog named Buddy, and three guinea
-                    pigs named Larry, Curly, and Moe.
+                    have a cat named Barney, a dog named Buddy, and two guinea
+                    pigs named Bonnie & Clyde.
                     <br />
                     <br />I love running, cycling, cross-country skiing, and
                     generally exploring outside & trying new sports or races. I
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
               <FlipCard
                 isFlipped={flipped[2]}
                 onFlip={() => handleFlip(2)}
-                frontContent={<h2>all the rest</h2>}
+                frontContent={"all the rest"}
                 backContent={
                   <p>
                     Of course there is lots more to me than can be shown here!{" "}

@@ -12,7 +12,7 @@ const BINJOHome: React.FC = () => {
       <PageGrid columns={1} style={{ alignItems: "left" }}>
         <div className="flex justify-center items-center w-full h-screen">
           <BinjoBingo />
-          <PlainBox className="w-[30%] mx-24 bg-white/50">
+          <PlainBox className="w-[30%] mx-24">
             <h1 className="mt-8 text-2xl font-bold text-center">
               Welcome to my new years resolution binjo!
             </h1>

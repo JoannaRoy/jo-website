@@ -1,5 +1,5 @@
 import Papa from "papaparse";
-import rawCsv from "../../blog_data/05_BINJO/progress.csv?raw";
+import rawCsv from "../../blog_data/06_BINJO/progress.csv?raw";
 
 interface ProgressRow {
   Item: string;

@@ -19,7 +19,7 @@ const FlipCard: React.FC<FlipCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative w-[25vw] h-[25vw] cursor-pointer transition-transform duration-700 shadow-sm ${
+      className={`relative w-[25vw] h-[25vw] cursor-pointer transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 ${
         isFlipped ? "rotate-y-180" : "rotate-y-0"
       } ${backgroundClass}`}
       onClick={onFlip}
@@ -41,7 +41,9 @@ const FlipCard: React.FC<FlipCardProps> = ({
             transformStyle: "preserve-3d",
           }}
         >
-          {frontContent}
+          <h2 className="text-black font-bold text-base no-underline my-4">
+            {frontContent}
+          </h2>
         </div>
         {/* Back side */}
         <div

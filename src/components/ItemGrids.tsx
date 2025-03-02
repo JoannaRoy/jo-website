@@ -4,9 +4,15 @@ interface GridProps {
   columns: number;
   children: React.ReactNode;
   style?: React.CSSProperties;
+  className?: string;
 }
 
-const BaseGrid: React.FC<GridProps> = ({ columns, children, style }) => {
+const BaseGrid: React.FC<GridProps> = ({
+  columns,
+  children,
+  style,
+  className,
+}) => {
   return (
     <div
       style={{
@@ -21,17 +27,23 @@ const BaseGrid: React.FC<GridProps> = ({ columns, children, style }) => {
           columns === 0 ? undefined : `repeat(${columns}, 1fr)`,
         ...style,
       }}
+      className={className}
     >
       {children}
     </div>
   );
 };
 
-const PageGrid: React.FC<GridProps> = ({ columns, children, style }) => {
+const PageGrid: React.FC<GridProps> = ({
+  columns,
+  children,
+  style,
+  className,
+}) => {
   return (
     <>
       <div style={{ width: "100%", height: "4rem" }}></div>
-      <BaseGrid columns={columns} style={style}>
+      <BaseGrid columns={columns} style={style} className={className}>
         {children}
       </BaseGrid>
       <div style={{ width: "100%", height: "1rem" }}></div>
