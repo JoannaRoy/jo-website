@@ -141,7 +141,7 @@ That said: a big part of my personal motivation for this blog is just me trying 
 
 4. **The last reason is that sometimes I can be lazy and do not do things simply because they seem like they’ll be a lot of work** 😂 — However, this reason is much less valid than the others and should probably be omitted from my analysis.
 
-Ironically, the first two reasons above stem from me having _too many_ thoughts and ideas, which is actually all the more reason to start a blog, in order to put them somewhere. The third reason is complex, and is something I think I should evaluate on a case-by-case basis, to decide whether or not it is my place to comment - and if so, how to frame my comments / contribute to discussions in a way that is useful and []. And, well, I already marked case closed on reason #4.
+Ironically, the first two reasons above stem from me having _too many_ thoughts and ideas, which is actually all the more reason to start a blog, in order to put them somewhere. The third reason is complex, and is something I think I should evaluate on a case-by-case basis, to decide whether or not it is my place to comment - and if so, how to frame my comments / contribute to discussions in a way that is useful and constructive. And, well, I already marked case closed on reason #4.
 
 ---
 
@@ -516,10 +516,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 "2 Day Trips Per Month",0,16.6,
 "10 New Mountains",0,0,
 "20 Books",10,20,
-"Website",50,50,
+"Website",10,90,
 "20 Postcards to Friends & Family",0,15,
 "50 New Recipes",0,10,
-"Make a Podcast or Blog",50,50,
+"Make a Podcast or Blog",0,100,
 "Wall-Worthy Painting",0,0,
 "10-Minute German Convo",0,0,
 "Play a Song (Well) on the Piano",70,30,
