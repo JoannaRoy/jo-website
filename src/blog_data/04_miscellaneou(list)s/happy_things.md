@@ -1,8 +1,9 @@
 ---
 title: "nice little things"
 date: "2025-02-20"
-tags: ["cup_o_jo", "lists"]
+tags: ["cup o jo", "lists"]
 description: "a list of nice little happy things"
+draft: "false"
 ---
 
 - when you notice yourself smiling but u weren't really thinking about it or aware of it, it just happened :>
