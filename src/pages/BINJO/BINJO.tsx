@@ -103,7 +103,7 @@ export default function BinjoBingo() {
         {progressData.flat().map((item, index) => (
           <div
             key={index}
-            className={`flex items-center justify-center text-black text-center text-xs font-semibold w-24 h-24 rounded-lg p-2
+            className={`flex items-center justify-center text-black text-center text-xs font-semibold w-24 h-24 rounded-lg p-2 relative
               ${
                 item.item === "Website"
                   ? "bg-gradient-to-br from-green-300 to-purple-400 font-bold shadow-lg"
@@ -115,9 +115,20 @@ export default function BinjoBingo() {
             onMouseEnter={() => setHoveredItem(item.item)}
             onMouseLeave={() => setHoveredItem(null)}
           >
-            <span className="opacity-100">{item.item}</span>
+            <span className="opacity-100 z-10">{item.item}</span>
+            {item.completed === 100 && (
+              <span className="absolute inset-0 flex items-center justify-center">
+                <img
+                  src="/assets/star.svg"
+                  alt="Star"
+                  width="90%"
+                  height="90%"
+                  style={{ opacity: 0.9, zIndex: 1 }}
+                />
+              </span>
+            )}
             {hoveredItem === item.item && (
-              <div className="absolute text-white p-2 rounded">
+              <div className="absolute text-white p-2 rounded z-20">
                 <PieChart
                   completed={item.completed}
                   planned={item.planned}

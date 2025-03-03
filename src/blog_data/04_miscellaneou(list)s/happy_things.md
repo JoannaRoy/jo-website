@@ -6,6 +6,8 @@ description: "a list of nice little happy things"
 draft: "false"
 ---
 
+Here is a list of nice little happy things:
+
 - when you notice yourself smiling but u weren't really thinking about it or aware of it, it just happened :>
 - loving a song so much you want to listen over and over
 - seeing good friends after a long time
@@ -19,6 +21,7 @@ draft: "false"
 - when you smile at someone's dog and their owner smiles back. and vice versa
 - smiling at someone on a run and having them smile back
 - sunsets
+- sunrises
 - the feeling when you wake up from a really really deep sleep, naps included (DEEP TISSUE)
 - petting a cat on the street
 - laughing really hard. especially if it's unexpected and you laugh so loud other people look at you
@@ -28,6 +31,10 @@ draft: "false"
 - being confused about feelings and stuff, then hearing a song that puts them into words and sounds just how u meant them
 - concerts - people all singing a song together
 - really vivid dreams
+- opening a new bag of coffee
 - sun after a long spurt of cloudiness
 - going back to a cafe you used to frequent and recognizing the barista
-- listening to something and then it makes u laugh out loud in public but u didn't mean to and everyone's looking at u hehe
+- listening to something and then it makes u laugh out loud in public but u didn't mean to laugh so hard and everyone's looking at u hehe
+- running chickens
+- hopping crows
+- a good book

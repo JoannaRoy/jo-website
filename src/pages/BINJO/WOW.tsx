@@ -64,7 +64,7 @@ const WOW: React.FC = () => {
           }}
           spinDuration={1}
           pointerProps={{
-            src: "/src/assets/WOW_arrow.png",
+            src: "/assets/WOW_arrow.png",
             style: {
               transform: "rotate(310deg)",
               width: "90px",
