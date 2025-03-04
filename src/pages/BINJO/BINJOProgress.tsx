@@ -20,14 +20,22 @@ export default function ProgressChart({ style }: { style?: CSSProperties }) {
         ...style,
       }}
     >
-      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Progress</h1>
-      <ResponsiveContainer width="90%" height={1000}>
-        <BarChart data={progressData} layout="vertical">
+      <h1 className="text-xl md:text-2xl font-bold mb-4 md:mb-8">Progress</h1>
+      <ResponsiveContainer
+        width="100%"
+        height={progressData.length * 40}
+        minHeight={500}
+      >
+        <BarChart
+          data={progressData}
+          layout="vertical"
+          margin={{ left: 20, right: 20 }}
+        >
           <YAxis
             dataKey="item"
             type="category"
-            width={150}
-            tick={{ fontWeight: "bold" }}
+            width={100}
+            tick={{ fontWeight: "bold", fontSize: "0.7rem" }}
             strokeWidth={1}
           />
           <XAxis

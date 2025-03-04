@@ -19,7 +19,7 @@ const FlipCard: React.FC<FlipCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative w-[25vw] h-[25vw] cursor-pointer transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 ${
+      className={`relative w-full md:w-[25vw] aspect-square cursor-pointer transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 ${
         isFlipped ? "rotate-y-180" : "rotate-y-0"
       } ${backgroundClass}`}
       onClick={onFlip}
@@ -32,7 +32,7 @@ const FlipCard: React.FC<FlipCardProps> = ({
       <div className="absolute inset-0 w-full h-full preserve-3d">
         {/* Front side */}
         <div
-          className={`absolute w-full h-full flex justify-center items-center backface-hidden transition-transform duration-700 p-10 ${
+          className={`absolute w-full h-full flex justify-center items-center backface-hidden transition-transform duration-700 p-4 md:p-10 ${
             isFlipped ? "rotate-y-180" : ""
           }`}
           style={{
@@ -41,13 +41,13 @@ const FlipCard: React.FC<FlipCardProps> = ({
             transformStyle: "preserve-3d",
           }}
         >
-          <h2 className="text-black font-bold text-base no-underline my-4">
+          <h2 className="text-black font-bold text-sm md:text-base no-underline my-2 md:my-4">
             {frontContent}
           </h2>
         </div>
         {/* Back side */}
         <div
-          className={`absolute w-full h-full flex justify-center items-center transition-all p-10 ${
+          className={`absolute w-full h-full flex justify-center items-center transition-all p-4 md:p-10 ${
             isFlipped ? "rotate-y-180 opacity-100 duration-800" : "opacity-0"
           }`}
         >

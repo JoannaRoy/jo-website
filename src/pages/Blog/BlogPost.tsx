@@ -30,14 +30,14 @@ const BlogPost: React.FC<BlogPostProps> = () => {
   return (
     <PageGrid columns={1}>
       <BlogTitle className="mb-0" />
-      <div className="p-8 mr-8 w-[90vw] h-full">
+      <div className="p-4 md:p-8 mx-auto w-[95vw] md:w-[90vw] h-full">
         <button
           onClick={handleBackClick}
-          className="mb-4 flex items-center text-[var(--turquoise)] hover:text-[var(--dark-turquoise)] transition-colors bg-gradient-to-br from-green-200 to-purple-300 p-5 rounded-md"
+          className="mb-4 flex items-center text-[var(--turquoise)] hover:text-[var(--dark-turquoise)] transition-colors bg-gradient-to-br from-green-200 to-purple-300 p-3 md:p-5 rounded-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-1"
+            className="h-4 w-4 md:h-5 md:w-5 mr-1"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -48,7 +48,7 @@ const BlogPost: React.FC<BlogPostProps> = () => {
             />
           </svg>
           <div className="flex flex-row items-center">
-            <h1 className="text-2xl text-[var(--turquoise)] hover:text-black transition-colors font-bold">
+            <h1 className="text-lg md:text-2xl text-[var(--turquoise)] hover:text-black transition-colors font-bold">
               Back to Blog
             </h1>
           </div>
@@ -56,19 +56,21 @@ const BlogPost: React.FC<BlogPostProps> = () => {
 
         <PlainBox
           borderColor="var(--turquoise)"
-          className="bg-white p-15 shadow-md"
+          className="bg-white p-4 md:p-15 shadow-md"
         >
-          <h1 className="text-4xl mb-4 font-bold">{post?.data.title}</h1>
-          <div className="flex justify-between w-full mb-8">
+          <h1 className="text-2xl md:text-4xl mb-4 font-bold">
+            {post?.data.title}
+          </h1>
+          <div className="flex flex-col md:flex-row md:justify-between w-full mb-4 md:mb-8 gap-2 md:gap-0">
             <p className="text-left" style={{ color: "var(--turquoise)" }}>
               {post?.data.date}
             </p>
             {post?.data.tags && (
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-2 md:gap-4">
                 {post?.data.tags.map((tag: string) => (
                   <span
                     key={tag}
-                    className="bg-[var(--turquoise)] px-3 py-1 rounded-full text-sm"
+                    className="bg-[var(--turquoise)] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
                   >
                     {tag}
                   </span>
@@ -76,63 +78,108 @@ const BlogPost: React.FC<BlogPostProps> = () => {
               </div>
             )}
           </div>
-          <div className="text-left leading-7 prose prose-ol:list-decimal prose-ul:list-disc prose-p:my-4 max-w-none">
+          <div className="text-left leading-6 md:leading-7 prose prose-ol:list-decimal prose-ul:list-disc prose-p:my-3 md:prose-p:my-4 max-w-none text-sm md:text-base">
             <Markdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw, rehypeSanitize]}
               components={{
-                p: ({ node, ...props }) => {
+                p: ({ children, ...props }) => {
                   if (
-                    props.children &&
-                    Array.isArray(props.children) &&
-                    props.children.length === 1 &&
-                    props.children[0] === "<br>"
+                    children &&
+                    Array.isArray(children) &&
+                    children.length === 1 &&
+                    children[0] === "<br>"
                   ) {
-                    return <div className="my-6"></div>;
-                  }
-                  return <p className="my-4" {...props} />;
-                },
-                h1: ({ node, ...props }) => (
-                  <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />
-                ),
-                h2: ({ node, ...props }) => (
-                  <h2 className="text-2xl font-bold mt-6 mb-3" {...props} />
-                ),
-                h3: ({ node, ...props }) => (
-                  <h3 className="text-xl font-bold mt-5 mb-2" {...props} />
-                ),
-                h4: ({ node, ...props }) => (
-                  <h4 className="text-lg font-bold mt-4 mb-2" {...props} />
-                ),
-                h5: ({ node, ...props }) => (
-                  <h5 className="text-base font-bold mt-3 mb-1" {...props} />
-                ),
-                h6: ({ node, ...props }) => (
-                  <h6 className="text-sm font-bold mt-3 mb-1" {...props} />
-                ),
-                ul: ({ node, ...props }) => {
-                  if (
-                    props.children &&
-                    Array.isArray(props.children) &&
-                    props.children.length === 1 &&
-                    (props.children[0] === "*" || props.children[0] === "-")
-                  ) {
-                    return <div className="my-6"></div>;
+                    return <div className="my-4 md:my-6"></div>;
                   }
                   return (
-                    <ul className="list-disc pl-5 my-4 space-y-2" {...props} />
+                    <p className="my-3 md:my-4" {...props}>
+                      {children}
+                    </p>
                   );
                 },
-                ol: ({ node, ...props }) => {
+                h1: ({ children, ...props }) => (
+                  <h1
+                    className="text-2xl md:text-3xl font-bold mt-6 md:mt-8 mb-3 md:mb-4"
+                    {...props}
+                  >
+                    {children}
+                  </h1>
+                ),
+                h2: ({ children, ...props }) => (
+                  <h2
+                    className="text-xl md:text-2xl font-bold mt-5 md:mt-6 mb-2 md:mb-3"
+                    {...props}
+                  >
+                    {children}
+                  </h2>
+                ),
+                h3: ({ children, ...props }) => (
+                  <h3
+                    className="text-lg md:text-xl font-bold mt-4 md:mt-5 mb-2"
+                    {...props}
+                  >
+                    {children}
+                  </h3>
+                ),
+                h4: ({ children, ...props }) => (
+                  <h4
+                    className="text-base md:text-lg font-bold mt-3 md:mt-4 mb-1 md:mb-2"
+                    {...props}
+                  >
+                    {children}
+                  </h4>
+                ),
+                h5: ({ children, ...props }) => (
+                  <h5
+                    className="text-sm md:text-base font-bold mt-2 md:mt-3 mb-1"
+                    {...props}
+                  >
+                    {children}
+                  </h5>
+                ),
+                h6: ({ children, ...props }) => (
+                  <h6
+                    className="text-xs md:text-sm font-bold mt-2 md:mt-3 mb-1"
+                    {...props}
+                  >
+                    {children}
+                  </h6>
+                ),
+                ul: ({ children, ...props }) => {
+                  if (
+                    children &&
+                    Array.isArray(children) &&
+                    children.length === 1 &&
+                    (children[0] === "*" || children[0] === "-")
+                  ) {
+                    return <div className="my-4 md:my-6"></div>;
+                  }
+                  return (
+                    <ul
+                      className="list-disc pl-4 md:pl-5 my-3 md:my-4 space-y-1 md:space-y-2"
+                      {...props}
+                    >
+                      {children}
+                    </ul>
+                  );
+                },
+                ol: ({ children, ...props }) => {
                   return (
                     <ol
-                      className="list-decimal pl-5 my-4 space-y-2"
+                      className="list-decimal pl-4 md:pl-5 my-3 md:my-4 space-y-1 md:space-y-2"
                       {...props}
-                    />
+                    >
+                      {children}
+                    </ol>
                   );
                 },
-                li: ({ node, ...props }) => {
-                  return <li className="ml-2 pl-1" {...props} />;
+                li: ({ children, ...props }) => {
+                  return (
+                    <li className="ml-1 md:ml-2 pl-1" {...props}>
+                      {children}
+                    </li>
+                  );
                 },
               }}
             >

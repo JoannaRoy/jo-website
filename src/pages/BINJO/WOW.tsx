@@ -42,11 +42,14 @@ const WOW: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-cream p-10">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">
+    <div className="flex flex-col items-center justify-center bg-cream p-4 md:p-10 w-full">
+      <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6 text-center">
         Spin the Prize Wheel!
       </h1>
-      <div className="[&>div]:!border-0" onClick={handleSpinClick}>
+      <div
+        className="[&>div]:!border-0 w-[90vw] md:w-auto flex justify-center"
+        onClick={handleSpinClick}
+      >
         <Wheel
           mustStartSpinning={mustSpin}
           prizeNumber={prizeNumber}
@@ -67,7 +70,7 @@ const WOW: React.FC = () => {
             src: "/assets/WOW_arrow.png",
             style: {
               transform: "rotate(310deg)",
-              width: "90px",
+              width: window.innerWidth < 768 ? "60px" : "90px",
             },
           }}
         />
@@ -75,7 +78,7 @@ const WOW: React.FC = () => {
           <Confetti
             width={window.innerWidth}
             height={window.innerHeight * 5}
-            numberOfPieces={8000}
+            numberOfPieces={window.innerWidth < 768 ? 2000 : 8000}
             recycle={false}
             gravity={0.5}
             initialVelocityY={50}

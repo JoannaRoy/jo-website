@@ -21,29 +21,31 @@ const Home: React.FC = () => {
       <div>
         <Sparkles
           color="gold"
-          count={100}
-          minSize={5}
-          maxSize={10}
+          count={window.innerWidth < 768 ? 50 : 200}
+          minSize={window.innerWidth < 768 ? 5 : 10}
+          maxSize={window.innerWidth < 768 ? 10 : 20}
           overflowPx={0}
           fadeOutSpeed={10}
         />
-        <PageGrid columns={0} style={{ width: "100vw" }}>
+        <PageGrid columns={0} style={{ width: "100%" }}>
           <div className="flex flex-col w-full justify-center items-center">
-            <div className="flex flex-row w-full items-center mb-20">
-              <div className="flex flex-col w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300" />
-              <div className="flex justify-center items-center z-10">
-                <img src="/assets/jo.jpg" alt="jo" className="h-50" />
+            <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0">
+              <div className="flex flex-col w-full md:w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300 absolute md:relative -z-10 md:z-0" />
+              <div className="flex justify-center items-center z-10 my-4 md:my-0">
+                <img src="/assets/jo.jpg" alt="jo" className="h-40 md:h-50" />
               </div>
-              <div className="flex flex-col w-8/10 h-30 text-left align-middle">
-                <h1 className="font-bold ml-10 mb-5 mt-10">hello!</h1>
-                <p className="text-left ml-10 mr-20">
+              <div className="flex flex-col w-full md:w-8/10 h-30 text-left align-middle">
+                <h1 className="font-bold text-center md:text-left md:ml-10 mb-3 md:mb-5 mt-4 md:mt-10">
+                  hello!
+                </h1>
+                <p className="text-center md:text-left px-4 md:px-0 md:ml-10 md:mr-20">
                   My name is Joanna :) Welcome to my little corner of the
                   internet. There's a bit of everything on here so I hope you
                   enjoy!
                 </p>
               </div>
             </div>
-            <div className="flex flex-row w-full justify-around">
+            <div className="flex flex-col md:flex-row w-full justify-center items-center space-y-6 md:space-y-0 px-4 md:px-0 mb-10 md:mb-20">
               <FlipCard
                 isFlipped={flipped[0]}
                 onFlip={() => handleFlip(0)}
