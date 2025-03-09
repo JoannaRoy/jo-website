@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
       ref={navBarRef}
       className={`flex flex-col fixed bg-transparent top-0 right-0 ${
         isOpen ? "z-[1000]" : "z-0"
-      } transition-[z-index] duration-500`}
+      }`}
     >
       <button
         ref={hamburgerRef}

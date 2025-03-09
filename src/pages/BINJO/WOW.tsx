@@ -35,10 +35,10 @@ const WOW: React.FC = () => {
   const [isConfettiActive, setIsConfettiActive] = useState(false);
 
   const handleSpinClick = () => {
+    setIsConfettiActive(false);
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
-    setIsConfettiActive(false);
   };
 
   return (
@@ -47,7 +47,7 @@ const WOW: React.FC = () => {
         Spin the Prize Wheel!
       </h1>
       <div
-        className="[&>div]:!border-0 w-[90vw] md:w-auto flex justify-center"
+        className="[&>div]:!border-0 w-[90vw] md:w-auto flex justify-center z-[500]"
         onClick={handleSpinClick}
       >
         <Wheel
