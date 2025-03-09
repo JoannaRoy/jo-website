@@ -110,7 +110,7 @@ export default function BinjoBingo() {
       >
         BINJO
       </h1>
-      <div className="flex flex-row items-center gap-4 mb-8">
+      <div className="flex flex-row items-center gap-4 mb-8 sm:hidden">
         <div className="flex items-center gap-1">
           <div
             className="w-3 h-3 sm:w-4 sm:h-4 rounded-full"
@@ -137,7 +137,7 @@ export default function BinjoBingo() {
         {progressData.flat().map((item, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center justify-center text-black text-center text-xs font-semibold rounded-lg p-2 relative
+            className={`flex flex-col items-center justify-center text-black text-center text-xs md:text-smsfont-semibold rounded-lg p-2 relative
               ${
                 item.item === "Website"
                   ? "bg-gradient-to-br from-green-300 to-purple-400 font-bold shadow-lg"
@@ -145,7 +145,7 @@ export default function BinjoBingo() {
                   ? colors.purple + " bg-opacity-50"
                   : colors.blue + " bg-opacity-50"
               }
-              w-full h-auto md:w-24 md:h-24 sm:w-16 sm:h-16
+              w-16 h-16 md:w-24 md:h-24
             `}
             onMouseEnter={() => setHoveredItem(item.item)}
             onMouseLeave={() => setHoveredItem(null)}
