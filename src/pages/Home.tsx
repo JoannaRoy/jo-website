@@ -27,7 +27,7 @@ const Home: React.FC = () => {
           overflowPx={0}
           fadeOutSpeed={10}
         />
-        <PageGrid columns={0} style={{ width: "100%" }}>
+        <PageGrid columns={0} style={{ width: "100vw" }}>
           <div className="flex flex-col w-full justify-center items-center">
             <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0">
               <div className="flex flex-col w-full md:w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300 absolute md:relative -z-10 md:z-0" />
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row w-full justify-center items-center space-y-6 md:space-y-0 px-4 md:px-0 mb-10 md:mb-20">
+            <div className="flex flex-col md:flex-row w-full justify-center items-center space-y-6 md:space-y-0 md:space-x-4 px-4 md:px-5 mb-10 md:mb-20">
               <FlipCard
                 isFlipped={flipped[0]}
                 onFlip={() => handleFlip(0)}
