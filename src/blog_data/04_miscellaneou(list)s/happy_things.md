@@ -38,3 +38,4 @@ Here is a list of nice little happy things:
 - running chickens
 - hopping crows
 - a good book
+- the first day of not being sick after being sick for a long time

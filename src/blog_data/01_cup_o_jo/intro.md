@@ -7,13 +7,13 @@ description: "intro & what i want this blog to be"
 
 Hello :) My name is Joanna (Jo) and this is my first blog post.
 
-I think a lot about random topics (_most people do haha_). But I find there’s something really nice about taking these messy, jumbled, and confusing thoughts from my head and putting them on a page to clarify and better understand them. It feels like they become more interesting and valuable when I can fully dissect them on a page and draw conclusions, rather than letting them get lost in my completely labyrinthine (word #1 !! 🎉 :D — see this miscellaneoulist for context ;) trains of thought.
+I think a lot about random topics (_most people do haha_). But I find there’s something really nice about taking these messy, jumbled, and confusing thoughts from my head and putting them on a page to clarify and better understand them. It feels like they become more interesting and valuable when I can fully dissect them on a page and draw conclusions, rather than letting them get lost in my muddled trains of thought.
 
 So: this blog, first and foremost, is a space for me to explore what I think about various topics. The posts will vary quite a bit, in subject matter, length, formality, emoji use, and technicality; and over time, I also hope that my writing will become clearer, more interesting, cohesive, concise, and so on.
 
 I want this to be a space where I try new things — to learn about areas that are unfamiliar to me, to develop and express my views on issues I’m interested in, to consider perspectives that are new or unfamiliar to me, and maybe even to experiment with different types of writing (eg. one day I will slip a haiku in here. you will never see it coming).
 
-In summary, I want to use this blog to explore and express all the different sides of Jo.
+I really just want to use this blog to explore and express all the different sides of Jo.
 
 Given this introduction, I thought it would be fitting to open with the train of thought that started it all.
 
@@ -25,7 +25,7 @@ So without further adieu, here is the very first cup o’ jo, enjoy ☕!
 ---
 
 <br>
-I have long tossed around the idea of making a blog (inspired by friends whose blog articles I enjoy reading—thank you, Martin and Nick; and also Emily for those extremely fun vlogs :).
+I have long tossed around the idea of making a blog (inspired by friends whose blog articles I enjoy reading—thank you, Martin and Nick; and also Emily if you are reading this for those extremely fun vlogs :).
 
 Formatting-wise, (after a long-time toss-up between podcast, vlog, and blog) I landed on this “multimedia blog” concept (aka in classic indecisive jo fashion, I have kept my formatting options open as can be :D) — and even affectionally coined it: “Chickpea Purée” (upon suggestion from my wonderful colleagues at Trail).
 
