@@ -1,7 +1,7 @@
 Item,Planned,Completed,Notes
 "Dance or Singing Class",0,0,
 "Clubbing",0,0,
-"Make a Piece of Pottery",100,0,
+"Make a Piece of Pottery",0,100,
 "Ice Bathing",0,100,
 "Host 5 Gatherings",0,20,
 "Swim in the Olympic Pool",0,100,
@@ -13,7 +13,7 @@ Item,Planned,Completed,Notes
 "20 Books",10,20,
 "Website",0,100,
 "20 Postcards to Friends & Family",25,25,
-"50 New Recipes",4,14,
+"50 New Recipes",4,18,
 "Make a Podcast or Blog",0,100,
 "Wall-Worthy Painting",0,0,
 "10-Minute German Convo",0,0,
