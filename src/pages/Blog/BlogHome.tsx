@@ -199,7 +199,7 @@ const BlogPostSectionHeader = ({
       } ${className}`}
     >
       <div
-        className={`w-full h-[6rem] flex items-center justify-center p-5 ${
+        className={`w-full flex items-center justify-center p-5 ${
           fillColors[index % fillColors.length]
         }`}
       >

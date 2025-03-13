@@ -22,8 +22,8 @@ const Home: React.FC = () => {
         <Sparkles
           color="gold"
           count={window.innerWidth < 768 ? 50 : 200}
-          minSize={window.innerWidth < 768 ? 5 : 10}
-          maxSize={window.innerWidth < 768 ? 10 : 20}
+          minSize={window.innerWidth < 768 ? 2 : 5}
+          maxSize={window.innerWidth < 768 ? 8 : 10}
           overflowPx={0}
           fadeOutSpeed={10}
         />

@@ -21,7 +21,12 @@ const NavBar: React.FC = () => {
     }
   };
 
-  document.addEventListener("click", handleOutsideClick);
+  React.useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div
@@ -37,23 +42,23 @@ const NavBar: React.FC = () => {
         className="bg-transparent border-none m-4 absolute right-0 z-[1001]"
       >
         <div
-          className={`w-[25px] h-[3px] mb-[6px] transition-transform duration-400 bg-black origin-left ${
+          className={`w-[35px] h-[4px] mb-[8px] transition-transform duration-400 bg-black origin-left ${
             isOpen ? "rotate-45" : "rotate-0"
           }`}
         />
         <div
-          className={`w-[25px] h-[3px] mb-[6px] transition-transform duration-400 ${
+          className={`w-[35px] h-[4px] mb-[8px] transition-transform duration-400 ${
             isOpen ? "bg-transparent" : "bg-black"
           }`}
         />
         <div
-          className={`w-[25px] h-[3px] mb-[6px] transition-transform duration-400 bg-black origin-left ${
+          className={`w-[35px] h-[4px] mb-[8px] transition-transform duration-400 bg-black origin-left ${
             isOpen ? "-rotate-45" : "rotate-0"
           }`}
         />
       </button>
       <div
-        className={`flex flex-col w-60 items-center bg-[var(--white)] h-screen shadow-md ${
+        className={`flex flex-col w-80 items-center bg-[var(--white)] h-screen shadow-md ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-400 ${isOpen ? "z-[1000]" : "z-0"}`}
       >
