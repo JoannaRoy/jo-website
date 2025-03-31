@@ -24,6 +24,7 @@ Here is a list of nice little happy things:
 - sunrises
 - the feeling when you wake up from a really really deep sleep, naps included (DEEP TISSUE)
 - petting a cat on the street
+- chocolate
 - laughing really hard. especially if it's unexpected and you laugh so loud other people look at you
 - unexpected hello messages from friends
 - peeing when u really (really) needed to pee
@@ -31,7 +32,7 @@ Here is a list of nice little happy things:
 - being confused about feelings and stuff, then hearing a song that puts them into words and sounds just how u meant them
 - concerts - people all singing a song together
 - really vivid dreams
-- opening a new bag of coffee
+- the smell when you open a new bag of coffee
 - sun after a long spurt of cloudiness
 - going back to a cafe you used to frequent and recognizing the barista
 - listening to something and then it makes u laugh out loud in public but u didn't mean to laugh so hard and everyone's looking at u hehe
@@ -39,3 +40,6 @@ Here is a list of nice little happy things:
 - hopping crows
 - a good book
 - the first day of not being sick after being sick for a long time
+- dogs playing in the park
+- a really nice, long run
+- feeling like you're really giving something your all, and then having that hard work pay off
