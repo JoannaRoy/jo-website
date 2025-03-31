@@ -163,9 +163,9 @@ draft: "true"
 ---
 `,__vite_glob_0_2=`---
 title: "an ode to running"
-date: "2025-02-20"
+date: "2025-03-31"
 tags: ["jog with a blog"]
-description: "the impact of sports on me + on people, coming together but also competing"
+description: "my lil limerick about running :)"
 draft: "false"
 ---
 
