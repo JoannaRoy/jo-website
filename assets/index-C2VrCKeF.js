@@ -195,15 +195,15 @@ I grew up loving to compete <br>
 what am I if not an athlete <br>
 sports were what shaped me <br>
 soccer embraced me <br>
-now, I’m too tired to walk down the street <br>
+but I’m too tired to walk down the street <br>
 
-soccer was hard at the end <br>
+even soccer was hard at the end <br>
 competing with my best friends <br>
 ”try to look good <br>
 and maybe you could <br>
 find a top school to attend” <br>
 
-when I was finally healed, <br>
+when my head was finally healed, <br>
 I couldnt return to the field <br>
 so I signed up for a race <br>
 unsure how I would place <br>
@@ -220,6 +220,12 @@ I’m always glad that I do <br>
 my day could be bad <br>
 or my heart could be sad <br>
 but I end with a new point of view <br>
+
+it's the feeling of going for a run <br>
+that never (ever) stops being fun <br>
+the beautiful views <br>
+sunrises too <br>
+and the high I have once it's done <br>
 
 I sometimes use races <br>
 to explore new places <br>
