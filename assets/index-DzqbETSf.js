@@ -171,7 +171,7 @@ draft: "false"
 
 Hello friends :)
 
-I watched this video a while ago (https://www.youtube.com/watch?v=pzQhTzXQ2VE&pp=ygUNbHlkaWEga2VhdGluZw%3D%3D) and it stuck with me.
+I watched this video a while ago (https://www.youtube.com/watch?v=pzQhTzXQ2VE&pp=ygUNbHlkaWEga2VhdGluZw%3D%3D) and it really stuck with me.
 
 I related to it -- how I started running because my other sport was no longer an option, and how running filled my cup in many of the same ways. Soccer was such a big part of my identity from time I was 8 until the day I got hit in the head with a ball during practice at 16. Concussions are crazy because you lose so many of the things you used to take for granted: thinking, socializing, physical activity, ..., the list goes on. 10 months or so into my concussion, my doctor was still calling me his "17 year old geriatric patient" because I needed the help of a walker to walk up and down the block (this is funny you are allowed to laugh 👵😂).
 
@@ -234,13 +234,13 @@ see where the cards fall <br>
 the pain, you learn embrace it <br>
 
 whether I go faster or longer <br>
-it always helps me be stronger <br>
+running makes me stronger <br>
 when I’m going through it <br>
 running reminds me I can do it <br>
-of no sport am I fonder <br>
+there is no sport of which I am fonder <br>
 
 yes, some parts are rough <br>
-races tend to be tough <br>
+races can be especially tough <br>
 I’ve wondered if I will make it <br>
 my foot, I did break it <br>
 and beyond that, there’s other stuff: <br>
@@ -269,8 +269,6 @@ blistery feet <br>
 chance to compete <br>
 take a gel <br>
 ow I fell <br>
-legs burning <br>
-lessons learning <br>
 layers of sweat <br>
 new PBs set <br>
 
