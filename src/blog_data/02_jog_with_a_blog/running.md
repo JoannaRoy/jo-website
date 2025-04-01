@@ -8,7 +8,7 @@ draft: "false"
 
 Hello friends :)
 
-I watched this video a while ago (https://www.youtube.com/watch?v=pzQhTzXQ2VE&pp=ygUNbHlkaWEga2VhdGluZw%3D%3D) and it stuck with me.
+I watched this video a while ago (https://www.youtube.com/watch?v=pzQhTzXQ2VE&pp=ygUNbHlkaWEga2VhdGluZw%3D%3D) and it really stuck with me.
 
 I related to it -- how I started running because my other sport was no longer an option, and how running filled my cup in many of the same ways. Soccer was such a big part of my identity from time I was 8 until the day I got hit in the head with a ball during practice at 16. Concussions are crazy because you lose so many of the things you used to take for granted: thinking, socializing, physical activity, ..., the list goes on. 10 months or so into my concussion, my doctor was still calling me his "17 year old geriatric patient" because I needed the help of a walker to walk up and down the block (this is funny you are allowed to laugh 👵😂).
 
@@ -32,15 +32,15 @@ I grew up loving to compete <br>
 what am I if not an athlete <br>
 sports were what shaped me <br>
 soccer embraced me <br>
-now, I’m too tired to walk down the street <br>
+but I’m too tired to walk down the street <br>
 
-soccer was hard at the end <br>
+even soccer was hard at the end <br>
 competing with my best friends <br>
 ”try to look good <br>
 and maybe you could <br>
 find a top school to attend” <br>
 
-when I was finally healed, <br>
+when my head was finally healed, <br>
 I couldnt return to the field <br>
 so I signed up for a race <br>
 unsure how I would place <br>
@@ -58,6 +58,12 @@ my day could be bad <br>
 or my heart could be sad <br>
 but I end with a new point of view <br>
 
+it's the feeling of going for a run <br>
+that never (ever) stops being fun <br>
+the beautiful views <br>
+sunrises too <br>
+and the high I have once it's done <br>
+
 I sometimes use races <br>
 to explore new places <br>
 you give it your all <br>
@@ -65,13 +71,13 @@ see where the cards fall <br>
 the pain, you learn embrace it <br>
 
 whether I go faster or longer <br>
-it always helps me be stronger <br>
+running makes me stronger <br>
 when I’m going through it <br>
 running reminds me I can do it <br>
-of no sport am I fonder <br>
+there is no sport of which I am fonder <br>
 
 yes, some parts are rough <br>
-races tend to be tough <br>
+races can be especially tough <br>
 I’ve wondered if I will make it <br>
 my foot, I did break it <br>
 and beyond that, there’s other stuff: <br>
@@ -100,8 +106,6 @@ blistery feet <br>
 chance to compete <br>
 take a gel <br>
 ow I fell <br>
-legs burning <br>
-lessons learning <br>
 layers of sweat <br>
 new PBs set <br>
 

@@ -9,9 +9,6 @@ const Blog: React.FC = () => {
   const [selectedHeader, setSelectedHeader] = React.useState<string | null>(
     null
   );
-  const [scrolledHeader, setScrolledHeader] = React.useState<string | null>(
-    null
-  );
   const [blogScroll, setBlogScroll] = React.useState<boolean>(false);
   const [expandedSection, setExpandedSection] = React.useState<string | null>(
     null
@@ -27,21 +24,9 @@ const Blog: React.FC = () => {
     });
   }
 
-  if (scrolledHeader && headerRefs.current[scrolledHeader]?.current) {
-    requestAnimationFrame(() => {
-      headerRefs.current[scrolledHeader]?.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-    });
-  }
-
   const handleSectionClick = (header: string) => {
     setSelectedHeader(header);
-    setScrolledHeader(header);
     setBlogScroll(true);
-
     setExpandedSection(expandedSection === header ? null : header);
   };
 
@@ -60,61 +45,54 @@ const Blog: React.FC = () => {
               id="blog-scroll-container"
             >
               <div className="flex flex-col">
-                {Object.entries(BlogContent).map(([header, posts]) => {
-                  const isMobile = window.innerWidth < 768;
-                  const shouldShow =
-                    !isMobile || !expandedSection || expandedSection === header;
+                {Object.entries(BlogContent)
+                  .filter(([header]) => header === selectedHeader)
+                  .map(([header, posts]) => {
+                    const isMobile = window.innerWidth < 768;
+                    const shouldShow =
+                      !isMobile ||
+                      !expandedSection ||
+                      expandedSection === header;
 
-                  return (
-                    <div
-                      key={header}
-                      ref={headerRefs.current[header]}
-                      className={`pt-5 px-4 md:px-10 ${
-                        !shouldShow ? "hidden md:block" : ""
-                      }`}
-                    >
+                    return (
                       <div
-                        className={`transition-all duration-300 p-4 md:p-10 rounded-lg w-full ${
-                          selectedHeader === header
-                            ? "bg-gray-100 shadow-md"
-                            : ""
+                        key={header}
+                        ref={headerRefs.current[header]}
+                        className={`pt-5 px-4 md:px-10 ${
+                          !shouldShow ? "hidden md:block" : ""
                         }`}
-                        onMouseEnter={() => {
-                          setSelectedHeader(header);
-                        }}
-                        onMouseLeave={() => {
-                          setSelectedHeader(null);
-                          setScrolledHeader(null);
-                        }}
                       >
-                        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
-                          <h1 className="text-xl md:text-2xl font-bold w-full md:w-2/5">
-                            {posts[0].formattedHeader}
-                          </h1>
+                        <div
+                          className={`transition-all duration-300 p-4 md:p-10 rounded-lg w-full bg-gray-100 shadow-md`}
+                        >
+                          <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
+                            <h1 className="text-xl md:text-2xl font-bold w-full md:w-2/5">
+                              {posts[0].formattedHeader}
+                            </h1>
+                          </div>
+                          {posts.map((post) =>
+                            post.content !== "COMING SOON" ? (
+                              <Link key={post.slug} to={`/blog/${post.slug}`}>
+                                <BlogPostPreview
+                                  title={post.data.title}
+                                  date={post.data.date}
+                                  tags={post.data.tags}
+                                  tagIndex={
+                                    Object.keys(BlogContent).indexOf(header) +
+                                    posts.indexOf(post)
+                                  }
+                                  description={post.content}
+                                  className="my-4"
+                                />
+                              </Link>
+                            ) : (
+                              <ComingSoonCard className="my-4" />
+                            )
+                          )}
                         </div>
-                        {posts.map((post) =>
-                          post.content !== "COMING SOON" ? (
-                            <Link key={post.slug} to={`/blog/${post.slug}`}>
-                              <BlogPostPreview
-                                title={post.data.title}
-                                date={post.data.date}
-                                tags={post.data.tags}
-                                tagIndex={
-                                  Object.keys(BlogContent).indexOf(header) +
-                                  posts.indexOf(post)
-                                }
-                                description={post.content}
-                                className="my-4"
-                              />
-                            </Link>
-                          ) : (
-                            <ComingSoonCard className="my-4" />
-                          )
-                        )}
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
             </div>
           ) : (
@@ -124,8 +102,8 @@ const Blog: React.FC = () => {
               </h2>
               <p className="text-gray-700 mb-4 text-center text-sm md:text-base">
                 Each section is a collection of posts (I'll aim to post roughly
-                1-2 per month) that follow a particular theme. Click or hover on
-                the chapters to browse.
+                1-2 per month) that follow a particular theme. Click on the
+                chapters to browse.
               </p>
               <p className="text-base md:text-lg text-gray-700 text-center italic">
                 Enjoy! :D
@@ -141,8 +119,6 @@ const Blog: React.FC = () => {
               onMouseEnter={() => {
                 if (window.innerWidth >= 768) {
                   setSelectedHeader(header);
-                  setScrolledHeader(header);
-                  setBlogScroll(true);
                 }
               }}
               onClick={() => handleSectionClick(header)}

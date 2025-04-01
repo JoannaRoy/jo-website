@@ -3,7 +3,7 @@ title: "fun words"
 date: "2025-03-02"
 tags: ["lists"]
 description: "new words i learned"
-draft: "false"
+draft: "true"
 ---
 
 This is a list of words I have heard and learned/liked in the past two years ish - I started keeping a list in ~2023 and update it every so often when someone says / I read a new word. I like to keep track of them, since otherwise I will forget. Also, I think there are some fun words that don't get used too often in day-to-day conversations, but that are great to know when the occasion arises :D. I think it would be also fun to start tracking the context in which I learn them, so new words will be added to the list with the date and context too 🤓.

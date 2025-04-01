@@ -23,5 +23,7 @@ Item #8 on the BINJO list is to read 20 books this year. I don't think it's real
 2. README.txt (by Chelsea Manning) 💜🩷
 3. Murder on the Orient Express (by Agatha Christie) 🩵💛
 4. Anne Frank: The Diary of a Young Girl (by Anne Frank) 💜🩷
-5. (in progress) A Night in the Lonesome October (by Roger Zelazny) 🩵💛
-6.
+5. A Night in the Lonesome October (by Roger Zelazny) 🩵💛
+6. Sunrise on the Reaping (by Suzanne Collins) (hehe) 🩵
+7. The Nightingale (by Kristin Hannah) 💙🩵💛
+8. Navalny (by Alexei Navalny) 💙💜
