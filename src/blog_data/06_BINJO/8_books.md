@@ -1,6 +1,6 @@
 ---
 title: "8: these are the books i've read in 2025"
-date: "2025-02-21"
+date: "ongoing"
 tags: ["binjo", "lists"]
 description: "books"
 draft: "false"
@@ -25,5 +25,7 @@ Item #8 on the BINJO list is to read 20 books this year. I don't think it's real
 4. Anne Frank: The Diary of a Young Girl (by Anne Frank) 💜🩷
 5. A Night in the Lonesome October (by Roger Zelazny) 🩵💛
 6. Sunrise on the Reaping (by Suzanne Collins) (hehe) 🩵
-7. The Nightingale (by Kristin Hannah) 💙🩵💛
+7. The Nightingale (by Kristin Hannah) 🩵💛
 8. Navalny (by Alexei Navalny) 💙💜
+9. The Ministy for the Future 🩷💛💚🩵💙
+10. Surely You're Joking, Mr. Feynman 💙💜💛
