@@ -455,7 +455,7 @@ draft: "true"
 ---
 `,__vite_glob_0_8=`---
 title: "Jo Practices German"
-date: "2025-03-13"
+date: "2025-04-30"
 tags: ["kartoffel chronicles"]
 description: "ein kurtze Artikel auf Deutsch. ich muss mein Deutsch üben :)"
 draft: "false"
@@ -463,7 +463,7 @@ draft: "false"
 
 Guten morgen 🙂 ! Todays blog post starts with a passage written in (my currently very broken) German, where I talk a bit about my adventures here so far. If you speak German and you are reading this, I apologize in advance for the grammar 😅 - stay tuned for a sequel a couple months from now when I will hopefully have made vast improvements in this domain!
 
-After the German portion, I list some rapid-fire reflections on my experiences living in a new country. I intend to do a more thorough analysis on this topic in a later post, but its nice to get snapshots of whats on my mind at various points so I can look back on what I’ve learned. Jo who moved here 9 months ago was a baby compared to Jo now, so I want to document the parts of my adventures so far that have helped her grow up.
+After the German portion, I list some rapid-fire reflections on my experiences living in a new country. I intend to do a more thorough analysis on this topic in a later post, but its nice to get snapshots of whats on my mind at this point so I can look back on what I’ve learned. Jo who moved here 9 months ago was a baby compared to Jo now, so I want to document the parts of her adventures so far that have helped her grow up.
 
 ---
 
@@ -546,7 +546,7 @@ draft: "true"
 ---
 `,__vite_glob_0_10=`---
 title: "8: these are the books i've read in 2025"
-date: "2025-02-21"
+date: "ongoing"
 tags: ["binjo", "lists"]
 description: "books"
 draft: "false"
@@ -571,8 +571,10 @@ Item #8 on the BINJO list is to read 20 books this year. I don't think it's real
 4. Anne Frank: The Diary of a Young Girl (by Anne Frank) 💜🩷
 5. A Night in the Lonesome October (by Roger Zelazny) 🩵💛
 6. Sunrise on the Reaping (by Suzanne Collins) (hehe) 🩵
-7. The Nightingale (by Kristin Hannah) 💙🩵💛
+7. The Nightingale (by Kristin Hannah) 🩵💛
 8. Navalny (by Alexei Navalny) 💙💜
+9. The Ministy for the Future 🩷💛💚🩵💙
+10. Surely You're Joking, Mr. Feynman 💙💜💛
 `,__vite_glob_0_11=`---
 title: "my pottery class diaries :)"
 date: "2025-02-21"
