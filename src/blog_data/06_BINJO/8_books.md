@@ -28,4 +28,5 @@ Item #8 on the BINJO list is to read 20 books this year. I don't think it's real
 7. The Nightingale (by Kristin Hannah) 🩵💛
 8. Navalny (by Alexei Navalny) 💙💜
 9. The Ministy for the Future 🩷💛💚🩵💙
-10. Surely You're Joking, Mr. Feynman 💙💜💛
+10. Surely You're Joking, Mr. Feynman 💜💛
+11. Good Economics for Hard Times 💙💜
