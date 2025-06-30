@@ -856,7 +856,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 "20 Postcards to Friends & Family",5,75,
 "50 New Recipes",10,48,
 "Make a Podcast or Blog",0,100,
-"Wall-Worthy Painting",0,0,
+"Wall-Worthy Painting",0,100,
 "10-Minute German Convo",0,40,
 "Play a Song (Well) on the Piano",60,40,
 "1 Month Not Being Late Ever",70,30,
