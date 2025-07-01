@@ -418,7 +418,11 @@ That said, we also need to keep in mind that parallels between two fields (or pr
 - Different goals (ie. practical vs theoretical elegance)
 - Different methods of validation (ie. empirical case studies vs simulations vs formal proofs)
 
-Approaches should not be copy & pasted betwen disciplines, and still need to be tested appropriately. Instead, these parallels can (and should) certainly be used to ‘steer’ research directions, while remaining aware of confirmation biases this approach may introduce. _The takeaway is not to blindly import solutions, but to let insights from one field inspire questions (and hopefully, answers) in another._
+Approaches should not be copy & pasted betwen disciplines, and still need to be tested appropriately. Instead, these parallels can (and should) be used to ‘steer’ research directions, while remaining aware of confirmation biases this approach may introduce.
+
+(this is a side-tangent, but I would argue that one of the biggest current downfalls/failures of AI governance and the EU AI Act right now is trying to regulate it the same way as we have approached regulation in other fields, without sufficiently acknowledging the differences between AI and those other fields with which we are drawing parallels. We are asking tech companies to fit themselves into a regulatory mold -- meanwhile, the rigidity this demands goes against core principles of most big tech firms, and seems unrealistic given the amount of power and momentum they currently hold. I'll probably come back to this can of worms in a later article -- but I did want to mention it here to underscore that this copy & paste approach is sneakier and probably more common than you might think).
+
+_The main takeaway is not to blindly import solutions, but to let insights from one field inspire questions (and hopefully, answers) in another._
 
 That's all I've got for now, but stay tuned for part two soon (!) -- Next month, I'll be attending the Cooperative AI Summer School, an annual conference / lecture series for early-career (thats me :) researchers and professionals interested in the field. Because of this, these topics have been top-of-mind for me over the past couple weeks, and I hope this article can be a good starting point for some interesting conversations at the conference next month.
 `,__vite_glob_0_5=`---
