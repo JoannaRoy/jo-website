@@ -360,7 +360,7 @@ Most fields of research (and often, areas of life) can benefit from identifying 
 
 It seems like there is huge potential to do this in the field of cooperative AI. As a relatively new field, many problems are presented as ‘novel’ and/or ‘under-explored’. This may be true for many, but I wonder whether some subset are really just a problem of translation (ie. the knowledge is out there, we just have to find the resources and people who have it, and find a way to integrate those perspectives in this context).
 
-Cooperative AI has parallels with many human (both in the world and online, at the individual or community level) and physical (ie. many-particle interactions) systems.
+Cooperative AI has parallels with many human (both in the world and online, at the individual and community level) and physical (ie. many-particle interactions) systems.
 
 **Perhaps a more well-established field could give answers to some questions in cooperative AI, for example:**
 
@@ -385,11 +385,9 @@ I am (almost completely) sure that some form(s) of interdisciplinary collaborati
 
 Because of all these links, I would be really interested to see a review paper that identifies key problems in cooperative AI, highlights (some of) their respective overlap / parallels in other fields, then proposes some mechanisms for enabling collaboration between experts in both of these areas (such that their collaboration can be mutually beneficial / genuinely constructive).
 
-That said, we also need to keep in mind that parallels between two fields (or problems / challenges therewithin) do not mean that they are an exact match -- the outcome in one may not necessarily be the outcome in the other, nor is the solution to one problem necessarily the solution to the other. Approaches should not be copy & pasted betwen disciplines, and still need to be tested appropriately. Instead, these parallels can (and should) certainly be used to ‘steer’ research directions, while remaining aware of confirmation biases this approach may introduce.
-
 ### Computational Social Choice <-> Community Engagement
 
-Along these lines, a parallel I find particularly interesting is that between computational social choice (a sub-field of cooperative AI) and community engagement (a field which I spent significant time thinking about in the later years of my undergraduate degree).
+One parallel I find particularly interesting is that between computational social choice (a sub-field of cooperative AI) and community engagement (a field which I spent significant time thinking about in the later years of my undergraduate degree).
 
 **Computational social choice** (as I currently understand it) is the study of how to best aggregate ‘votes’ (ie. actors' opinions / preferences / anything of that nature) to inform ‘decisions’ (ie. outcomes / results / etc -- in a wide variety of scenarios, beyond just elections, which we most commonly associate with the concept of voting). The methods are formal, mathematical, and often aim for provable guarantees (ie. no agent is incentivized to lie about their preferences).
 
@@ -414,13 +412,13 @@ Both computational social choice and community engagement involve finding ways t
 
 To summarize, cooperative AI is an important area of AI safety. It has many links with other fields that would be worth exploring more to advance both the field of cooperative AI, and other fields where cooperative AI could have useful applications. Computational social choice and community engagement have some especially interesting (to me, at least) overlaps that I hope to continue learning more about, and which I think could be [important] to technology development in general moving forward.
 
-In bridging these gaps, we need to be careful about 'copy/pasting' solutions from one domain to another -- we can use knowledge from other fields to 'guide' decisions when facing similar challenges. This includes being mindful of:
+That said, we also need to keep in mind that parallels between two fields (or problems / challenges therewithin) do not mean that they are an exact match -- the outcome in one may not necessarily be the outcome in the other, nor is the solution to one problem necessarily the solution to the other. This includes being mindful of:
 
 - Different definitions (ie. what “fairness” means in ethics vs in social choice)
 - Different goals (ie. practical vs theoretical elegance)
 - Different methods of validation (ie. empirical case studies vs simulations vs formal proofs)
 
-The takeaway is not to blindly import solutions, but to let insights from one field inspire questions (and hopefully, answers) in another.
+Approaches should not be copy & pasted betwen disciplines, and still need to be tested appropriately. Instead, these parallels can (and should) certainly be used to ‘steer’ research directions, while remaining aware of confirmation biases this approach may introduce. _The takeaway is not to blindly import solutions, but to let insights from one field inspire questions (and hopefully, answers) in another._
 
 That's all I've got for now, but stay tuned for part two soon (!) -- Next month, I'll be attending the Cooperative AI Summer School, an annual conference / lecture series for early-career (thats me :) researchers and professionals interested in the field. Because of this, these topics have been top-of-mind for me over the past couple weeks, and I hope this article can be a good starting point for some interesting conversations at the conference next month.
 `,__vite_glob_0_5=`---
