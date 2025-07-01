@@ -353,7 +353,7 @@ description: "How cooperative AI can benefit from cooperation with other discipl
 draft: "false"
 ---
 
-Cooperative AI is a (relatively new) sub-field of AI safety, focused on ensuring that AI agents interact 'well' (importantly: safely) with one another. This is becoming increasingly important as AI agents are deployed in increasingly consequential contexts, in which they are increasingly likely to interact with each other more and more often.The textbook example of why we must study and take precautions in the area of cooperative AI is a 2010 market crash, wherein the algorithms deployed by various trading firms entered a dangerous feedback loop, which ultimately dropped 9% from the Dow Jones Industrial Average before humans intercepted to mitigate the damage.
+Cooperative AI is a (relatively new) sub-field of AI safety, focused on ensuring that AI agents interact 'well' (importantly: safely) with one another. This is becoming increasingly important as AI agents are deployed in contexts with consequential settings, in which they are likely to interact with each other more and more often.The textbook example of why we must study and take precautions in the area of cooperative AI is a 2010 market crash, wherein the algorithms deployed by various trading firms entered a dangerous feedback loop, which ultimately dropped 9% from the Dow Jones Industrial Average before humans intercepted to mitigate the damage.
 
 I can't remember how I first stumbled upon this area of research, but what interests me most about it is how much it intersects with other fields. In this article, I'll talk a bit about those overlaps, and why I think they are important to pay attention to (particularly since the concept of cooperative AI is still relatively new).
 
