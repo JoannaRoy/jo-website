@@ -455,17 +455,19 @@ Here is a list of nice little happy things:
 - forests! looking at all the trees
 - oceans too
 - and stars
-- when you smile at someone's dog and their owner smiles back. and vice versa
-- smiling at someone on a run and having them smile back
 - sunsets
 - sunrises
 - the feeling when you wake up from a really really deep sleep, naps included (DEEP TISSUE)
 - petting a cat on the street
 - chocolate
+- the smell of an orange when you cut it open
 - laughing really hard. especially if it's unexpected and you laugh so loud other people look at you
 - unexpected hello messages from friends
 - peeing when u really (really) needed to pee
 - deep conversations
+- when you smile at someone's dog and their owner smiles back. and vice versa (when someone smiles at my dog and i smile back. not when the dog smiles back lol - although I guess that is nice too)
+- smiling at someone on a run and having them smile back
+- actually just smiling in general. its crazy how it makes you happy just to do it.
 - being confused about feelings and stuff, then hearing a song that puts them into words and sounds just how u meant them
 - concerts - people all singing a song together
 - really vivid dreams
@@ -947,7 +949,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 "50 New Recipes",10,48,
 "Make a Podcast or Blog",0,100,
 "Wall-Worthy Painting",0,100,
-"10-Minute German Convo",0,40,
+"10-Minute German Convo",0,100,
 "Play a Song (Well) on the Piano",60,40,
 "1 Month Not Being Late Ever",0,100,
 "2 Pull-Ups",75,25,
