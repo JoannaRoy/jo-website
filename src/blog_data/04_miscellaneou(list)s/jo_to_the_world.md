@@ -18,17 +18,19 @@ Here is a list of nice little happy things:
 - forests! looking at all the trees
 - oceans too
 - and stars
-- when you smile at someone's dog and their owner smiles back. and vice versa
-- smiling at someone on a run and having them smile back
 - sunsets
 - sunrises
 - the feeling when you wake up from a really really deep sleep, naps included (DEEP TISSUE)
 - petting a cat on the street
 - chocolate
+- the smell of an orange when you cut it open
 - laughing really hard. especially if it's unexpected and you laugh so loud other people look at you
 - unexpected hello messages from friends
 - peeing when u really (really) needed to pee
 - deep conversations
+- when you smile at someone's dog and their owner smiles back. and vice versa (when someone smiles at my dog and i smile back. not when the dog smiles back lol - although I guess that is nice too)
+- smiling at someone on a run and having them smile back
+- actually just smiling in general. its crazy how it makes you happy just to do it.
 - being confused about feelings and stuff, then hearing a song that puts them into words and sounds just how u meant them
 - concerts - people all singing a song together
 - really vivid dreams

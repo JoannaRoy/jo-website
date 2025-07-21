@@ -60,11 +60,10 @@ const Home: React.FC = () => {
                       Trail
                     </a>
                     , a Munich-based AI Governance start-up, and I graduated
-                    from Engineering Science (ECE major) at the University of
-                    Toronto in 2024.
+                    from Engineering Science (Electrical and Computer
+                    Engineering major) at the University of Toronto in 2024.
                   </p>
                 }
-                // backgroundClass="bg-radial-[at_25%_25%] from-purple-400 via-pink-350 to-orange-300 to-75%"
                 backgroundClass="bg-purple-200"
                 backgroundPosition="bottom center"
               />
@@ -76,16 +75,15 @@ const Home: React.FC = () => {
                 backContent={
                   <p>
                     I grew up in Canada but I'm currently living in Germany. I
-                    have a cat named Barney, a dog named Buddy, and two guinea
-                    pigs named Bonnie & Clyde.
+                    have a cat named Barney, and two guinea pigs named Bonnie &
+                    Clyde.
                     <br />
-                    <br />I love running, cycling, cross-country skiing, and
+                    <br />I love running, hiking, cross-country skiing, and
                     generally exploring outside & trying new sports or races. I
                     also really love reading and listening to podcasts and am
                     always open to recommendations! :)
                   </p>
                 }
-                // backgroundClass="bg-radial from-pink-400 from-20% via-fuchsia-350 to-orange-200"
                 backgroundClass="bg-purple-200"
                 backgroundPosition="top"
               />
@@ -103,7 +101,6 @@ const Home: React.FC = () => {
                     re-finding old people) so I'd love to chat :)
                   </p>
                 }
-                // backgroundClass="bg-radial-[at_30%_30%] from-indigo-200 via-fuchsia-400 to-pink-300 to-90%"
                 backgroundClass="bg-purple-200"
                 backgroundPosition="right"
               />

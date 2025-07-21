@@ -10,6 +10,8 @@ Cooperative AI is a (relatively new) sub-field of AI safety, focused on ensuring
 
 I can't remember how I first stumbled upon this area of research, but what interests me most about it is how much it intersects with other fields. In this article, I'll talk a bit about those overlaps, and why I think they are important to pay attention to (particularly since the concept of cooperative AI is still relatively new).
 
+---
+
 ### Parallels in Cooperative AI
 
 Most fields of research (and often, areas of life) can benefit from identifying common patterns, then using lessons you learned when you saw that pattern in one environment to help answer questions in the other. For example, asking ourselves:

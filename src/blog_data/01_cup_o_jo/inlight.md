@@ -5,7 +5,8 @@ tags: ["misc", "projects"]
 description: "inlight reflection"
 ---
 
-[this post is a placeholder until its posted with the toolkit on inlight's site in the next couple days :)]
+Here is the link to the toolkit resource being talked about in this post: https://smhr.utoronto.ca/student-engagement-toolkit/
+and the actual posting of this article: https://smhr.utoronto.ca/inlight-toolkit-for-student-engagement-in-mental-health-research/
 
 This past summer, I worked with Inlight to develop a Toolkit for Student Engagement in Mental Health Research. In this article, I will talk about the process of creating the toolkit, some key learnings, and how I hope this work can be extended to other fields of research in the future.
 
