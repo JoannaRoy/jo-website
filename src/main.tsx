@@ -8,7 +8,7 @@ import BlogPost from "./pages/Blog/BlogPost.tsx";
 import BINJOHome from "./pages/BINJO/BINJOHome.tsx";
 import Blog from "./pages/Blog/BlogHome.tsx";
 import { ReactFlowProvider } from "reactflow";
-import Flow from "./mind_map/Flow";
+import Flow from "./pages/mind_map/Flow.tsx";
 
 const router = createHashRouter([
   {

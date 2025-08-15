@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
     <div
       ref={navBarRef}
       className={`flex flex-col fixed bg-transparent top-0 right-0 ${
-        isOpen ? "z-[1000]" : "z-0"
+        isOpen ? "z-[1000]" : "z-10"
       }`}
     >
       <button
