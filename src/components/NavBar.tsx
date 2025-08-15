@@ -78,6 +78,12 @@ const NavBar: React.FC = () => {
             BINJO
           </h2>
         </Link>
+        <Link
+          to="/mind-map"
+          className="text-black font-bold text-base no-underline my-4"
+        >
+          Mind Map
+        </Link>
         {/* <Link to="/projects" className="text-black font-bold text-base no-underline my-4">
           Projects
         </Link>

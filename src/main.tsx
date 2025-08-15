@@ -7,6 +7,8 @@ import Home from "./pages/Home.tsx";
 import BlogPost from "./pages/Blog/BlogPost.tsx";
 import BINJOHome from "./pages/BINJO/BINJOHome.tsx";
 import Blog from "./pages/Blog/BlogHome.tsx";
+import { ReactFlowProvider } from "reactflow";
+import Flow from "./mind_map/Flow";
 
 const router = createHashRouter([
   {
@@ -29,12 +31,18 @@ const router = createHashRouter([
         path: "binjo",
         element: <BINJOHome />,
       },
+      {
+        path: "mind-map",
+        element: <Flow />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ReactFlowProvider>
+      <RouterProvider router={router} />
+    </ReactFlowProvider>
   </StrictMode>
 );
