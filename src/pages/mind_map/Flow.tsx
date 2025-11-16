@@ -15,7 +15,7 @@ import useStore, { RFState } from "./mind-map-store";
 import MindMapNode from "./MindMapNode";
 import MindMapEdge from "./MindMapEdge";
 import { useCallback, useRef } from "react";
-import { PageGrid } from "../../components/ItemGrids";
+import { PageGrid } from "../../components/item-grids";
 
 const selector = (state: RFState) => ({
   nodes: state.nodes,

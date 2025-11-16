@@ -4,9 +4,9 @@ import "./styling/index.css";
 import App from "./App.tsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.tsx";
-import BlogPost from "./pages/Blog/BlogPost.tsx";
+import BlogPost from "./pages/blog/BlogPost.tsx";
 import BINJOHome from "./pages/BINJO/BINJOHome.tsx";
-import Blog from "./pages/Blog/BlogHome.tsx";
+import Blog from "./pages/blog/BlogHome.tsx";
 import { ReactFlowProvider } from "reactflow";
 import Flow from "./pages/mind_map/Flow.tsx";
 

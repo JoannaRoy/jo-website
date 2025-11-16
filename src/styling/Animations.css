@@ -19,10 +19,6 @@
   backface-visibility: hidden;
 }
 
-.front {
-  /* Add your front styles here */
-}
-
 .back {
   transform: rotateY(180deg);
   /* Add your back styles here */

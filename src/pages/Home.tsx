@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { PageGrid } from "../components/ItemGrids.tsx";
-import "../styling/Backgrounds.css";
+import { PageGrid } from "../components/item-grids.tsx";
 import "../styling/Animations.css";
-import FlipCard from "../components/FlipCard.tsx";
+import FlipCard from "../components/flip-card.tsx";
 import Sparkles from "react-sparkle";
 
 const Home: React.FC = () => {
