@@ -1,6 +1,7 @@
 ---
-title: "nice little things"
+title: "Nice Little Things"
 date: "2025-02-20"
+preview image: "nicee.jpeg"
 tags: ["cup o jo", "lists"]
 description: "a list of nice little happy things"
 draft: "false"
@@ -45,3 +46,4 @@ Here is a list of nice little happy things:
 - dogs playing in the park
 - a really nice, long run
 - feeling like you're really giving something your all, and then having that hard work pay off
+- putting on a new pair of (good quality) socks for the first time

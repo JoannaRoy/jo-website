@@ -1,6 +1,7 @@
 ---
 title: "Jo Practices German"
 date: "2025-04-30"
+preview image: "brezn.jpeg"
 tags: ["kartoffel chronicles"]
 description: "ein kurtze Artikel auf Deutsch. ich muss mein Deutsch üben :)"
 draft: "false"

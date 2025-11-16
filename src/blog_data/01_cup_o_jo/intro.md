@@ -1,6 +1,7 @@
 ---
-title: "intro & what i want this blog to be"
+title: "Intro & What I Want This Blog to Be"
 date: "2025-02-20"
+preview image: "hello.jpeg"
 tags: ["misc"]
 description: "intro & what i want this blog to be"
 ---
