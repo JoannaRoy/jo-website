@@ -9,7 +9,7 @@ interface ItemBoxProps {
   className?: string;
 }
 
-const ItemBox: React.FC<ItemBoxProps> = ({
+export const PlainBox: React.FC<ItemBoxProps> = ({
   title,
   imageUrl,
   borderColor,
@@ -40,36 +40,3 @@ const ItemBox: React.FC<ItemBoxProps> = ({
     </div>
   );
 };
-
-const CheckerBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
-  return (
-    <ItemBox
-      {...props}
-      style={{
-        backgroundImage: `url(src/assets/checkers.png)`,
-        backgroundSize: "contain",
-        ...style,
-      }}
-      className="bg-contain"
-    />
-  );
-};
-
-const SparkleBox: React.FC<ItemBoxProps> = ({ style, ...props }) => {
-  return (
-    <ItemBox
-      {...props}
-      style={{
-        aspectRatio: "1/1",
-        ...style,
-      }}
-      className="bg-contain"
-    />
-  );
-};
-
-const PlainBox: React.FC<ItemBoxProps> = (props) => {
-  return <ItemBox {...props} />;
-};
-
-export { CheckerBox, SparkleBox, PlainBox };

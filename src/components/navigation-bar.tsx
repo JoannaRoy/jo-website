@@ -32,14 +32,14 @@ const NavBar: React.FC = () => {
     <div
       ref={navBarRef}
       className={`flex flex-col fixed bg-transparent top-0 right-0 ${
-        isOpen ? "z-[1000]" : "z-10"
+        isOpen ? "z-[1000] pointer-events-auto" : "z-50 pointer-events-none"
       }`}
     >
       <button
         ref={hamburgerRef}
         onClick={handleHamburgerClick}
         type="button"
-        className="bg-transparent border-none m-4 absolute right-0 z-[1001]"
+        className="bg-transparent border-none m-4 absolute right-0 z-[1001] pointer-events-auto"
       >
         <div
           className={`w-[35px] h-[4px] mb-[8px] transition-transform duration-400 bg-black origin-left ${
@@ -78,12 +78,11 @@ const NavBar: React.FC = () => {
             BINJO
           </h2>
         </Link>
-        <Link
-          to="/mind-map"
-          className="text-black font-bold text-base no-underline my-4"
-        >
-          Mind Map
-        </Link>
+        {/* <Link to="/mind-map">
+          <h2 className="text-black font-bold text-base no-underline my-4">
+            Mind Map
+          </h2>
+        </Link> */}
         {/* <Link to="/projects" className="text-black font-bold text-base no-underline my-4">
           Projects
         </Link>
