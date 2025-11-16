@@ -1,12 +1,13 @@
 import React from "react";
-import "../../styling/Backgrounds.css";
-import { PageGrid } from "../../components/ItemGrids";
+import { PageGrid } from "../../components/item-grids";
 import ProgressChart from "./BINJOProgress";
-import { PlainBox } from "../../components/ItemBoxes";
+import { PlainBox } from "../../components/item-box";
 import BinjoBingo from "./BINJO";
 import WOW from "./WOW";
+import { BINJOGallery } from "./BINJOGallery";
 
 const BINJOHome: React.FC = () => {
+
   return (
     <div>
       <PageGrid columns={1} style={{ alignItems: "left" }}>
@@ -30,6 +31,7 @@ const BINJOHome: React.FC = () => {
         <div className="flex justify-center w-full min-h-screen mt-12 md:mt-24">
           <WOW />
         </div>
+        <BINJOGallery />  
       </PageGrid>
     </div>
   );
