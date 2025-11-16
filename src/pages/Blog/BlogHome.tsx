@@ -1,243 +1,108 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BlogContent } from "./BlogContent";
-import { PageGrid } from "../../components/ItemGrids";
-import { BlogTag } from "./BlogTags";
+import { PageGrid } from "../../components/item-grids";
 import BlogTitle from "./BlogTitle";
+import { TabScroll } from "../../components/tab-scroll";
 
 const Blog: React.FC = () => {
-  const [selectedHeader, setSelectedHeader] = React.useState<string | null>(
-    null
-  );
-  const [blogScroll, setBlogScroll] = React.useState<boolean>(false);
-  const [expandedSection, setExpandedSection] = React.useState<string | null>(
-    null
-  );
+  const [hoveredChapter, setHoveredChapter] = useState<string>(Object.keys(BlogContent)[0]);
 
-  const headerRefs = React.useRef<{
-    [key: string]: React.RefObject<HTMLDivElement>;
-  }>({});
-
-  if (Object.keys(headerRefs.current).length === 0) {
-    Object.keys(BlogContent).forEach((header) => {
-      headerRefs.current[header] = React.createRef<HTMLDivElement>();
-    });
-  }
-
-  const handleSectionClick = (header: string) => {
-    setSelectedHeader(header);
-    setBlogScroll(true);
-    setExpandedSection(expandedSection === header ? null : header);
-  };
+  const tabs = Object.entries(BlogContent).map(([header, posts]) => ({
+    id: header,
+    label: posts[0].formattedHeader,
+    description: posts[0].chapterDescription,
+    content: (position: string) => (
+      <>
+        {posts.map((post) => (
+          <Link
+            key={`${post.slug}-${position}`}
+            to={`/blog/${post.slug}`}
+            className="flex-shrink-0 w-[280px] md:w-[350px]"
+          >
+            <BlogPostPreview
+              title={post.data.title}
+              date={post.data.date}
+              chapterName={post.formattedHeader}
+              isHighlighted={hoveredChapter === header}
+              previewImage={post.data.previewImage}
+            />
+          </Link>
+        ))}
+      </>
+    )
+  }));
 
   return (
     <PageGrid columns={1} style={{ alignItems: "left" }}>
-      <BlogTitle
-        onMouseEnter={() => setBlogScroll(false)}
-        className="my-[5vh]"
+      <TabScroll 
+        tabs={tabs}
+        headerComponent={<BlogTitle />}
+        onTabHover={setHoveredChapter}
       />
-
-      <div className="flex flex-col md:flex-row w-full bg-gradient-to-br from-green-100 to-purple-200">
-        <div className="flex flex-row w-full md:w-1/2 relative order-1 md:order-2">
-          {blogScroll ? (
-            <div
-              className="w-full md:absolute md:inset-0 overflow-y-auto pr-4 pb-4 min-h-[300px] mb-10"
-              id="blog-scroll-container"
-            >
-              <div className="flex flex-col">
-                {Object.entries(BlogContent)
-                  .filter(([header]) => header === selectedHeader)
-                  .map(([header, posts]) => {
-                    const isMobile = window.innerWidth < 768;
-                    const shouldShow =
-                      !isMobile ||
-                      !expandedSection ||
-                      expandedSection === header;
-
-                    return (
-                      <div
-                        key={header}
-                        ref={headerRefs.current[header]}
-                        className={`pt-5 px-4 md:px-10 ${
-                          !shouldShow ? "hidden md:block" : ""
-                        }`}
-                      >
-                        <div
-                          className={`transition-all duration-300 p-4 md:p-10 rounded-lg w-full bg-gray-100 shadow-md`}
-                        >
-                          <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
-                            <h1 className="text-xl md:text-2xl font-bold w-full md:w-2/5">
-                              {posts[0].formattedHeader}
-                            </h1>
-                          </div>
-                          {posts.map((post) =>
-                            post.content !== "COMING SOON" ? (
-                              <Link key={post.slug} to={`/blog/${post.slug}`}>
-                                <BlogPostPreview
-                                  title={post.data.title}
-                                  date={post.data.date}
-                                  tags={post.data.tags}
-                                  tagIndex={
-                                    Object.keys(BlogContent).indexOf(header) +
-                                    posts.indexOf(post)
-                                  }
-                                  description={post.content}
-                                  className="my-4"
-                                />
-                              </Link>
-                            ) : (
-                              <ComingSoonCard className="my-4" />
-                            )
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col justify-center items-center w-full md:w-5/6 h-full p-4 md:p-8 min-h-[200px]">
-              <h2 className="font-semibold mb-4 text-center">
-                Welcome to my blog!
-              </h2>
-              <p className="text-gray-700 mb-4 text-center text-sm md:text-base">
-                Each section is a collection of posts (I'll aim to post roughly
-                1-2 per month) that follow a particular theme. Click on the
-                chapters to browse.
-              </p>
-              <p className="text-base md:text-lg text-gray-700 text-center italic">
-                Enjoy! :D
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="flex flex-col justify-center w-full md:w-1/2 px-4 md:pl-20 my-5 order-2 md:order-1">
-          {Object.entries(BlogContent).map(([header, posts]) => (
-            <div
-              key={header}
-              onMouseEnter={() => {
-                if (window.innerWidth >= 768) {
-                  setSelectedHeader(header);
-                }
-              }}
-              onClick={() => handleSectionClick(header)}
-            >
-              <BlogPostSectionHeader
-                title={posts[0].formattedHeader}
-                chapterDescription={posts[0].chapterDescription}
-                index={Object.keys(BlogContent).indexOf(header)}
-                isSelected={header === selectedHeader}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
     </PageGrid>
-  );
-};
-
-const BlogPostSectionHeader = ({
-  title,
-  chapterDescription,
-  index,
-  className,
-  isSelected,
-}: {
-  title: string | undefined;
-  chapterDescription: string | undefined;
-  index: number;
-  className?: string;
-  isSelected?: boolean;
-}) => {
-  const borderColors = [
-    "border-[#82ca9d]",
-    "border-[#8884d8]",
-    "border-blue-300",
-  ];
-  const fillColors = ["bg-emerald-100", "bg-purple-100", "bg-blue-100"];
-  const widths = [
-    "w-full md:w-3/5",
-    "w-full md:w-2/3",
-    "w-full md:w-3/4",
-    "w-full md:w-4/5",
-    "w-full md:w-5/6",
-    "w-full md:w-9/10",
-  ];
-
-  return (
-    <div
-      className={`rounded-l-sm border-t-7 border-l-7 border-b-7 justify-center text-center h-auto m-1 p-1 ${
-        borderColors[index % borderColors.length]
-      } ${widths[index % widths.length]} drop-shadow-sm
-      transition-all duration-200 hover:transform hover:translate-x-2 hover:drop-shadow-md ${
-        isSelected ? "translate-x-2 drop-shadow-md scale-105" : ""
-      } ${className}`}
-    >
-      <div
-        className={`w-full flex items-center justify-center p-5 ${
-          fillColors[index % fillColors.length]
-        }`}
-      >
-        {!isSelected && (
-          <h2
-            className={`text-lg md:text-xl font-bold drop-shadow-sm text-center`}
-          >
-            {title}
-          </h2>
-        )}
-        {isSelected && (
-          <p className="italic w-full text-[.6rem] md:text-[.8rem] md:p-0">
-            {chapterDescription}
-          </p>
-        )}
-      </div>
-    </div>
   );
 };
 
 const BlogPostPreview = ({
   title,
-  description,
   date,
-  tags,
-  className,
+  chapterName,
+  isHighlighted,
+  previewImage,
 }: {
   title: string;
-  description: string;
   date: string;
-  tags: string[];
-  tagIndex: number;
-  className?: string;
+  chapterName: string;
+  isHighlighted: boolean;
+  previewImage?: string;
 }) => {
-  return (
-    <div
-      className={`${className} flex flex-col p-4 md:p-6 items-start bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 w-full`}
-    >
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center w-full gap-1 md:gap-0">
-        <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
-        <p className="text-xs md:text-sm text-gray-700">{date}</p>
-      </div>
-      <div className="flex gap-2 flex-wrap">
-        {tags.map((tag: string) => (
-          <BlogTag key={tag} name={tag} />
-        ))}
-      </div>
-      <p className="text-xs md:text-sm text-gray-700">
-        {description.slice(0, 100)}...
-      </p>
-    </div>
-  );
-};
+  const getImageUrl = (imageName: string) => {
+    return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
+  };
 
-const ComingSoonCard = ({ className }: { className?: string }) => {
   return (
-    <div
-      className={`${className} flex flex-col p-4 md:p-6 items-start bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 w-full`}
-    >
-      <p className="text-xs md:text-sm text-gray-700">
-        This section is coming soon. Check back later :)
-      </p>
+    <div className={`group flex flex-col bg-white/70 backdrop-blur-md rounded-xl hover:bg-white/90 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border h-full overflow-hidden ${
+      isHighlighted ? "border-gray-300/70" : "border-white/50"
+    }`}>
+      <div className="relative w-full h-40 md:h-48 bg-gradient-to-br from-purple-200 via-pink-200 to-blue-200 overflow-hidden">
+        {previewImage ? (
+          <img 
+            src={getImageUrl(previewImage)}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjMiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
+        )}
+      </div>
+      <div className="flex flex-col justify-between flex-grow p-5 md:p-6">
+        <div>
+          <div className="mb-3">
+            <span className={`text-[0.65rem] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider transition-all duration-200 ${
+              isHighlighted 
+                ? "bg-gray-300 text-gray-900" 
+                : "text-gray-500 bg-gray-100"
+            }`}>
+              {chapterName}
+            </span>
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-gray-800 transition-colors line-clamp-2">
+            {title}
+          </h2>
+        </div>
+        <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-200/60">
+          <p className="text-xs md:text-sm text-gray-500 font-medium">{date}</p>
+          <svg 
+            className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
     </div>
   );
 };

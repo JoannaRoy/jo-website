@@ -3,27 +3,46 @@ import { Buffer } from "buffer";
 import Papa from "papaparse";
 
 import blogMetadataCsv from "../../blog_data/blog_metadata.csv?raw";
-const parseMetadata = (csvString: string) => {
-  return;
-};
+
+
+const TRUE = "true";
 
 interface BlogMetadataRow {
   chapter_number: string;
   chapter_title: string;
   chapter_description: string;
 }
-export const blogMetadata = parseMetadata(blogMetadataCsv);
+
+interface BlogPost {
+  data: {
+    title: string;
+    date: string;
+    tags: string[];
+    draft: string;
+    previewImage?: string;
+  };
+  content: string;
+  slug: string;
+  formattedHeader: string;
+  chapterDescription?: string;
+}
+
+interface BlogContentStructure {
+  [key: string]: BlogPost[];
+}
 
 globalThis.Buffer = Buffer;
 
-// Import all Markdown files from the "posts" folder
 const markdownFiles = import.meta.glob("../../blog_data/*/*.md", {
   as: "raw",
   eager: true,
 });
 
-export const BlogContent = Object.entries(markdownFiles).reduce(
-  (acc, [filePath, content]) => {
+const unsortedContent = Object.entries(markdownFiles).reduce(
+  (acc: BlogContentStructure, [filePath, content]) => {
+    if (filePath.includes('/preview_images/')) {
+      return acc;
+    }
     const { data, content: markdownContent } = matter(content as string);
     const header = filePath.replace("../../blog_data/", "").split("/")[0];
     const formattedHeader = header
@@ -43,51 +62,27 @@ export const BlogContent = Object.entries(markdownFiles).reduce(
       (row) => row.chapter_title === header
     )?.chapter_description;
 
-    if (data.draft !== "true") {
+    if (data.draft !== TRUE) {
       acc[header].push({
         data: {
           title: data.title,
           date: data.date,
           tags: data.tags,
           draft: data.draft,
+          previewImage: data["preview image"],
         },
         content: markdownContent,
         slug: slug,
         formattedHeader: formattedHeader,
         chapterDescription: chapterDescription,
       });
-    } else if (data.draft == "true" && acc[header].length < 1) {
-      acc[header].push({
-        data: {
-          title: data.title,
-          date: data.date,
-          tags: data.tags,
-          draft: data.draft,
-        },
-        content: "COMING SOON",
-        slug: slug,
-        formattedHeader: formattedHeader,
-        chapterDescription: chapterDescription,
-      });
     }
-    if (acc[header].length > 1 && acc[header][0].content == "COMING SOON") {
-      acc[header].splice(0, 1);
-    }
-    return acc;
-  },
-  {} as Record<
-    string,
-    Array<{
-      data: {
-        title: string;
-        date: string;
-        tags: string[];
-        draft: boolean;
-      };
-      content: string;
-      slug: string;
-      formattedHeader: string;
-      chapterDescription: string | undefined;
-    }>
-  >
-);
+    return acc; 
+  }, {});
+
+export const BlogContent = Object.fromEntries(
+  Object.entries(unsortedContent).map(([header, posts]) => [
+    header,
+    posts.sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime())
+  ])
+)

@@ -1,14 +1,11 @@
 import React from "react";
 import Markdown from "react-markdown";
 import { useParams, useNavigate } from "react-router-dom";
-import "../../styling/Backgrounds.css";
-import { PageGrid } from "../../components/ItemGrids";
-import { PlainBox } from "../../components/ItemBoxes";
+import { PageGrid } from "../../components/item-grids";
 import { BlogContent } from "./BlogContent";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
-import BlogTitle from "./BlogTitle";
 
 interface BlogPostProps {
   title?: string;
@@ -27,17 +24,20 @@ const BlogPost: React.FC<BlogPostProps> = () => {
     navigate("/blog");
   };
 
+  const getImageUrl = (imageName: string) => {
+    return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
+  };
+
   return (
     <PageGrid columns={1}>
-      <BlogTitle className="mb-0" />
-      <div className="p-4 md:p-8 mx-auto w-[95vw] md:w-[90vw] h-full">
+      <div className="p-4 md:p-8 mx-auto w-[95vw] md:w-[90vw] lg:w-[80vw] xl:w-[70vw] h-full">
         <button
           onClick={handleBackClick}
-          className="mb-4 flex items-center text-[var(--turquoise)] hover:text-[var(--dark-turquoise)] transition-colors bg-gradient-to-br from-green-200 to-purple-300 p-3 md:p-5 rounded-md"
+          className="mb-6 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all hover:translate-x-[-4px] duration-200 group"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 md:h-5 md:w-5 mr-1"
+            className="h-5 w-5 md:h-6 md:w-6"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -47,38 +47,51 @@ const BlogPost: React.FC<BlogPostProps> = () => {
               clipRule="evenodd"
             />
           </svg>
-          <div className="flex flex-row items-center">
-            <h1 className="text-lg md:text-2xl text-[var(--turquoise)] hover:text-black transition-colors font-bold">
-              Back to Blog
-            </h1>
-          </div>
+          <span className="text-base md:text-lg font-semibold">Back to Blog</span>
         </button>
 
-        <PlainBox
-          borderColor="var(--turquoise)"
-          className="bg-white p-4 md:p-15 shadow-md"
-        >
-          <h1 className="text-2xl md:text-4xl mb-4 font-bold">
-            {post?.data.title}
-          </h1>
-          <div className="flex flex-col md:flex-row md:justify-between w-full mb-4 md:mb-8 gap-2 md:gap-0">
-            <p className="text-left" style={{ color: "var(--turquoise)" }}>
-              {post?.data.date}
-            </p>
-            {post?.data.tags && (
-              <div className="flex flex-wrap gap-2 md:gap-4">
-                {post?.data.tags.map((tag: string) => (
-                  <span
-                    key={tag}
-                    className="bg-[var(--turquoise)] px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-          <div className="text-left leading-6 md:leading-7 prose prose-ol:list-decimal prose-ul:list-disc prose-p:my-3 md:prose-p:my-4 max-w-none text-sm md:text-base">
+        <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden">
+          {post?.data.previewImage && (
+            <div className="relative w-full h-32 md:h-48 lg:h-56 overflow-hidden">
+              <img 
+                src={getImageUrl(post.data.previewImage)}
+                alt={post.data.title}
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/10"></div>
+            </div>
+          )}
+          
+          <div className="p-6 md:p-10 lg:p-12">
+            <div className="mb-4">
+              <span className="text-xs md:text-sm font-bold px-3 py-1.5 rounded-full bg-gray-200 text-gray-700 uppercase tracking-wider">
+                {post?.formattedHeader}
+              </span>
+            </div>
+            
+            <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 font-bold text-gray-900">
+              {post?.data.title}
+            </h1>
+            
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full mb-8 md:mb-10 gap-3 md:gap-0 pb-6 border-b border-gray-200">
+              <p className="text-sm md:text-base text-gray-600 font-medium">
+                {post?.data.date}
+              </p>
+              {post?.data.tags && (
+                <div className="flex flex-wrap gap-2">
+                  {post?.data.tags.map((tag: string) => (
+                    <span
+                      key={tag}
+                      className="bg-gradient-to-r from-purple-200 to-pink-200 px-3 py-1 rounded-full text-xs md:text-sm font-medium text-gray-800"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            <div className="text-left leading-7 md:leading-8 prose prose-lg prose-ol:list-decimal prose-ul:list-disc prose-p:my-4 md:prose-p:my-5 max-w-none text-base md:text-lg text-gray-800">
             <Markdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw, rehypeSanitize]}
@@ -185,8 +198,9 @@ const BlogPost: React.FC<BlogPostProps> = () => {
             >
               {post?.content}
             </Markdown>
+            </div>
           </div>
-        </PlainBox>
+        </div>
       </div>
     </PageGrid>
   );
