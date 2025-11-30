@@ -1,8 +1,8 @@
 import React from "react";
 import Markdown from "react-markdown";
 import { useParams, useNavigate } from "react-router-dom";
-import { PageGrid } from "../../components/item-grids";
-import { BlogContent } from "./BlogContent";
+import { PageGrid } from "@/components/item-grids";
+import { BlogContent } from "@/pages/blog/BlogContent";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
@@ -25,7 +25,7 @@ const BlogPost: React.FC<BlogPostProps> = () => {
   };
 
   const getImageUrl = (imageName: string) => {
-    return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
+    return new URL(`@/blog_data/preview_images/${imageName}`, import.meta.url).href;
   };
 
   return (

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { progressData } from "./BINJOContent";
+import { progressData } from "@/pages/BINJO/BINJOContent";
 import { Chart, ArcElement, Tooltip } from "chart.js";
 import { Pie } from "react-chartjs-2";
 

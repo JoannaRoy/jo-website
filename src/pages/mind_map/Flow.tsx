@@ -11,11 +11,11 @@ import {
 import { shallow } from "zustand/shallow";
 
 import "reactflow/dist/style.css";
-import useStore, { RFState } from "./mind-map-store";
-import MindMapNode from "./MindMapNode";
-import MindMapEdge from "./MindMapEdge";
+import useStore, { RFState } from "@/pages/mind_map/mind-map-store";
+import MindMapNode from "@/pages/mind_map/MindMapNode";
+import MindMapEdge from "@/pages/mind_map/MindMapEdge";
 import { useCallback, useRef } from "react";
-import { PageGrid } from "../../components/item-grids";
+import { PageGrid } from "@/components/item-grids";
 
 const selector = (state: RFState) => ({
   nodes: state.nodes,

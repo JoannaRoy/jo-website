@@ -1,5 +1,5 @@
 import React from "react";
-import { PageGrid } from "../components/item-grids";
+import { PageGrid } from "@/components/item-grids.ts";
 
 const More: React.FC = () => {
   return (

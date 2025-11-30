@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { BlogContent } from "./BlogContent";
-import { PageGrid } from "../../components/item-grids";
-import BlogTitle from "./BlogTitle";
-import { TabScroll } from "../../components/tab-scroll";
+import { BlogContent } from "@/pages/blog/BlogContent";
+import { PageGrid } from "@/components/item-grids";
+import BlogTitle from "@/pages/blog/BlogTitle";
+import { TabScroll } from "@/components/tab-scroll";
 
 const Blog: React.FC = () => {
   const [hoveredChapter, setHoveredChapter] = useState<string>(Object.keys(BlogContent)[0]);

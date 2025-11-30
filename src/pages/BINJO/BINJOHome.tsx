@@ -1,10 +1,10 @@
 import React from "react";
-import { PageGrid } from "../../components/item-grids";
-import ProgressChart from "./BINJOProgress";
-import { PlainBox } from "../../components/item-box";
-import BinjoBingo from "./BINJO";
-import WOW from "./WOW";
-import { BINJOGallery } from "./BINJOGallery";
+import { PageGrid } from "@/components/item-grids";
+import ProgressChart from "@/pages/BINJO/BINJOProgress";
+import { PlainBox } from "@/components/item-box";
+import BinjoBingo from "@/pages/BINJO/BINJO";
+import WOW from "@/pages/BINJO/WOW";
+import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
 
 const BINJOHome: React.FC = () => {
 

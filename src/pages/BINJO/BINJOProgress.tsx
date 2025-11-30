@@ -7,7 +7,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { progressData } from "./BINJOContent";
+import { progressData } from "@/pages/BINJO/BINJOContent";
 
 export default function ProgressChart({ style }: { style?: CSSProperties }) {
   return (

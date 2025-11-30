@@ -1,9 +1,9 @@
 
 import { useState } from "react";
-import { PictureCard } from "../../components/picture-card";
-import { TabScroll } from "../../components/tab-scroll";
+import { PictureCard } from "@/components/picture-card";
+import { TabScroll } from "@/components/tab-scroll";
   
-const pictureFiles = import.meta.glob("../../gallery_data/*/*.{jpg,jpeg,png,gif,webp}", {
+const pictureFiles = import.meta.glob("@/gallery_data/*/*.{jpg,jpeg,png,gif,webp}", {
   eager: true,
   import: "default"
 }) as Record<string, string>;
@@ -15,7 +15,7 @@ interface GalleryStructure {
 export const BINJOGallery = () => {
   const galleryByFolder = Object.entries(pictureFiles).reduce(
     (acc: GalleryStructure, [path, url]) => {
-      const folderName = path.split('/')[3];
+      const folderName = path.split('/')[2];
       const filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
       
       if (!acc[folderName]) {

@@ -1,6 +1,6 @@
 import { Handle, NodeProps, Position } from "reactflow";
 import { useLayoutEffect, useRef, useEffect } from "react";
-import useStore from "./mind-map-store";
+import useStore from "@/pages/mind_map/mind-map-store.ts";
 
 export type NodeData = {
   label: string;
