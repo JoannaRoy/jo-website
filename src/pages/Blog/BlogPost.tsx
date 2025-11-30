@@ -91,7 +91,7 @@ const BlogPost: React.FC<BlogPostProps> = () => {
               )}
             </div>
             
-            <div className="text-left leading-7 md:leading-8 prose prose-lg prose-ol:list-decimal prose-ul:list-disc prose-p:my-4 md:prose-p:my-5 max-w-none text-base md:text-lg text-gray-800">
+            <div className="text-left leading-6 md:leading-8 prose prose-base md:prose-lg prose-ol:list-decimal prose-ul:list-disc prose-p:my-3 md:prose-p:my-5 max-w-none text-xs md:text-lg text-gray-800">
             <Markdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw, rehypeSanitize]}

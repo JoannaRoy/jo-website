@@ -76,7 +76,7 @@ const GalleryTitle = () => {
   return (
     <>
       <h1 className="text-xl md:text-2xl font-bold my-2 md:my-4 text-center">BINJO Gallery</h1>
-      <p className="text-xs md:text-sm text-center">Photos documenting various binjo items.</p>
+      <p className="text-xs md:text-sm text-center mb-6">Photos documenting various binjo items.</p>
     </>
   );
 };

@@ -110,7 +110,7 @@ export const TabScroll: React.FC<TabScrollProps> = ({
         </div>
 
         {showDescription && currentTab?.description && (
-          <div className="items-center justify-center w-full h-[6vh]">
+          <div className="items-center justify-center w-full mb-6">
             <p className="text-xs xs:text-base text-gray-700 italic">
               {currentTab.description}
             </p>
