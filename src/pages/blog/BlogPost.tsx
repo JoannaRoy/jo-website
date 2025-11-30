@@ -66,7 +66,7 @@ const BlogPost: React.FC<BlogPostProps> = () => {
           
           
           <div className="p-6 md:p-10 lg:p-12">
-            <div className="mb-4 flex items-center justify-between gap-3">
+            <div className="mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-3">
               <span className="text-xs md:text-sm font-bold px-3 py-1.5 rounded-full bg-gray-200 text-gray-700 uppercase tracking-wider">
                 {post?.formattedHeader}
               </span>
