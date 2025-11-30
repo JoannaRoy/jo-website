@@ -34,7 +34,8 @@ interface BlogContentStructure {
 globalThis.Buffer = Buffer;
 
 const markdownFiles = import.meta.glob("../../blog_data/*/*.md", {
-  as: "raw",
+  query: "?raw",
+  import: "default",
   eager: true,
 });
 
