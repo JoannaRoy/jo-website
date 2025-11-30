@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { formatSlug } from '@/utils/formatSlug';
 
 export function useViewCount(slug: string, shouldIncrement: boolean = false) {
   const [views, setViews] = useState<number>(0);
@@ -8,13 +9,19 @@ export function useViewCount(slug: string, shouldIncrement: boolean = false) {
     let isMounted = true;
 
     const fetchViews = async () => {
-      const slugFormatted = slug.replace(/\//g, '-');
+      const slugFormatted = formatSlug(slug);
       
       try {
         const response = await fetch(`/api/views/${slugFormatted}`);
+        
+        if (!response.ok) {
+          console.error('Failed to fetch views:', response.status);
+          return;
+        }
+        
         const data = await response.json();
         
-        if (isMounted) {
+        if (isMounted && data.views !== undefined) {
           setViews(data.views);
         }
         
