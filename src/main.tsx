@@ -10,6 +10,8 @@ import Blog from "@/pages/blog/BlogHome.tsx";
 import { ReactFlowProvider } from "reactflow";
 import Flow from "@/pages/mind_map/Flow.tsx";
 import { Analytics } from "@vercel/analytics/react";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 
 const router = createHashRouter([
   {
@@ -40,10 +42,20 @@ const router = createHashRouter([
   },
 ]);
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+    },
+  },
+});
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ReactFlowProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ReactFlowProvider>
     <Analytics />
   </StrictMode>
