@@ -4,9 +4,13 @@ import { BlogContent } from "@/pages/blog/BlogContent";
 import { PageGrid } from "@/components/item-grids";
 import BlogTitle from "@/pages/blog/BlogTitle";
 import { TabScroll } from "@/components/tab-scroll";
+import { useBatchViewCounts } from '@/hooks/useBatchViewCounts';
 
 const Blog: React.FC = () => {
   const [hoveredChapter, setHoveredChapter] = useState<string>(Object.keys(BlogContent)[0]);
+  const allSlugs = Object.values(BlogContent).flat().map(post => post.slug);
+  const { data: viewsData, isLoading } = useBatchViewCounts(allSlugs);
+
 
   const tabs = Object.entries(BlogContent).map(([header, posts]) => ({
     id: header,
@@ -26,6 +30,8 @@ const Blog: React.FC = () => {
               chapterName={post.formattedHeader}
               isHighlighted={hoveredChapter === header}
               previewImage={post.data.previewImage}
+              views={viewsData?.[post.slug] || 0}
+              viewsLoading={isLoading}
             />
           </Link>
         ))}
@@ -50,16 +56,21 @@ const BlogPostPreview = ({
   chapterName,
   isHighlighted,
   previewImage,
+  views,
+  viewsLoading,
 }: {
   title: string;
   date: string;
   chapterName: string;
   isHighlighted: boolean;
   previewImage?: string;
+  views: number;
+  viewsLoading: boolean;
 }) => {
   const getImageUrl = (imageName: string) => {
     return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
   };
+  
 
   return (
     <div className={`group flex flex-col bg-white/70 backdrop-blur-md rounded-xl hover:bg-white/90 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border h-full overflow-hidden ${
@@ -102,6 +113,7 @@ const BlogPostPreview = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </div>
+        <div className="text-xs md:text-sm text-gray-500 font-medium">{viewsLoading ? 'Loading...' : `${views} views`}</div>
       </div>
     </div>
   );

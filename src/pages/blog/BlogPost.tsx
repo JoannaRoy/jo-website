@@ -6,6 +6,8 @@ import { BlogContent } from "@/pages/blog/BlogContent";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
+import { useViewCount } from "@/hooks/useViewCount";
+import { ReactionBar } from "@/components/reaction-bar";
 
 interface BlogPostProps {
   title?: string;
@@ -19,6 +21,7 @@ const BlogPost: React.FC<BlogPostProps> = () => {
   const navigate = useNavigate();
   const slug = `${header}/${title}`;
   const post = BlogContent[header as string].find((post) => post.slug === slug);
+  const { views, loading: viewsLoading } = useViewCount(slug, true);
 
   const handleBackClick = () => {
     navigate("/blog");
@@ -49,7 +52,6 @@ const BlogPost: React.FC<BlogPostProps> = () => {
           </svg>
           <span className="text-base md:text-lg font-semibold">Back to Blog</span>
         </button>
-
         <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden">
           {post?.data.previewImage && (
             <div className="relative w-full h-32 md:h-48 lg:h-56 overflow-hidden">
@@ -62,16 +64,25 @@ const BlogPost: React.FC<BlogPostProps> = () => {
             </div>
           )}
           
+          
           <div className="p-6 md:p-10 lg:p-12">
-            <div className="mb-4">
+            <div className="mb-4 flex items-center justify-between gap-3">
               <span className="text-xs md:text-sm font-bold px-3 py-1.5 rounded-full bg-gray-200 text-gray-700 uppercase tracking-wider">
                 {post?.formattedHeader}
               </span>
+              <ReactionBar slug={slug} />
             </div>
             
-            <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 font-bold text-gray-900">
-              {post?.data.title}
-            </h1>
+            <div className="flex flex-row items-center justify-between w-full mb-8 md:mb-10 gap-3 py-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0">
+                {post?.data.title}
+              </h1>
+              {viewsLoading ? (
+                <div className="text-xs md:text-sm text-gray-500 font-medium ml-4">Loading views...</div>
+              ) : (
+                <div className="text-xs md:text-sm text-gray-500 font-medium ml-4">{views} views</div>
+              )}
+            </div>
             
             <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full mb-8 md:mb-10 gap-3 md:gap-0 pb-6 border-b border-gray-200">
               <p className="text-sm md:text-base text-gray-600 font-medium">
