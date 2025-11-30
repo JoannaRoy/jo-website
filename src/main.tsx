@@ -9,6 +9,7 @@ import BINJOHome from "./pages/BINJO/BINJOHome";
 import Blog from "./pages/blog/BlogHome";
 import { ReactFlowProvider } from "reactflow";
 import Flow from "./pages/mind_map/Flow";
+import { Analytics } from "@vercel/analytics/react";
 
 const router = createHashRouter([
   {
@@ -44,5 +45,6 @@ createRoot(document.getElementById("root")!).render(
     <ReactFlowProvider>
       <RouterProvider router={router} />
     </ReactFlowProvider>
+    <Analytics />
   </StrictMode>
 );
