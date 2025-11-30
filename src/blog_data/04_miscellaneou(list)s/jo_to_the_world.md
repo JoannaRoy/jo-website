@@ -15,6 +15,7 @@ Here is a list of nice little happy things:
 - cat videos heh. they're just so innocently funny
 - waking up to snow outside
 - snow in general & how pretty it is while its falling
+- looking at a mountain covered in snowy trees
 - fresh air - on a run, bike, walk. breathing it in and feeling like you wanna put your arms out and swim around in it
 - forests! looking at all the trees
 - oceans too

@@ -95,8 +95,6 @@ This is a list of words I have heard and learned/liked in the past two years ish
 - **Edification**: the instruction or improvement of a person morally or intellectually.
   "the idea that art's main purpose is to supply moral uplift and edification"
 
-- **Fornication**: the act of having sex. courtesy of lizzo, not to be confused with convocation.
-
 - **Fickle**: changing frequently, especially as regards one's loyalties, interests, or affection.
 
 - **Cathartic**: providing psychological relief through the open expression of strong emotions; causing catharsis.
