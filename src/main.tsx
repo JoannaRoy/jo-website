@@ -1,14 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styling/index.css";
-import App from "./App";
+import App from "./App.tsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import BlogPost from "./pages/blog/BlogPost";
-import BINJOHome from "./pages/BINJO/BINJOHome";
-import Blog from "./pages/blog/BlogHome";
+import Home from "./pages/Home.tsx";
+import BlogPost from "./pages/blog/BlogPost.tsx";
+import BINJOHome from "./pages/BINJO/BINJOHome.tsx";
+import Blog from "./pages/blog/BlogHome.tsx";
 import { ReactFlowProvider } from "reactflow";
-import Flow from "./pages/mind_map/Flow";
+import Flow from "./pages/mind_map/Flow.tsx";
 import { Analytics } from "@vercel/analytics/react";
 
 const router = createHashRouter([
