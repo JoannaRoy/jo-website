@@ -25,7 +25,7 @@ const BlogPost: React.FC<BlogPostProps> = () => {
   };
 
   const getImageUrl = (imageName: string) => {
-    return new URL(`@/blog_data/preview_images/${imageName}`, import.meta.url).href;
+    return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
   };
 
   return (
