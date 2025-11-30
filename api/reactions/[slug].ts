@@ -18,7 +18,7 @@ export default async function handler(
   if (req.method === 'POST') {
     const { emoji, action } = req.body;
     
-    if (!emoji || emoji.length > 4) {
+    if (!emoji || [...emoji].length > 10) {
       return res.status(400).json({ error: 'Invalid emoji' });
     }
     
