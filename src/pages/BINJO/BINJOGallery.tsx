@@ -15,7 +15,7 @@ interface GalleryStructure {
 export const BINJOGallery = () => {
   const galleryByFolder = Object.entries(pictureFiles).reduce(
     (acc: GalleryStructure, [path, url]) => {
-      const folderName = path.split('/')[2];
+      const folderName = path.split('/')[3];
       const filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
       
       if (!acc[folderName]) {
