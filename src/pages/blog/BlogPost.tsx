@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import { useViewCount } from "@/hooks/useViewCount";
+import { ReactionBar } from "@/components/reaction-bar";
 
 interface BlogPostProps {
   title?: string;
@@ -65,10 +66,11 @@ const BlogPost: React.FC<BlogPostProps> = () => {
           
           
           <div className="p-6 md:p-10 lg:p-12">
-            <div className="mb-4">
+            <div className="mb-4 flex items-center justify-between gap-3">
               <span className="text-xs md:text-sm font-bold px-3 py-1.5 rounded-full bg-gray-200 text-gray-700 uppercase tracking-wider">
                 {post?.formattedHeader}
               </span>
+              <ReactionBar slug={slug} />
             </div>
             
             <div className="flex flex-row items-center justify-between w-full mb-8 md:mb-10 gap-3 py-4">
