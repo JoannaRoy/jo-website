@@ -1,9 +1,24 @@
-import { BinjoBoard, parseBinjoCsv } from "react-binjo";
+import { BinjoBoard, parseBinjoCsv, WOW } from "react-binjo";
 import rawCsv from "@/blog_data/2025_binjo_progress.csv?raw";
 
 const data = parseBinjoCsv(rawCsv);
 
-export default function Binjo2025() {
+const wowOptions = [
+  "New book",
+  "New gadget",
+  "IKEA trip",
+  "Nice meal out",
+  "Massage",
+  "New sports gear",
+  "Mystery prize",
+  "Concert ticket",
+  "Spa day",
+  "Home decor",
+  "Clothing article",
+  "Surprise!",
+];
+
+function Binjo2025() {
   return (
     <div className="flex flex-col items-center justify-center p-4">
       <BinjoBoard
@@ -22,3 +37,26 @@ export default function Binjo2025() {
     </div>
   );
 }
+
+function WOW2025() {
+  return (
+    <div>
+      <WOW 
+        options={wowOptions}
+        colors={{
+          segmentColors: ["#f87171", "#60a5fa"],
+          text: "#ffffff",
+        }}
+        pointer={{
+          src: "/assets/pink-arrow.svg",
+          width: 90,
+          rotation: 135
+        }}
+        showTitle={false}
+        confetti={true}
+      />
+    </div>
+  );
+}
+
+export { Binjo2025, WOW2025 };

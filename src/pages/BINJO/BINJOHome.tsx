@@ -6,6 +6,7 @@ import BINJO2026 from "@/pages/BINJO/BINJO2026";
 import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
 import { WOW } from "react-binjo";
 import { FlowerRow } from "@/components/flower-row";
+import { ScatteredFlowers } from "@/components/scattered-flowers";
 
 const wowOptions = [
   "New book",
@@ -14,7 +15,7 @@ const wowOptions = [
   "Nice meal out",
   "Massage",
   "New sports gear",
-  "Mystery prize",
+  "Choose your",
   "Concert ticket",
   "Spa day",
   "Home decor",
@@ -58,7 +59,8 @@ const BINJOHome: React.FC = () => {
           <FlowerRow count={20} />
         </div>
         <div className="flex justify-center w-full min-h-screen mt-12 md:mt-24">
-        <div className="flex flex-col items-center justify-center bg-cream p-4 md:p-10 w-full">
+        <div className="flex flex-col items-center justify-center bg-cream p-4 md:p-10 w-full relative overflow-hidden">
+          <ScatteredFlowers />
           <WOW 
             options={wowOptions}
             colors={{
