@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { Wheel } from "react-custom-roulette";
 import Confetti from "react-confetti";
 
-const colors = ["#4cbba4", "#88be74"];
+const getCSSVariable = (name: string) => 
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+const colors = [
+  getCSSVariable("--binjo-cell-even"),
+  getCSSVariable("--binjo-cell-odd"),
+];
 
 const options = [
   "New book",
@@ -54,7 +60,7 @@ const WOW: React.FC = () => {
           mustStartSpinning={mustSpin}
           prizeNumber={prizeNumber}
           data={data}
-          backgroundColors={["#93c5fd", "#6ee7b7"]}
+          backgroundColors={colors}
           textColors={["#ffffff"]}
           fontFamily="monospace"
           fontSize={14}

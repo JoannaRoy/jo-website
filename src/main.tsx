@@ -6,6 +6,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "@/pages/Home.tsx";
 import BlogPost from "@/pages/blog/BlogPost.tsx";
 import BINJOHome from "@/pages/BINJO/BINJOHome.tsx";
+import BINJOArchive from "@/pages/BINJO/binjo_archive/BINJOArchive";
 import Blog from "@/pages/blog/BlogHome.tsx";
 import { ReactFlowProvider } from "reactflow";
 import Flow from "@/pages/mind_map/Flow.tsx";
@@ -33,6 +34,14 @@ const router = createHashRouter([
       {
         path: "binjo",
         element: <BINJOHome />,
+      },
+      {
+        path: "binjo/current",
+        element: <BINJOHome />,
+      },
+      {
+        path: "binjo-archive/:year",
+        element: <BINJOArchive />,
       },
       {
         path: "mind-map",

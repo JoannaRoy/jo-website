@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { PictureCard } from "@/components/picture-card";
 import { TabScroll } from "@/components/tab-scroll";
-  
-const pictureFiles = import.meta.glob("@/gallery_data/*/*.{jpg,jpeg,png,gif,webp}", {
+
+const allPictureFiles = import.meta.glob("@/gallery_data/**/*.{jpg,jpeg,png,gif,webp}", {
   eager: true,
   import: "default"
 }) as Record<string, string>;
@@ -12,10 +11,21 @@ interface GalleryStructure {
   [folderName: string]: { id: string; src: string; alt: string }[];
 }
 
-export const BINJOGallery = () => {
-  const galleryByFolder = Object.entries(pictureFiles).reduce(
+interface BINJOGalleryProps {
+  year?: number;
+}
+
+export const BINJOGallery = ({ year = 2026 }: BINJOGalleryProps) => {
+  const yearPrefix = `/gallery_data/${year}/`;
+  
+  const pictureFiles = Object.entries(allPictureFiles).filter(([path]) => 
+    path.includes(yearPrefix)
+  );
+
+  const galleryByFolder = pictureFiles.reduce(
     (acc: GalleryStructure, [path, url]) => {
-      const folderName = path.split('/')[3];
+      const parts = path.split('/');
+      const folderName = parts[4];
       const filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
       
       if (!acc[folderName]) {
@@ -65,17 +75,17 @@ export const BINJOGallery = () => {
     <>
       <TabScroll 
         tabs={pictureGalleryTabs} 
-        title={<GalleryTitle />}
+        title={<GalleryTitle year={year} />}
         onTabHover={setHoveredCategory}
       />
     </>
   );
 };
 
-const GalleryTitle = () => {
+const GalleryTitle = ({ year }: { year: number }) => {
   return (
     <>
-      <h1 className="text-xl md:text-2xl font-bold my-2 md:my-4 text-center">BINJO Gallery</h1>
+      <h1 className="text-xl md:text-2xl font-bold my-2 md:my-4 text-center">BINJO Gallery {year}</h1>
       <p className="text-xs md:text-sm text-center mb-6">Photos documenting various binjo items.</p>
     </>
   );

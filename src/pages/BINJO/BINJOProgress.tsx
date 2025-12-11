@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { parseBinjoCsv } from "react-binjo";
-import rawCsv from "@/blog_data/2025_binjo_progress.csv?raw";
+import rawCsv from "@/blog_data/2026_binjo_progress.csv?raw";
 
 const progressData = parseBinjoCsv(rawCsv);
 

@@ -1,14 +1,19 @@
 import { BinjoBoard, parseBinjoCsv } from "react-binjo";
-import rawCsv from "@/blog_data/2025_binjo_progress.csv?raw";
 
-const data = parseBinjoCsv(rawCsv);
+interface BINJOYearProps {
+  year: number;
+  csvData: string;
+  title?: string;
+}
 
-export default function BinjoBingo() {
+export default function BINJOYear({ year, csvData, title }: BINJOYearProps) {
+  const data = parseBinjoCsv(csvData);
+
   return (
     <div className="flex flex-col items-center justify-center p-4">
       <BinjoBoard
         data={data}
-        title="BINJO"
+        title={title || `BINJO ${year}`}
         starIcon="/assets/star.svg"
         colors={{
           cellEven: "#d8b4fe",

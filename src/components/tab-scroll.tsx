@@ -13,6 +13,9 @@ interface TabScrollProps {
   headerComponent?: React.ReactNode;
   showDescription?: boolean;
   onTabHover?: (tabId: string) => void;
+  gradientFrom?: string;
+  gradientVia?: string;
+  gradientTo?: string;
 }
 
 export const TabScroll: React.FC<TabScrollProps> = ({ 
@@ -20,7 +23,10 @@ export const TabScroll: React.FC<TabScrollProps> = ({
   title,
   headerComponent,
   showDescription = true,
-  onTabHover
+  onTabHover,
+  gradientFrom = "from-purple-200",
+  gradientVia = "via-purple-200",
+  gradientTo = "to-pink-300"
 }) => {
   const [hoveredTab, setHoveredTab] = useState<string>(tabs[0]?.id || "");
   
@@ -91,7 +97,7 @@ export const TabScroll: React.FC<TabScrollProps> = ({
     <div className="overflow-x-hidden w-full">
       {headerComponent}
 
-      <div className="w-full flex flex-col justify-center bg-gradient-to-br from-green-100 to-purple-200 px-4 md:px-8 py-8 overflow-hidden">
+      <div className={`w-full flex flex-col justify-center bg-gradient-to-br ${gradientFrom} ${gradientVia} ${gradientTo} px-4 md:px-8 py-8 overflow-hidden`}>
         {title}
         <div className="flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide mb-6 pr-16">
           {tabs.map((tab) => (

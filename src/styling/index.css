@@ -30,9 +30,12 @@
   --purple: #b869af;
   --white: #fffdee;
 
-  --completed-color: #82ca9d;
-  --planned-color: #8884d8;
-  --remaining-color: #75c8d3;
+  --binjo-completed: #10b981;
+  --binjo-planned: #f59e0b;
+  --binjo-remaining: #6366f1;
+  --binjo-cell-even: #fca5a5;
+  --binjo-cell-odd: #93c5fd;
+  --binjo-center-cell: linear-gradient(135deg, #fcd34d, #f87171);
 }
 
 a {
