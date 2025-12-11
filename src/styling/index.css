@@ -68,22 +68,9 @@ h2 {
 }
 
 p {
-  /* font-size: medium; */
-  /* color: var(--white); */
   color: black;
   font-family: monospace;
 }
-
-/* .polka-section {
-z-index: -1;
-  height: 100vw;
-  width: 100vw;
-  align-items: center;
-  background-image: url("/src/assets/polka-dots.svg");
-  background-repeat: repeat;
-  background-size: 5rem;
-  background-attachment: fixed;
-} */
 
 .react-flow__handle.target {
   top: 50%;

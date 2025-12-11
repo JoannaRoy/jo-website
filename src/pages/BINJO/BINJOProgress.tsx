@@ -7,7 +7,10 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { progressData } from "@/pages/BINJO/BINJOContent";
+import { parseBinjoCsv } from "react-binjo";
+import rawCsv from "@/blog_data/2025_binjo_progress.csv?raw";
+
+const progressData = parseBinjoCsv(rawCsv);
 
 export default function ProgressChart({ style }: { style?: CSSProperties }) {
   return (
