@@ -45,6 +45,9 @@ const Blog: React.FC = () => {
         tabs={tabs}
         headerComponent={<BlogTitle />}
         onTabHover={setHoveredChapter}
+        gradientFrom="from-blue-100"
+        gradientVia="via-pink-200"
+        gradientTo="to-yellow-100"
       />
     </PageGrid>
   );

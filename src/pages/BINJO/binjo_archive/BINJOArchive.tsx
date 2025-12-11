@@ -2,20 +2,19 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { PageGrid } from "@/components/item-grids";
 import { PlainBox } from "@/components/item-box";
-import BINJOYear from "@/pages/BINJO/binjo_archive/BINJOYear";
+import Binjo2025 from "@/pages/BINJO/binjo_archive/BINJO2025";
 import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
-import rawCsv2025 from "@/blog_data/2025_binjo_progress.csv?raw";
 
-const csvDataByYear: Record<number, string> = {
-  2025: rawCsv2025,
+const yearComponents: Record<number, React.FC> = {
+  2025: Binjo2025,
 };
 
 const BINJOArchive: React.FC = () => {
   const { year } = useParams<{ year: string }>();
   const yearNum = parseInt(year || "2025", 10);
-  const csvData = csvDataByYear[yearNum];
+  const YearComponent = yearComponents[yearNum];
 
-  if (!csvData) {
+  if (!YearComponent) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-2xl font-bold">Archive not found for {yearNum}</h1>
@@ -47,7 +46,7 @@ const BINJOArchive: React.FC = () => {
               </Link>
             </div>
           </PlainBox>
-          <BINJOYear year={yearNum} csvData={csvData} />
+          <YearComponent />
         </div>
         <BINJOGallery year={yearNum} />
       </PageGrid>

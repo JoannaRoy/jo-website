@@ -1,0 +1,8 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <g transform="rotate(90 40 40)">
+    <path 
+      d="M 40 10 L 60 35 L 50 35 L 50 70 L 30 70 L 30 35 L 20 35 Z" 
+      fill="#f9a8d4"
+    />
+  </g>
+</svg>
