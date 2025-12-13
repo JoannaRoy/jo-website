@@ -1,55 +1,62 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { PageGrid } from "@/components/item-grids";
 import { PlainBox } from "@/components/item-box";
-import { Binjo2025, WOW2025 } from "@/pages/BINJO/binjo_archive/BINJO2025";
-import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
+import BINJOHome2025 from "@/pages/BINJO/binjo_archive/2025/BINJOHome2025";
 
-const yearComponents: Record<number, { BinjoComponent: React.FC; WOWComponent: React.FC }> = {
-  2025: {BinjoComponent: Binjo2025, WOWComponent: WOW2025},
-};
+const archiveYears = [2025];
 
 const BINJOArchive: React.FC = () => {
-  const { year } = useParams<{ year: string }>();
-  const yearNum = parseInt(year || "2025", 10);
-  const { BinjoComponent, WOWComponent } = yearComponents[yearNum];
+  const [selectedYear, setSelectedYear] = useState<number>(archiveYears[0]);
 
-  if (!BinjoComponent || !WOWComponent) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-2xl font-bold">Archive not found for {yearNum}</h1>
-        <Link to="/binjo/current" className="text-blue-600 hover:text-blue-800 underline mt-4">
-          ← Back to current BINJO
-        </Link>
-      </div>
-    );
-  }
+  const renderYearContent = (year: number) => {
+    switch (year) {
+      case 2025:
+        return <BINJOHome2025 />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div>
-      <PageGrid columns={1} style={{ alignItems: "left" }}>
-        <div className="flex flex-col md:flex-row justify-center items-center w-full min-h-screen py-8">
-          <PlainBox className="w-[90%] md:w-[30%] mx-4 md:mx-24 mt-8 md:mt-0">
-            <h1 className="mb-4 md:mt-8 text-xl md:text-2xl font-bold text-center">
-              BINJO Archive: {yearNum}
+    <div className="min-h-screen">
+      <PageGrid columns={1} className="items-center">
+        <div className="flex flex-col w-full py-8 items-center h-[80vh]">
+          <PlainBox className="w-[90%] mx-4 mt-[25vh] mb-8 align-middle items-center">
+            <h1 className="mb-4 mt-4 md:mt-8 text-2xl md:text-3xl font-bold text-center">
+              BINJO Archive
             </h1>
-            <p className="text-center text-sm md:text-base p-2 md:p-0">
-              This was my {yearNum} new years resolution binjo card! It shows all my
-              bucket list items for {yearNum} and how I did on them.
+            <p className="text-center text-sm md:text-base px-4 pb-4">
+              Take a look back at previous years' BINJO cards and see how I did on my goals!
             </p>
-            <div className="text-center mt-4">
+            <div className="text-center mb-4">
               <Link 
-                to="/binjo/current" 
+                to="/binjo" 
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 ← Back to current BINJO
               </Link>
             </div>
           </PlainBox>
-          <BinjoComponent />
+          <div className="flex gap-4 mb-8 items-center text-b">
+            <b>Select a Year:</b> {archiveYears.map((year) => (
+              <button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                  selectedYear === year 
+                    ? "bg-purple-400 text-white shadow-lg scale-105" 
+                    : "bg-purple-200 text-gray-700 hover:bg-purple-300 hover:shadow-md"
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
+         
         </div>
-        <WOWComponent />
-        <BINJOGallery year={yearNum} />
+
+        {renderYearContent(selectedYear)}
       </PageGrid>
     </div>
   );

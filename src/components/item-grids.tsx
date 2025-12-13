@@ -16,7 +16,8 @@ const BaseGrid: React.FC<GridProps> = ({
   return (
     <div
       style={{
-        width: "100vw",
+        width: "100%",
+        maxWidth: "100vw",
         display: columns === 0 ? "flex" : "grid",
         flexDirection: columns === 0 ? "row" : undefined,
         justifyItems: "center",
@@ -65,14 +66,15 @@ const ItemGroup: React.FC<{
   return (
     <div
       style={{
-        width: "100vw",
+        width: "100%",
+        maxWidth: "100vw",
         display: "flex",
         flexDirection: "row",
       }}
     >
       <div
         style={{
-          width: "100vw",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
         }}

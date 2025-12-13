@@ -13,9 +13,17 @@ interface GalleryStructure {
 
 interface BINJOGalleryProps {
   year?: number;
+  gradientFrom?: string;
+  gradientVia?: string;
+  gradientTo?: string;
 }
 
-export const BINJOGallery = ({ year = 2026 }: BINJOGalleryProps) => {
+export const BINJOGallery = ({ 
+  year = 2026,
+  gradientFrom = "from-purple-200",
+  gradientVia = "via-purple-200",
+  gradientTo = "to-pink-300"
+}: BINJOGalleryProps) => {
   const yearPrefix = `/gallery_data/${year}/`;
   
   const pictureFiles = Object.entries(allPictureFiles).filter(([path]) => 
@@ -77,6 +85,9 @@ export const BINJOGallery = ({ year = 2026 }: BINJOGalleryProps) => {
         tabs={pictureGalleryTabs} 
         title={<GalleryTitle year={year} />}
         onTabHover={setHoveredCategory}
+        gradientFrom={gradientFrom}
+        gradientVia={gradientVia}
+        gradientTo={gradientTo}
       />
     </>
   );

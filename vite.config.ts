@@ -10,6 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "react-binjo": path.resolve(__dirname, "../react-binjo/src"),
     },
   },
   build: {

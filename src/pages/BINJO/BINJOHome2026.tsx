@@ -2,28 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PageGrid } from "@/components/item-grids";
 import { PlainBox } from "@/components/item-box";
-import BINJO2026 from "@/pages/BINJO/BINJO2026";
+import { BINJO2026, WOW2026 } from "@/pages/BINJO/BINJO2026";
 import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
-import { WOW } from "react-binjo";
 import { FlowerRow } from "@/components/flower-row";
 import { ScatteredFlowers } from "@/components/scattered-flowers";
 
-const wowOptions = [
-  "New book",
-  "New gadget",
-  "IKEA trip",
-  "Nice meal out",
-  "Massage",
-  "New sports gear",
-  "Choose your",
-  "Concert ticket",
-  "Spa day",
-  "Home decor",
-  "Clothing article",
-  "Surprise!",
-];
 
-const BINJOHome: React.FC = () => {
+
+const BINJOHome2026: React.FC = () => {
   return (
     <div>
       <PageGrid columns={1} style={{ alignItems: "left" }}>
@@ -59,22 +45,11 @@ const BINJOHome: React.FC = () => {
           <FlowerRow count={20} />
         </div>
         <div className="flex justify-center w-full min-h-screen mt-12 md:mt-24">
-        <div className="flex flex-col items-center justify-center bg-cream p-4 md:p-10 w-full relative overflow-hidden">
+        <div className="flex flex-col items-center justify-center bg-cream p-4 md:p-10 w-full relative overflow-hidden max-w-full">
           <ScatteredFlowers />
-          <WOW 
-            options={wowOptions}
-            colors={{
-              segmentColors: ["#f87171", "#60a5fa"],
-              text: "#ffffff",
-            }}
-            pointer={{
-              src: "/assets/pink-arrow.svg",
-              width: 90,
-              rotation: 135
-            }}
-            showTitle={false}
-            confetti={true}
-          />
+          <div className="max-w-full overflow-hidden px-2 md:px-0">
+            <WOW2026 />
+          </div>
         </div>
         </div>
         <BINJOGallery year={2026} />
@@ -83,4 +58,4 @@ const BINJOHome: React.FC = () => {
   );
 };
 
-export default BINJOHome;
+export default BINJOHome2026;

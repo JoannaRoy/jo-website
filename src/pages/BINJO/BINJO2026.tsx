@@ -1,15 +1,30 @@
-import { BinjoBoard, parseBinjoCsv } from "react-binjo";
+import { BinjoBoard, parseBinjoCsv, WOW } from "react-binjo";
 import rawCsv from "@/blog_data/2026_binjo_progress.csv?raw";
 
 const data = parseBinjoCsv(rawCsv);
 
+const wowOptions = [
+  "New book",
+  "New gadget",
+  "IKEA trip",
+  "Nice meal out",
+  "Massage",
+  "New sports gear",
+  "Choose your",
+  "Concert ticket",
+  "Spa day",
+  "Home decor",
+  "Clothing article",
+  "Surprise!",
+];
+
 const customColors = {
-  completed: "var(--binjo-completed)",
-  planned: "var(--binjo-planned)",
-  remaining: "var(--binjo-remaining)",
-  cellEven: "var(--binjo-cell-even)",
-  cellOdd: "var(--binjo-cell-odd)",
-  centerCell: "var(--binjo-center-cell)",
+  completed: "#10b981",
+  planned: "#f59e0b",
+  remaining: "#60a5fa",
+  cellEven: "#f87171",
+  cellOdd: "#93c5fd",
+  centerCell: "linear-gradient(135deg, var(--pastel-blue), var(--pastel-red))",
 };
 
 const customFonts = {
@@ -23,9 +38,9 @@ const CustomStar = () => (
   </svg>
 );
 
-export default function BINJO2026() {
+function BINJO2026() {
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col items-center justify-center p-4 binjo-smaller-text">
       <BinjoBoard
         data={data}
         title="BINJO"
@@ -36,3 +51,26 @@ export default function BINJO2026() {
     </div>
   );
 }
+
+function WOW2026() {
+  return (
+  <div>
+    <WOW
+      options={wowOptions}
+      colors={{
+        segmentColors: ["#f87171", "#60a5fa"],
+        text: "#ffffff",
+      }}
+      pointer={{
+        src: "/assets/pink-arrow.svg",
+        width: 90,
+        rotation: 135
+      }}
+      showTitle={false}
+      confetti={true}
+    />
+  </div>
+  );
+}
+
+export { BINJO2026, WOW2026 };

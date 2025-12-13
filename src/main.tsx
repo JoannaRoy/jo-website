@@ -5,13 +5,13 @@ import App from "@/App.tsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "@/pages/Home.tsx";
 import BlogPost from "@/pages/blog/BlogPost.tsx";
-import BINJOHome from "@/pages/BINJO/BINJOHome.tsx";
 import BINJOArchive from "@/pages/BINJO/binjo_archive/BINJOArchive";
 import Blog from "@/pages/blog/BlogHome.tsx";
 import { ReactFlowProvider } from "reactflow";
 import Flow from "@/pages/mind_map/Flow.tsx";
 import { Analytics } from "@vercel/analytics/react";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import BINJOHome2026 from "@/pages/BINJO/BINJOHome2026";
 
 
 const router = createHashRouter([
@@ -33,11 +33,7 @@ const router = createHashRouter([
       },
       {
         path: "binjo",
-        element: <BINJOHome />,
-      },
-      {
-        path: "binjo/current",
-        element: <BINJOHome />,
+        element: <BINJOHome2026 />,
       },
       {
         path: "binjo-archive/:year",

@@ -20,7 +20,7 @@ const wowOptions = [
 
 function Binjo2025() {
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col items-center justify-center p-4 binjo-smaller-text">
       <BinjoBoard
         data={data}
         title="BINJO 2025"
@@ -44,7 +44,7 @@ function WOW2025() {
       <WOW 
         options={wowOptions}
         colors={{
-          segmentColors: ["#f87171", "#60a5fa"],
+          segmentColors: ["#4cbba4", "#88be74"],
           text: "#ffffff",
         }}
         pointer={{

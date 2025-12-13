@@ -36,15 +36,22 @@ const defaultFlowers: FlowerConfig[] = [
 
 export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
   count = 12,
-  colors = ["var(--binjo-cell-even)", "var(--binjo-cell-odd)", "#f9a8d4", "#fef3c7"],
+  colors = ["#f87171", "#93c5fd", "#f9a8d4"],
   centerColor = "#fef3c7",
   opacity = 0.6,
   sizeRange = { min: 40, max: 80 },
   seed = 42,
   className = "",
 }) => {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const mobileCount = Math.min(count, 6);
+  const mobileSizeRange = { min: 24, max: 48 };
+
   const generateFlowers = (): FlowerConfig[] => {
-    if (count === 12) return defaultFlowers;
+    const actualCount = isMobile ? mobileCount : count;
+    const actualSizeRange = isMobile ? mobileSizeRange : sizeRange;
+    
+    if (actualCount === 12 && !isMobile) return defaultFlowers;
 
     const flowers: FlowerConfig[] = [];
     const random = (index: number, salt: number) => {
@@ -52,8 +59,8 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
       return x - Math.floor(x);
     };
 
-    for (let i = 0; i < count; i++) {
-      const size = sizeRange.min + random(i, 1) * (sizeRange.max - sizeRange.min);
+    for (let i = 0; i < actualCount; i++) {
+      const size = actualSizeRange.min + random(i, 1) * (actualSizeRange.max - actualSizeRange.min);
       const top = `${10 + random(i, 2) * 80}%`;
       const useLeft = random(i, 3) > 0.5;
       const horizontalPos = `${5 + random(i, 4) * 25}%`;

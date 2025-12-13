@@ -8,13 +8,17 @@ interface FlowerRowProps {
   className?: string;
 }
 
+
 export const FlowerRow: React.FC<FlowerRowProps> = ({
   count = 15,
-  colors = ["var(--binjo-cell-even)", "var(--binjo-cell-odd)", "#f9a8d4"],
+  colors = ["#f87171", "#93c5fd", "#f9a8d4"],
   centerColor = "#fef3c7",
   size = "md",
   className = "",
 }) => {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const displayCount = isMobile ? Math.min(count, 8) : count;
+
   const sizeClasses = {
     sm: "w-6 h-6 md:w-8 md:h-8",
     md: "w-8 h-8 md:w-12 md:h-12",
@@ -23,7 +27,7 @@ export const FlowerRow: React.FC<FlowerRowProps> = ({
 
   return (
     <div className={`flex justify-between items-center w-full py-8 md:py-12 px-4 ${className}`}>
-      {Array.from({ length: count }).map((_, index) => (
+      {Array.from({ length: displayCount }).map((_, index) => (
         <svg
           key={index}
           className={`${sizeClasses[size]} flex-shrink-0`}

@@ -93,24 +93,30 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
   const handlePickerToggle = () => {
     if (!showPicker && buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
-      const pickerHeight = 500;
-      const pickerWidth = 350;
+      const isMobile = window.innerWidth < 768;
+      const pickerHeight = isMobile ? 400 : 500;
+      const pickerWidth = isMobile ? Math.min(320, window.innerWidth - 20) : 350;
       const spaceAbove = rect.top;
       const spaceBelow = window.innerHeight - rect.bottom;
       
       let top = 0;
       let left = rect.left;
       
-      if (spaceAbove >= pickerHeight) {
-        top = rect.top - pickerHeight;
-      } else if (spaceBelow >= pickerHeight) {
-        top = rect.bottom + 8;
-      } else {
+      if (isMobile) {
         top = Math.max(10, (window.innerHeight - pickerHeight) / 2);
-      }
-      
-      if (left + pickerWidth > window.innerWidth) {
-        left = Math.max(10, window.innerWidth - pickerWidth - 10);
+        left = Math.max(10, (window.innerWidth - pickerWidth) / 2);
+      } else {
+        if (spaceAbove >= pickerHeight) {
+          top = rect.top - pickerHeight;
+        } else if (spaceBelow >= pickerHeight) {
+          top = rect.bottom + 8;
+        } else {
+          top = Math.max(10, (window.innerHeight - pickerHeight) / 2);
+        }
+        
+        if (left + pickerWidth > window.innerWidth) {
+          left = Math.max(10, window.innerWidth - pickerWidth - 10);
+        }
       }
       
       setPickerPosition({ top, left });

@@ -6,6 +6,7 @@ import Sparkles from "react-sparkle";
 
 const Home: React.FC = () => {
   const [flipped, setFlipped] = useState([false, false, false]);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const handleFlip = (index: number) => {
     setFlipped((prev) => {
@@ -20,18 +21,18 @@ const Home: React.FC = () => {
       <div>
         <Sparkles
           color="gold"
-          count={window.innerWidth < 768 ? 50 : 200}
-          minSize={window.innerWidth < 768 ? 2 : 5}
-          maxSize={window.innerWidth < 768 ? 8 : 10}
+          count={isMobile ? 50 : 200}
+          minSize={isMobile ? 2 : 5}
+          maxSize={isMobile ? 8 : 10}
           overflowPx={0}
           fadeOutSpeed={10}
         />
-        <PageGrid columns={0} style={{ width: "100vw" }}>
-          <div className="flex flex-col w-full justify-center items-center">
-            <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0">
-              <div className="flex flex-col w-full md:w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300 absolute md:relative -z-10 md:z-0" />
+        <PageGrid columns={0} style={{ width: "100%", maxWidth: "100vw" }}>
+          <div className="flex flex-col w-full justify-center items-center max-w-full">
+            <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0 max-w-full">
+              <div className="flex flex-col w-full md:w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300 absolute md:relative -z-10 md:z-0 left-0 right-0" />
               <div className="flex justify-center items-center z-10 my-4 md:my-0">
-                <img src="/assets/jo.jpg" alt="jo" className="h-40 md:h-50" />
+                <img src="/assets/jo.jpg" alt="jo" className="h-40 md:h-50 max-w-full" />
               </div>
               <div className="flex flex-col w-full md:w-8/10 h-30 text-left align-middle">
                 <h1 className="font-bold text-center md:text-left md:ml-10 mb-3 md:mb-5 mt-4 md:mt-10">
