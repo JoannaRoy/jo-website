@@ -1,17 +1,17 @@
-Item,Planned,Completed,Notes
+Item,Planned,Completed,Annotation,Annotation(actual)
 "get to B1 german",0,0,
 "3 months no social media",0,0,
 "3 gatherings (again heh :)",0,0,
 "2 open-source contributions (to repo(s) I don't own)",0,0,
 "qualify for boston",0,0,
-"fun cover/parody song and/or video",0,0,
+"fun cover / parody song and/or video",0,0,
 "learn & perform a 'hard' piano song (>5 audience)",0,0,
 "ultramarathon (50kms+)",0,0,
 "new half-marathon pr",0,0,
 "swim 5km freestyle non-stop",0,0,
 "read 15 books & 30 academic papers (with NOTES)",0,0,
 "write 5 poems",0,0,
-"open-source binjo code",0,100,
+"open-source binjo code",0,100,done!,accessible at https://www.npmjs.com/package/react-binjo
 "solo overnight in mountains",0,0,
 "zugspitze summit",0,0,
 "host big event (50+ attendees)",0,0,
@@ -24,3 +24,4 @@ Item,Planned,Completed,Notes
 "ride a lime scooter",0,0,
 "knit something useable / wearable",0,0,
 "3 speaking engagements",0,0,
+"20 new recipes",0,0,
