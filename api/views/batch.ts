@@ -22,7 +22,7 @@ export default async function handler(
     const values = await Promise.all(
       keys.map(async (key) => {
         const count = await redis.get(key);
-        return parseInt(count || '0');
+        return parseInt(count?.toString() || '0');
       })
     );
 

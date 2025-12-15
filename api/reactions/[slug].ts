@@ -25,7 +25,7 @@ export default async function handler(
       
       if (action === 'remove') {
         const current = await redis.hGet(key, emoji);
-        const count = parseInt(current || '0');
+        const count = parseInt(current?.toString() || '0');
         
         if (count > 0) {
           await redis.hIncrBy(key, emoji, -1);

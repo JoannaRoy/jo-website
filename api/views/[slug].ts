@@ -22,7 +22,7 @@ export default async function handler(
 
     if (req.method === 'GET') {
       const views = await redis.get(key);
-      return res.status(200).json({ views: parseInt(views || '0') });
+      return res.status(200).json({ views: parseInt(views?.toString() || '0') });
     }
 
     return res.status(405).json({ error: 'Method not allowed' });
