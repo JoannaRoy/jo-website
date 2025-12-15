@@ -17,5 +17,25 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     assetsDir: "assets",
+    rollupOptions: {
+      external: [
+        'redis',
+        '@redis/client',
+        '@redis/bloom',
+        '@redis/json',
+        '@redis/search',
+        '@redis/time-series'
+      ]
+    }
   },
+  optimizeDeps: {
+    exclude: [
+      'redis',
+      '@redis/client',
+      '@redis/bloom',
+      '@redis/json',
+      '@redis/search',
+      '@redis/time-series'
+    ]
+  }
 }));
