@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { PageGrid } from "@/components/item-grids";
 import { PlainBox } from "@/components/item-box";
+import { PageGrid } from "@/components/item-grids";
 import BINJOHome2025 from "@/pages/BINJO/binjo_archive/2025/BINJOHome2025";
 
 const archiveYears = [2025];
 
 const BINJOArchive: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<number>(archiveYears[0]);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const renderYearContent = (year: number) => {
     switch (year) {
@@ -41,8 +43,12 @@ const BINJOArchive: React.FC = () => {
           <div className="flex gap-4 mb-8 items-center text-b">
             <b>Select a Year:</b> {archiveYears.map((year) => (
               <button
+                type="button"
                 key={year}
-                onClick={() => setSelectedYear(year)}
+                onClick={() => {
+                  setSelectedYear(year);
+                  contentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
                   selectedYear === year 
                     ? "bg-purple-400 text-white shadow-lg scale-105" 
@@ -56,7 +62,9 @@ const BINJOArchive: React.FC = () => {
          
         </div>
 
-        {renderYearContent(selectedYear)}
+        <div ref={contentRef}>
+          {renderYearContent(selectedYear)}
+        </div>
       </PageGrid>
     </div>
   );
