@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface FlowerConfig {
   size: number;
@@ -21,16 +21,16 @@ interface ScatteredFlowersProps {
 
 const defaultFlowers: FlowerConfig[] = [
   { size: 48, top: "10%", left: "5%", color: "#f9a8d4", rotation: 20 },
-  { size: 32, top: "15%", right: "8%", color: "var(--binjo-cell-even)", rotation: -15 },
-  { size: 56, top: "65%", left: "10%", color: "var(--binjo-cell-odd)", rotation: 45 },
+  { size: 32, top: "15%", right: "8%", color:  "#93c5fd", rotation: -15 },
+  { size: 56, top: "65%", left: "10%", color: "#f87171", rotation: 45 },
   { size: 40, top: "70%", right: "12%", color: "#fef3c7", rotation: -30 },
   { size: 28, top: "35%", left: "15%", color: "#f9a8d4", rotation: 60 },
-  { size: 44, top: "40%", right: "18%", color: "var(--binjo-cell-even)", rotation: -45 },
-  { size: 36, top: "85%", left: "20%", color: "var(--binjo-cell-odd)", rotation: 15 },
+  { size: 44, top: "40%", right: "18%", color:  "#93c5fd", rotation: -45 },
+  { size: 36, top: "85%", left: "20%", color: "#f87171", rotation: 15 },
   { size: 52, top: "20%", left: "25%", color: "#fef3c7", rotation: -60 },
   { size: 30, top: "80%", right: "25%", color: "#f9a8d4", rotation: 30 },
-  { size: 46, top: "50%", left: "8%", color: "var(--binjo-cell-even)", rotation: -20 },
-  { size: 34, top: "25%", right: "15%", color: "var(--binjo-cell-odd)", rotation: 50 },
+  { size: 46, top: "50%", left: "8%", color:  "#93c5fd", rotation: -20 },
+  { size: 34, top: "25%", right: "15%", color: "#f87171", rotation: 50 },
   { size: 42, top: "90%", right: "8%", color: "#fef3c7", rotation: -40 },
 ];
 
@@ -83,9 +83,9 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
 
   return (
     <>
-      {flowers.map((flower, index) => (
+      {flowers.map(flower => (
         <svg
-          key={index}
+          key={flower.color + flower.size + flower.top + flower.left + flower.right + flower.rotation}
           className={`absolute ${className}`}
           style={{
             width: flower.size,
@@ -98,6 +98,7 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
             opacity,
           }}
           viewBox="0 0 300 300"
+          aria-hidden="true"
         >
           <circle cx="50" cy="20" r="20" />
           <circle cx="20" cy="40" r="20" />

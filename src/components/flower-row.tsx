@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface FlowerRowProps {
   count?: number;
@@ -29,9 +29,10 @@ export const FlowerRow: React.FC<FlowerRowProps> = ({
     <div className={`flex justify-between items-center w-full py-8 md:py-12 px-4 ${className}`}>
       {Array.from({ length: displayCount }).map((_, index) => (
         <svg
-          key={index}
-          className={`${sizeClasses[size]} flex-shrink-0`}
+          key={colors[index % colors.length]}
+          className={`${sizeClasses[size]} shrink-0`}
           viewBox="0 0 300 300"
+          aria-hidden="true"
           style={{
             fill: colors[index % colors.length],
           }}
