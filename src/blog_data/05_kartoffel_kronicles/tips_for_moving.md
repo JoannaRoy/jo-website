@@ -58,6 +58,8 @@ This tip is probably more common/traditional than the ones above, but it has rea
 
 A workplace that was extremely welcoming and supportive (they feel like my german 'family')
 
+[I can't imagine moving to a new country and working in a less supportive environment]
+
 ---
 
 Being in a new country can be a bit isolating at times, so going out of your way to do things that will help you connect with people is so worthwhile. Even if you don't do a BINJO, you can (and should) try new things -- the best part of being in a new country is that people are unlikely to recognize you if you totally embarass yourself in the process :D 
