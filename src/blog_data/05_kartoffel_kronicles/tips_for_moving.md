@@ -1,10 +1,10 @@
 ---
 title: "Jo's (not so) definitive guide to moving abroad"
-date: "2026-01-14"
+date: "2026-01-01"
 preview image: "movin.jpg"
 tags: ["kartoffel chronicles"]
 description: "somewhere in between a reflection (for myself) and advice/tips (for others) about moving to a new country."
-draft: "false"
+draft: "true"
 ---
 
 If you have the means to do it, I would always recommend moving to a new country for a while. When I moved, I could never have predicted all the ways I'd grow up and learn from this experience, and I believe anyone who moves abroad would have parallels. So this post is somewhere in between a reflection (for myself) and advice/tips (for others) about moving to a new country.
