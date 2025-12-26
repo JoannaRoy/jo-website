@@ -1,5 +1,5 @@
-const getTagColors = (() => {
-  const colors = [
+const getTagColours = (() => {
+  const colours = [
     "bg-green-300",
     "bg-blue-300",
     "bg-purple-300",
@@ -12,26 +12,26 @@ const getTagColors = (() => {
     "bg-teal-300",
   ];
 
-  const tagColorMap = new Map<string, string>();
-  let colorIndex = 0;
+  const tagColourMap = new Map<string, string>();
+  let colourIndex = 0;
 
   return (tagName: string): string => {
-    if (tagColorMap.has(tagName)) {
-      return tagColorMap.get(tagName)!;
+    if (tagColourMap.has(tagName)) {
+      return tagColourMap.get(tagName)!;
     }
 
-    const color = colors[colorIndex % colors.length];
-    tagColorMap.set(tagName, color);
-    colorIndex++;
+    const colour = colours[colourIndex % colours.length];
+    tagColourMap.set(tagName, colour);
+    colourIndex++;
 
-    return color;
+    return colour;
   };
 })();
 
 const BlogTag = ({ name }: { name: string }) => {
   return (
     <div
-      className={`${getTagColors(
+      className={`${getTagColours(
         name
       )} px-3 py-2 rounded-lg text-xs my-2 text-white`}
     >

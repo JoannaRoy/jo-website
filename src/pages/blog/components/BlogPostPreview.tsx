@@ -1,7 +1,7 @@
 type BlogPostPreviewProps = {
   title: string;
   date: string;
-  chapterColor: string;
+  chapterColour: string;
   chapterName: string;
   isHighlighted: boolean;
   previewImage?: string;
@@ -15,7 +15,7 @@ const getPreviewImageUrl = (imageName: string) =>
 export const BlogPostPreview = ({
   title,
   date,
-  chapterColor,
+  chapterColour,
   chapterName,
   isHighlighted,
   previewImage,
@@ -46,13 +46,13 @@ export const BlogPostPreview = ({
               className={`text-[0.65rem] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider transition-all duration-200 ${
                 isHighlighted
                   ? "bg-white/80 text-gray-900"
-                  : `text-gray-900 ${chapterColor}`
+                  : `text-gray-900 ${chapterColour}`
               }`}
             >
               {chapterName}
             </span>
           </div>
-          <h2 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-gray-800 transition-colors line-clamp-2">
+          <h2 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-gray-800 transition-colours line-clamp-2">
             {title}
           </h2>
         </div>
@@ -61,7 +61,7 @@ export const BlogPostPreview = ({
           <svg
             className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all"
             fill="none"
-            stroke="currentColor"
+            stroke="currentColour"
             viewBox="0 0 24 24"
             aria-hidden="true"
           >

@@ -40,7 +40,7 @@ export default function TipsForMoving() {
           className="absolute inset-0 pointer-events-none"
           style={{ width: "100%", height: "100%" }}
           strokeWidth={54}
-          strokeColors={["#000000", "#DD0000", "#FFCE00"]}
+          strokeColours={["#000000", "#DD0000", "#FFCE00"]}
           opacity={0.6}
         />
         <div className="relative z-10 p-5 md:p-8">

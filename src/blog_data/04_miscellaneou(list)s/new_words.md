@@ -57,7 +57,7 @@ This is a list of words I have heard and learned/liked in the past two years ish
 
 - **Revile**: criticize in an abusive or angrily insulting manner. "he was now reviled by the party that he had helped to lead"
 
-- **Variegated**: exhibiting different colors, especially as irregular patches or streaks.
+- **Variegated**: exhibiting different colours, especially as irregular patches or streaks.
 
 - **Obfuscate**: render obscure, unclear, or unintelligible. "the spelling changes will deform some familiar words and obfuscate their etymological origins"
 

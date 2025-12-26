@@ -1,13 +1,13 @@
-import React, { CSSProperties } from "react";
+import type { CSSProperties } from "react";
+import { parseBinjoCsv } from "react-binjo";
 import {
-  BarChart,
   Bar,
+  BarChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  ResponsiveContainer,
 } from "recharts";
-import { parseBinjoCsv } from "react-binjo";
 import rawCsv from "@/blog_data/2026_binjo_progress.csv?raw";
 
 const progressData = parseBinjoCsv(rawCsv);
@@ -53,13 +53,13 @@ export default function ProgressChart({ style }: { style?: CSSProperties }) {
           <Tooltip formatter={(value: number) => `${value}%`} />
           <Bar
             dataKey="completed"
-            fill="var(--completed-color)"
+            fill="var(--completed-colour)"
             stackId="stack"
           />
-          <Bar dataKey="planned" fill="var(--planned-color)" stackId="stack" />
+          <Bar dataKey="planned" fill="var(--planned-colour)" stackId="stack" />
           <Bar
             dataKey="remaining"
-            fill="var(--remaining-color)"
+            fill="var(--remaining-colour)"
             stackId="stack"
           />
         </BarChart>

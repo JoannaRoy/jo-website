@@ -33,7 +33,7 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0 max-w-full">
               <div className="flex justify-center items-center z-10 my-4 md:my-0 ml-10 md:ml-20">
                 <DashFrame
-                  colors={["bg-purple-400/90", "bg-blue-400/90"]}
+                  colours={["bg-purple-400/90", "bg-blue-400/90"]}
                   horizontalDashCount={40}
                   horizontalDashClassName="w-1 h-1"
                   verticalDashCount={40}

@@ -4,7 +4,7 @@ type DashFrameShape = "square" | "rounded" | "circle";
 
 interface DashFrameProps {
   children: React.ReactNode;
-  colors?: string[];
+  colours?: string[];
   horizontalDashCount?: number;
   verticalDashCount?: number;
   horizontalDashClassName?: string;
@@ -22,7 +22,7 @@ const SHAPE_TO_CLASSNAME: Record<DashFrameShape, string> = {
 
 export const DashFrame: React.FC<DashFrameProps> = ({
   children,
-  colors = ["bg-pink-400/60", "bg-blue-400/60", "bg-green-400/60"],
+  colours = ["bg-pink-400/60", "bg-blue-400/60", "bg-green-400/60"],
   horizontalDashCount = 12,
   verticalDashCount = 10,
   horizontalDashClassName = "w-6 h-2",
@@ -38,7 +38,7 @@ export const DashFrame: React.FC<DashFrameProps> = ({
 
   const Dash = ({ index, className }: { index: number; className: string }) => (
     <div
-      className={`${className} ${colors[index % colors.length]} rounded-full shrink-0`}
+      className={`${className} ${colours[index % colours.length]} rounded-full shrink-0`}
       aria-hidden="true"
     />
   );

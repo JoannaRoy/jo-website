@@ -1,9 +1,9 @@
-import React from "react";
+import type React from "react";
 
 interface ItemBoxProps {
   title?: React.ReactNode;
   imageUrl?: string;
-  borderColor?: string;
+  borderColour?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
@@ -12,7 +12,7 @@ interface ItemBoxProps {
 export const PlainBox: React.FC<ItemBoxProps> = ({
   title,
   imageUrl,
-  borderColor,
+  borderColour,
   children,
   style,
   className,
@@ -20,10 +20,10 @@ export const PlainBox: React.FC<ItemBoxProps> = ({
   return (
     <div
       className={`flex flex-col gap-2.5 p-2.5 min-w-8 min-h-8 rounded bg-center bg-no-repeat z-10 ${
-        borderColor ? `border-[3px] border-solid` : ""
+        borderColour ? `border-[3px] border-solid` : ""
       } ${className || ""}`}
       style={{
-        borderColor: borderColor || "",
+        borderColour: borderColour || "",
         ...style,
       }}
     >

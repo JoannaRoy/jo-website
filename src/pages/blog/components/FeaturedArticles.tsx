@@ -27,7 +27,7 @@ export const FeaturedArticles = ({
       <div className="flex gap-4 md:gap-6 overflow-x-auto pb-2 scrollbar-hide">
         {articles.map((a) => (
           <Link key={a.id} to={a.to} className="shrink-0 w-[280px] md:w-[350px]">
-            <article className="group rounded-xl border border-blue-200/60 bg-white backdrop-blur-md hover:bg-white/80 transition-colors duration-200 p-4 md:p-5">
+            <article className="group rounded-xl border border-blue-200/60 bg-white backdrop-blur-md hover:bg-white/80 transition-colours duration-200 p-4 md:p-5">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 m-0 line-clamp-2 font-adventure">
                   {a.title}
@@ -50,7 +50,7 @@ export const FeaturedArticles = ({
                     ? "Loading..."
                     : `${viewsData?.[a.id] ?? 0} views`}
                 </span>
-                <span className="font-bold tracking-wide text-gray-800 group-hover:text-gray-900 transition-colors">
+                <span className="font-bold tracking-wide text-gray-800 group-hover:text-gray-900 transition-colours">
                   Read →
                 </span>
               </div>

@@ -10,7 +10,7 @@ export const ArrowLeft = ({ className, title = "Back" }: ArrowLeftProps) => {
       aria-label={title}
       className={className}
       viewBox="0 0 20 20"
-      fill="currentColor"
+      fill="currentColour"
       aria-hidden="true"
     >
       <path

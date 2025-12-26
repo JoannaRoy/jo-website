@@ -2,8 +2,8 @@ import type React from "react";
 
 interface FlowerRowProps {
   count?: number;
-  colors?: string[];
-  centerColor?: string;
+  colours?: string[];
+  centerColour?: string;
   size?: "sm" | "md" | "lg";
   className?: string;
 }
@@ -11,8 +11,8 @@ interface FlowerRowProps {
 
 export const FlowerRow: React.FC<FlowerRowProps> = ({
   count = 15,
-  colors = ["#f87171", "#93c5fd", "#f9a8d4"],
-  centerColor = "#fef3c7",
+  colours = ["#f87171", "#93c5fd", "#f9a8d4"],
+  centerColour = "#fef3c7",
   size = "md",
   className = "",
 }) => {
@@ -29,12 +29,12 @@ export const FlowerRow: React.FC<FlowerRowProps> = ({
     <div className={`flex justify-between items-center w-full py-8 md:py-12 px-4 ${className}`}>
       {Array.from({ length: displayCount }).map((_, index) => (
         <svg
-          key={colors[index % colors.length]}
+          key={colours[index % colours.length]}
           className={`${sizeClasses[size]} shrink-0`}
           viewBox="0 0 300 300"
           aria-hidden="true"
           style={{
-            fill: colors[index % colors.length],
+            fill: colours[index % colours.length],
           }}
         >
           <circle cx="50" cy="20" r="20" />
@@ -42,7 +42,7 @@ export const FlowerRow: React.FC<FlowerRowProps> = ({
           <circle cx="80" cy="40" r="20" />
           <circle cx="30" cy="75" r="20" />
           <circle cx="70" cy="75" r="20" />
-          <circle cx="50" cy="50" r="15" fill={centerColor} />
+          <circle cx="50" cy="50" r="15" fill={centerColour} />
         </svg>
       ))}
     </div>

@@ -5,7 +5,7 @@ type TabItem = {
   label: string;
   description?: string;
   content: React.ReactNode | ((position: string) => React.ReactNode);
-  color?: string;
+  colour?: string;
 }
 
 interface TabScrollProps {
@@ -84,7 +84,7 @@ export const TabScroll: React.FC<TabScrollProps> = ({
     backgroundVariant === "transparent"
       ? "bg-transparent"
       : backgroundVariant === "color"
-        ? `bg-${backgroundColor}`
+        ? (backgroundColor ?? "")
         : backgroundVariant === "gradient"
           ? `bg-gradient-to-br ${gradientFrom} ${gradientVia} ${gradientTo}`
           : "";
@@ -109,7 +109,7 @@ export const TabScroll: React.FC<TabScrollProps> = ({
                 className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
                   hoveredTab === tab.id 
                     ? "bg-white text-gray-900 shadow-lg scale-105" 
-                    : `${tab.color ?? "bg-white/60"} text-gray-700 hover:bg-white/80 hover:shadow-md`
+                    : `${tab.colour ?? "bg-white/60"} text-gray-700 hover:bg-white/80 hover:shadow-md`
                 }`}
                 type="button"
               >

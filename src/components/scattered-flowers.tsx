@@ -5,14 +5,14 @@ interface FlowerConfig {
   top: string;
   left?: string;
   right?: string;
-  color: string;
+  colour: string;
   rotation: number;
 }
 
 interface ScatteredFlowersProps {
   count?: number;
-  colors?: string[];
-  centerColor?: string;
+  colours?: string[];
+  centerColour?: string;
   opacity?: number;
   sizeRange?: { min: number; max: number };
   seed?: number;
@@ -20,24 +20,24 @@ interface ScatteredFlowersProps {
 }
 
 const defaultFlowers: FlowerConfig[] = [
-  { size: 48, top: "10%", left: "5%", color: "#f9a8d4", rotation: 20 },
-  { size: 32, top: "15%", right: "8%", color:  "#93c5fd", rotation: -15 },
-  { size: 56, top: "65%", left: "10%", color: "#f87171", rotation: 45 },
-  { size: 40, top: "70%", right: "12%", color: "#fef3c7", rotation: -30 },
-  { size: 28, top: "35%", left: "15%", color: "#f9a8d4", rotation: 60 },
-  { size: 44, top: "40%", right: "18%", color:  "#93c5fd", rotation: -45 },
-  { size: 36, top: "85%", left: "20%", color: "#f87171", rotation: 15 },
-  { size: 52, top: "20%", left: "25%", color: "#fef3c7", rotation: -60 },
-  { size: 30, top: "80%", right: "25%", color: "#f9a8d4", rotation: 30 },
-  { size: 46, top: "50%", left: "8%", color:  "#93c5fd", rotation: -20 },
-  { size: 34, top: "25%", right: "15%", color: "#f87171", rotation: 50 },
-  { size: 42, top: "90%", right: "8%", color: "#fef3c7", rotation: -40 },
+  { size: 48, top: "10%", left: "5%", colour: "#f9a8d4", rotation: 20 },
+  { size: 32, top: "15%", right: "8%", colour:  "#93c5fd", rotation: -15 },
+  { size: 56, top: "65%", left: "10%", colour: "#f87171", rotation: 45 },
+  { size: 40, top: "70%", right: "12%", colour: "#fef3c7", rotation: -30 },
+  { size: 28, top: "35%", left: "15%", colour: "#f9a8d4", rotation: 60 },
+  { size: 44, top: "40%", right: "18%", colour:  "#93c5fd", rotation: -45 },
+  { size: 36, top: "85%", left: "20%", colour: "#f87171", rotation: 15 },
+  { size: 52, top: "20%", left: "25%", colour: "#fef3c7", rotation: -60 },
+  { size: 30, top: "80%", right: "25%", colour: "#f9a8d4", rotation: 30 },
+  { size: 46, top: "50%", left: "8%", colour:  "#93c5fd", rotation: -20 },
+  { size: 34, top: "25%", right: "15%", colour: "#f87171", rotation: 50 },
+  { size: 42, top: "90%", right: "8%", colour: "#fef3c7", rotation: -40 },
 ];
 
 export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
   count = 12,
-  colors = ["#f87171", "#93c5fd", "#f9a8d4"],
-  centerColor = "#fef3c7",
+  colours = ["#f87171", "#93c5fd", "#f9a8d4"],
+  centerColour = "#fef3c7",
   opacity = 0.6,
   sizeRange = { min: 40, max: 80 },
   seed = 42,
@@ -65,13 +65,13 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
       const useLeft = random(i, 3) > 0.5;
       const horizontalPos = `${5 + random(i, 4) * 25}%`;
       const rotation = -60 + random(i, 5) * 120;
-      const color = colors[Math.floor(random(i, 6) * colors.length)];
+      const colour =colours[Math.floor(random(i, 6) * colours.length)];
 
       flowers.push({
         size: Math.round(size),
         top,
         ...(useLeft ? { left: horizontalPos } : { right: horizontalPos }),
-        color,
+        colour,
         rotation: Math.round(rotation),
       });
     }
@@ -85,7 +85,7 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
     <>
       {flowers.map(flower => (
         <svg
-          key={flower.color + flower.size + flower.top + flower.left + flower.right + flower.rotation}
+          key={flower.colour + flower.size + flower.top + flower.left + flower.right + flower.rotation}
           className={`absolute ${className}`}
           style={{
             width: flower.size,
@@ -93,7 +93,7 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
             top: flower.top,
             left: flower.left,
             right: flower.right,
-            fill: flower.color,
+            fill: flower.colour,
             transform: `rotate(${flower.rotation}deg)`,
             opacity,
           }}
@@ -105,7 +105,7 @@ export const ScatteredFlowers: React.FC<ScatteredFlowersProps> = ({
           <circle cx="80" cy="40" r="20" />
           <circle cx="30" cy="75" r="20" />
           <circle cx="70" cy="75" r="20" />
-          <circle cx="50" cy="50" r="15" fill={centerColor} />
+          <circle cx="50" cy="50" r="15" fill={centerColour} />
         </svg>
       ))}
     </>

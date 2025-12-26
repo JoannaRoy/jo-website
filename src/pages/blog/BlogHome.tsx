@@ -15,7 +15,7 @@ const dividerComponent = (
     className="my-4"
     thicknessClassName="h-1"
     dashWidthClassName="w-4"
-    colors={["bg-pink-400", "bg-blue-400", "bg-green-400"]}
+    colours={["bg-pink-400", "bg-blue-400", "bg-green-400"]}
   />
 );
 
@@ -37,12 +37,12 @@ const Blog = () => {
   ];
   const { data: viewsData, isLoading } = useBatchViewCounts(allSlugs);
 
-  const tabColors = ["bg-pink-400/60", "bg-blue-400/60", "bg-green-400/60"];
+  const tabColours = ["bg-pink-400/60", "bg-blue-400/60", "bg-green-400/60"];
   const tabs = Object.entries(BlogContent).map(([header, posts], index) => ({
     id: header,
     label: posts[0].formattedHeader,
     description: posts[0].chapterDescription,
-    color: tabColors[index % tabColors.length],
+    colour: tabColours[index % tabColours.length],
     content: (position: string) =>
       posts.map((post) => (
         <Link
@@ -53,7 +53,7 @@ const Blog = () => {
           <BlogPostPreview
             title={post.data.title}
             date={post.data.date}
-            chapterColor={tabColors[index % tabColors.length]}
+            chapterColour={tabColours[index % tabColours.length]}
             chapterName={post.formattedHeader}
             isHighlighted={hoveredChapter === header}
             previewImage={post.data.previewImage}
@@ -81,7 +81,7 @@ const Blog = () => {
         tabs={tabs}
         onTabHover={setHoveredChapter}
         backgroundVariant="color"
-        backgroundColor="pink-100"
+        backgroundColor="bg-pink-100"
         dividerComponent={dividerComponent}
       />
     </PageGrid>
