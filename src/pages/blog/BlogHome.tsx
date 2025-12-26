@@ -1,125 +1,92 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BlogContent } from "@/pages/blog/BlogContent";
+import { DashRow } from "@/components/dash-row";
 import { PageGrid } from "@/components/item-grids";
-import BlogTitle from "@/pages/blog/BlogTitle";
 import { TabScroll } from "@/components/tab-scroll";
-import { useBatchViewCounts } from '@/hooks/useBatchViewCounts';
+import { useBatchViewCounts } from "@/hooks/useBatchViewCounts";
+import { BlogContent } from "@/pages/blog/BlogContent";
+import BlogTitle from "./BlogTitle";
+import { BlogPostPreview } from "./components/BlogPostPreview";
+import { type FeaturedArticleProps, FeaturedArticles } from "./components/FeaturedArticles";
 
-const Blog: React.FC = () => {
+const dividerComponent = (
+  <DashRow
+    count={50}
+    className="my-4"
+    thicknessClassName="h-1"
+    dashWidthClassName="w-4"
+    colors={["bg-pink-400", "bg-blue-400", "bg-green-400"]}
+  />
+);
+
+const Blog = () => {
   const [hoveredChapter, setHoveredChapter] = useState<string>(Object.keys(BlogContent)[0]);
-  const allSlugs = Object.values(BlogContent).flat().map(post => post.slug);
+  const featuredArticles: ReadonlyArray<FeaturedArticleProps> = [
+    {
+      id: "tips-for-moving",
+      title: "Tips for Moving Abroad",
+      description:
+        "A reflection + practical advice on the ups and downs of moving to a new country, and what helped me adjust.",
+      to: "/tips-for-moving",
+    },
+  ];
+
+  const allSlugs = [
+    ...Object.values(BlogContent).flat().map((post) => post.slug),
+    ...featuredArticles.map((a) => a.id),
+  ];
   const { data: viewsData, isLoading } = useBatchViewCounts(allSlugs);
 
-
-  const tabs = Object.entries(BlogContent).map(([header, posts]) => ({
+  const tabColors = ["bg-pink-400/60", "bg-blue-400/60", "bg-green-400/60"];
+  const tabs = Object.entries(BlogContent).map(([header, posts], index) => ({
     id: header,
     label: posts[0].formattedHeader,
     description: posts[0].chapterDescription,
-    content: (position: string) => (
-      <>
-        {posts.map((post) => (
-          <Link
-            key={`${post.slug}-${position}`}
-            to={`/blog/${post.slug}`}
-            className="flex-shrink-0 w-[280px] md:w-[350px]"
-          >
-            <BlogPostPreview
-              title={post.data.title}
-              date={post.data.date}
-              chapterName={post.formattedHeader}
-              isHighlighted={hoveredChapter === header}
-              previewImage={post.data.previewImage}
-              views={viewsData?.[post.slug] || 0}
-              viewsLoading={isLoading}
-            />
-          </Link>
-        ))}
-      </>
-    )
+    color: tabColors[index % tabColors.length],
+    content: (position: string) =>
+      posts.map((post) => (
+        <Link
+          key={`${post.slug}-${position}`}
+          to={`/blog/${post.slug}`}
+          className="shrink-0 w-[280px] md:w-[350px]"
+        >
+          <BlogPostPreview
+            title={post.data.title}
+            date={post.data.date}
+            chapterColor={tabColors[index % tabColors.length]}
+            chapterName={post.formattedHeader}
+            isHighlighted={hoveredChapter === header}
+            previewImage={post.data.previewImage}
+            views={viewsData?.[post.slug] || 0}
+            viewsLoading={isLoading}
+          />
+        </Link>
+      )),
   }));
 
   return (
     <PageGrid columns={1} style={{ alignItems: "left" }}>
-      <TabScroll 
+      <div className="flex flex-col items-center justify-center">
+        <BlogTitle />
+      </div>
+      {dividerComponent}
+      <div className="w-full h-full bg-green-100 p-4">
+        <FeaturedArticles
+          articles={featuredArticles}
+          viewsData={viewsData}
+          viewsLoading={isLoading}
+        />
+      </div>
+      <TabScroll
         tabs={tabs}
-        headerComponent={<BlogTitle />}
         onTabHover={setHoveredChapter}
-        gradientFrom="from-blue-100"
-        gradientVia="via-pink-200"
-        gradientTo="to-yellow-100"
+        backgroundVariant="color"
+        backgroundColor="pink-100"
+        dividerComponent={dividerComponent}
       />
     </PageGrid>
   );
 };
 
-const BlogPostPreview = ({
-  title,
-  date,
-  chapterName,
-  isHighlighted,
-  previewImage,
-  views,
-  viewsLoading,
-}: {
-  title: string;
-  date: string;
-  chapterName: string;
-  isHighlighted: boolean;
-  previewImage?: string;
-  views: number;
-  viewsLoading: boolean;
-}) => {
-  const getImageUrl = (imageName: string) => {
-    return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
-  };
-  
-
-  return (
-    <div className={`group flex flex-col bg-white/70 backdrop-blur-md rounded-xl hover:bg-white/90 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border h-full overflow-hidden ${
-      isHighlighted ? "border-gray-300/70" : "border-white/50"
-    }`}>
-      <div className="relative w-full h-40 md:h-48 bg-gradient-to-br from-purple-200 via-pink-200 to-blue-200 overflow-hidden">
-        {previewImage ? (
-          <img 
-            src={getImageUrl(previewImage)}
-            alt={title}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjMiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
-        )}
-      </div>
-      <div className="flex flex-col justify-between flex-grow p-5 md:p-6">
-        <div>
-          <div className="mb-3">
-            <span className={`text-[0.65rem] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider transition-all duration-200 ${
-              isHighlighted 
-                ? "bg-gray-300 text-gray-900" 
-                : "text-gray-500 bg-gray-100"
-            }`}>
-              {chapterName}
-            </span>
-          </div>
-          <h2 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-gray-800 transition-colors line-clamp-2">
-            {title}
-          </h2>
-        </div>
-        <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-200/60">
-          <p className="text-xs md:text-sm text-gray-500 font-medium">{date}</p>
-          <svg 
-            className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all"
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-        <div className="text-xs md:text-sm text-gray-500 font-medium">{viewsLoading ? 'Loading...' : `${views} views`}</div>
-      </div>
-    </div>
-  );
-};
 
 export default Blog;

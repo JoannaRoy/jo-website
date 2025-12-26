@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { PageGrid } from "@/components/item-grids.tsx";
 import "@/styling/Animations.css";
-import FlipCard from "@/components/flip-card.tsx";
 import Sparkles from "react-sparkle";
+import { DashFrame } from "@/components/dash-frame";
+import FlipCard from "@/components/flip-card.tsx";
 
 const Home: React.FC = () => {
   const [flipped, setFlipped] = useState([false, false, false]);
@@ -17,7 +19,6 @@ const Home: React.FC = () => {
   };
 
   return (
-    <>
       <div>
         <Sparkles
           color="gold"
@@ -30,9 +31,22 @@ const Home: React.FC = () => {
         <PageGrid columns={0} style={{ width: "100%", maxWidth: "100vw" }}>
           <div className="flex flex-col w-full justify-center items-center max-w-full">
             <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0 max-w-full">
-              <div className="flex flex-col w-full md:w-1/10 h-40 justify-center items-center bg-gradient-to-br from-green-200 to-purple-300 absolute md:relative -z-10 md:z-0 left-0 right-0" />
-              <div className="flex justify-center items-center z-10 my-4 md:my-0">
-                <img src="/assets/jo.jpg" alt="jo" className="h-40 md:h-50 max-w-full" />
+              <div className="flex justify-center items-center z-10 my-4 md:my-0 ml-10 md:ml-20">
+                <DashFrame
+                  colors={["bg-purple-400/90", "bg-blue-400/90"]}
+                  horizontalDashCount={40}
+                  horizontalDashClassName="w-1 h-1"
+                  verticalDashCount={40}
+                  verticalDashClassName="w-1 h-1"
+                  className="p-3"
+                  shape="circle"
+                >
+                  <img
+                    src="/assets/jo.jpg"
+                    alt="jo"
+                    className="h-40 md:h-50 max-w-full rounded-xl"
+                  />
+                </DashFrame>
               </div>
               <div className="flex flex-col w-full md:w-8/10 h-30 text-left align-middle">
                 <h1 className="font-bold text-center md:text-left md:ml-10 mb-3 md:mb-5 mt-4 md:mt-10">
@@ -108,7 +122,6 @@ const Home: React.FC = () => {
           </div>
         </PageGrid>
       </div>
-    </>
   );
 };
 

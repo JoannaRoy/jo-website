@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
+import { Collapsible } from "@/components/collapsible";
 
 interface BlogPostMarkdownProps {
   markdown: string;
@@ -152,12 +153,9 @@ export const BlogPostMarkdown = ({ markdown }: BlogPostMarkdownProps) => {
           const content = meaningful.slice(1);
 
           return (
-            <details className="my-4 rounded-xl border border-gray-200 bg-white/70 px-4 py-3">
-              <summary className="cursor-pointer select-none font-semibold text-gray-900">
-                {summary}
-              </summary>
-              <div className="mt-3">{content}</div>
-            </details>
+            <Collapsible summary={summary} variant="markdown">
+              {content}
+            </Collapsible>
           );
         },
       }}
@@ -166,5 +164,3 @@ export const BlogPostMarkdown = ({ markdown }: BlogPostMarkdownProps) => {
     </Markdown>
   );
 };
-
-

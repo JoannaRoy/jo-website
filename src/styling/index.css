@@ -87,8 +87,6 @@ button, a {
 h1 {
   font-size: x-large;
   line-height: 1.1;
-  /* color: var(--white); */
-  /* text-align: center; */
 }
 
 h2 {
@@ -119,12 +117,10 @@ p {
   border: none;
 }
 
-/* React Flow connection line styling */
 .react-flow .react-flow__connectionline {
   z-index: 0;
 }
 
-/* Mind map specific styling */
 .inputWrapper {
   display: flex;
   height: 20px;
@@ -179,4 +175,21 @@ p {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.font-adventure {
+  font-family: "Fredoka", "Quicksand", "Inter", system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-body {
+  font-family: "DM Sans", "Inter", system-ui, sans-serif;
+}
+
+.font-body p,
+.font-body h2,
+.font-body h3,
+.font-body li,
+.font-body summary {
+  font-family: inherit;
 }

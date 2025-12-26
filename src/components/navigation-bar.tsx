@@ -1,45 +1,23 @@
-import React, { useState, useRef } from "react";
+import type React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const navBarRef = useRef<HTMLDivElement>(null);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   const handleHamburgerClick = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const handleOutsideClick = (event: MouseEvent) => {
-    if (
-      (navBarRef.current &&
-        !navBarRef.current.contains(event.target as Node)) ||
-      (hamburgerRef.current &&
-        !hamburgerRef.current.contains(event.target as Node))
-    ) {
-      setIsOpen(false);
-    }
-  };
-
-  React.useEffect(() => {
-    document.addEventListener("click", handleOutsideClick);
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, []);
+  const close = () => setIsOpen(false);
 
   return (
-    <div
-      ref={navBarRef}
-      className={`flex flex-col fixed bg-transparent top-0 right-0 ${
-        isOpen ? "z-[1000] pointer-events-auto" : "z-50 pointer-events-none"
-      }`}
-    >
+    <div className="flex flex-col fixed bg-transparent top-0 right-0 pointer-events-none z-1000">
       <button
-        ref={hamburgerRef}
         onClick={handleHamburgerClick}
         type="button"
-        className="bg-transparent border-none m-4 absolute right-0 z-[1001] pointer-events-auto"
+        className="bg-transparent border-none m-4 absolute right-0 z-1001 pointer-events-auto"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         <div
           className={`w-[35px] h-[4px] mb-[8px] transition-transform duration-400 bg-black origin-left ${
@@ -57,41 +35,41 @@ const NavBar: React.FC = () => {
           }`}
         />
       </button>
+
+      {isOpen ? (
+        <button
+          type="button"
+          aria-label="Close menu overlay"
+          onClick={close}
+          className="fixed inset-0 bg-black/10 backdrop-blur-[1px] z-999 pointer-events-auto"
+        />
+      ) : null}
+
       <div
-        className={`flex flex-col w-80 items-center bg-[var(--white)] h-screen shadow-md ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-400 ${isOpen ? "z-[1000]" : "z-0"}`}
+        className={[
+          "fixed top-0 right-0 flex flex-col w-80 items-center h-screen shadow-md",
+          "bg-(--white)",
+          "transition-transform duration-400",
+          "pointer-events-auto z-1000",
+          isOpen ? "translate-x-0" : "translate-x-full",
+        ].join(" ")}
       >
         <div className="h-12"></div>
-        <Link to="/">
+        <Link to="/" onClick={close}>
           <h2 className="text-black font-bold text-base no-underline my-4">
             Home
           </h2>
         </Link>
-        <Link to="/blog">
+        <Link to="/blog" onClick={close}>
           <h2 className="text-black font-bold text-base no-underline my-4">
             Blog
           </h2>
         </Link>
-        <Link to="/binjo">
+        <Link to="/binjo" onClick={close}>
           <h2 className="text-black font-bold text-base no-underline my-4">
             BINJO
           </h2>
         </Link>
-        {/* <Link to="/mind-map">
-          <h2 className="text-black font-bold text-base no-underline my-4">
-            Mind Map
-          </h2>
-        </Link> */}
-        {/* <Link to="/projects" className="text-black font-bold text-base no-underline my-4">
-          Projects
-        </Link>
-        <Link to="/contact" className="text-black font-bold text-base no-underline my-4">
-          Contact
-        </Link>
-        <Link to="/more" className="text-black font-bold text-base no-underline my-4">
-          More
-        </Link> */}
       </div>
     </div>
   );

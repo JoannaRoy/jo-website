@@ -1,17 +1,18 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@/styling/index.css";
-import App from "@/App.tsx";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Analytics } from "@vercel/analytics/react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import Home from "@/pages/Home.tsx";
-import BlogPost from "@/pages/blog/BlogPost.tsx";
+import { ReactFlowProvider } from "reactflow";
+import App from "@/App.tsx";
+import BINJOHome2026 from "@/pages/BINJO/BINJOHome2026";
 import BINJOArchive from "@/pages/BINJO/binjo_archive/BINJOArchive";
 import Blog from "@/pages/blog/BlogHome.tsx";
-import { ReactFlowProvider } from "reactflow";
+import BlogPost from "@/pages/blog/BlogPost.tsx";
+import Home from "@/pages/Home.tsx";
 import Flow from "@/pages/mind_map/Flow.tsx";
-import { Analytics } from "@vercel/analytics/react";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import BINJOHome2026 from "@/pages/BINJO/BINJOHome2026";
+import TipsForMoving from "@/pages/TipsForMoving";
 
 
 const router = createHashRouter([
@@ -43,6 +44,10 @@ const router = createHashRouter([
         path: "mind-map",
         element: <Flow />,
       },
+      {
+        path: "tips-for-moving",
+        element: <TipsForMoving />,
+      },
     ],
   },
 ]);
@@ -55,7 +60,12 @@ const queryClient = new QueryClient({
   },
 });
 
-createRoot(document.getElementById("root")!).render(
+const rootEl = document.getElementById("root");
+if (!rootEl) {
+  throw new Error("Root element not found");
+}
+
+createRoot(rootEl).render(
   <StrictMode>
     <ReactFlowProvider>
       <QueryClientProvider client={queryClient}>

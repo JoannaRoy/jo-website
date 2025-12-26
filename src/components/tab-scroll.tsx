@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 type TabItem = {
   id: string;
   label: string;
   description?: string;
   content: React.ReactNode | ((position: string) => React.ReactNode);
+  color?: string;
 }
 
 interface TabScrollProps {
@@ -17,6 +18,9 @@ interface TabScrollProps {
   gradientVia?: string;
   gradientTo?: string;
   backgroundPattern?: React.ReactNode;
+  backgroundVariant?: "gradient" | "transparent" | "color";
+  backgroundColor?: string;
+  dividerComponent?: React.ReactNode | null;
 }
 
 export const TabScroll: React.FC<TabScrollProps> = ({ 
@@ -28,7 +32,10 @@ export const TabScroll: React.FC<TabScrollProps> = ({
   gradientFrom = "from-purple-200",
   gradientVia = "via-purple-200",
   gradientTo = "to-pink-300",
-  backgroundPattern
+  backgroundPattern,
+  backgroundVariant = "gradient",
+  backgroundColor,
+  dividerComponent = null
 }) => {
   const [hoveredTab, setHoveredTab] = useState<string>(tabs[0]?.id || "");
   
@@ -49,79 +56,67 @@ export const TabScroll: React.FC<TabScrollProps> = ({
     }
   };
 
-  // for smooth scroll to hovered tab
-  useEffect(() => {
+  const handleScroll: React.UIEventHandler<HTMLDivElement> = () => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
+
     const middleSection = sectionRefs.current[`${hoveredTab}-middle`];
+    const beforeSection = sectionRefs.current[`${hoveredTab}-before`];
+    const afterSection = sectionRefs.current[`${hoveredTab}-after`];
     
-    if (middleSection) {
-      const scrollTo = middleSection.offsetLeft - (scrollContainer.clientWidth / 2) + (middleSection.offsetWidth / 2);
-      scrollContainer.scrollTo({
-        left: scrollTo,
-        behavior: "smooth"
-      });
+    if (!middleSection || !beforeSection || !afterSection) return;
+
+    const scrollLeft = scrollContainer.scrollLeft;
+    const beforeThreshold = beforeSection.offsetLeft + beforeSection.offsetWidth * 0.5;
+    const afterThreshold = afterSection.offsetLeft + afterSection.offsetWidth * 0.5;
+
+    if (scrollLeft < beforeThreshold) {
+      const offset = middleSection.offsetLeft - beforeSection.offsetLeft;
+      scrollContainer.scrollLeft = scrollLeft + offset;
+    } else if (scrollLeft > afterThreshold) {
+      const offset = afterSection.offsetLeft - middleSection.offsetLeft;
+      scrollContainer.scrollLeft = scrollLeft - offset;
     }
-  }, [hoveredTab]);
-
-  // for infinite scroll
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
-
-    const handleScroll = () => {
-      const middleSection = sectionRefs.current[`${hoveredTab}-middle`];
-      const beforeSection = sectionRefs.current[`${hoveredTab}-before`];
-      const afterSection = sectionRefs.current[`${hoveredTab}-after`];
-      
-      if (!middleSection || !beforeSection || !afterSection) return;
-
-      const scrollLeft = scrollContainer.scrollLeft;
-      const beforeThreshold = beforeSection.offsetLeft + beforeSection.offsetWidth * 0.5;
-      const afterThreshold = afterSection.offsetLeft + afterSection.offsetWidth * 0.5;
-
-      if (scrollLeft < beforeThreshold) {
-        const offset = middleSection.offsetLeft - beforeSection.offsetLeft;
-        scrollContainer.scrollLeft = scrollLeft + offset;
-      } else if (scrollLeft > afterThreshold) {
-        const offset = afterSection.offsetLeft - middleSection.offsetLeft;
-        scrollContainer.scrollLeft = scrollLeft - offset;
-      }
-    };
-
-    scrollContainer.addEventListener('scroll', handleScroll);
-    return () => scrollContainer.removeEventListener('scroll', handleScroll);
-  }, [hoveredTab]);
+  };
 
   const currentTab = tabs.find(tab => tab.id === hoveredTab);
+  const backgroundClasses =
+    backgroundVariant === "transparent"
+      ? "bg-transparent"
+      : backgroundVariant === "color"
+        ? `bg-${backgroundColor}`
+        : backgroundVariant === "gradient"
+          ? `bg-gradient-to-br ${gradientFrom} ${gradientVia} ${gradientTo}`
+          : "";
 
   return (
     <div className="overflow-x-hidden w-full">
       {headerComponent}
-
+      {dividerComponent}
       <div className="relative w-full overflow-hidden">
         {backgroundPattern && (
           <div className="absolute inset-0 w-full h-full">
             {backgroundPattern}
           </div>
         )}
-        <div className={`relative z-10 w-full flex flex-col justify-center bg-gradient-to-br ${gradientFrom} ${gradientVia} ${gradientTo} px-4 md:px-8 py-8 overflow-hidden`}>
+        <div className={`relative z-10 w-full flex flex-col justify-center ${backgroundClasses} px-4 md:px-8 py-8 overflow-hidden`}>
           {title}
-        <div className="flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide mb-6 pr-16">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onMouseEnter={() => handleTabHover(tab.id)}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold whitespace-nowrap transition-all duration-200 flex-shrink-0 ${
-                hoveredTab === tab.id 
-                  ? "bg-white text-gray-900 shadow-lg scale-105" 
-                  : "bg-white/60 text-gray-700 hover:bg-white/80 hover:shadow-md"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+          <div className="flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide mb-6 pr-16">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onMouseEnter={() => handleTabHover(tab.id)}
+                className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
+                  hoveredTab === tab.id 
+                    ? "bg-white text-gray-900 shadow-lg scale-105" 
+                    : `${tab.color ?? "bg-white/60"} text-gray-700 hover:bg-white/80 hover:shadow-md`
+                }`}
+                type="button"
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
         {showDescription && currentTab?.description && (
           <div className="items-center justify-center w-full mb-6">
@@ -133,22 +128,26 @@ export const TabScroll: React.FC<TabScrollProps> = ({
 
         <div 
           ref={scrollContainerRef}
+          onScroll={handleScroll}
           className="flex gap-4 md:gap-6 overflow-x-auto pb-4 scrollbar-hide w-full"
         >
           {["before", "middle", "after"].map((position) =>
             tabs.map((tab) => (
               <div
                 key={`${tab.id}-${position}`}
-                ref={(el) => (sectionRefs.current[`${tab.id}-${position}`] = el)}
-                className="flex gap-4 md:gap-6 flex-shrink-0"
+                ref={(el) => {
+                  sectionRefs.current[`${tab.id}-${position}`] = el;
+                }}
+                className="flex gap-4 md:gap-6 shrink-0 rounded-md shadow-md"
               >
                 {typeof tab.content === 'function' ? tab.content(position) : tab.content}
               </div>
             ))
           )}
         </div>
-        </div>
       </div>
+      </div>
+      {dividerComponent}
     </div>
   );
 };
