@@ -32,7 +32,7 @@ Meanwhile, I’ve never really been one to ‘pick a lane’ — I studied the b
 It is Jo-coded both in the sense that (a) I coded it, and (b) it captures many different parts of my personality :) and I am very proud of it. [in short, it is ‘wild’]
 
 What’s on there now:
-* A blog (which occasionally mentions AI governance, but also many other things: https://www.j-roy.com/#/blog/04_miscellaneou(list)s/jo_to_the_world, https://www.j-roy.com/#/blog/02_jog_with_a_blog/running)
+* A blog (which occasionally mentions AI governance, but also many other things: https://www.j-roy.com/blog/04_miscellaneou(list)s/jo_to_the_world, https://www.j-roy.com/blog/02_jog_with_a_blog/running)
 * A ‘BINJO’ card with my goals for 2025 and 2026
 * Much more to come soon 
 

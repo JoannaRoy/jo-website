@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         <PageGrid columns={0} style={{ width: "100%", maxWidth: "100vw" }}>
           <div className="flex flex-col w-full justify-center items-center max-w-full">
             <div className="flex flex-col md:flex-row w-full items-center mb-10 md:mb-20 px-4 md:px-0 max-w-full">
-              <div className="flex justify-center items-center z-10 my-4 md:my-0 ml-10 md:ml-20">
+              <div className="flex justify-center items-center z-10 my-4 md:my-0 md:ml-20">
                 <DashFrame
                   colours={["bg-purple-400/90", "bg-blue-400/90"]}
                   horizontalDashCount={40}

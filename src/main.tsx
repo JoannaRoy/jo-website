@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "@/styling/index.css";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Analytics } from "@vercel/analytics/react";
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ReactFlowProvider } from "reactflow";
 import App from "@/App.tsx";
 import BINJOHome2026 from "@/pages/BINJO/BINJOHome2026";
@@ -15,7 +15,7 @@ import Flow from "@/pages/mind_map/Flow.tsx";
 import TipsForMoving from "@/pages/TipsForMoving";
 
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,

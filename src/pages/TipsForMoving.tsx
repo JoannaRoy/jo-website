@@ -44,7 +44,7 @@ export default function TipsForMoving() {
           opacity={0.6}
         />
         <div className="relative z-10 p-5 md:p-8">
-          <div className="text-left mx-auto mb-6 md:mb-8 w-[90vw]">
+          <div className="text-left mx-auto mb-6 md:mb-8 w-[80vw] md:w-[90vw]">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0 font-adventure">
               Tips for Moving Abroad
             </h1>
@@ -401,7 +401,7 @@ export default function TipsForMoving() {
                         them, and sometimes are interested in doing them with me :). I recently
                         published the 2026 edition{" "}
                         <a
-                          href="https://www.j-roy.com/#/binjo"
+                          href="https://www.j-roy.com/binjo"
                           target="_blank"
                           rel="noreferrer"
                           className="underline"
