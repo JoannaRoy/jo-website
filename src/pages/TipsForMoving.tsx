@@ -8,15 +8,18 @@ import { MovingMap } from "@/components/moving-map";
 import { PictureCard } from "@/components/picture-card";
 import { ScribbleBackground } from "@/components/scribble-background";
 import { TabScroll } from "@/components/tab-scroll";
-import { photosFromGlobPattern } from "@/utils/media";
+import { photosFromGlob } from "@/utils/media";
 
 
 const TORONTO: [number, number] = [-79.3832, 43.6532];
 const MUNICH: [number, number] = [11.582, 48.1351];
 
-const movingToGermanyPhotos = photosFromGlobPattern(
-  "@/blog_data/preview_images/moving_to_germany/*.{jpg,jpeg,png,gif,webp}"
-);
+const movingToGermanyImages = import.meta.glob("@/blog_data/preview_images/moving_to_germany/*.{jpg,jpeg,png,gif,webp}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const movingToGermanyPhotos = photosFromGlob(movingToGermanyImages);
 
 export default function TipsForMoving() {
   const [hoveredPictures, setHoveredPictures] = useState<string>("pictures");
