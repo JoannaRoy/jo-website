@@ -1,27 +1,30 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card } from "@/components/card";
 import { Collapsible } from "@/components/collapsible";
+import { ArrowLeft } from "@/components/icons/arrow-left";
 import { PageGrid } from "@/components/item-grids";
 import { MovingMap } from "@/components/moving-map";
 import { PictureCard } from "@/components/picture-card";
 import { ScribbleBackground } from "@/components/scribble-background";
 import { TabScroll } from "@/components/tab-scroll";
-import { photosFromGlob } from "@/utils/media";
+import { photosFromGlobPattern } from "@/utils/media";
 
 
 const TORONTO: [number, number] = [-79.3832, 43.6532];
 const MUNICH: [number, number] = [11.582, 48.1351];
 
-const movingToGermanyImages = import.meta.glob("@/blog_data/preview_images/moving_to_germany/*.{jpg,jpeg,png,gif,webp}", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
-
-const movingToGermanyPhotos = photosFromGlob(movingToGermanyImages);
+const movingToGermanyPhotos = photosFromGlobPattern(
+  "@/blog_data/preview_images/moving_to_germany/*.{jpg,jpeg,png,gif,webp}"
+);
 
 export default function TipsForMoving() {
   const [hoveredPictures, setHoveredPictures] = useState<string>("pictures");
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/blog");
+  };
 
   const pictureTabs = [
     {
@@ -58,7 +61,15 @@ export default function TipsForMoving() {
           opacity={0.6}
         />
         <div className="relative z-10 p-5 md:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-6 mb-6">
+          <button
+            onClick={handleBackClick}
+            className="mb-6 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all hover:translate-x-[-4px] duration-200 group"
+            type="button"
+          >
+            <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" title="Back to Blog Home" />
+            <span className="text-base md:text-lg font-semibold">Back to Blog</span>
+          </button>
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-6 mb-6 text-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0 font-adventure">
                 Tips for Moving Abroad
               </h1>
@@ -412,14 +423,14 @@ export default function TipsForMoving() {
                   </ol>
                 </Collapsible>
                 <Collapsible summary="Finding somewhere to volunteer">
-                  <p className="my-2">																								
+                  <p className="my-2">																																																
                     Taking part in extracurriculars was a big part of my undergrad experience -- they helped me 
                     feel part of something bigger than myself, built up my leadership skills, introduced me to 
                     many of my closest friends, and were always something I could look forward/escape to when
                     other parts of life weren't going so well. Because of this, I wanted to continue
                     with 'extracurriculars' (in some form) after uni -- and volunteering was a nice way to do so. 
                     Of course, the main purpose of volunteering is to help others, but it can be pretty beneficial 
-                    for you too. 
+                    for you too :) 
                   </p>
                   <p className="my-2">
                     I found the <Link to="https://www.redi-school.org/" className="underline">ReDI School of 

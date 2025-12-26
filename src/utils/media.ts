@@ -22,4 +22,13 @@ export function photosFromGlob(globRecord: Record<string, string>): ReadonlyArra
     .sort((a, b) => a.id.localeCompare(b.id));
 }
 
+export function photosFromGlobPattern(pattern: string): ReadonlyArray<Photo> {
+  const images = import.meta.glob(pattern, {
+    eager: true,
+    import: "default",
+  }) as Record<string, string>;
+
+  return photosFromGlob(images);
+}
+
 
