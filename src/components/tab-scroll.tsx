@@ -13,6 +13,7 @@ interface TabScrollProps {
   title?: React.ReactNode;
   headerComponent?: React.ReactNode;
   showDescription?: boolean;
+  showTabs?: boolean;
   onTabHover?: (tabId: string) => void;
   gradientFrom?: string;
   gradientVia?: string;
@@ -21,6 +22,8 @@ interface TabScrollProps {
   backgroundVariant?: "gradient" | "transparent" | "color";
   backgroundColor?: string;
   dividerComponent?: React.ReactNode | null;
+  contentClassName?: string;
+  tabsBarClassName?: string;
 }
 
 export const TabScroll: React.FC<TabScrollProps> = ({ 
@@ -28,6 +31,7 @@ export const TabScroll: React.FC<TabScrollProps> = ({
   title,
   headerComponent,
   showDescription = true,
+  showTabs = true,
   onTabHover,
   gradientFrom = "from-purple-200",
   gradientVia = "via-purple-200",
@@ -35,7 +39,9 @@ export const TabScroll: React.FC<TabScrollProps> = ({
   backgroundPattern,
   backgroundVariant = "gradient",
   backgroundColor,
-  dividerComponent = null
+  dividerComponent = null,
+  contentClassName,
+  tabsBarClassName
 }) => {
   const [hoveredTab, setHoveredTab] = useState<string>(tabs[0]?.id || "");
   
@@ -99,24 +105,38 @@ export const TabScroll: React.FC<TabScrollProps> = ({
             {backgroundPattern}
           </div>
         )}
-        <div className={`relative z-10 w-full flex flex-col justify-center ${backgroundClasses} px-4 md:px-8 py-8 overflow-hidden`}>
+        <div
+          className={[
+            "relative z-10 w-full flex flex-col justify-center overflow-hidden",
+            backgroundClasses,
+            contentClassName ?? "px-4 md:px-8 py-8",
+          ].join(" ")}
+        >
           {title}
-          <div className="flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide mb-6 pr-16">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onMouseEnter={() => handleTabHover(tab.id)}
-                className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
-                  hoveredTab === tab.id 
-                    ? "bg-white text-gray-900 shadow-lg scale-105" 
-                    : `${tab.colour ?? "bg-white/60"} text-gray-700 hover:bg-white/80 hover:shadow-md`
-                }`}
-                type="button"
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          {showTabs ? (
+            <div
+              className={[
+                "flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide mb-6 pr-16",
+                tabsBarClassName ?? "",
+              ].join(" ")}
+            >
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onMouseEnter={() => handleTabHover(tab.id)}
+                  onClick={() => handleTabHover(tab.id)}
+                  className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
+                    hoveredTab === tab.id 
+                      ? "bg-white text-gray-900 shadow-lg scale-105" 
+                      : `${tab.colour ?? "bg-white/60"} text-gray-700 hover:bg-white/80 hover:shadow-md`
+                  }`}
+                  type="button"
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          ) : null}
 
         {showDescription && currentTab?.description && (
           <div className="items-center justify-center w-full mb-6">

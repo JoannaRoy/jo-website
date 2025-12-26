@@ -62,7 +62,7 @@ const BINJOArchive: React.FC = () => {
          
         </div>
 
-        <div ref={contentRef}>
+        <div id="archive-content" ref={contentRef}>
           {renderYearContent(selectedYear)}
         </div>
       </PageGrid>

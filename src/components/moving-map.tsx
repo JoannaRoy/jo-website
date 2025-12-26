@@ -9,6 +9,8 @@ import {
 } from "react-simple-maps";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const _OCEAN_FILL = "rgba(219, 234, 254, 0.9)";
+const LAND_FILL = "rgba(148, 163, 184, 0.22)";
 
 type RsmGeography = { rsmKey: string } & Record<string, unknown>;
 
@@ -40,7 +42,7 @@ export const MovingMap: React.FC<{
         projectionConfig={{
           scale: 165,
         }}
-        className="w-full h-auto"
+        className="w-full h-full"
       >
         <defs>
           <marker
@@ -57,8 +59,8 @@ export const MovingMap: React.FC<{
         </defs>
 
         <ZoomableGroup
-          center={[center[0] + 10, center[1] + 15]}
-          zoom={1.9}
+          center={[center[0] + 15, center[1] + 5]}
+          zoom={2}
           minZoom={1}
           maxZoom={8}
           translateExtent={[
@@ -77,9 +79,9 @@ export const MovingMap: React.FC<{
                       ? "rgba(220,38,38,0.20)"
                       : geographyName(geo) === "Germany"
                         ? "rgba(245,158,11,0.20)"
-                        : "rgba(255,255,255,0.55)"
+                        : LAND_FILL
                   }
-                  stroke="rgba(17,24,39,0.12)"
+                  stroke="rgba(15,23,42,0.18)"
                   strokeWidth={0.5}
                 />
               ))

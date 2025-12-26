@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PictureCard } from "@/components/picture-card";
 import { TabScroll } from "@/components/tab-scroll";
+import { humanizeId, stripExtension } from "@/utils/media";
 
 const allPictureFiles = import.meta.glob("@/gallery_data/**/*.{jpg,jpeg,png,gif,webp}", {
   eager: true,
@@ -34,7 +35,7 @@ export const BINJOGallery = ({
     (acc: GalleryStructure, [path, url]) => {
       const parts = path.split('/');
       const folderName = parts[4];
-      const filename = path.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
+      const filename = stripExtension(path.split('/').pop() ?? "");
       
       if (!acc[folderName]) {
         acc[folderName] = [];
@@ -43,7 +44,7 @@ export const BINJOGallery = ({
       acc[folderName].push({
         id: `${folderName}-${acc[folderName].length + 1}`,
         src: url,
-        alt: filename.replace(/_/g, ' ').replace(/-/g, ' ')
+        alt: humanizeId(filename),
       });
       
       return acc;
@@ -55,7 +56,7 @@ export const BINJOGallery = ({
 
   const pictureGalleryTabs = Object.entries(galleryByFolder).map(([folderName, pictures]) => ({
     id: folderName,
-    label: folderName.replace(/_/g, ' ').replace(/-/g, ' '),
+    label: humanizeId(folderName),
     content: (position: string) => (
       <>
         {pictures.map((picture) => (
@@ -66,7 +67,8 @@ export const BINJOGallery = ({
             <PictureCard 
               src={picture.src} 
               alt={picture.alt}
-              tag={folderName.replace(/_/g, ' ').replace(/-/g, ' ')}
+              hoverLabel={picture.alt}
+              tag={humanizeId(folderName)}
               isHighlighted={hoveredCategory === folderName}
             />
           </div>

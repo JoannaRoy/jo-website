@@ -1,11 +1,13 @@
 export const PictureCard = ({ 
   src, 
   alt, 
+  hoverLabel,
   tag, 
   isHighlighted = false 
 }: { 
   src: string; 
   alt: string; 
+  hoverLabel?: string;
   tag?: string;
   isHighlighted?: boolean;
 }) => {
@@ -32,6 +34,13 @@ export const PictureCard = ({
           </span>
         </div>
       )}
+      {hoverLabel ? (
+        <div className="absolute left-0 right-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="text-white text-xs md:text-sm font-semibold drop-shadow-sm whitespace-normal break-words leading-snug">
+            {hoverLabel}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
