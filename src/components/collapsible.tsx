@@ -32,14 +32,30 @@ export function Collapsible({
   contentClassName = "",
 }: CollapsibleProps) {
   const detailsClassName = [detailsClassByVariant[variant], className].filter(Boolean).join(" ");
-  const summaryClasses = ["cursor-pointer select-none font-semibold text-gray-900", summaryClassName]
+  const summaryClasses = [
+    "flex cursor-pointer select-none items-center gap-3 font-semibold text-gray-900",
+    summaryClassName,
+  ]
     .filter(Boolean)
     .join(" ");
   const contentClasses = [contentClassByVariant[variant], contentClassName].filter(Boolean).join(" ");
 
   return (
-    <details className={detailsClassName} open={defaultOpen}>
-      <summary className={summaryClasses}>{summary}</summary>
+    <details className={["group", detailsClassName].filter(Boolean).join(" ")} open={defaultOpen}>
+      <summary className={summaryClasses}>
+        <span className="min-w-0 flex-1 inline-flex items-center gap-2">
+          <span aria-hidden className="mr-2 inline-block text-gray-700 group-open:hidden">
+            ▶︎
+          </span>
+          <span aria-hidden className="mr-2 hidden text-gray-700 group-open:inline-block">
+            ▼
+          </span>
+          <span className="min-w-0">{summary}</span>
+          <span className="expand-hint hidden text-xs font-normal text-gray-600 opacity-0 transition-opacity group-hover:opacity-100 group-open:hidden sm:inline">
+            click to expand!
+          </span>
+        </span>
+      </summary>
       <div className={contentClasses}>{children}</div>
     </details>
   );
