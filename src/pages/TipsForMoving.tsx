@@ -648,7 +648,7 @@ function ClosingCard() {
         Moving abroad has been a challenging but equally rewarding experience: I have 
         responsibilities now that I did not have before, and I have overcome things
         that I wasn’t sure I’d be able to on my own. I sometimes think about how proud
-        little Jo would be of me. I used to get soo homesick, feeling like summer camp away from my
+        little Jo would be of me. I used to get really really homesick, feeling like summer camp away from my
         parents was terrifying haha — but now here I am on a different continent 'alone', and
         figuring myself out just fine. 
       </p>
@@ -657,7 +657,7 @@ function ClosingCard() {
         opportunity abroad and highly recommend it to anyone who has the chance. While 
         it can be a bit isolating at times, going out of your way to do things that will 
         help you connect with people is so worthwhile, and will help you grow in more 
-        ways you can imagine. Even if you don't do a BINJO, you can (and should) try 
+        ways than you can imagine. Even if you don't do a BINJO, you can (and should) try 
         new things -- the best part of being in a new country is that people are
         unlikely to recognize you if you totally embarass yourself in the process :D
       </p>
