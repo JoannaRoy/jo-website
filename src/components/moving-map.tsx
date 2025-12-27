@@ -9,7 +9,6 @@ import {
 } from "react-simple-maps";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
-const _OCEAN_FILL = "rgba(219, 234, 254, 0.9)";
 const LAND_FILL = "rgba(148, 163, 184, 0.22)";
 
 type RsmGeography = { rsmKey: string } & Record<string, unknown>;
@@ -59,10 +58,10 @@ export const MovingMap: React.FC<{
         </defs>
 
         <ZoomableGroup
-          center={[center[0] + 15, center[1] + 5]}
-          zoom={2}
+          center={[center[0] + 5, center[1] + 5]}
+          zoom={2.8}
           minZoom={1}
-          maxZoom={8}
+          maxZoom={90}
           translateExtent={[
             [-500, -260],
             [980, 620],
@@ -92,7 +91,7 @@ export const MovingMap: React.FC<{
             from={from}
             to={to}
             stroke="#111827"
-            strokeWidth={2.5}
+            strokeWidth={1.5}
             strokeLinecap="round"
             markerEnd="url(#arrowhead)"
           />
@@ -101,9 +100,9 @@ export const MovingMap: React.FC<{
             <circle r={5} fill="#DC2626" stroke="#111827" strokeWidth={1} />
             {fromLabel ? (
               <text
-                textAnchor="start"
+                textAnchor="middle"
                 x={8}
-                y={4}
+                y={18}
                 className="fill-gray-900"
                 style={{ fontSize: 11, fontWeight: 600 }}
               >
@@ -116,9 +115,9 @@ export const MovingMap: React.FC<{
             <circle r={5} fill="#F59E0B" stroke="#111827" strokeWidth={1} />
             {toLabel ? (
               <text
-                textAnchor="start"
+                textAnchor="middle"
                 x={8}
-                y={4}
+                y={18}
                 className="fill-gray-900"
                 style={{ fontSize: 11, fontWeight: 600 }}
               >

@@ -1,5 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 
+function isJsonResponse(res: Response): boolean {
+  return (res.headers.get('content-type') ?? '').includes('application/json');
+}
+
 export function useBatchViewCounts(slugs: string[]) {
   return useQuery({
     queryKey: ['viewCounts', slugs],
@@ -9,8 +13,9 @@ export function useBatchViewCounts(slugs: string[]) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slugs })
       });
+      if (!response.ok || !isJsonResponse(response)) return {};
       const data = await response.json();
-      return data.views as Record<string, number>;
+      return (data?.views ?? {}) as Record<string, number>;
     },
     enabled: slugs.length > 0,
   });

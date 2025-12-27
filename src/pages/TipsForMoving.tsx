@@ -71,7 +71,7 @@ function IntroAndMapSection() {
       <Card>
         <div className="w-full rounded-2xl">
           <MovingMap
-            className="w-auto h-auto"
+            className="w-auto"
             from={TORONTO}
             to={MUNICH}
             fromLabel="Toronto, Canada"

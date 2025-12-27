@@ -1,17 +1,21 @@
-import { useState, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
-import EmojiPicker, { EmojiClickData } from 'emoji-picker-react';
-import { formatSlug } from '@/utils/formatSlug';
+import EmojiPicker, { type EmojiClickData } from "emoji-picker-react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { formatSlug } from "@/utils/formatSlug";
 
 interface ReactionBarProps {
   slug: string;
   initialReactions?: Record<string, string>;
 }
 
+function isJsonResponse(res: Response): boolean {
+  return (res.headers.get("content-type") ?? "").includes("application/json");
+}
+
 export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
   const [reactions, setReactions] = useState<Record<string, number>>(
     Object.fromEntries(
-      Object.entries(initialReactions).map(([k, v]) => [k, parseInt(v)])
+      Object.entries(initialReactions).map(([k, v]) => [k, parseInt(v, 10)])
     )
   );
   const [showPicker, setShowPicker] = useState(false);
@@ -24,13 +28,16 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
       try {
         const slugFormatted = formatSlug(slug);
         const response = await fetch(`/api/reactions/${slugFormatted}`);
-        const data = await response.json();
-        
-        setReactions(
-          Object.fromEntries(
-            Object.entries(data.reactions).map(([k, v]) => [k, parseInt(v as string)])
-          )
-        );
+        if (response.ok && isJsonResponse(response)) {
+          const data = await response.json();
+          if (data?.reactions) {
+            setReactions(
+              Object.fromEntries(
+                Object.entries(data.reactions).map(([k, v]) => [k, parseInt(v as string, 10)])
+              )
+            );
+          }
+        }
       } catch (error) {
         console.error('Error fetching reactions:', error);
       }
@@ -52,7 +59,7 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
   const handleReact = async (emoji: string) => {
     const slugFormatted = formatSlug(slug);
     const reactionKey = `reacted_${slugFormatted}_${emoji}`;
-    const hasReacted = sessionStorage.getItem(reactionKey);
+    const hasReacted = typeof window !== "undefined" ? sessionStorage.getItem(reactionKey) : null;
     const action = hasReacted ? 'remove' : 'add';
 
     setLoading(true);
@@ -63,11 +70,13 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emoji, action })
       });
+      if (!res.ok || !isJsonResponse(res)) return;
       const data = await res.json();
+      if (!data?.reactions) return;
       
       setReactions(
         Object.fromEntries(
-          Object.entries(data.reactions).map(([k, v]) => [k, parseInt(v as string)])
+          Object.entries(data.reactions).map(([k, v]) => [k, parseInt(v as string, 10)])
         )
       );
       
@@ -130,15 +139,16 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
           {displayEmojis.map(emoji => {
             const count = reactions[emoji] || 0;
             const reactionKey = `reacted_${formatSlug(slug)}_${emoji}`;
-            const hasReacted = sessionStorage.getItem(reactionKey);
+            const hasReacted = typeof window !== "undefined" ? sessionStorage.getItem(reactionKey) : null;
             
             return (
               <button 
                 key={emoji}
+                type="button"
                 onClick={() => handleReact(emoji)}
                 disabled={loading}
                 className={`
-                  flex-shrink-0 px-2 py-2 md:px-4 md:py-3 rounded-xl transition-all duration-200 text-base md:text-lg lg:text-xl
+                  shrink-0 px-2 py-2 md:px-4 md:py-3 rounded-xl transition-all duration-200 text-base md:text-lg lg:text-xl
                   ${hasReacted 
                     ? 'bg-blue-100 border-2 border-blue-400 hover:bg-blue-50' 
                     : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
@@ -154,9 +164,10 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
             );
           })}
           
-          <div className="relative flex-shrink-0">
+          <div className="relative shrink-0">
             <button
               ref={buttonRef}
+              type="button"
               onClick={handlePickerToggle}
               className="px-2 py-2 md:px-4 md:py-3 rounded-xl bg-gray-100 hover:bg-gray-200 border-2 border-transparent transition-all text-base md:text-lg lg:text-xl"
             >
@@ -168,12 +179,14 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
       
       {showPicker && createPortal(
         <>
-          <div 
-            className="fixed inset-0 z-[9998]" 
+          <button
+            type="button"
+            aria-label="Close emoji picker"
+            className="fixed inset-0 z-40 bg-transparent border-0"
             onClick={() => setShowPicker(false)}
           />
           <div 
-            className="fixed z-[9999]"
+            className="fixed z-50"
             style={{
               top: `${pickerPosition.top}px`,
               left: `${pickerPosition.left}px`
