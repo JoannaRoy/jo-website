@@ -6,13 +6,17 @@ import { ArrowLeft } from "@/components/icons/arrow-left";
 import { PageGrid } from "@/components/item-grids";
 import { MovingMap } from "@/components/moving-map";
 import { PictureCard } from "@/components/picture-card";
+import { ReactionBar } from "@/components/reaction-bar";
 import { ScribbleBackground } from "@/components/scribble-background";
 import { TabScroll } from "@/components/tab-scroll";
+import { ViewCount } from "@/components/view-count";
+import { useViewCount } from "@/hooks/useViewCount";
 import { photosFromGlob } from "@/utils/media";
 
 
 const TORONTO: [number, number] = [-79.3832, 43.6532];
 const MUNICH: [number, number] = [11.582, 48.1351];
+const SLUG = "tips-for-moving";
 
 const movingToGermanyImages = import.meta.glob("@/blog_data/preview_images/moving_to_germany/*.{jpg,jpeg,png,gif,webp}", {
   eager: true,
@@ -673,6 +677,7 @@ function ClosingCard() {
 export default function TipsForMoving() {
   const [hoveredPictures, setHoveredPictures] = useState<string>("pictures");
   const navigate = useNavigate();
+  const { views, loading: viewsLoading } = useViewCount(SLUG, true);
 
   const handleBackClick = () => {
     navigate("/blog");
@@ -689,7 +694,14 @@ export default function TipsForMoving() {
           opacity={0.6}
         />
         <div className="relative z-10 p-5 md:p-8">
-          <BackToBlogButton onClick={handleBackClick} />
+          
+          <div className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <BackToBlogButton onClick={handleBackClick} />
+            <div className="flex items-center gap-3">
+              <ReactionBar slug={SLUG} />
+              <ViewCount views={views} loading={viewsLoading} />
+            </div>
+          </div>
           <TipsForMovingTitle />
           <IntroAndMapSection />
 

@@ -71,7 +71,6 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
         )
       );
       
-      // Toggle session storage
       if (hasReacted) {
         sessionStorage.removeItem(reactionKey);
       } else {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { formatSlug } from '@/utils/formatSlug';
 
 export function useViewCount(slug: string, shouldIncrement: boolean = false) {
