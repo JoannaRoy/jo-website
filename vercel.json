@@ -2,7 +2,7 @@
   "devCommand": "vite",
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "src": "/((?!api).)*", "dest": "/index.html" }
   ]
 }
 
