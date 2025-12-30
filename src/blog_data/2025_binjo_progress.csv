@@ -6,7 +6,7 @@ Item,Planned,Completed,Notes
 "Host 5 Gatherings",0,100,
 "Swim in the Olympic Pool",0,100,
 "Bike-Packing or Multi-Day Hiking Trip",0,100,
-"150kms+ Bike Ride",100,0,
+"150kms+ Bike Ride",0,100,
 "5 New Countries",0,100,
 "2 Day Trips Per Month",0,100,
 "10 New Mountains",0,100,
@@ -19,7 +19,7 @@ Item,Planned,Completed,Notes
 "10-Minute German Convo",0,100,
 "Play a Song (Well) on the Piano",0,100,
 "1 Month Not Being Late Ever",0,100,
-"2 Pull-Ups",75,25,
+"2 Pull-Ups",0,25,
 "Qualify for Boston",0,0,
 "Ultra-marathon or Triathlon",0,100,
 "Publish a Paper",0,100,Used to be "25 Cycle Classes Before May" but alas health issues
