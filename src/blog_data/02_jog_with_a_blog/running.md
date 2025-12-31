@@ -65,12 +65,6 @@ the beautiful views <br>
 sunrises too <br>
 and the high I have once it's done <br>
 
-I sometimes use races <br>
-to explore new places <br>
-you give it your all <br>
-see where the cards fall <br>
-the pain, you learn embrace it <br>
-
 whether I go faster or longer <br>
 running makes me stronger <br>
 when I’m going through it <br>
@@ -115,9 +109,3 @@ and the joy this sport has brought me <br>
 I loved it right from the start <br>
 with my whole heckin heart <br>
 and I'm grateful for where it has got me <br>
-
-I didn’t plan to make this so sappy <br>
-or to harp on the parts that are crappy <br>
-I wrote this poem to say <br>
-in my own little way <br>
-just why running makes me so happy <br>
