@@ -14,6 +14,8 @@ interface GalleryStructure {
 
 interface BINJOGalleryProps {
   year?: number;
+  title?: string;
+  subtitle?: string;
   gradientFrom?: string;
   gradientVia?: string;
   gradientTo?: string;
@@ -21,6 +23,8 @@ interface BINJOGalleryProps {
 
 export const BINJOGallery = ({ 
   year = 2026,
+  title = "BINJO Gallery",
+  subtitle = "Photos documenting various binjo items.",
   gradientFrom = "from-purple-200",
   gradientVia = "via-purple-200",
   gradientTo = "to-pink-300"
@@ -62,7 +66,7 @@ export const BINJOGallery = ({
         {pictures.map((picture) => (
           <div
             key={`${picture.id}-${position}`}
-            className="flex-shrink-0 w-[280px] md:w-[350px] h-[280px] md:h-[350px]"
+            className="shrink-0 w-[280px] md:w-[350px] h-[280px] md:h-[350px]"
           >
             <PictureCard 
               src={picture.src} 
@@ -82,24 +86,22 @@ export const BINJOGallery = ({
   }
 
   return (
-    <>
       <TabScroll 
         tabs={pictureGalleryTabs} 
-        title={<GalleryTitle year={year} />}
+        title={<GalleryTitle title={title} subtitle={subtitle} year={year} />}
         onTabHover={setHoveredCategory}
         gradientFrom={gradientFrom}
         gradientVia={gradientVia}
         gradientTo={gradientTo}
       />
-    </>
   );
 };
 
-const GalleryTitle = ({ year }: { year: number }) => {
+const GalleryTitle = ({ title, subtitle, year }: { title: string, subtitle: string, year: number }) => {
   return (
     <>
-      <h1 className="text-xl md:text-2xl font-bold my-2 md:my-4 text-center">BINJO Gallery {year}</h1>
-      <p className="text-xs md:text-sm text-center mb-6">Photos documenting various binjo items.</p>
+      <h1 className="text-xl md:text-2xl font-bold my-2 md:my-4 text-center">{title} {year}</h1>
+      <p className="text-xs md:text-sm text-center mb-6">{subtitle}</p>
     </>
   );
 };

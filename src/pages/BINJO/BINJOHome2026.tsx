@@ -1,11 +1,11 @@
-import React from "react";
+import type React from "react";
 import { Link } from "react-router-dom";
-import { PageGrid } from "@/components/item-grids";
+import { FlowerRow } from "@/components/flower-row";
 import { PlainBox } from "@/components/item-box";
+import { PageGrid } from "@/components/item-grids";
+import { ScatteredFlowers } from "@/components/scattered-flowers";
 import { BINJO2026, WOW2026 } from "@/pages/BINJO/BINJO2026";
 import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
-import { FlowerRow } from "@/components/flower-row";
-import { ScatteredFlowers } from "@/components/scattered-flowers";
 
 
 
@@ -52,7 +52,7 @@ const BINJOHome2026: React.FC = () => {
           </div>
         </div>
         </div>
-        <BINJOGallery year={2026} />
+        <BINJOGallery year={2026} title="BINJO Gallery" subtitle="Photos documenting various binjo items (so far)." />
       </PageGrid>
     </div>
   );
