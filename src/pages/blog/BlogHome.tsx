@@ -25,6 +25,8 @@ const Blog = () => {
     {
       id: "tips-for-moving",
       title: "Tips for Moving Abroad",
+      date: "2026-01-04",
+      previewImage: "movin.png",
       description:
         "A reflection + practical advice on the ups and downs of moving to a new country, and what helped me adjust.",
       to: "/tips-for-moving",

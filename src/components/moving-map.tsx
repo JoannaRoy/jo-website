@@ -58,8 +58,8 @@ export const MovingMap: React.FC<{
         </defs>
 
         <ZoomableGroup
-          center={[center[0] + 5, center[1] + 5]}
-          zoom={2.8}
+          center={[center[0] + 3, center[1] + 8]}
+          zoom={2.2}
           minZoom={1}
           maxZoom={90}
           translateExtent={[

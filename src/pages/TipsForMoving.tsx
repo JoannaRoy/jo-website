@@ -657,18 +657,28 @@ function ClosingCard() {
         figuring myself out just fine. 
       </p>
       <p className="my-2">
-        So: if I haven't made it clear enough, I'm very very grateful to have had this 
-        opportunity abroad and highly recommend it to anyone who has the chance. While 
-        it can be a bit isolating at times, going out of your way to do things that will 
+        Being able to choose to move abroad (rather than being forced to immigrate by circumstance) 
+        is very much a privilege. I feel very lucky to (a) have had this opportunity, and (b) be able 
+        to visit my home country relatively regularly and call both places 'home'.
+      </p>
+      <p className="my-2">
+        Having grown up in Canada, raised by parents who also grew up in Canada, I would never have 
+        properly appreciated these challenges without spending extended time living in another 
+        country where I'm the one who is 'different' and misses the place I came from. I will never 
+        fully understand what it's like to grow up in a first or second generation family in a new 
+        country, but this experience has at minimum given me far more empathy for those who have.
+      </p>
+      <p className="my-2">
+        So: if I haven't made it clear enough, I would highly recommend it to anyone who has the 
+        chance. While it can be a bit isolating at times, going out of your way to do things that will 
         help you connect with people is so worthwhile, and will help you grow in more 
         ways than you can imagine. Even if you don't do a BINJO, you can (and should) try 
         new things -- the best part of being in a new country is that people are
         unlikely to recognize you if you totally embarass yourself in the process :D
       </p>
       <p className="my-2">												
-        I hope that 
-        these tips and lessons have been useful, but of course, if I missed something or if you're considering going 
-        abroad and want someone to talk to, you can always reach out :)
+        I hope that these tips and lessons have been useful, but of course, if I missed something 
+        or if you're considering going abroad and want someone to talk to, you can always reach out :)
       </p>
     </Card>
   );

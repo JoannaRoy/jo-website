@@ -58,21 +58,6 @@ export const BlogPostPreview = ({
         </div>
         <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-200/60">
           <p className="text-xs md:text-sm text-gray-500 font-medium">{date}</p>
-          <svg
-            className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all"
-            fill="none"
-            stroke="currentColour"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <title>Read post</title>
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
         </div>
         <div className="text-xs md:text-sm text-gray-500 font-medium">
           {viewsLoading ? "Loading..." : `${views} views`}
