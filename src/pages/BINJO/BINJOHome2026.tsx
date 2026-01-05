@@ -33,7 +33,7 @@ const BINJOHome2026: React.FC = () => {
               </p>
               <div className="text-center mt-4">
                 <Link 
-                  to="/binjo-archive/2025" 
+                  to="/binjo-archive" 
                   className="text-blue-600 hover:text-blue-800 underline"
                 >
                   View BINJO Archive →

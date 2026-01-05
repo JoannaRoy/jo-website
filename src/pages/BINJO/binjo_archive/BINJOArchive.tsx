@@ -1,6 +1,6 @@
 import type React from "react";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PlainBox } from "@/components/item-box";
 import { PageGrid } from "@/components/item-grids";
 import BINJOHome2025 from "@/pages/BINJO/binjo_archive/2025/BINJOHome2025";
@@ -8,7 +8,8 @@ import BINJOHome2025 from "@/pages/BINJO/binjo_archive/2025/BINJOHome2025";
 const archiveYears = [2025];
 
 const BINJOArchive: React.FC = () => {
-  const [selectedYear, setSelectedYear] = useState<number>(archiveYears[0]);
+  const urlYear = useParams().year;
+  const [selectedYear, setSelectedYear] = useState<number>(urlYear ? parseInt(urlYear, 10) : archiveYears[0]);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const renderYearContent = (year: number) => {

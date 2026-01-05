@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         element: <BINJOHome2026 />,
       },
       {
-        path: "binjo-archive/:year",
+        path: "binjo-archive/:year?",
         element: <BINJOArchive />,
       },
       {
