@@ -8,13 +8,14 @@ import { MovingMap } from "@/components/moving-map";
 import { PictureCard } from "@/components/picture-card";
 import { ScribbleBackground } from "@/components/scribble-background";
 import { TabScroll } from "@/components/tab-scroll";
-import { ViewCount } from "@/components/view-count";
+// import { ViewCount } from "@/components/view-count";
+// import { useViewCount } from "@/hooks/useViewCount";
 import { photosFromGlob } from "@/utils/media";
 
 
 const TORONTO: [number, number] = [-79.3832, 43.6532];
 const MUNICH: [number, number] = [11.582, 48.1351];
-const SLUG = "tips-for-moving";
+// const SLUG = "tips-for-moving";
 
 const movingToGermanyImages = import.meta.glob("@/blog_data/preview_images/moving_to_germany/*.{jpg,jpeg,png,gif,webp}", {
   eager: true,
@@ -685,7 +686,7 @@ function ClosingCard() {
 export default function TipsForMoving() {
   const [hoveredPictures, setHoveredPictures] = useState<string>("pictures");
   const navigate = useNavigate();
-  const { views, loading: viewsLoading } = useViewCount(SLUG, true);
+  // const { views, loading: viewsLoading } = useViewCount(SLUG, true);
 
   const handleBackClick = () => {
     navigate("/blog");
