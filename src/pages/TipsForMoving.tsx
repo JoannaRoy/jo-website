@@ -6,11 +6,9 @@ import { ArrowLeft } from "@/components/icons/arrow-left";
 import { PageGrid } from "@/components/item-grids";
 import { MovingMap } from "@/components/moving-map";
 import { PictureCard } from "@/components/picture-card";
-import { ReactionBar } from "@/components/reaction-bar";
 import { ScribbleBackground } from "@/components/scribble-background";
 import { TabScroll } from "@/components/tab-scroll";
 import { ViewCount } from "@/components/view-count";
-import { useViewCount } from "@/hooks/useViewCount";
 import { photosFromGlob } from "@/utils/media";
 
 
@@ -707,10 +705,10 @@ export default function TipsForMoving() {
           
           <div className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <BackToBlogButton onClick={handleBackClick} />
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <ReactionBar slug={SLUG} />
               <ViewCount views={views} loading={viewsLoading} />
-            </div>
+            </div> */}
           </div>
           <TipsForMovingTitle />
           <IntroAndMapSection />
