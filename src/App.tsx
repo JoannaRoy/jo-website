@@ -1,7 +1,7 @@
-import Footer from "@/components/footer";
-import NavBar from "@/components/navigation-bar";
 import { useLayoutEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import Footer from "@/components/footer";
+import NavBar from "@/components/navigation-bar";
 
 function ScrollToHash() {
   const { hash } = useLocation();
