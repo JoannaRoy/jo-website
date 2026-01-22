@@ -1,14 +1,14 @@
 import {
-  Edge,
-  EdgeChange,
-  Node,
-  NodeChange,
-  OnNodesChange,
-  OnEdgesChange,
-  applyNodeChanges,
   applyEdgeChanges,
-  XYPosition,
-} from "reactflow";
+  applyNodeChanges,
+  type Edge,
+  type EdgeChange,
+  type Node,
+  type NodeChange,
+  type OnEdgesChange,
+  type OnNodesChange,
+  type XYPosition,
+} from "@xyflow/react";
 import { nanoid } from "nanoid";
 import { createWithEqualityFn } from "zustand/traditional";
 

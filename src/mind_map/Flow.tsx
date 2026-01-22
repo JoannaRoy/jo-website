@@ -1,20 +1,20 @@
 import {
-  ReactFlow,
   Controls,
+  type Node,
+  type NodeOrigin,
+  type OnConnectEnd,
+  type OnConnectStart,
   Panel,
-  NodeOrigin,
-  OnConnectStart,
-  OnConnectEnd,
+  ReactFlow,
   useReactFlow,
-  Node,
-} from "reactflow";
+} from "@xyflow/react";
 import { shallow } from "zustand/shallow";
 
-import "reactflow/dist/style.css";
-import useStore, { RFState } from "./mind-map-store";
-import MindMapNode from "./MindMapNode";
-import MindMapEdge from "./MindMapEdge";
+import "@xyflow/react/dist/style.css";
 import { useCallback, useRef } from "react";
+import MindMapEdge from "./MindMapEdge";
+import MindMapNode from "./MindMapNode";
+import useStore, { type RFState } from "./mind-map-store";
 
 const selector = (state: RFState) => ({
   nodes: state.nodes,

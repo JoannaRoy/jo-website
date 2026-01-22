@@ -1,5 +1,5 @@
-import { Handle, NodeProps, Position } from "reactflow";
-import { useLayoutEffect, useRef, useEffect } from "react";
+import { Handle, type NodeProps, Position } from "@xyflow/react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import useStore from "@/pages/mind_map/mind-map-store.ts";
 
 export type NodeData = {

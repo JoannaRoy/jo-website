@@ -1,4 +1,4 @@
-import { Handle, NodeProps, Position } from "reactflow";
+import { Handle, NodeProps, Position } from "@xyflow/react";
 import { useLayoutEffect, useRef, useEffect } from "react";
 import useStore from "./mind-map-store";
 
