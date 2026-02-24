@@ -11,9 +11,10 @@ import BINJOArchive from "@/pages/BINJO/binjo_archive/BINJOArchive";
 import Blog from "@/pages/blog/BlogHome.tsx";
 import BlogPost from "@/pages/blog/BlogPost.tsx";
 import Home from "@/pages/Home.tsx";
+import Imprint from "@/pages/Imprint";
 import Flow from "@/pages/mind_map/Flow.tsx";
 import TipsForMoving from "@/pages/TipsForMoving";
-
+import { hasAnalyticsConsent } from "@/components/consent-banner";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         path: "tips-for-moving",
         element: <TipsForMoving />,
       },
+      {
+        path: "imprint",
+        element: <Imprint />,
+      },
     ],
   },
 ]);
@@ -65,6 +70,8 @@ if (!rootEl) {
   throw new Error("Root element not found");
 }
 
+const analyticsEnabled = hasAnalyticsConsent();
+
 createRoot(rootEl).render(
   <StrictMode>
     <ReactFlowProvider>
@@ -72,6 +79,6 @@ createRoot(rootEl).render(
         <RouterProvider router={router} />
       </QueryClientProvider>
     </ReactFlowProvider>
-    <Analytics />
+    {analyticsEnabled && <Analytics />}
   </StrictMode>
 );

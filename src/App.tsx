@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import ConsentBanner from "@/components/consent-banner";
 import Footer from "@/components/footer";
 import NavBar from "@/components/navigation-bar";
 
@@ -40,6 +41,7 @@ const App = () => {
         <Outlet />
       </main>
       <Footer />
+      <ConsentBanner />
     </div>
   );
 };

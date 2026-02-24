@@ -2,6 +2,7 @@ import {
   Controls,
   type Node,
   type NodeOrigin,
+  type NodeTypes,
   type OnConnectEnd,
   type OnConnectStart,
   Panel,
@@ -110,7 +111,7 @@ function Flow() {
         <ReactFlow
           nodes={nodes}
           edges={edges}
-          nodeTypes={nodeTypes}
+          nodeTypes={nodeTypes as NodeTypes}
           edgeTypes={edgeTypes}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}

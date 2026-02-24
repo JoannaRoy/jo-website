@@ -47,11 +47,11 @@ const FlipCard: React.FC<FlipCardProps> = ({
         </div>
         {/* Back side */}
         <div
-          className={`absolute w-full h-full flex justify-center items-center transition-all p-4 md:p-10 ${
+          className={`absolute w-full h-full flex justify-center items-start overflow-y-auto transition-all p-4 md:p-10 ${
             isFlipped ? "rotate-y-180 opacity-100 duration-800" : "opacity-0"
           }`}
         >
-          {backContent}
+          <div className="my-auto text-xs md:text-sm">{backContent}</div>
         </div>
       </div>
     </div>

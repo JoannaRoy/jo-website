@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
   const close = () => setIsOpen(false);
 
   return (
-    <div className="flex flex-col fixed bg-transparent top-0 right-0 pointer-events-none z-1000">
+    <div className="flex flex-col fixed bg-transparent top-0 right-0 pointer-events-none z-300">
       <button
         onClick={handleHamburgerClick}
         type="button"
@@ -63,6 +63,11 @@ const NavBar: React.FC = () => {
         <Link to="/blog" onClick={close}>
           <h2 className="text-black font-bold text-base no-underline my-4">
             Blog
+          </h2>
+        </Link>
+        <Link to="/projects" onClick={close}>
+          <h2 className="text-black font-bold text-base no-underline my-4">
+            Projects
           </h2>
         </Link>
         <Link to="/binjo" onClick={close}>
