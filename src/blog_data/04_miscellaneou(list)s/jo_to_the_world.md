@@ -48,3 +48,4 @@ Here is a list of nice little happy things:
 - a really nice, long run
 - feeling like you're really giving something your all, and then having that hard work pay off
 - putting on a new pair of (good quality) socks for the first time
+- when you put on a new pair of glasses and suddenly the world looks sooooooo much clearer!!
