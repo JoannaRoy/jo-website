@@ -2,7 +2,6 @@
 title: "Cooperation is Key"
 date: "2025-06-30"
 preview image: "coop.png"
-tags: ["jo's tech ponderings"]
 description: "How cooperative AI can benefit from cooperation with other disciplines"
 draft: "false"
 ---

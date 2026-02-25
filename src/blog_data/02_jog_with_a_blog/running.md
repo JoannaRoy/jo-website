@@ -2,7 +2,6 @@
 title: "S(miles): Jo's Ode to Running"
 date: "2025-03-31"
 preview image: "s_miles.jpg"
-tags: ["jog with a blog"]
 description: "my lil limerick about running :)"
 draft: "false"
 ---

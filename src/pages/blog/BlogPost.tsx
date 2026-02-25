@@ -3,10 +3,15 @@ import { BlogPostMarkdown } from "@/components/blog-post-markdown";
 import { ArrowLeft } from "@/components/icons/arrow-left";
 import { PageGrid } from "@/components/item-grids";
 import { ReactionBar } from "@/components/reaction-bar";
-import { TagPills } from "@/components/tag-pills";
 import { ViewCount } from "@/components/view-count";
 import { useViewCount } from "@/hooks/useViewCount";
 import { BlogContent } from "@/pages/blog/BlogContent";
+
+const chapterColorMap: Record<string, string> = {};
+const chapterColors = ["#f472b6", "#60a5fa", "#22c55e", "#fbbf24", "#a78bfa"];
+Object.keys(BlogContent).forEach((h, index) => {
+  chapterColorMap[h] = chapterColors[index % chapterColors.length];
+});
 
 const BlogPost = () => {
   const { header, title } = useParams();
@@ -14,18 +19,15 @@ const BlogPost = () => {
   const slug = `${header}/${title}`;
   const post = BlogContent[header as string].find((post) => post.slug === slug);
   const { views, loading: viewsLoading } = useViewCount(slug, true);
+  const chapterColor = header ? chapterColorMap[header] : undefined;
 
   const handleBackClick = () => {
     navigate("/blog");
   };
 
-  const getImageUrl = (imageName: string) => {
-    return new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
-  };
-
   return (
     <PageGrid columns={1}>
-      <div className="p-4 md:p-8 mx-auto w-[95vw] md:w-[90vw] lg:w-[80vw] xl:w-[70vw] h-full">
+      <div className="px-4 md:px-8 lg:px-12 py-4 md:py-8 w-full">
         <button
           onClick={handleBackClick}
           className="mb-6 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all hover:translate-x-[-4px] duration-200 group"
@@ -34,44 +36,30 @@ const BlogPost = () => {
           <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" title="Back to Blog Home" />
           <span className="text-base md:text-lg font-semibold">Back to Blog</span>
         </button>
-        <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden">
-          {post?.data.previewImage && (
-            <div className="relative w-full h-32 md:h-48 lg:h-56 overflow-hidden">
-              <img 
-                src={getImageUrl(post.data.previewImage)}
-                alt={post.data.title}
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-linear-to-b from-transparent to-white/10"></div>
-            </div>
-          )}
-          
-          
-          <div className="p-6 md:p-10 lg:p-12">
-            <div className="mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-3">
-              <span className="text-xs md:text-xs font-bold px-3 py-1.5 rounded-full bg-gray-200 text-gray-700 uppercase tracking-wider">
-                {post?.formattedHeader}
-              </span>
-              <ReactionBar slug={slug} />
-            </div>
-            
-            <div className="flex flex-row items-center justify-between w-full mb-8 md:mb-10 gap-3 py-4">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0">
-                {post?.data.title}
-              </h1>
-              <ViewCount views={views} loading={viewsLoading} className="ml-4" />
-            </div>
-            
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full mb-8 md:mb-10 gap-3 md:gap-0 pb-6 border-b border-gray-200">
-              <p className="text-sm md:text-base text-gray-600 font-medium">
-                {post?.data.date}
-              </p>
-              {post?.data.tags && (
-                <TagPills tags={post.data.tags} />
-              )}
-            </div>
-            <BlogPostMarkdown markdown={post?.content ?? ""} />
+        <div>
+          <div className="mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-3">
+            <span
+              className="text-xs px-2 py-0.5 rounded"
+              style={{ color: chapterColor || "#9ca3af", backgroundColor: chapterColor ? `${chapterColor}15` : "#f3f4f6" }}
+            >
+              {post?.formattedHeader}
+            </span>
+            <ReactionBar slug={slug} />
           </div>
+          
+          <div className="flex flex-row items-center justify-between w-full mb-8 md:mb-10 gap-3 py-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0">
+              {post?.data.title}
+            </h1>
+            <ViewCount views={views} loading={viewsLoading} className="ml-4" />
+          </div>
+          
+          <div className="w-full mb-8 md:mb-10 pb-6 border-b border-gray-200">
+            <p className="text-sm md:text-base text-gray-600 font-medium">
+              {post?.data.date}
+            </p>
+          </div>
+          <BlogPostMarkdown markdown={post?.content ?? ""} />
         </div>
       </div>
     </PageGrid>

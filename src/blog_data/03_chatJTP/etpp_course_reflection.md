@@ -2,7 +2,6 @@
 title: "Ethics, Technology + Public Policy for Practitioners Course Reflection"
 date: "2025-11-07"
 preview image: "etpp.jpg"
-tags: ["jo's tech ponderings"]
 description: "Reflection from the Ethics, Technology + Public Policy for Practitioners course"
 draft: "false"
 ---

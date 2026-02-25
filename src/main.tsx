@@ -10,6 +10,7 @@ import BINJOHome2026 from "@/pages/BINJO/BINJOHome2026";
 import BINJOArchive from "@/pages/BINJO/binjo_archive/BINJOArchive";
 import Blog from "@/pages/blog/BlogHome.tsx";
 import BlogPost from "@/pages/blog/BlogPost.tsx";
+import Projects from "@/pages/Projects";
 import Home from "@/pages/Home.tsx";
 import Imprint from "@/pages/Imprint";
 import Flow from "@/pages/mind_map/Flow.tsx";
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "blog/:header/:title",
         element: <BlogPost />,
+      },
+      {
+        path: "projects",
+        element: <Projects />,
       },
       {
         path: "binjo",

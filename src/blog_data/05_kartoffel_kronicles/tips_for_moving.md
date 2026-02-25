@@ -2,7 +2,6 @@
 title: "Jo's (not so) definitive guide to moving abroad"
 date: "2026-01-01"
 preview image: "movin.jpg"
-tags: ["kartoffel chronicles"]
 description: "somewhere in between a reflection (for myself) and advice/tips (for others) about moving to a new country."
 draft: "true"
 ---

@@ -1,94 +1,123 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { DashRow } from "@/components/dash-row";
+import { ContentCard } from "@/components/content-card";
 import { PageGrid } from "@/components/item-grids";
-import { TabScroll } from "@/components/tab-scroll";
-import { useBatchViewCounts } from "@/hooks/useBatchViewCounts";
+import { useSortToggle } from "@/hooks/useSortToggle";
 import { BlogContent } from "@/pages/blog/BlogContent";
-import BlogTitle from "./BlogTitle";
-import { BlogPostPreview } from "./components/BlogPostPreview";
-import { type FeaturedArticleProps, FeaturedArticles } from "./components/FeaturedArticles";
 
-const dividerComponent = (
-  <DashRow
-    count={50}
-    className="my-4"
-    thicknessClassName="h-1"
-    dashWidthClassName="w-4"
-    colours={["bg-pink-400", "bg-blue-400", "bg-green-400"]}
-  />
-);
+const getPreviewImageUrl = (imageName: string) =>
+  new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
+
+const chapterColorMap: Record<string, string> = {};
+const chapterColors = ["#f472b6", "#60a5fa", "#22c55e", "#fbbf24", "#a78bfa"];
+Object.keys(BlogContent).forEach((header, index) => {
+  chapterColorMap[header] = chapterColors[index % chapterColors.length];
+});
+
+type FeaturedArticle = {
+  id: string;
+  title: string;
+  date: string;
+  previewImage?: string;
+  to: string;
+  category: string;
+  preview: string;
+};
+
+const featuredArticles: FeaturedArticle[] = [
+  {
+    id: "tips-for-moving",
+    title: "Tips for Moving Abroad",
+    date: "2026-01-04",
+    previewImage: "movin.png",
+    to: "/tips-for-moving",
+    category: "Featured",
+    preview: "Some lessons I learned from moving to Germany.",
+  },
+];
+
+const getPreviewText = (content: string, maxLength = 100): string => {
+  const text = content.replace(/\s+/g, " ").trim().replace(/^#+\s+.*/gm, "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[*_`#]/g, "")
+    .replace(/\n+/g, " ")
+    .trim();
+
+  return text.length <= maxLength ? text : `${text.slice(0, maxLength).trim()}...`;
+};
+
+const allPosts = [
+  ...featuredArticles.map((a) => ({
+    slug: a.id,
+    to: a.to,
+    title: a.title,
+    date: a.date,
+    previewImage: a.previewImage,
+    chapter: a.category,
+    chapterColor: "#fbbf24",
+    isFeatured: true,
+    chapterOrder: -1,
+    preview: a.preview,
+  })),
+  ...Object.entries(BlogContent).flatMap(([header, posts], chapterIndex) =>
+    posts.map((post, postIndex) => ({
+      slug: post.slug,
+      to: `/blog/${post.slug}`,
+      title: post.data.title,
+      date: post.data.date,
+      previewImage: post.data.previewImage,
+      chapter: post.formattedHeader,
+      chapterColor: chapterColorMap[header],
+      isFeatured: false,
+      chapterOrder: chapterIndex * 100 + postIndex,
+      preview: getPreviewText(post.content),
+    }))
+  ),
+];
 
 const Blog = () => {
-  const [hoveredChapter, setHoveredChapter] = useState<string>(Object.keys(BlogContent)[0]);
-  const featuredArticles: ReadonlyArray<FeaturedArticleProps> = [
-    {
-      id: "tips-for-moving",
-      title: "Tips for Moving Abroad",
-      date: "2026-01-04",
-      previewImage: "movin.png",
-      description:
-        "A reflection + practical advice on the ups and downs of moving to a new country, and what helped me adjust.",
-      to: "/tips-for-moving",
-    },
-  ];
+  const { sortBy, SortToggle } = useSortToggle({
+    options: [
+      { id: "chapter", label: "chapter" },
+      { id: "date", label: "date" },
+    ],
+    defaultOption: "date",
+  });
 
-  const allSlugs = [
-    ...Object.values(BlogContent).flat().map((post) => post.slug),
-    ...featuredArticles.map((a) => a.id),
-  ];
-  const { data: viewsData, isLoading } = useBatchViewCounts(allSlugs);
-
-  const tabColours = ["bg-pink-400/60", "bg-blue-400/60", "bg-green-400/60"];
-  const tabs = Object.entries(BlogContent).map(([header, posts], index) => ({
-    id: header,
-    label: posts[0].formattedHeader,
-    description: posts[0].chapterDescription,
-    colour: tabColours[index % tabColours.length],
-    content: (position: string) =>
-      posts.map((post) => (
-        <Link
-          key={`${post.slug}-${position}`}
-          to={`/blog/${post.slug}`}
-          className="shrink-0 w-[280px] md:w-[350px]"
-        >
-          <BlogPostPreview
-            title={post.data.title}
-            date={post.data.date}
-            chapterColour={tabColours[index % tabColours.length]}
-            chapterName={post.formattedHeader}
-            isHighlighted={hoveredChapter === header}
-            previewImage={post.data.previewImage}
-            views={viewsData?.[post.slug] || 0}
-            viewsLoading={isLoading}
-          />
-        </Link>
-      )),
-  }));
+  const sortedPosts = [...allPosts].sort((a, b) => {
+    if (sortBy === "date") {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    }
+    return a.chapterOrder - b.chapterOrder;
+  });
 
   return (
-    <PageGrid columns={1} style={{ alignItems: "left" }}>
-      <div className="flex flex-col items-center justify-center">
-        <BlogTitle />
+    <PageGrid columns={1}>
+      <div className="w-full px-6 md:px-12 lg:px-20 py-8 md:py-12">
+        <div className="flex items-baseline justify-between mb-10">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+            Blog
+          </h1>
+          <SortToggle />
+        </div>
+
+        <div className="flex flex-col gap-3">
+          {sortedPosts.map((post) => (
+            <Link key={post.slug} to={post.to}>
+              <ContentCard
+                title={post.title}
+                subtitle={post.date}
+                image={post.previewImage ? getPreviewImageUrl(post.previewImage) : undefined}
+                category={post.chapter}
+                categoryColor={post.chapterColor}
+                isFeatured={post.isFeatured}
+                description={post.preview}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
-      {dividerComponent}
-      <div className="w-full h-full bg-green-100 p-4">
-        <FeaturedArticles
-          articles={featuredArticles}
-          viewsData={viewsData}
-          viewsLoading={isLoading}
-        />
-      </div>
-      <TabScroll
-        tabs={tabs}
-        onTabHover={setHoveredChapter}
-        backgroundVariant="color"
-        backgroundColor="bg-pink-100"
-        dividerComponent={dividerComponent}
-      />
     </PageGrid>
   );
 };
-
 
 export default Blog;

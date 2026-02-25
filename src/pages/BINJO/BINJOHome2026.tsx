@@ -5,7 +5,6 @@ import { PlainBox } from "@/components/item-box";
 import { PageGrid } from "@/components/item-grids";
 import { ScatteredFlowers } from "@/components/scattered-flowers";
 import { BINJO2026, WOW2026 } from "@/pages/BINJO/BINJO2026";
-import { BINJOGallery } from "@/pages/BINJO/BINJOGallery";
 
 
 
@@ -52,7 +51,7 @@ const BINJOHome2026: React.FC = () => {
           </div>
         </div>
         </div>
-        <BINJOGallery year={2026} title="BINJO Gallery" subtitle="Photos documenting various binjo items (so far)." />
+        {/* <BINJOGallery year={2026} title="BINJO Gallery" subtitle="Photos documenting various binjo items (so far)." /> */}
       </PageGrid>
     </div>
   );

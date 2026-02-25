@@ -2,7 +2,6 @@
 title: "README.txt (about this site)"
 date: "2026-01-14"
 preview image: "movin.jpg"
-tags: ["jo's tech ponderings"]
 description: "Coding this website"
 draft: "true"
 ---

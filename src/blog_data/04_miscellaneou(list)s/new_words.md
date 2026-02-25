@@ -2,7 +2,6 @@
 title: "Words"
 date: "2025-03-02"
 preview image: "jo_hannes.jpeg"
-tags: ["lists"]
 description: "new words i learned"
 draft: "false"
 ---

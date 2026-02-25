@@ -2,7 +2,6 @@
 title: "Inlight Toolkit for Student Engagement in Mental Health Research"
 date: "2025-05-31"
 preview image: "inlight.jpeg"
-tags: ["misc", "projects"]
 description: "inlight reflection"
 ---
 

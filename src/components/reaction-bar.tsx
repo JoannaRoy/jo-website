@@ -134,47 +134,42 @@ export function ReactionBar({ slug, initialReactions = {} }: ReactionBarProps) {
 
   return (
     <>
-      <div className="space-y-3 w-full max-w-full">
-        <div className="flex gap-2 md:gap-3 items-center overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-          {displayEmojis.map(emoji => {
-            const count = reactions[emoji] || 0;
-            const reactionKey = `reacted_${formatSlug(slug)}_${emoji}`;
-            const hasReacted = typeof window !== "undefined" ? sessionStorage.getItem(reactionKey) : null;
-            
-            return (
-              <button 
-                key={emoji}
-                type="button"
-                onClick={() => handleReact(emoji)}
-                disabled={loading}
-                className={`
-                  shrink-0 px-2 py-2 md:px-4 md:py-3 rounded-xl transition-all duration-200 text-base md:text-lg lg:text-xl
-                  ${hasReacted 
-                    ? 'bg-blue-100 border-2 border-blue-400 hover:bg-blue-50' 
-                    : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
-                  }
-                  disabled:opacity-50 disabled:cursor-not-allowed
-                  hover:scale-110 active:scale-95
-                `}
-                title={hasReacted ? 'Click to remove reaction' : 'Click to react'}
-              >
-                <span className="mr-1 md:mr-2">{emoji}</span>
-                {count > 0 && <span className="text-xs md:text-sm lg:text-base font-semibold text-gray-700">{count}</span>}
-              </button>
-            );
-          })}
+      <div className="flex gap-2 items-center flex-wrap">
+        {displayEmojis.map(emoji => {
+          const count = reactions[emoji] || 0;
+          const reactionKey = `reacted_${formatSlug(slug)}_${emoji}`;
+          const hasReacted = typeof window !== "undefined" ? sessionStorage.getItem(reactionKey) : null;
           
-          <div className="relative shrink-0">
-            <button
-              ref={buttonRef}
+          return (
+            <button 
+              key={emoji}
               type="button"
-              onClick={handlePickerToggle}
-              className="px-2 py-2 md:px-4 md:py-3 rounded-xl bg-gray-100 hover:bg-gray-200 border-2 border-transparent transition-all text-base md:text-lg lg:text-xl"
+              onClick={() => handleReact(emoji)}
+              disabled={loading}
+              className={`
+                px-2 py-1 text-sm transition-colors
+                ${hasReacted 
+                  ? 'text-blue-600' 
+                  : 'text-gray-600 hover:text-gray-900'
+                }
+                disabled:opacity-50 disabled:cursor-not-allowed
+              `}
+              title={hasReacted ? 'Click to remove reaction' : 'Click to react'}
             >
-              ➕
+              <span>{emoji}</span>
+              {count > 0 && <span className="ml-1 text-xs text-gray-500">{count}</span>}
             </button>
-          </div>
-        </div>
+          );
+        })}
+        
+        <button
+          ref={buttonRef}
+          type="button"
+          onClick={handlePickerToggle}
+          className="px-2 py-1 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          +
+        </button>
       </div>
       
       {showPicker && createPortal(

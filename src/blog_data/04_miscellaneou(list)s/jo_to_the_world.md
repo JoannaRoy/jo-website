@@ -2,7 +2,6 @@
 title: "Nice Little Things"
 date: "2025-02-20"
 preview image: "nicee.jpeg"
-tags: ["cup o jo", "lists"]
 description: "a list of nice little happy things"
 draft: "false"
 ---
