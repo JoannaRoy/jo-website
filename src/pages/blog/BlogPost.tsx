@@ -27,7 +27,7 @@ const BlogPost = () => {
 
   return (
     <PageGrid columns={1}>
-      <div className="w-full px-8 sm:px-2 md:px-16 lg:px-24 py-6 md:py-8">
+      <div className="w-full max-w-full min-w-0 overflow-x-hidden px-6 sm:px-10 md:px-16 lg:px-24 py-6 md:py-8">
         <button
           onClick={handleBackClick}
           className="mb-6 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all hover:translate-x-[-4px] duration-200 group"
@@ -47,11 +47,11 @@ const BlogPost = () => {
             <ReactionBar slug={slug} />
           </div>
           
-          <div className="flex flex-row items-center justify-between w-full mb-8 md:mb-10 gap-3 py-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full mb-8 md:mb-10 gap-3 py-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0 min-w-0 break-words">
               {post?.data.title}
             </h1>
-            <ViewCount views={views} loading={viewsLoading} className="ml-4" />
+            <ViewCount views={views} loading={viewsLoading} className="sm:ml-4 shrink-0" />
           </div>
           
           <div className="w-full mb-8 md:mb-10 pb-6 border-b border-gray-200">

@@ -50,10 +50,22 @@ const applyCollapseMarkers = (markdown: string): string => {
 
 export const BlogPostMarkdown = ({ markdown }: BlogPostMarkdownProps) => {
   return (
+    <div className="overflow-hidden wrap-break-word">
     <Markdown
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw, rehypeSanitize]}
       components={{
+        a: ({ children, href, ...props }) => (
+          <a
+            href={href}
+            className="text-purple hover:text-blue-800 underline wrap-break-word"
+            target={href?.startsWith("http") ? "_blank" : undefined}
+            rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+            {...props}
+          >
+            {children}
+          </a>
+        ),
         p: ({ children, ...props }) => {
           if (
             children &&
@@ -162,5 +174,6 @@ export const BlogPostMarkdown = ({ markdown }: BlogPostMarkdownProps) => {
     >
       {applyCollapseMarkers(markdown)}
     </Markdown>
+    </div>
   );
 };
