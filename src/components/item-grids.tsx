@@ -18,6 +18,7 @@ const BaseGrid: React.FC<GridProps> = ({
       style={{
         width: "100%",
         maxWidth: "100vw",
+        overflowX: "hidden",
         display: columns === 0 ? "flex" : "grid",
         flexDirection: columns === 0 ? "row" : undefined,
         justifyItems: "center",

@@ -18,7 +18,7 @@ I’ve divided this reflection into three parts:
 * pt 2\. looks at how technical approaches to solving social problems can run into challenges, particularly in defining human values in technical terms and in trying to come up with technical replicas (and/or replacements) of human processes.   
 * pt 3\. is a rapid fire of some interesting topics I learned about in this course, which I hope to keep getting a better understanding of going forward. 
 
-There is so much I could reflect on from this course -- both from the lectures and my interactions with other participants. I've chosen to focus on these areas because they are most relevant to my professional practice (but stay tuned, and I'll likely have some more content related to the other sections in the near future :).
+There is so much I could reflect on from this course -- both from the lectures and my interactions with other participants. I've chosen to focus on these areas because they are most relevant to my day-to-day work.
 
 —
 

@@ -14,7 +14,7 @@ export const useSortToggle = ({ options, defaultOption }: UseSortToggleProps) =>
   const [sortBy, setSortBy] = useState(defaultOption || options[0]?.id || "");
 
   const SortToggle = () => (
-    <div className="flex gap-1 text-sm text-gray-500">
+    <div className="flex flex-wrap gap-1 text-xs sm:text-sm text-gray-500 shrink-0">
       <span>sort by:</span>
       {options.map((option, index) => (
         <span key={option.id} className="flex items-center">

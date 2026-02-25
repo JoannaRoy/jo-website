@@ -51,19 +51,19 @@ export const ContentCard = ({
       onKeyDown={isExpandable ? handleKeyDown : undefined}
       tabIndex={isExpandable ? 0 : undefined}
     >
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-3 sm:gap-4 overflow-hidden">
         {image && (
           <img
             src={image}
             alt={title}
-            className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-md shrink-0"
+            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-cover rounded-md shrink-0"
           />
         )}
 
-        <div className="flex flex-col grow min-w-0">
-          <div className="flex items-start justify-between gap-3 mb-1">
-            <div className="flex items-center gap-3 flex-wrap">
-              <h3 className="text-base md:text-lg font-semibold text-gray-900">
+        <div className="flex flex-col grow min-w-0 overflow-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 mb-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 flex-wrap min-w-0">
+              <h3 className="text-sm md:text-lg font-semibold text-gray-900 break-words">
                 {title}
               </h3>
               {links && links.length > 0 && (
@@ -83,7 +83,7 @@ export const ContentCard = ({
                 </div>
               )}
             </div>
-            {subtitle && <span className="text-xs text-gray-500 shrink-0 pt-0.5">{subtitle}</span>}
+            {subtitle && <span className="text-xs text-gray-500 shrink-0">{subtitle}</span>}
           </div>
 
           {category && (
@@ -110,8 +110,8 @@ export const ContentCard = ({
           )}
 
           {description && (
-            <div className="pt-4 mt-2 border-t border-gray-200">
-              <div className="text-sm text-gray-600 leading-relaxed prose prose-sm max-w-none prose-a:text-[var(--purple)] prose-a:no-underline hover:prose-a:underline">
+            <div className="pt-4 mt-2 border-t border-gray-200 overflow-hidden">
+              <div className="text-xs sm:text-sm text-gray-600 leading-relaxed prose prose-sm max-w-none break-words prose-a:text-[var(--purple)] prose-a:no-underline hover:prose-a:underline">
                 <ReactMarkdown>{description}</ReactMarkdown>
               </div>
             </div>

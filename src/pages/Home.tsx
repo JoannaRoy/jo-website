@@ -88,7 +88,7 @@ const Home: React.FC = () => {
                 className="h-40 md:h-50 max-w-full rounded-xl"
               />
             </div>
-            <div className="flex flex-col w-full md:w-8/10 h-30 text-left align-middle">
+            <div className="flex flex-col w-full md:w-8/10 text-left align-middle">
               <h1 className="font-bold text-center md:text-left md:ml-10 mb-3 md:mb-5 mt-4 md:mt-10">
                 hello!
               </h1>
@@ -100,30 +100,30 @@ const Home: React.FC = () => {
           </div>
         </PageGrid>
         <div className="border-b border-gray-300" />
-        <div className="py-5 md:py-5">
-        <div className="relative z-10 flex flex-col md:flex-row p-6 md:px-12 lg:px-20 gap-8 md:gap-12 bg-blue-50/70 mx-5 rounded-lg items-center h-60">
-          <div className="flex flex-row md:flex-col gap-2 md:gap-1 shrink-0">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id)}
-                className={`text-left text-sm px-3 py-2 rounded transition-colors ${
-                  activeTab === tab.id
-                    ? "text-gray-900 font-medium bg-blue-100"
-                    : "text-gray-400 hover:text-gray-600"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+        <div className="py-5 px-3 sm:px-4 md:px-0">
+          <div className="relative z-10 flex flex-col md:flex-row p-3 sm:p-4 md:p-6 md:px-12 lg:px-20 gap-3 md:gap-12 bg-blue-50/70 md:mx-5 rounded-lg">
+            <div className="flex flex-row md:flex-col gap-1 shrink-0">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`text-left text-xs sm:text-sm px-2 sm:px-3 py-1.5 md:py-2 rounded transition-colors whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? "text-gray-900 font-medium bg-blue-100"
+                      : "text-gray-400 hover:text-gray-600"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
 
-          <div className="flex-1 rounded-lg p-6">
-            {activeContent}
+            <div className="flex-1 rounded-lg py-2 px-1 sm:p-4 md:p-6 overflow-hidden">
+              {activeContent}
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       

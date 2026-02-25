@@ -33,8 +33,8 @@ const Projects = () => {
 
   return (
     <PageGrid columns={1}>
-      <div className="w-full px-6 md:px-12 lg:px-20 py-8 md:py-12">
-        <div className="flex items-baseline justify-between mb-10">
+      <div className="w-full px-3 sm:px-6 md:px-12 lg:px-20 py-8 md:py-12 overflow-hidden">
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-10">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
             Projects
           </h1>

@@ -27,7 +27,7 @@ const BlogPost = () => {
 
   return (
     <PageGrid columns={1}>
-      <div className="px-4 md:px-8 lg:px-12 py-4 md:py-8 w-full">
+      <div className="w-full px-8 sm:px-2 md:px-16 lg:px-24 py-6 md:py-8">
         <button
           onClick={handleBackClick}
           className="mb-6 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all hover:translate-x-[-4px] duration-200 group"
