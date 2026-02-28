@@ -37,7 +37,7 @@ const ConsentBanner = () => {
       <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-sm text-center sm:text-left min-w-0">
           <span className="block text-xs text-gray-800 mb-1">
-            This site doesn't use cookies or collect any personally-identifyable data, but it does use anonymized analytics to see which pages people visit most often. It's more than okay to opt-out anytime! 
+            This site does not use cookies or collect any personally-identifyable data, but it does use anonymized analytics to see which pages people visit most often. It's more than okay to opt-out anytime! 
           </span>
           <span className="block text-xs text-gray-500">
             I'm asking because of the{" "}
