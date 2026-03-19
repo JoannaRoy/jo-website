@@ -57,11 +57,12 @@ const allPosts = [
     isFeatured: true,
     chapterOrder: -1,
     preview: a.preview,
+    isExternal: false,
   })),
   ...Object.entries(BlogContent).flatMap(([header, posts], chapterIndex) =>
     posts.map((post, postIndex) => ({
       slug: post.slug,
-      to: `/blog/${post.slug}`,
+      to: post.data.externalUrl || `/blog/${post.slug}`,
       title: post.data.title,
       date: post.data.date,
       previewImage: post.data.previewImage,
@@ -70,6 +71,7 @@ const allPosts = [
       isFeatured: false,
       chapterOrder: chapterIndex * 100 + postIndex,
       preview: getPreviewText(post.content),
+      isExternal: !!post.data.externalUrl,
     }))
   ),
 ];
@@ -101,19 +103,33 @@ const Blog = () => {
         </div>
 
         <div className="flex flex-col gap-3">
-          {sortedPosts.map((post) => (
-            <Link key={post.slug} to={post.to}>
-              <ContentCard
-                title={post.title}
-                subtitle={post.date}
-                image={post.previewImage ? getPreviewImageUrl(post.previewImage) : undefined}
-                category={post.chapter}
-                categoryColor={post.chapterColor}
-                isFeatured={post.isFeatured}
-                description={post.preview}
-              />
-            </Link>
-          ))}
+          {sortedPosts.map((post) =>
+            post.isExternal ? (
+              <a key={post.slug} href={post.to} target="_blank" rel="noopener noreferrer">
+                <ContentCard
+                  title={post.title}
+                  subtitle={post.date}
+                  image={post.previewImage ? getPreviewImageUrl(post.previewImage) : undefined}
+                  category={post.chapter}
+                  categoryColor={post.chapterColor}
+                  isFeatured={post.isFeatured}
+                  description={post.preview}
+                />
+              </a>
+            ) : (
+              <Link key={post.slug} to={post.to}>
+                <ContentCard
+                  title={post.title}
+                  subtitle={post.date}
+                  image={post.previewImage ? getPreviewImageUrl(post.previewImage) : undefined}
+                  category={post.chapter}
+                  categoryColor={post.chapterColor}
+                  isFeatured={post.isFeatured}
+                  description={post.preview}
+                />
+              </Link>
+            )
+          )}
         </div>
       </div>
     </PageGrid>

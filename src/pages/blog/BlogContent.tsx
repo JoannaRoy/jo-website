@@ -19,6 +19,7 @@ interface BlogPost {
     date: string;
     draft: string;
     previewImage?: string;
+    externalUrl?: string;
   };
   content: string;
   slug: string;
@@ -69,6 +70,7 @@ const unsortedContent = Object.entries(markdownFiles).reduce(
           date: data.date,
           draft: data.draft,
           previewImage: data["preview image"],
+          externalUrl: data["external url"],
         },
         content: markdownContent,
         slug: slug,
