@@ -5,38 +5,16 @@ preview image: "hello.jpeg"
 description: "intro & what i want this blog to be"
 ---
 
-Hello :) My name is Joanna (Jo) and this is my first blog post.
+I have long tossed around the idea of making a blog. Formatting-wise, (after a long-time toss-up between podcast, vlog, and blog) I landed on this “multimedia blog” concept (aka in classic indecisive jo fashion, I have kept my formatting options open as can be :D) — and even affectionally coined it: “Chickpea Purée” (upon suggestion from my wonderful colleagues at trail).
 
-I think a lot about random topics (_most people do haha_). But I find there’s something really nice about taking these messy, jumbled, and confusing thoughts from my head and putting them on a page to clarify and better understand them. It feels like they become more interesting and valuable when I can fully dissect them on a page and draw conclusions, rather than letting them get lost in my muddled trains of thought.
-
-So: this blog, first and foremost, is a space for me to explore what I think about various topics. The posts will vary quite a bit, in subject matter, length, formality, emoji use, and technicality; and over time, I also hope that my writing will become clearer, more interesting, cohesive, concise, and so on.
-
-I want this to be a space where I try new things — to learn about areas that are unfamiliar to me, to develop and express my views on issues I’m interested in, to consider perspectives that are new or unfamiliar to me, and maybe even to experiment with different types of writing (eg. one day I will slip a haiku in here. you will never see it coming).
-
-I really just want to use this blog to explore and express all the different sides of Jo.
-
-Given this introduction, I thought it would be fitting to open with the train of thought that started it all.
-
-In this (inaugural 😮) article, I will therefore try to explain my conflicting thoughts about whether or not to start a blog in the first place (spoiler: here we are :D), and how each will inform the making of Chickpea Purée 🧑‍🍳.
-
-So without further adieu, here is the very first cup o’ jo, enjoy ☕!  
-<br>
-
----
-
-<br>
-I have long tossed around the idea of making a blog (inspired by friends whose blog articles I enjoy reading—thank you, Martin and Nick; and also Emily if you are reading this for those extremely fun vlogs :).
-
-Formatting-wise, (after a long-time toss-up between podcast, vlog, and blog) I landed on this “multimedia blog” concept (aka in classic indecisive jo fashion, I have kept my formatting options open as can be :D) — and even affectionally coined it: “Chickpea Purée” (upon suggestion from my wonderful colleagues at Trail).
-
-But my decision to turn these blog musings into reality was a tad less straightforward.
+But my decision to turn these into reality was a tad less straightforward.
 
 On the one hand, I was fairly sure that making a blog would be a net positive in my life. The reasons _for_ starting a blog are relatively simple:
 
 1. **I’ve always loved reading and writing** — although academically I tended to gravitate towards math/physics, I find I’m happiest when I can find some balance between the two (ie social sciences and science). I think when we learn about both, we can use one to learn about the other.
 2. **I also like being creative**, so the idea of expressing myself not only through words, but also through videos / drawings / etc is appealing to me. This blog will have mix of different types of posts (some visual, some written, a little vlog or audio entry here and there, etc etc) 🎨
 3. **Likewise, I find it very frustrating when I have an idea or opinion that I can’t communicate clearly to someone else.** A blog would be a great way to practice expressing my opinions and ideas about any topic that matters to me, so that I have less trouble communicating them in the future. Practice makes perfect 🤓
-4. **I’m in a new country — I’m seeing so many new things and meeting so many new people, but I don’t know as many people as I did in Canada.** So much is changing, both around me and in me, and I’d love to have a place to reflect on and store this information. (yes, that place could be a journal, but I do like the thought of opening up a discussion on my reflections, rather than babbling somewhere I am unlikely to ever revisit. I also like the idea of being held accountable - I will hold my writing to a higher standard if I think others may read it, and this alone will help me improve and potentially take a more critical lens to my ponderings).
+4. **I’m in a new country — I’m seeing so many new things and meeting so many new people, but I don’t know as many people as I did in Canada.** So much is changing, both around me and in me, and I’d love to have a place to reflect on and store this information. (yes, that place could be a journal, but I do like the thought of opening up a discussion on my reflections, rather than babbling somewhere I am unlikely to ever revisit. I also like the idea of being held accountable - I will hold my writing to a higher standard if I think others may read it, and this alone will help me improve and potentially take a more critical lens).
 5. **I want to have something to look back on.** These posts will inevitably change / evolve over time as I find my voice and become better at communicating. I think it will be fun to look back on these early posts, and compare them to future ones, to see how far I’ve come 😁
 
 But despite this relatively convincing case for pursuing blog authorship, I also had hesitations.
@@ -73,7 +51,7 @@ So, I am hesitating to start a blog because I don’t want to add to that. I sti
 
 That said: a big part of my personal motivation for this blog is just me trying to work through and navigate those feelings for myself. Less selfishly, if someone can relate to those feelings, and perhaps my ponderings could be useful in navigating them, maybe it is worthwhile to share them.
 
-4. **The last reason is that sometimes I can be lazy and do not do things simply because they seem like they’ll be a lot of work** 😂 — However, this reason is much less valid than the others and should probably be omitted from my analysis.
+4. **The last reason is that sometimes I can be lazy and do not do things simply because they seem like they’ll be a lot of work** D: — However, this reason is much less valid than the others and should probably be omitted from my analysis.
 
 Ironically, the first two reasons above stemmed from me having _too many_ thoughts and ideas, which is actually all the more reason to start a blog, in order to put them somewhere. The third reason is complex, and is something I think I should evaluate on a case-by-case basis, to decide whether or not it is my place to comment - and if so, how to frame my comments / contribute to discussions in a way that is useful and constructive. And, well, I already marked case closed on reason #4.
 
