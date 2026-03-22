@@ -48,7 +48,7 @@ const BlogPost = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full mb-8 md:mb-10 gap-3 py-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 m-0 min-w-0 break-words">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 m-0 min-w-0 break-words">
               {post?.data.title}
             </h1>
             <ViewCount views={views} loading={viewsLoading} className="sm:ml-4 shrink-0" />
@@ -59,7 +59,7 @@ const BlogPost = () => {
               {post?.data.date}
             </p>
           </div>
-          <BlogPostMarkdown markdown={post?.content ?? ""} />
+          <BlogPostMarkdown markdown={post?.content ?? ""} postSlug={slug} />
         </div>
       </div>
     </PageGrid>

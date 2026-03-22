@@ -97,20 +97,22 @@ button, a {
   }
 }
 
-h1 {
-  font-size: x-large;
-  line-height: 1.1;
-}
+@layer base {
+  h1 {
+    font-size: x-large;
+    line-height: 1.1;
+  }
 
-h2 {
-  font-size: large;
-  font-family: monospace;
-  color: black;
-}
+  h2 {
+    font-size: large;
+    font-family: monospace;
+    color: black;
+  }
 
-p {
-  color: black;
-  font-family: monospace;
+  p {
+    color: black;
+    font-family: monospace;
+  }
 }
 
 .react-flow__handle.target {

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           email: joannaroy6[at]gmail[dot]com 
         </span>
         <span className="md:inline block mt-2 md:mt-0">
-        {' |'} linkedin:
+        {' |'} linkedin{': '}
           <a
             href="https://www.linkedin.com/in/joanna-roy-162261195/"
             className="hover:underline"
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           </a>
         </span>
         <span className="md:inline block mt-2 md:mt-0">
-        {' |'} github:
+        {' |'} github{': '}
           <a href="https://github.com/JoannaRoy" className="hover:underline">
             JoannaRoy
           </a>

@@ -1,7 +1,7 @@
 import EmojiPicker, { type EmojiClickData } from "emoji-picker-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { formatSlug } from "@/utils/formatSlug";
+import { formatSlug } from "@/hooks/formatSlug";
 
 interface ReactionBarProps {
   slug: string;
