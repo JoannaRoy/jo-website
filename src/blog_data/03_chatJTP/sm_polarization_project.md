@@ -159,13 +159,13 @@ My initial plans for the infrastructure are:
 | **LLM inference** | Llama 3.1 8B via [llamafile](https://mozilla-ai.github.io/llamafile/) | Argument extraction and statement generation |
 | **Frontend** | Undecided, maybe as a chrome extension or something like [marimo](https://github.com/marimo-team/marimo) | TBD, I have not explored many options in depth |
 
-# Appendix 
+##  Appendix 
 
-## Appendix A: Initial approaches considered for the stance and argument clustering step
+### Appendix A: Initial approaches considered for the stance and argument clustering step
 
 This section outlines the two main approaches I considered for the second step in the pipeline, wherein posts discussing each topic need to be further broken down into arguments, each supporting a given stance. I considered using the Polis architecture, and using opinion embeddings paired with LSTMs – this appendix explains what I tried, and the limitations I found with each.
 
-### Polis
+#### Polis
 
 Initially, I wanted to use something similar to Polis (see the [platform](https://pol.is/signin) and [paper](https://www.demdis.sk/content/files/2022/11/Polis-manusript.pdf)), a platform for large-scale structured opinion gathering and consensus mapping. Notably, it was used as part of Taiwan's vTaiwan platform to deliberate national policy issues (as Audrey Tang discussed in the 2025 [summer school talk](https://youtu.be/hvVoPHDRofE?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-)) and has roughly the following flow [17]:
 
@@ -186,7 +186,7 @@ To address the first limitation, I considered using only ‘likes’, with ‘vi
 
 I also considered doing a custom ‘social media platform’ as a proof of concept for this project, but again (a) didn’t want to limit the project’s scope, and (b) doing so wouldn’t address the latter two concerns. I ultimately decided these limitations were enough to warrant exploring other options. 
 
-### Opinion Embeddings and LSTMs
+#### Opinion Embeddings and LSTMs
 
 I next wondered if I could cluster opinions in the same way BERTopic clusters topics. The key differences between opinions and topics are that similar opinions do not necessarily share similar semantics (you can express the same opinion using different vocabulary, which is especially true of short, messy social media posts) – and vice versa: opposing opinions do not necessarily use different vocabulary. 
 
@@ -197,7 +197,7 @@ Still, I had hoped that semantic information captured by the ordering of words i
 
 Arguments tend to be nuanced – two posts can share a broad stance while making completely different arguments – and I wasn’t convinced that a model (importantly: one that is runnable from someone’s laptop) could efficiently classify them in any reliable, scalable way.
 
-## Appendix B: Argument Web Interface Components
+### Appendix B: Argument Web Interface Components
 
 This appendix explains the argument web interface components – what I plan to keep and what I plan to drop, with reasoning for each. 
 
