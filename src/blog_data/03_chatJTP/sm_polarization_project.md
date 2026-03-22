@@ -25,27 +25,15 @@ I'm posting this mainly to document the work so far, but also because I'd love t
 
 ## Introduction & Motivation
 
-Social media and algorithms risk increasing polarization in online spaces – by favouring content that aligns with our existing values and beliefs (and tending to amplify more extreme versions of it), algorithms can produce feeds that largely confirm what we already think, and can gradually lead to polarized ‘echo chambers’ in certain corners of the internet.
-
-Content that consistently confirms our pre-existing opinions risks eroding our ability to think critically – to question our assumptions, examine our beliefs from different angles, and form reasoned, independent opinions. 
-
-This ability to independently shape our knowledge, beliefs, and understanding is called epistemic agency [1], and is essential to meaningful participation in democratic societies. Our vote (be it with ballots, our wallets, or our actions) means nothing if the opinions behind it were shaped for us rather than formed by us. Compromising our epistemic agency therefore risks undermining many systems (e.g. healthcare, education, the economy) that depend on our collective human input. 
+Content that consistently confirms our pre-existing opinions risks eroding our ability to think critically – to question our assumptions, examine our beliefs from different angles, and form reasoned, independent opinions. This ability to independently shape our knowledge, beliefs, and understanding is called epistemic agency [1], and is essential to meaningful participation in democratic societies. Our vote (be it with ballots, our wallets, or our actions) means nothing if the opinions behind it were shaped for us rather than formed by us. Compromising our epistemic agency therefore risks undermining many systems (e.g. healthcare, education, the economy) that depend on our collective human input. 
 
 This is a core argument of gradual disempowerment [2] (see the [paper](https://arxiv.org/abs/2501.16946) and [summer school talk](https://youtu.be/AmtKdoeYGn0?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-)): that delegating decision making power to AI models could slowly disempower humans over time, leaving us with less and less agency over systems that shape our lives. Without our collective, democratic input, these systems will tend to serve us less well, resulting in a world that is harder to live in for most people, likely favouring a few powerful actors. 
 
-Limiting echo chambers online, and using AI to *scaffold* critical thinking skills rather than replace them, would therefore be very beneficial – and is what this project will try to do.
+Limiting echo chambers online (specifically, on social media), and using AI to *scaffold* critical thinking skills rather than replace them, would therefore be very beneficial – and is what this project will try to do. Broadly, the goal of this project is to design a system which, given a social media post about a topic that is polarized strongly towards one stance, will append a short text outlining alternative stances and arguments expressed by other users about this topic. Most algorithms *filter out* content such that peoples’ feeds tend to be *more* *aligned* with their existing views. This project tries to *bring in* content that *differs* or *opposes* peoples’ existing views, in hopes it will motivate people to question and refine them. 
 
-Broadly, the goal of this project is to design a system which, given a social media post about a topic that is polarized strongly towards one stance, will append a short text outlining alternative stances and arguments expressed by other users about this topic. 
+Upon seeing other users’ opinions about the topic, it’s possible the user continues to hold their initial stance, but also possible they do so in a less polarized way, or even take a new stance on the topic. Regardless, people should decide independently with which stance they align, not by default from the only stance and set of arguments they were algorithmically shown. This system would ideally reduce polarization by pulling people more towards mutual understanding and more fostering empathy, while increasing our ability to think critically and exercise genuine epistemic agency over opinions we form online.
 
-Most algorithms *filter out* content such that peoples’ feeds tend to be *more* *aligned* with their existing views. This project tries to *bring in* content that *differs* or *opposes* peoples’ existing views, in hopes it will motivate people to question and refine them. 
-
-Upon seeing other users’ opinions about the topic, it’s possible the user continues to hold their initial stance, but also possible they do so in a less polarized way, or even take a new stance on the topic. Regardless, people should decide independently with which stance they align, not by default from the only stance and set of arguments they were algorithmically shown. 
-
-This system would ideally reduce polarization by pulling people more towards mutual understanding and more fostering empathy, while increasing our ability to think critically and exercise genuine epistemic agency over opinions we form online.
-
-This blog post outlines my plans and current progress for the project, in hopes of documenting it and getting feedback. I’ll first talk about the overall system design and what aspects I’ve prioritised, and then go through each component’s design and discuss what I’ve tested so far. 
-
-My goal is to balance drawing from academic research with building something practically usable and useful. An ideal outcome is a proof-of-concept system that is open-source (can be downloaded and run locally by anyone), works well on a subset of topics, and is theoretically scalable to many topics and users (i.e. with more resources and infrastructure, could theoretically work on a real social media platform). 
+This blog post outlines my plans and current progress for the project, in hopes of documenting it and getting feedback. I’ll first talk about the overall system design and what aspects I’ve prioritised, and then go through each component’s design and discuss what I’ve tested so far. My goal is to balance drawing from academic research with building something practically usable and useful. An ideal outcome is a proof-of-concept system that is open-source (can be downloaded and run locally by anyone), works well on a subset of topics, and is theoretically scalable to many topics and users (i.e. with more resources and infrastructure, could theoretically work on a real social media platform). 
 
 ## System Design
 
@@ -239,36 +227,20 @@ Here is a table summary:
 
 ## Sources
 
-[1] M. Coeckelbergh, “Democracy, epistemic agency, and AI: political epistemology in times of artificial intelligence,” *AI Ethics*, vol. 3, no. 4, pp. 1341–1350, Nov. 2023, doi: 10.1007/s43681-022-00239-4.
-
-[2] J. Kulveit, R. Douglas, N. Ammann, D. Turan, D. Krueger, and D. Duvenaud, “Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development,” Jan. 29, 2025, *arXiv*: arXiv:2501.16946. doi: 10.48550/arXiv.2501.16946.
-
-[3] “Introduction.” Accessed: Mar. 19, 2026. [Online]. Available: https://communitynotes.x.com/guide/en/about/introduction
-
-[4] “Note ranking algorithm.” Accessed: Mar. 19, 2026. [Online]. Available: https://communitynotes.x.com/guide/en/under-the-hood/ranking-notes#note-ranking-algorithm
-
-[5] *twitter/communitynotes*. (Mar. 19, 2026). Python. X (fka Twitter). Accessed: Mar. 19, 2026. [Online]. Available: https://github.com/twitter/communitynotes
-
-[6] “Ground News.” Accessed: Mar. 20, 2026. [Online]. Available: https://ground.news/landingV8/full-lp?utm_source=full-lp&utm_medium=animated-popup&utm_campaign=exp
-
-[7] B. Woods, “BBC wages war on online echo chambers with ‘unbiased’ tech,” *The Telegraph*, Jun. 09, 2022. Accessed: Mar. 19, 2026. [Online]. Available: https://www.telegraph.co.uk/business/2022/06/09/bbc-wages-war-online-echo-chambers-unbiased-tech/
-
-[8] M. Grootendorst, “BERTopic: Neural topic modeling with a class-based TF-IDF procedure,” Mar. 11, 2022, *arXiv*: arXiv:2203.05794. doi: 10.48550/arXiv.2203.05794.
-
-[9] C. Reed *et al.*, “The Argument Web: an Online Ecosystem of Tools, Systems and Services for Argumentation,” *Philos. Technol.*, vol. 30, no. 2, pp. 137–160, Jun. 2017, doi: 10.1007/s13347-017-0260-8.
-
-[10] “Faiss.” Accessed: Mar. 22, 2026. [Online]. Available: https://ai.meta.com/tools/faiss/
-
-[11] S. Fish *et al.*, “Generative Social Choice,” Mar. 05, 2025, *arXiv*: arXiv:2309.01291. doi: 10.48550/arXiv.2309.01291.
-
-[12] C. Small, “Polis: Escalar de la deliberación mediante el mapeo de espacios de opinión de alta dimensión,” *Recer. Rev. Pensam. Anàlisi*, Jul. 2021, doi: 10.6035/recerca.5516.
-
-[13] H. Xu, S. Vucetic, and W. Yin, “OpenStance: Real-world Zero-shot Stance Detection,” in *Proceedings of the 26th Conference on Computational Natural Language Learning (CoNLL)*, A. Fokkens and V. Srikumar, Eds., Abu Dhabi, United Arab Emirates (Hybrid): Association for Computational Linguistics, Dec. 2022, pp. 314–324. doi: 10.18653/v1/2022.conll-1.21.
-
-[14] H. Li, V. Schlegel, R. Batista-Navarro, and G. Nenadic, “Do You Hear The People Sing? Key Point Analysis via Iterative Clustering and Abstractive Summarisation,” May 25, 2023, *arXiv*: arXiv:2305.16000. doi: 10.48550/arXiv.2305.16000.
-
-[15] J. Lawrence and C. Reed, “Argument Mining: A Survey,” *Comput. Linguist.*, vol. 45, no. 4, pp. 765–818, Jan. 2020, doi: 10.1162/coli_a_00364.
-
-[16] R. Bar-Haim, L. Eden, R. Friedman, Y. Kantor, D. Lahav, and N. Slonim, “From Arguments to Key Points: Towards Automatic Argument Summarization,” in *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, Online: Association for Computational Linguistics, 2020, pp. 4029–4039. doi: 10.18653/v1/2020.acl-main.371.
-
-[17] H.-C. Wang, C. D. Putra, and C.-Y. Wu, “A recurrent stick breaking topic model for argument stance detection,” *Multimed. Tools Appl.*, vol. 83, no. 13, pp. 38241–38266, Oct. 2023, doi: 10.1007/s11042-023-16829-1.
+\[1\] M. Coeckelbergh, “Democracy, epistemic agency, and AI: political epistemology in times of artificial intelligence,” *AI Ethics*, vol. 3, no. 4, pp. 1341–1350, Nov. 2023. [https://doi.org/10.1007/s43681-022-00239-4](https://doi.org/10.1007/s43681-022-00239-4)   
+\[2\] J. Kulveit, R. Douglas, N. Ammann, D. Turan, D. Krueger, and D. Duvenaud, “Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development,” Jan. 29, 2025, *arXiv*: arXiv:2501.16946. [https://doi.org/10.48550/arXiv.2501.16946](https://doi.org/10.48550/arXiv.2501.16946)   
+\[3\] “Introduction.” Accessed: Mar. 19, 2026. [https://communitynotes.x.com/guide/en/about/introduction](https://communitynotes.x.com/guide/en/about/introduction)   
+\[4\] “Note ranking algorithm.” Accessed: Mar. 19, 2026. [https://communitynotes.x.com/guide/en/under-the-hood/ranking-notes#note-ranking-algorithm](https://communitynotes.x.com/guide/en/under-the-hood/ranking-notes#note-ranking-algorithm)   
+\[5\] *twitter/communitynotes*. (Mar. 19, 2026). Python. X (fka Twitter). Accessed: Mar. 19, 2026. [https://github.com/twitter/communitynotes](https://github.com/twitter/communitynotes)   
+\[6\] “Ground News.” Accessed: Mar. 20, 2026. [https://ground.news/landingV8/full-lp?utm_source=full-lp&utm_medium=animated-popup&utm_campaign=exp](https://ground.news/landingV8/full-lp?utm_source=full-lp&utm_medium=animated-popup&utm_campaign=exp)   
+\[7\] B. Woods, “BBC wages war on online echo chambers with ‘unbiased’ tech,” *The Telegraph*, Jun. 09, 2022. Accessed: Mar. 19, 2026. [https://www.telegraph.co.uk/business/2022/06/09/bbc-wages-war-online-echo-chambers-unbiased-tech/](https://www.telegraph.co.uk/business/2022/06/09/bbc-wages-war-online-echo-chambers-unbiased-tech/)   
+\[8\] M. Grootendorst, “BERTopic: Neural topic modeling with a class-based TF-IDF procedure,” Mar. 11, 2022, *arXiv*: arXiv:2203.05794. [https://doi.org/10.48550/arXiv.2203.05794](https://doi.org/10.48550/arXiv.2203.05794)   
+\[9\] C. Reed *et al.*, “The Argument Web: an Online Ecosystem of Tools, Systems and Services for Argumentation,” *Philos. Technol.*, vol. 30, no. 2, pp. 137–160, Jun. 2017. [https://doi.org/10.1007/s13347-017-0260-8](https://doi.org/10.1007/s13347-017-0260-8)   
+\[10\] “Faiss.” Accessed: Mar. 22, 2026. [https://ai.meta.com/tools/faiss/](https://ai.meta.com/tools/faiss/)   
+\[11\] S. Fish *et al.*, “Generative Social Choice,” Mar. 05, 2025, *arXiv*: arXiv:2309.01291. [https://doi.org/10.48550/arXiv.2309.01291](https://doi.org/10.48550/arXiv.2309.01291)   
+\[12\] C. Small, “Polis: Escalar de la deliberación mediante el mapeo de espacios de opinión de alta dimensión,” *Recer. Rev. Pensam. Anàlisi*, Jul. 2021. [https://doi.org/10.6035/recerca.5516](https://doi.org/10.6035/recerca.5516)   
+\[13\] H. Xu, S. Vucetic, and W. Yin, “OpenStance: Real-world Zero-shot Stance Detection,” in *Proceedings of the 26th Conference on Computational Natural Language Learning (CoNLL)*, A. Fokkens and V. Srikumar, Eds., Abu Dhabi, United Arab Emirates (Hybrid): Association for Computational Linguistics, Dec. 2022, pp. 314–324. [https://doi.org/10.18653/v1/2022.conll-1.21](https://doi.org/10.18653/v1/2022.conll-1.21)   
+\[14\] H. Li, V. Schlegel, R. Batista-Navarro, and G. Nenadic, “Do You Hear The People Sing? Key Point Analysis via Iterative Clustering and Abstractive Summarisation,” May 25, 2023, *arXiv*: arXiv:2305.16000. [https://doi.org/10.48550/arXiv.2305.16000](https://doi.org/10.48550/arXiv.2305.16000)   
+\[15\] J. Lawrence and C. Reed, “Argument Mining: A Survey,” *Comput. Linguist.*, vol. 45, no. 4, pp. 765–818, Jan. 2020. [https://doi.org/10.1162/coli_a_00364](https://doi.org/10.1162/coli_a_00364)   
+\[16\] R. Bar-Haim, L. Eden, R. Friedman, Y. Kantor, D. Lahav, and N. Slonim, “From Arguments to Key Points: Towards Automatic Argument Summarization,” in *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, Online: Association for Computational Linguistics, 2020, pp. 4029–4039. [https://doi.org/10.18653/v1/2020.acl-main.371](https://doi.org/10.18653/v1/2020.acl-main.371)   
+\[17\] H.-C. Wang, C. D. Putra, and C.-Y. Wu, “A recurrent stick breaking topic model for argument stance detection,” *Multimed. Tools Appl.*, vol. 83, no. 13, pp. 38241–38266, Oct. 2023. [https://doi.org/10.1007/s11042-023-16829-1](https://doi.org/10.1007/s11042-023-16829-1)
