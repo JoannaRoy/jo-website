@@ -1,4 +1,3 @@
 export function formatSlug(slug: string): string {
-  return slug.replace(/\//g, '-');
+  return slug.replace(/\//g, "-");
 }
-

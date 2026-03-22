@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formatSlug } from '@/utils/formatSlug';
+import { formatSlug } from "@/hooks/formatSlug";
 
 function isJsonResponse(res: Response): boolean {
   return (res.headers.get('content-type') ?? '').includes('application/json');

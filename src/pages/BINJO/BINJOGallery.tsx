@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PictureCard } from "@/components/picture-card";
 import { TabScroll } from "@/components/tab-scroll";
-import { humanizeId, stripExtension } from "@/utils/media";
+import { humanizeId, stripExtension } from "@/hooks/media";
 
 const allPictureFiles = import.meta.glob("@/gallery_data/**/*.{jpg,jpeg,png,gif,webp}", {
   eager: true,

@@ -10,7 +10,7 @@ import { ScribbleBackground } from "@/components/scribble-background";
 import { TabScroll } from "@/components/tab-scroll";
 import { ViewCount } from "@/components/view-count";
 import { useViewCount } from "@/hooks/useViewCount";
-import { photosFromGlob } from "@/utils/media";
+import { photosFromGlob } from "@/hooks/media";
 
 
 const TORONTO: [number, number] = [-79.3832, 43.6532];

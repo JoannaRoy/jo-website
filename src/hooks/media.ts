@@ -21,5 +21,3 @@ export function photosFromGlob(globRecord: Record<string, string>): ReadonlyArra
     })
     .sort((a, b) => a.id.localeCompare(b.id));
 }
-
-
