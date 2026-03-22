@@ -113,27 +113,27 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
           </h1>
         ),
         h2: ({ children, ...props }) => (
-          <h2 {...props} className="text-3xl md:text-4xl font-bold mt-5 md:mt-6 mb-2 md:mb-3">
+          <h2 {...props} className="text-2xl md:text-3xl font-bold mt-5 md:mt-6 mb-2 md:mb-3">
             {children}
           </h2>
         ),
         h3: ({ children, ...props }) => (
-          <h3 {...props} className="text-xl md:text-2xl font-semibold mt-4 md:mt-5 mb-2">
+          <h3 {...props} className="text-lg md:text-xl font-semibold mt-4 md:mt-5 mb-2">
             {children}
           </h3>
         ),
         h4: ({ children, ...props }) => (
-          <h4 {...props} className="text-lg md:text-xl font-semibold mt-3 md:mt-4 mb-1 md:mb-2">
+          <h4 {...props} className="text-base md:text-lg font-semibold mt-3 md:mt-4 mb-1 md:mb-2">
             {children}
           </h4>
         ),
         h5: ({ children, ...props }) => (
-          <h5 {...props} className="text-base md:text-lg font-semibold mt-2 md:mt-3 mb-1">
+          <h5 {...props} className="text-sm md:text-base font-semibold mt-2 md:mt-3 mb-1">
             {children}
           </h5>
         ),
         h6: ({ children, ...props }) => (
-          <h6 {...props} className="text-sm md:text-base font-semibold mt-2 md:mt-3 mb-1">
+          <h6 {...props} className="text-xs md:text-sm font-semibold mt-2 md:mt-3 mb-1">
             {children}
           </h6>
         ),
