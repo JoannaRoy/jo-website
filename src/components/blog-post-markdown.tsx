@@ -4,8 +4,9 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
-import { resolveBlogImageSrc } from "@/hooks/blogImages";
+
 import { Collapsible } from "@/components/collapsible";
+import { resolveBlogImageSrc } from "@/hooks/blogImages";
 
 const blogSanitizeSchema = {
   ...defaultSchema,

@@ -19,7 +19,7 @@ i. Gradual Disempowerment (presented in [this talk](https://youtu.be/AmtKdoeYGn0
 ii. Polis & The Collective Intelligence Project (presented in [this talk](https://youtu.be/hvVoPHDRofE?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-) by Audrey Tang and Zarinah Agnew).  
 iii. Generative Social Choice (presented in [this talk](https://youtu.be/wS8YgEiXWOY?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-) by Ariel Procaccia).
 
-I'm posting this mainly to document the work so far, but also because I'd love to hear ideas and feedback on the design! If you have any thoughts, please do reach out (my contact information is in the website footer).  
+I'm posting this mainly to document the work so far, but also because I'd love to hear ideas and feedback on the design -- If you have any thoughts, please do reach out (my contact information is in the website footer).  
 
 ---
 
@@ -78,14 +78,14 @@ On a high level, BERTopic works by first embedding posts into a 768-dimensional 
 
 ![Topic clustering](topic_clustering.png "Topic clustering with BERTopic: embeddings → UMAP → HDBSCAN → c-TF-IDF labels for each cluster. | w=1000")
 
-One big limitation of this approach is handling emerging topics. Once an initial BERTopic model is trained on existing posts, new posts can be assigned to existing topic clusters without re-clustering — BERTopic's `transform()` method handles this efficiently. But this approach misses posts that discuss entirely new topics – to capture these, we would need to re-cluster all posts periodically, which is expensive and probably not feasible for real social media platforms. For this proof-of-concept, I’ll do batch re-clustering runs at regular intervals, and leave better/more adaptive online clustering for future work.
+The main limitation of this approach is handling emerging topics. Once an initial BERTopic model is trained on existing posts, new posts can be assigned to existing topic clusters without re-clustering — BERTopic's `transform()` method handles this efficiently. But this approach misses posts that discuss entirely new topics – to capture these, we would need to re-cluster all posts periodically, which is expensive and probably not feasible for real social media platforms. For this proof-of-concept, I’ll do batch re-clustering runs at regular intervals, and leave better/more adaptive online clustering for future work.
 
 ### Stance and Argument Detection
 
 **Inputs**: A set of posts, which have been clustered according to topic during the previous step.  
 **Outputs**: A query-able set of argument groupings within each topic. 
 
-This section has been the most interesting (to me) part of the project so far - this component is arguably one of the most important in the system: the quality with which we can classify (and query) arguments will largely determine the quality of our system’s output. That said, there is no clear ‘out of the box’ solution for this problem, so I have explored a couple potential approaches and will elaborate on each in this section. In **Appendix A**, I outline the first two approaches I considered – using the Polis architecture, and using opinion embeddings paired with LSTMs – and the limitations I found with each. 
+This section has been the most interesting (to me) part of the project so far - this component is arguably the most important in the system: the quality with which we can classify (and query) arguments will largely determine the quality of our system’s output. That said, there is no clear ‘out of the box’ solution for this problem, so I have explored a couple potential approaches and will elaborate on each in this section. In **Appendix A**, I outline the first two approaches I considered – using the Polis architecture, and using opinion embeddings paired with LSTMs – and the limitations I found with each. 
 
 Ultimately, I decided to build an argument knowledge graph, inspired by the Argument Web [14] project. My graph would be a simplified version of this, since social media posts don’t tend to have the amount of information Argument Web was designed for (**Appendix B** has a more complete explanation of what I will use and what I will drop, with rationale), and would be structured roughly as follows: 
 
@@ -102,18 +102,18 @@ The flow for this component would be:
      "arguments": [  
        {  
          "text": "Dogs are better pets because they are loyal and form strong bonds with their owners",  
-         "polarity": "support"  
+         "polarity": "for"  
        },  
        {  
          "text": "Cats are lower maintenance and better suited to busy lifestyles",  
-         "polarity": "attack"  
+         "polarity": "against"  
        }  
      ]  
    }
    ```  
    This step happens per-post (ie. in real time).
 
-2. **Argument and Stance Clustering**: Then, a cron job or similar will embed all unassigned ArgumentInstances using a sentence transformer (e.g all-MiniLM-L6-v2) and searches for the nearest existing `ArgumentCluster` centroid using some kind of similarity search (eg. cosine similarity, FAISS [15], or something else) — but only within matching polarity. We then derive the `StanceCluster`s from the `ArgumentCluster`s If no sufficiently similar cluster exists, we can create a new `ArgumentCluster`, then re-derive the `StanceCluster` memberships accordingly.
+2. **Argument and Stance Clustering**: Then, a cron job or similar will embed all unassigned `ArgumentInstances` using a sentence transformer (e.g all-MiniLM-L6-v2) and searches for the nearest existing `ArgumentCluster` centroid using some kind of similarity search (eg. cosine similarity, FAISS [15], or something else) — but only within matching polarity. We then derive the `StanceClusters` from the `ArgumentClusters` If no sufficiently similar cluster exists, we can create a new `ArgumentCluster`, then re-derive the `StanceCluster` memberships accordingly.
 
 All this information is stored in the graph database, which can be queried by the next component. 
 
@@ -121,7 +121,7 @@ I imagine that the granularity of the Argument and Stance Clustering step would 
 
 ### Statement Generation
 
-**Inputs**: The post of interest (with its topic + argument), and the query-able set of arguments per topic from the previous step.   
+**Inputs**: The post of interest (with its topic and arguments), and the query-able set of arguments per topic from the previous step.   
 **Outputs**: A statement summarizing alternative staces and arguments. 
 
 For this component, I plan to use ideas from generative social choice (see the [paper](https://arxiv.org/abs/2309.01291) and related [summer school talk](https://youtu.be/wS8YgEiXWOY?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-) where I first learned of it) [16]. That said, doing so will post similar challenges to what I discussed for Polis (see Appendix A) – on a high level, the paper is aiming to generate statements that are representative of *people*’s opinions about a topic, whereas for this project I would like to use the process to represent *posts* containing *stances* and *arguments* about a topic.
@@ -135,7 +135,7 @@ In the paper:
 
 Of course, this project can’t follow that format exactly (we don’t have survey data), but we can try to adapt it to this setting. Two options I am considering (I will likely try implementing both and see which produces the better outputs):
 
-* **Skip the discriminative query step.** That said, this drifts quite far from the method and invalidates the Balanced Justified Representation (BJR) guarantee from the paper. Essentially, this would amount to removing posts from the pool arbitrarily after each round – and would be similar to just doing one LLM call per cluster asking for a representative statement.  
+* **Skip the discriminative query step.** We could skip the discriminative query entirely, since this we already have groupings (from the `ArgumentClusters` in the previous step) that would likely be well-represented by a statement. Essentially, this would amount to removing posts from the pool arbitrarily after each round – and would be similar to just doing one LLM call per cluster asking for a representative statement. That said, this drifts quite far from the method and invalidates the Balanced Justified Representation (BJR) guarantee from the paper. 
 * **Use a proxy for the discriminative step.** Rather than calling an LLM to score each post (as was done in the paper), we can embed the generated statement using the same sentence transformer used to build the argument clusters (in the *Stance and Argument Detection* component), and compute its cosine similarity to each `ArgumentCluster` centroid (in the graph database). Each post is then scored by its distance to the centroid of whichever cluster the statement lands closest to — posts whose arguments are most central to that cluster score highest. The ~n/k posts with the highest scores are removed from the pool, on the basis that they are the most faithfully represented by that statement. It would need to be formally validated if I wanted to show it met the BJR guarantee, but at a minimum it should be a better approximation than skipping the discriminative step entirely.
 
 Once we have representative statements for each `ArgumentCluster`, we can combine them into a summary statement (what will ultimately be displayed to the user) with a single LLM call. 
