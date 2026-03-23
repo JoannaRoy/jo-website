@@ -13,7 +13,7 @@ const tabs = [
         <p className="text-sm text-gray-600 leading-relaxed">
           I currently work as a software engineer at{" "}
           <a href="https://trail-ml.com" className="underline hover:text-gray-900">
-            Trail
+            trail
           </a>
           , a Munich-based AI Governance start-up. I am interested in technical AI governance and policy. Specifically, in 
           (a) how incoming tech regulations can be written in an ‘implementable’ way, and 
