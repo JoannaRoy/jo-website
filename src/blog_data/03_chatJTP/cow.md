@@ -1,6 +1,6 @@
 ---
 title: "Copy-on-Write (CoW) for Agentic Software Systems"
-date: "2026-03-19"
+date: "2026-02-23"
 preview image: "CoW.png"
 description: "Blog Article about my work on CoW at trail"
 draft: "false"

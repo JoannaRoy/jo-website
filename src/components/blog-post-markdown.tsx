@@ -167,9 +167,11 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
           const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
           const { caption, maxWidthPx } = parseBlogImageTitle(title);
           const imgStyle = maxWidthPx ? { maxWidth: `${maxWidthPx}px` } : undefined;
+          const scrollable = maxWidthPx !== undefined;
           const imgClassName =
-            "max-w-full h-auto rounded-lg border border-gray-200 " +
-            (caption || maxWidthPx !== undefined ? "mx-auto block" : "my-4 md:my-6");
+            (scrollable ? "md:max-w-full" : "max-w-full") +
+            " h-auto rounded-lg border border-gray-200 " +
+            (caption || scrollable ? "mx-auto block" : "my-4 md:my-6");
 
           const imageEl = (
             <img
@@ -186,14 +188,14 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
           if (caption) {
             return (
               <figure className="my-4 md:my-6">
-                {imageEl}
+                {scrollable ? <div className="overflow-x-auto">{imageEl}</div> : imageEl}
                 <figcaption className="mt-2 text-center text-sm text-gray-600">{caption}</figcaption>
               </figure>
             );
           }
 
-          if (maxWidthPx !== undefined) {
-            return <figure className="my-4 md:my-6">{imageEl}</figure>;
+          if (scrollable) {
+            return <figure className="my-4 md:my-6 overflow-x-auto">{imageEl}</figure>;
           }
 
           return imageEl;
