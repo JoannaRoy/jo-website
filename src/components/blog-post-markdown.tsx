@@ -93,7 +93,7 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
             {children}
           </a>
         ),
-        p: ({ children, ...props }) => {
+        p: ({ children, node, ...props }) => {
           if (
             children &&
             Array.isArray(children) &&
@@ -101,6 +101,13 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
             children[0] === "<br>"
           ) {
             return <div className="my-4 md:my-6"></div>;
+          }
+          const hasImage = node?.children?.some(
+            (c: { type?: string; tagName?: string }) =>
+              c.type === "element" && c.tagName === "img",
+          );
+          if (hasImage) {
+            return <div className="my-3 md:my-4" {...props}>{children}</div>;
           }
           return (
             <p className="my-3 md:my-4" {...props}>
