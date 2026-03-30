@@ -1,5 +1,5 @@
 ---
-title: "Open-source Copy-on-Write (CoW) Library for PostgreSQL"
+title: "Copy-on-Write (CoW) Library for PostgreSQL"
 date: "2026-02-23"
 links:
   - label: "GitHub"
