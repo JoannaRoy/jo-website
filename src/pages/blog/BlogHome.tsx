@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ContentCard } from "@/components/content-card";
 import { PageGrid } from "@/components/item-grids";
+import { useBatchViewCounts } from "@/hooks/useBatchViewCounts";
 import { useSortToggle } from "@/hooks/useSortToggle";
 import { BlogContent } from "@/pages/blog/BlogContent";
 
@@ -76,7 +77,14 @@ const allPosts = [
   ),
 ];
 
+const internalPostSlugsForViews = allPosts
+  .filter((p) => !p.isExternal)
+  .map((p) => p.slug);
+
 const Blog = () => {
+  const { data: viewCounts = {}, isLoading: viewsLoading } =
+    useBatchViewCounts(internalPostSlugsForViews);
+
   const { sortBy, SortToggle } = useSortToggle({
     options: [
       { id: "chapter", label: "chapter" },
@@ -126,6 +134,10 @@ const Blog = () => {
                   categoryColor={post.chapterColor}
                   isFeatured={post.isFeatured}
                   description={post.preview}
+                  viewStats={{
+                    views: viewCounts[post.slug] ?? 0,
+                    loading: viewsLoading,
+                  }}
                 />
               </Link>
             )

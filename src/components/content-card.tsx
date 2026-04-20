@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
+import { ViewCount } from "@/components/view-count";
 
 export type ContentCardLink = {
   label: string;
@@ -18,6 +19,7 @@ type ContentCardProps = {
   category?: string;
   categoryColor?: string;
   isFeatured?: boolean;
+  viewStats?: { views: number; loading: boolean };
 };
 
 export const ContentCard = ({
@@ -31,6 +33,7 @@ export const ContentCard = ({
   category,
   categoryColor,
   isFeatured,
+  viewStats,
 }: ContentCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const isExpandable = !!expandableContent;
@@ -83,7 +86,17 @@ export const ContentCard = ({
                 </div>
               )}
             </div>
-            {subtitle && <span className="text-xs text-gray-500 shrink-0">{subtitle}</span>}
+            {(subtitle || viewStats) && (
+              <div className="flex flex-col items-end gap-0.5 shrink-0 text-xs text-gray-500">
+                {subtitle && <span>{subtitle}</span>}
+                {viewStats && (
+                  <ViewCount
+                    views={viewStats.views}
+                    loading={viewStats.loading}
+                  />
+                )}
+              </div>
+            )}
           </div>
 
           {category && (
