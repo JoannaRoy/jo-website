@@ -3696,10 +3696,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-binjo@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.npmjs.org/react-binjo/-/react-binjo-1.0.14.tgz"
-  integrity sha512-htoumxvDHkkLsG4LJLqgFlbFegRG2rC+vaHYlnD3RbyN63Np8ddeo8uRQjZNX52PUIl/ho8qiWIZpBpUZ4r61g==
+react-binjo@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.npmjs.org/react-binjo/-/react-binjo-1.0.17.tgz"
+  integrity sha512-qcpJAB/tKxhqs4c8AbqPwAN2ipk3WmOWhWAh72y7K4iAYOQ/7i8kftH6lQ2Av3UE+jx3URPMnEWWiHFfJNgikw==
   dependencies:
     chart.js "^4.4.1"
     papaparse "^5.4.1"
