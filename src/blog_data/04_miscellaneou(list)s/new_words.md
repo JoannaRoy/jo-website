@@ -100,3 +100,5 @@ This is a list of words I have heard and learned/liked in the past two years ish
   "crying is a cathartic release"
 
 - **Foreboding**: fearful apprehension; a feeling that something bad will happen.
+
+- **Pulchritude**: physical beauty or attractiveness. despite its rather harsh and unappealing sound, it is a direct descendant of the Latin word pulcher, meaning "beautiful."
