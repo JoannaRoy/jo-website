@@ -29,7 +29,7 @@ export const FlowerRow: React.FC<FlowerRowProps> = ({
     <div className={`flex justify-between items-center w-full py-8 md:py-12 px-4 ${className}`}>
       {Array.from({ length: displayCount }).map((_, index) => (
         <svg
-          key={colours[index % colours.length]}
+          key={`${index}-${colours[index % colours.length]}`}
           className={`${sizeClasses[size]} shrink-0`}
           viewBox="0 0 300 300"
           aria-hidden="true"
