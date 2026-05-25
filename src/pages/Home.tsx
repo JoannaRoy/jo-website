@@ -1,13 +1,34 @@
 import type React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { PageGrid } from "@/components/item-grids.tsx";
 import "@/styling/Animations.css";
-import Sparkles from "react-sparkle";
+
+const exploreLinks = [
+  {
+    to: "/blog",
+    label: "Blog",
+    description:
+      "Articles I've written about tech, projects, living abroad, and other misc topics.",
+  },
+  {
+    to: "/projects",
+    label: "Projects",
+    description:
+      "Coding, research, and other projects I've built or worked on.",
+  },
+  {
+    to: "/binjo",
+    label: "BINJO",
+    description:
+      "A card where I keep track of my bucket list items for the year.",
+  },
+];
 
 const tabs = [
   {
     id: "professionally",
-    label: "professionally",
+    label: "Professionally",
     content: (
       <>
         <p className="text-sm text-gray-600 leading-relaxed">
@@ -31,7 +52,7 @@ const tabs = [
   },
   {
     id: "personally",
-    label: "personally",
+    label: "Personally",
     content: (
       <>
         <p className="text-sm text-gray-600 leading-relaxed">
@@ -48,7 +69,7 @@ const tabs = [
   },
   {
     id: "all-the-rest",
-    label: "all the rest",
+    label: "All the Rest",
     content: (
       <>
         <p className="text-sm text-gray-600 leading-relaxed">
@@ -64,69 +85,79 @@ const tabs = [
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-
   const activeContent = tabs.find((tab) => tab.id === activeTab)?.content;
 
   return (
-    <div className="flex flex-col">
-      <div className="relative">
-        <Sparkles
-          color="gold"
-          count={isMobile ? 50 : 200}
-          minSize={isMobile ? 2 : 5}
-          maxSize={isMobile ? 8 : 10}
-          overflowPx={0}
-          fadeOutSpeed={10}
-        />
-        <PageGrid columns={0} style={{ width: "100%", maxWidth: "100vw" }}>
-          <div className="flex flex-col md:flex-row w-full items-center py-10 md:py-20 px-4 md:px-0 max-w-full">
-            <div className="flex justify-center items-center z-10 my-4 md:my-0 md:ml-20">
+    <div className="flex flex-col justify-center min-h-[calc(100vh-200px)]">
+      <PageGrid columns={0} style={{ width: "100%", maxWidth: "100vw" }}>
+        <div className="flex flex-col w-full px-4 md:px-8 lg:px-20 max-w-full">
+          <div className="flex flex-row items-center gap-8 md:gap-12 mb-6 md:mb-8 z-10">
+            <div className="flex items-center justify-center shrink-0">
               <img
                 src="/assets/jo.jpg"
                 alt="jo"
-                className="h-40 md:h-50 max-w-full rounded-xl"
+                className="h-28 md:h-36 max-w-full rounded-xl"
               />
             </div>
-            <div className="flex flex-col w-full md:w-8/10 text-left align-middle">
-              <h1 className="font-bold text-center md:text-left md:ml-10 mb-3 md:mb-5 mt-4 md:mt-10">
-                hello!
-              </h1>
-              <p className="text-center md:text-left px-4 md:px-0 md:ml-10 md:mr-20">
-                My name is Joanna :) Welcome to my little corner of the
-                internet.
-              </p>
+            <h2
+              className="typewriter text-lg md:text-2xl font-semibold text-gray-900"
+              style={
+                {
+                  "--type-steps": 25,
+                  "--type-target": "25ch",
+                } as React.CSSProperties
+              }
+            >
+              Hello, my name is Joanna.
+            </h2>
+          </div>
+          <div className="flex flex-col md:flex-row w-full items-stretch gap-4 md:gap-4 max-w-full">
+
+              <div className="relative z-10 flex flex-col md:flex-row flex-1 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 gap-3 md:gap-8 bg-blue-50/70 border border-gray-300 rounded-lg">
+              <div className="flex flex-row md:flex-col gap-1 shrink-0">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`text-left text-xs sm:text-sm leading-relaxed px-2 sm:px-3 py-1 md:py-2 rounded transition-colors whitespace-nowrap ${
+                      activeTab === tab.id
+                        ? "text-gray-900 font-medium bg-blue-100"
+                        : "text-gray-400 hover:text-gray-600"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex-1 rounded-lg py-1 px-1 sm:px-3 sm:py-2 md:px-4 md:py-2 overflow-hidden min-h-[180px] md:min-h-[200px]">
+                {activeContent}
+              </div>
             </div>
           </div>
-        </PageGrid>
-        <div className="border-b border-gray-300" />
-        <div className="py-5 px-3 sm:px-4 md:px-0">
-          <div className="relative z-10 flex flex-col md:flex-row p-3 sm:p-4 md:p-6 md:px-12 lg:px-20 gap-3 md:gap-12 bg-blue-50/70 md:mx-5 rounded-lg">
-            <div className="flex flex-row md:flex-col gap-1 shrink-0">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`text-left text-xs sm:text-sm px-2 sm:px-3 py-1.5 md:py-2 rounded transition-colors whitespace-nowrap ${
-                    activeTab === tab.id
-                      ? "text-gray-900 font-medium bg-blue-100"
-                      : "text-gray-400 hover:text-gray-600"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
 
-            <div className="flex-1 rounded-lg py-2 px-1 sm:p-4 md:p-6 overflow-hidden">
-              {activeContent}
-            </div>
+          <p className="text-sm text-gray-600 text-center md:text-left mt-6 md:mt-8 mb-2 md:mb-3">
+            Take a look at my:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {exploreLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="group flex flex-col gap-1 p-3 md:p-4 rounded-lg border border-gray-300 bg-gray-100/60 hover:bg-gray-100/90 hover:border-gray-400 transition-colors no-underline"
+              >
+                <span className="text-sm md:text-base font-medium text-gray-900 group-hover:text-(--purple) transition-colors">
+                  {link.label} →
+                </span>
+                <span className="text-xs md:text-sm text-gray-600 leading-snug">
+                  {link.description}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
-      </div>
-
-      
+      </PageGrid>
     </div>
   );
 };

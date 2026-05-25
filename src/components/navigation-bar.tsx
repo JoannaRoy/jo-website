@@ -2,9 +2,9 @@ import type React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const navItems = [
-  { to: "/blog", label: "blog" },
-  { to: "/projects", label: "projects" },
-  { to: "/binjo", label: "binjo" },
+  { to: "/blog", label: "Blog" },
+  { to: "/projects", label: "Projects" },
+  { to: "/binjo", label: "BINJO" },
 ];
 
 const NavBar: React.FC = () => {
@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
                   "text-sm sm:text-base font-bold! px-3 sm:px-4 py-1.5 rounded-md border transition-colors no-underline",
                   isActive
                     ? "text-black! bg-black/10 border-black/25"
-                    : "text-black! bg-black/5 border-black/15 hover:text-(--purple)! hover:border-(--purple)/50 hover:bg-black/10",
+                    : "text-black! bg-black/5 border-black/15 hover:bg-black/10 hover:border-black/25",
                 ].join(" ")
               }
             >

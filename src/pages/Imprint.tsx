@@ -36,7 +36,7 @@ const Imprint = () => {
         </p>
       </section>
 
-      <section className="mb-8 p-4 bg-[var(--pastel-light-blue)]/30 rounded-lg">
+      <section className="mb-8 p-4 bg-blue-50/70 border border-gray-300 rounded-lg">
         <h2 className="text-xl font-semibold mb-3 text-black">
           Privacy (Datenschutz)
         </h2>

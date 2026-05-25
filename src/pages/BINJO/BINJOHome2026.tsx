@@ -24,8 +24,7 @@ const BINJOHome2026: React.FC = () => {
               <p className="text-center text-sm md:text-base p-2 md:p-0">
                 This card shows all of my bucket list items for 2026. The goal
                 is to complete as many of them as I can, and every time I get a
-                binjo (a full row / column / diagonal filled up), I get to spin my
-                wheel of wishes and do something fun for myself :)
+                binjo (a full row / column / diagonal filled up), I get to do something fun :)
               </p>
               <p className="text-center text-sm md:text-base p-2 md:p-0">
                 If you want to make your own binjo card, you can use the <a href="https://www.npmjs.com/package/react-binjo">react-binjo</a> component.
