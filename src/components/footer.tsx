@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <div className="h-auto p-4 text-[var(--blue)] flex flex-col items-center justify-center w-full bottom-0 left-0 right-0 mx-auto my-6 z-10">
-      <p className="text-center text-sm/6 max-w-full break-words">
-        welcome to my little corner of the internet :)
-        <br className="md:block hidden" />
+    <div className="h-auto p-4 text-(--blue) flex flex-col items-center justify-center w-full bottom-0 left-0 right-0 mx-auto my-6 z-10">
+      <p className="text-center text-sm/6 max-w-full wrap-break-word">
         <span className="md:inline block mt-2 md:mt-0">
           email: joannaroy6[at]gmail[dot]com 
         </span>
@@ -27,7 +25,7 @@ const Footer: React.FC = () => {
         </span>
       </p>
       <div className="mt-4 text-xs text-gray-500">
-        <Link to="/imprint" className="hover:underline hover:text-[var(--purple)]">
+        <Link to="/imprint" className="hover:underline hover:text-(--purple)">
           Imprint
         </Link>
       </div>

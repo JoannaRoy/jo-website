@@ -100,19 +100,20 @@ const Home: React.FC = () => {
             </div>
             <div className="flex flex-col gap-1">
               <h2 className="text-lg md:text-2xl font-semibold text-gray-900">
-                Hello,
+                Hello! My name is Joanna.
               </h2>
-              <h2
-                className="typewriter text-lg md:text-2xl font-semibold text-gray-900"
+              <p
+                className="typewriter mt-2 text-sm md:text-base text-gray-500"
                 style={
                   {
-                    "--type-steps": 18,
-                    "--type-target": "18ch",
+                    "--type-steps": 46,
+                    "--type-target": "46ch",
                   } as React.CSSProperties
                 }
+           
               >
-                my name is Joanna.
-              </h2>
+                Welcome to my little corner of the internet :)
+              </p>
             </div>
           </div>
           <div className="border-b border-gray-300 mb-6 md:mb-8" />

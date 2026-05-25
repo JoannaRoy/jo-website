@@ -38,8 +38,8 @@
   max-width: 100%;
   vertical-align: bottom;
   animation:
-    typewriter-reveal 1.8s steps(var(--type-steps, 24)) 0.2s forwards,
-    typewriter-caret 0.8s step-end infinite;
+    typewriter-reveal 3.5s steps(var(--type-steps, 24)) 0.2s forwards,
+    typewriter-caret 1.5s step-end infinite;
 }
 
 @keyframes typewriter-reveal {
