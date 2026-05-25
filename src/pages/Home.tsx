@@ -120,7 +120,7 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row w-full items-stretch gap-4 md:gap-4 max-w-full">
 
               <div className="relative z-10 flex flex-col md:flex-row flex-1 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 gap-3 md:gap-8 bg-blue-50/70 border border-gray-300 rounded-lg">
-              <div className="flex flex-row md:flex-col gap-1 shrink-0">
+              <div className="flex flex-row md:flex-col gap-1 shrink-0 mt-2">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
