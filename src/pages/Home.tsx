@@ -1,8 +1,8 @@
 import type React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { PageGrid } from "@/components/item-grids.tsx";
 import "@/styling/Animations.css";
+import { Link } from "react-router-dom";
 
 const exploreLinks = [
   {
@@ -57,8 +57,7 @@ const tabs = [
       <>
         <p className="text-sm text-gray-600 leading-relaxed">
           I grew up in Canada but I'm currently living in Germany. I
-          have a cat named Barney, and two guinea pigs named Bonnie &
-          Clyde.
+          have a cat named Barney, and a guinea pig named Bonnie.
           I love running, hiking, cross-country skiing, and
           generally exploring outside & trying new sports or races. I
           also really love reading and listening to podcasts and am
@@ -91,26 +90,32 @@ const Home: React.FC = () => {
     <div className="flex flex-col justify-center min-h-[calc(100vh-200px)]">
       <PageGrid columns={0} style={{ width: "100%", maxWidth: "100vw" }}>
         <div className="flex flex-col w-full px-4 md:px-8 lg:px-20 max-w-full">
-          <div className="flex flex-row items-center gap-8 md:gap-12 mb-6 md:mb-8 z-10">
+          <div className="flex flex-row items-center gap-8 md:gap-12 mb-6 md:my-14 z-10">
             <div className="flex items-center justify-center shrink-0">
               <img
                 src="/assets/jo.jpg"
                 alt="jo"
-                className="h-28 md:h-36 max-w-full rounded-xl"
+                className="h-32 md:h-48 max-w-full rounded-xl"
               />
             </div>
-            <h2
-              className="typewriter text-lg md:text-2xl font-semibold text-gray-900"
-              style={
-                {
-                  "--type-steps": 25,
-                  "--type-target": "25ch",
-                } as React.CSSProperties
-              }
-            >
-              Hello, my name is Joanna.
-            </h2>
+            <div className="flex flex-col gap-1">
+              <h2 className="text-lg md:text-2xl font-semibold text-gray-900">
+                Hello,
+              </h2>
+              <h2
+                className="typewriter text-lg md:text-2xl font-semibold text-gray-900"
+                style={
+                  {
+                    "--type-steps": 18,
+                    "--type-target": "18ch",
+                  } as React.CSSProperties
+                }
+              >
+                my name is Joanna.
+              </h2>
+            </div>
           </div>
+          <div className="border-b border-gray-300 mb-6 md:mb-8" />
           <div className="flex flex-col md:flex-row w-full items-stretch gap-4 md:gap-4 max-w-full">
 
               <div className="relative z-10 flex flex-col md:flex-row flex-1 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 gap-3 md:gap-8 bg-blue-50/70 border border-gray-300 rounded-lg">
@@ -136,11 +141,8 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <p className="text-sm text-gray-600 text-center md:text-left mt-6 md:mt-8 mb-2 md:mb-3">
-            Take a look at my:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 md:mt-4">
             {exploreLinks.map((link) => (
               <Link
                 key={link.to}
