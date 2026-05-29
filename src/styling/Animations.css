@@ -51,3 +51,14 @@
   from, to { border-right-color: transparent; }
   50% { border-right-color: currentColor; }
 }
+
+@media (max-width: 767px) {
+  .typewriter {
+    display: block;
+    width: auto;
+    overflow: visible;
+    white-space: normal;
+    border-right: none;
+    animation: none;
+  }
+}

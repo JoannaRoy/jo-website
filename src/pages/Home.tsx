@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                 className="h-32 md:h-48 max-w-full rounded-xl"
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 min-w-0 flex-1">
               <h2 className="text-lg md:text-2xl font-semibold text-gray-900">
                 Hello! My name is Joanna.
               </h2>
@@ -110,7 +110,6 @@ const Home: React.FC = () => {
                     "--type-target": "46ch",
                   } as React.CSSProperties
                 }
-           
               >
                 Welcome to my little corner of the internet :)
               </p>
