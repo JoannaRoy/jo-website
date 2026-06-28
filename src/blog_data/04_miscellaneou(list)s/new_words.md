@@ -102,3 +102,51 @@ This is a list of words I have heard and learned/liked in the past two years ish
 - **Foreboding**: fearful apprehension; a feeling that something bad will happen.
 
 - **Pulchritude**: physical beauty or attractiveness. despite its rather harsh and unappealing sound, it is a direct descendant of the Latin word pulcher, meaning "beautiful."
+
+- **Olygopoly**: a market structure where a small number of large firms dominate an industry. 
+
+- **Incisive**: something that is impressively clear, direct, and sharply focused.
+
+- **Animistic**: the worldview or belief system that all natural phenomena—including animals, plants, rocks, rivers, weather, and inanimate objects—possess a distinct spiritual essence, soul, or consciousness.
+
+- **Valorous**: possessing or displaying great courage, bravery, or heroism.
+
+- **Obdurately**: doing something in a stubbornly persistent, unyielding way.
+
+- **Hectoring**: the act of talking and behaving in a loud, aggressively forceful, or domineering way, usually to bully or browbeat someone into acting or thinking a certain way
+
+- **Waffler**: a person who struggles to make decisions or constantly vacillates between choices.
+
+- **Farcical**: something so ridiculously absurd, unreasonable, or nonsensical that it is impossible to take seriously.
+
+- **Exhortations**: earnest, powerful appeals or strong urgings meant to encourage, advise, or persuade someone to take a specific course of action.
+
+- **Hubristic**: having excessive pride, extreme arrogance, or overconfidence.
+
+- **Insuperable**: a problem, obstacle, or difficulty so great or severe that it is impossible to overcome or defeat.
+
+- **Retcon**: a storytelling device used in fiction to change previously established facts, history, or character backgrounds in a later installment.
+
+- **(In)dominable**: (in)capable of being tamed, subdued, or bent to one's will.
+
+- **Ineffable**: something that is too great, extreme, or profound to be expressed or described in words.
+
+- **Sundering**: the act or process of breaking, tearing, or forcing something violently apart.
+
+- **Atavistic**: something that is very primitive, ancestral, or characterized by a reversion to the instincts and traits of our earliest ancestors. 
+
+- **Tendentiously**: doing something (like writing, speaking, or reporting) in a way that is deliberately biased, partisan, or designed to promote a specific, often controversial point of view.
+
+- **Nodalized**: the process of decomposing a complex system, model, or network into a set of interconnected points (nodes).
+
+- **Perforce**: by force of circumstances or of necessity.
+
+- **Rearguard**: a military detachment assigned to protect the back of a main force, especially during a retreat.
+
+- **In Media Res**: a Latin phrase translating to "in the midst of things". In literature and film, it refers to the storytelling technique of dropping the audience directly into an ongoing narrative, action, or conflict without any preliminary exposition or introduction.
+
+- **Cataclysm**: a sudden, violent event that causes widespread destruction, chaos, or a profound and sweeping change.
+
+- **Dispensation**: an exemption from a rule, law, or obligation.
+
+- **Regnant**: reigning, ruling, or exercising authority.
