@@ -76,7 +76,7 @@ On a high level, BERTopic works by first embedding posts into a 768-dimensional 
 
 ![Topic clustering](topic_clustering.png "Topic clustering with BERTopic: embeddings → UMAP → HDBSCAN → c-TF-IDF labels for each cluster. | w=1000")
 
-The main limitation of this approach is handling emerging topics. Once an initial BERTopic model is trained on existing posts, new posts can be assigned to existing topic clusters without re-clustering — BERTopic's `transform()` method handles this efficiently. But this approach misses posts that discuss entirely new topics – to capture these, we would need to re-cluster all posts periodically, which is expensive and probably not feasible for real social media platforms. For this proof-of-concept, I’ll do batch re-clustering runs at regular intervals, and leave better/more adaptive online clustering for future work.
+The main limitation of this approach is handling emerging topics. Once an initial BERTopic model is trained on existing posts, new posts can be assigned to existing topic clusters without re-clustering using BERTopic's `transform()` method. But this approach misses posts that discuss entirely new topics – to capture these, we would need to re-cluster all posts periodically, which is expensive and probably not feasible for real social media platforms. For this proof-of-concept, I’ll do batch re-clustering runs at regular intervals, and leave better/more adaptive online clustering for future work.
 
 ### Stance and Argument Detection
 

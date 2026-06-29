@@ -1,10 +1,12 @@
 ---
 title: "Words"
-date: "2025-03-02"
+date: "2026-06-28"
 preview image: "jo_hannes.jpeg"
 description: "new words i learned"
 draft: "false"
 ---
+
+(Originally posted on March 2nd, 2025; Updated on June 28th, 2026)
 
 This is a list of words I have heard and learned/liked in the past two years ish - I started keeping a list in ~2023 and update it every so often when someone says / I read a new word. I like to keep track of them, since otherwise I will forget. Also, I think there are some fun words that don't get used too often in day-to-day conversations, but that are great to know when the occasion arises :D.
 
