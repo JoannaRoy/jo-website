@@ -6,6 +6,8 @@ links:
     url: "https://openreview.net/forum?id=Ql8Vt7ovjD"
   - label: "CoW Scoring Library"
     url: "https://github.com/trail-ml/agent-cow-python/tree/main/agentcow/scoring"
+  - label: "Poster"
+    url: "https://drive.google.com/file/d/11qcreQmEH5wTjbqVg9vERmnLQi-q5JG8/view?usp=sharing"
 ---
 
 

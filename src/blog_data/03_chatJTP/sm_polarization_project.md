@@ -11,14 +11,6 @@ draft: "false"
 
 This post describes a project I've been thinking about for some time, but working on more recently. In it, I talk about my plans for a system aiming to surface more diverse perspectives on social media, by appending text to polarizing posts (similar to Community Notes on X) that represents alternative stances and arguments on the topic.
 
-The motivation for this project came from a couple main sources:
-
-1. My undergraduate [thesis](https://drive.google.com/file/d/1j1DaO1o1wGZsUfhPt3kLwBFOKchimnIM/view), which explored a subset of these topics.  
-2. Three topics from the 2025 Cooperative AI Summer School:   
-i. Gradual Disempowerment (presented in [this talk](https://youtu.be/AmtKdoeYGn0?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-) by Nora Ammann).  
-ii. Polis & The Collective Intelligence Project (presented in [this talk](https://youtu.be/hvVoPHDRofE?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-) by Audrey Tang and Zarinah Agnew).  
-iii. Generative Social Choice (presented in [this talk](https://youtu.be/wS8YgEiXWOY?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-) by Ariel Procaccia).
-
 I'm posting this mainly to document the work so far, but also because I'd love to hear ideas and feedback on the design -- If you have any thoughts, please do reach out (my contact information is in the website footer).  
 
 ---
@@ -27,9 +19,13 @@ I'm posting this mainly to document the work so far, but also because I'd love t
 
 Social media often gives rise to echo chambers – whether steered by algorithms or self-selection [1] – where the content a user sees largely aligns with their existing values and beliefs, and tends to amplify more extreme versions of them. The evidence on how widespread this is is mixed, but for the subset of users who do end up in reinforced bubbles, the effects can be meaningful [2, 3, 4, 5]. Feeds that consistently reaffirm what we already believe risk leading to polarization and eroding our ability to think critically: to question our assumptions, examine our beliefs from different angles, and form reasoned, independent opinions. 
 
-This ability to independently shape our knowledge, beliefs, and understanding is called epistemic agency [6], and is essential to meaningful participation in democratic societies. Our vote (be it with ballots, our wallets, or our actions) means nothing if the opinions behind it were shaped for us rather than formed by us. Compromising our epistemic agency therefore risks undermining many systems (e.g. healthcare, education, the economy) that depend on our collective human input. This is a core argument of gradual disempowerment [7] (see the [paper](https://arxiv.org/abs/2501.16946) and [summer school talk](https://youtu.be/AmtKdoeYGn0?list=PL4gbzAVOpp7CVP42D1kHgaunoamRTESZ-)): that delegating decision making power to AI models could slowly disempower humans over time, leaving us with less and less agency over systems that shape our lives. Without our collective, democratic input, these systems will tend to serve us less well, resulting in a world that is harder to live in for most people, likely favouring a few powerful actors. 
+[TODO: add thing about deliberative muscles].
 
-Limiting echo chambers online (specifically, on social media), and using AI to *scaffold* critical thinking skills rather than replace them, would therefore be very beneficial – and is what this project will try to do. Broadly, the goal of this project is to design a system which, given a social media post about a topic that is polarized strongly towards one stance, will append a short text outlining alternative stances and arguments expressed by other users about this topic. Most algorithms *filter out* content such that peoples’ feeds tend to be *more* *aligned* with their existing views. This project tries to *bring in* content that *differs* or *opposes* peoples’ existing views, in hopes it will motivate people to question and refine them. 
+This ability to independently shape our knowledge, beliefs, and understanding is called epistemic agency [6], and is essential to meaningful participation in democratic societies. Our vote (be it with ballots, our wallets, or our actions) means nothing if the opinions behind it were shaped for us rather than formed by us. 
+
+Compromising our epistemic agency risks undermining not just democracies, but any systems that depend on our collective human input (e.g. healthcare, education, the economy). 
+
+Limiting echo chambers online (specifically, on social media), and using AI to *scaffold* critical thinking skills rather than replace them, would be beneficial – and is what this project will try to do. Broadly, the goal of this project is to design a system which, given a social media post about a topic that is polarized strongly towards one stance, will append a short text outlining alternative stances and arguments expressed by other users about this topic. Most algorithms *filter out* content such that peoples’ feeds tend to be *more* *aligned* with their existing views. This project tries to *bring in* content that *differs* or *opposes* peoples’ existing views, in hopes it will motivate people to question and refine them. 
 
 Upon seeing other users’ opinions about the topic, it’s possible the user continues to hold their initial stance, but also possible they do so in a less polarized way, or even take a new stance on the topic. Regardless, people should decide independently with which stance they align, not by default from the only stance and set of arguments they were algorithmically shown. This system would ideally reduce polarization by pulling people more towards mutual understanding and more fostering empathy, while increasing our ability to think critically and exercise genuine epistemic agency over opinions we form online.
 
@@ -131,10 +127,12 @@ In the paper:
 3. A generative query GEN(S, r) then generates a statement that maximizes the minimum (rth highest) DISC(i, α) of a subgroup (S) who is likely to agree.  
 4. This iterates k times. Each round, runs the generative query over the remaining "unrepresented" participants to find a statement, adds it to the slate, then uses the discriminative query to identify and remove the ~n/k participants (n is the total # of participants) best represented by that statement. Repeat until k statements are selected.
 
-Of course, this project can’t follow that format exactly (we don’t have survey data), but we can try to adapt it to this setting. Two options I am considering (I will likely try implementing both and see which produces the better outputs):
+Of course, this project can’t follow that format exactly (we don’t have survey data), but we can try to adapt it to this setting. Two options I am considering:
 
 * **Skip the discriminative query step.** We could skip the discriminative query entirely, since this we already have groupings (from the `ArgumentClusters` in the previous step) that would likely be well-represented by a statement. Essentially, this would amount to removing posts from the pool arbitrarily after each round – and would be similar to just doing one LLM call per cluster asking for a representative statement. That said, this drifts quite far from the method and invalidates the Balanced Justified Representation (BJR) guarantee from the paper. 
 * **Use a proxy for the discriminative step.** Rather than calling an LLM to score each post (as was done in the paper), we can embed the generated statement using the same sentence transformer used to build the argument clusters (in the *Stance and Argument Detection* component), and compute its cosine similarity to each `ArgumentCluster` centroid (in the graph database). Each post is then scored by its distance to the centroid of whichever cluster the statement lands closest to — posts whose arguments are most central to that cluster score highest. The ~n/k posts with the highest scores are removed from the pool, on the basis that they are the most faithfully represented by that statement. It would need to be formally validated if I wanted to show it met the BJR guarantee, but at a minimum it should be a better approximation than skipping the discriminative step entirely.
+
+I am leaning towards the latter since it isn't much more work, but it is more rigorous / theoretically grounded. 
 
 Once we have representative statements for each `ArgumentCluster`, we can combine them into a summary statement (what will ultimately be displayed to the user) with a single LLM call. 
 
