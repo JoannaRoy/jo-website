@@ -19,8 +19,6 @@ I'm posting this mainly to document the work so far, but also because I'd love t
 
 Social media often gives rise to echo chambers – whether steered by algorithms or self-selection [1] – where the content a user sees largely aligns with their existing values and beliefs, and tends to amplify more extreme versions of them. The evidence on how widespread this is is mixed, but for the subset of users who do end up in reinforced bubbles, the effects can be meaningful [2, 3, 4, 5]. Feeds that consistently reaffirm what we already believe risk leading to polarization and eroding our ability to think critically: to question our assumptions, examine our beliefs from different angles, and form reasoned, independent opinions. 
 
-[TODO: add thing about deliberative muscles].
-
 This ability to independently shape our knowledge, beliefs, and understanding is called epistemic agency [6], and is essential to meaningful participation in democratic societies. Our vote (be it with ballots, our wallets, or our actions) means nothing if the opinions behind it were shaped for us rather than formed by us. 
 
 Compromising our epistemic agency risks undermining not just democracies, but any systems that depend on our collective human input (e.g. healthcare, education, the economy). 
