@@ -2,8 +2,8 @@
 title: "Copy-on-Write (CoW) Scoring"
 date: "2026-05-23"
 links:
-  - label: "Workshop"
-    url: "https://openreview.net/forum?id=Ql8Vt7ovjD"
+  - label: "Paper"
+    url: "https://arxiv.org/abs/2607.14336"
   - label: "CoW Scoring Library"
     url: "https://github.com/trail-ml/agent-cow-python/tree/main/agentcow/scoring"
   - label: "Poster"
