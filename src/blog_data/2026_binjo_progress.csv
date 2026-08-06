@@ -4,14 +4,14 @@ Item,Planned,Completed,Annotation
 "host 3 gatherings",0,3/3,"1. new years party (january 1st), 2. birthday party (february 7th), 3. trail BBQ (july 30th), 4. (planned) glee farm party"
 "2 proper open-source contribu-tions",0,1/2,"1. CoW library"
 "change a bike tire",1/1,0,
-"fun cover / parody song or homemade video",1/1,0,"morocco trip video: <add link once done>"
-"learn & perform a 'hard' piano song",40,60,
+"fun cover / parody song or homemade video",0,1/1,"morocco trip video: https://drive.google.com/file/d/1lPX0b9kPjJFEW93XOPiPFH2Q-4V7XAWv/view?usp=sharing"
+"learn & perform a 'hard' piano song",30,70,
 "ultra-marathon (50kms+)",1/1,0,"options: (sept 12) https://haliburtonforest100.org/, (sept 12) https://raceroster.com/events/2026/118025/unfinished-series, (oct 17) https://n89.ca/trail-courses/creemore-vertical-challenge/, "
 "new (half or full) marathon pr",100,0,
 "swim 5km freestyle in one go",0,5/5,"Olympiapark Pool (april 12th)"
 "read 10 books & 30 papers / articles",0,40/40,"books (10/10): grit, katabasis, i who have never known men, the immortal life of henrietta lacks, true gretch, moral ambition, who gets believed, project hail mary, running with sherman, sipsworth. technical articles: technical ai safety course (10), social media polarization (5), for the cow scoring paper (10+), general AI policy (5)"
 "write 5 poems",1/5,3/5,"1. 'its okay blue jays', 2.  "
-"open-source binjo code",0,100,accessible at https://www.npmjs.com/package/react-binjo
+"open-source binjo code",0,100, accessible at https://www.npmjs.com/package/react-binjo
 "solo overnight in mountains",0,1/1,"combined with zugspitze summit (july 26-27th)"
 "zugspitze summit",0,1/1,"(july 26-27th) route: https://www.komoot.com/tour/349240416"
 "4 minute plank",0,2/4,
@@ -19,8 +19,8 @@ Item,Planned,Completed,Annotation
 "via ferrata",0,1/1,"Ettaler Manndl (may 14th): https://www.bergtour-online.de/bergtouren/klettersteige/ettaler-manndl/"
 "try the oktoberfest tents",0,0,
 "6x75kms+ bike rides",2/6,3/6,
-"6 blog posts",3/6,3/6,"1. tips for moving, 2. cow, 3. pop the bubble, 4. democracy and AI"
-"30mins german x30 days in a row",30/30,0/30,"(planned) may 19th - june 17th"
+"6 blog posts",3/6,4/6,"1. tips for moving, 2. cow, 3. pop the bubble, 4. agent gateway, 5. democracy and AI, 6. writing and AI (maybe also writing fiction vs non-fiction)"
+"30mins german x30 days in a row",29/30,1/30,"(planned) Aug 6 - Sep 4"
 "ride a lime scooter",0,100,"ended up getting many rides in thanks to munich transit strikes 🤡 haha"
 "26 new recipes",0/26,26/26,"my recipe book: https://drive.google.com/file/d/1_N1tRBwoJMK3iEAnrrtTdwKfDyrJaMen/view?usp=sharing"
 "3 speaking engage-ments",1/3,2/3,"1. EWB XChange, 2. ICML poster, 3. Agentic AI Foundation Toronto"
