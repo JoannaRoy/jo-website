@@ -1,7 +1,7 @@
 ---
 title: "AI Agent Governance: Runtime Enforcement with trail"
 date: "2026-08-11"
-preview image: "agent_governance.png"
+preview image: "agent_governance.jpg"
 description: "Blog Article about my work on CoW at trail"
 draft: "false"
 external url: "https://www.trail-ml.com/blog/ai-agent-governance-runtime-enforcement-with-trail"
