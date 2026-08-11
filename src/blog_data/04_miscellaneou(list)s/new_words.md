@@ -8,7 +8,9 @@ draft: "false"
 
 (Originally posted on March 2nd, 2025; Updated on June 28th, 2026)
 
-This is a list of words I have heard and learned/liked in the past two years ish - I started keeping a list in ~2023 and update it every so often when someone says / I read a new word. I like to keep track of them, since otherwise I will forget. Also, I think there are some fun words that don't get used too often in day-to-day conversations, but that are great to know when the occasion arises :D.
+This is a list of words I have heard and learned/liked in the past two years ish - I started keeping a list in ~2023 and update it every so often when someone says (or I read) a new word. I like to keep track of them, since otherwise I will forget. Also, I think there are some fun words that don't get used too often in day-to-day conversations, but that are great to know when the occasion arises :D. 
+
+I sometimes feel like AI slop is collapsing my (probably our collective) vocabulary into the most prevalent synonyms for each word -- particularly since many people both read content from and write content with AI models -- so I think it's increasingly important to keep these specific, evocative words in our back pockets, rare as they may be :")
 
 - **Pareidolia**: the illusory perception of meaningful patterns or images of familiar things in random or amorphous data (eg. seeing a face on the moon)
 
@@ -152,3 +154,5 @@ This is a list of words I have heard and learned/liked in the past two years ish
 - **Dispensation**: an exemption from a rule, law, or obligation.
 
 - **Regnant**: reigning, ruling, or exercising authority.
+
+- **Evince**: to display or manifest a quality, emotion, or idea clearly.
