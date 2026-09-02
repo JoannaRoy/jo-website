@@ -1,9 +1,12 @@
 import { defaultSchema } from "hast-util-sanitize";
 import { Children, isValidElement, type ReactNode } from "react";
 import Markdown from "react-markdown";
+import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import "katex/dist/katex.min.css";
 
 import { Collapsible } from "@/components/collapsible";
 import { resolveBlogImageSrc } from "@/hooks/blogImages";
@@ -79,8 +82,8 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
   return (
     <div className="overflow-hidden wrap-break-word">
     <Markdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw, [rehypeSanitize, blogSanitizeSchema]]}
+      remarkPlugins={[remarkGfm, remarkMath]}
+      rehypePlugins={[rehypeRaw, [rehypeSanitize, blogSanitizeSchema], rehypeKatex]}
       components={{
         a: ({ children, href, ...props }) => (
           <a
