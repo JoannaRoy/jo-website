@@ -1,6 +1,6 @@
 ---
 title: "Nice Little Things"
-date: "2025-02-20"
+date: "2025-02-21"
 preview image: "nicee.jpeg"
 description: "a list of nice little happy things"
 draft: "false"

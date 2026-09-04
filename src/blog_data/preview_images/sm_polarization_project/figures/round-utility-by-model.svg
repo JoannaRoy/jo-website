@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="510" viewBox="0 0 980 510">
+  <rect width="980" height="510" fill="white"/>
+  <g font-family="Helvetica, Arial, sans-serif" fill="#1F2937">
+    <text x="38.0" y="38.0" font-size="21" fill="#1F2937" text-anchor="start" font-weight="700">Generated statement utility by candidate count and by group tightness</text>
+    <text x="38.0" y="61.0" font-size="13" fill="#596273" text-anchor="start" font-weight="400">Mean realized share of the ideal utility; Llama-3.3-70B against Llama-3.1-8B</text>
+    <line x1="90.0" y1="385.0" x2="480.0" y2="385.0" stroke="#9AA1AC" stroke-width="1"/>
+    <line x1="90.0" y1="122.0" x2="90.0" y2="385.0" stroke="#9AA1AC" stroke-width="1"/>
+    <line x1="90.0" y1="385.0" x2="480.0" y2="385.0" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="389.0" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.60</text>
+    <line x1="90.0" y1="332.4" x2="480.0" y2="332.4" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="336.4" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.67</text>
+    <line x1="90.0" y1="279.8" x2="480.0" y2="279.8" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="283.8" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.74</text>
+    <line x1="90.0" y1="227.2" x2="480.0" y2="227.2" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="231.2" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.81</text>
+    <line x1="90.0" y1="174.6" x2="480.0" y2="174.6" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="178.6" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.88</text>
+    <line x1="90.0" y1="122.0" x2="480.0" y2="122.0" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="126.0" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.95</text>
+    <text x="113.9" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">6</text>
+    <text x="182.4" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">5</text>
+    <text x="250.8" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">4</text>
+    <text x="319.2" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">3</text>
+    <text x="387.6" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">2</text>
+    <text x="456.1" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">1</text>
+    <text x="285.0" y="430.0" font-size="12" fill="#596273" text-anchor="middle" font-weight="400">k_remaining  (candidate statements generated that round)</text>
+    <text transform="translate(36.0,253.5) rotate(-90)" font-size="12" fill="#596273" text-anchor="middle">Mean  u / u*</text>
+    <polyline points="113.9,151.7 182.4,159.7 250.8,173.3 319.2,190.2 387.6,221.8 456.1,339.6" fill="none" stroke="#5078C8" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="113.9" cy="151.7" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="113.9" y="140.7" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.910</text>
+    <circle cx="182.4" cy="159.7" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="182.4" y="148.7" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.900</text>
+    <circle cx="250.8" cy="173.3" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="250.8" y="162.3" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.882</text>
+    <circle cx="319.2" cy="190.2" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="319.2" y="179.2" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.859</text>
+    <circle cx="387.6" cy="221.8" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="387.6" y="210.8" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.817</text>
+    <circle cx="456.1" cy="339.6" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="456.1" y="328.6" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.660</text>
+    <polyline points="113.9,163.3 182.4,179.3 250.8,192.1 319.2,219.0 387.6,252.1 456.1,374.9" fill="none" stroke="#C8811C" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="113.9" cy="163.3" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="113.9" y="181.3" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.895</text>
+    <circle cx="182.4" cy="179.3" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="182.4" y="197.3" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.874</text>
+    <circle cx="250.8" cy="192.1" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="250.8" y="210.1" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.857</text>
+    <circle cx="319.2" cy="219.0" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="319.2" y="237.0" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.821</text>
+    <circle cx="387.6" cy="252.1" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="387.6" y="270.1" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.777</text>
+    <circle cx="456.1" cy="374.9" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="456.1" y="392.9" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.613</text>
+    <line x1="565.0" y1="385.0" x2="945.0" y2="385.0" stroke="#9AA1AC" stroke-width="1"/>
+    <line x1="565.0" y1="122.0" x2="565.0" y2="385.0" stroke="#9AA1AC" stroke-width="1"/>
+    <line x1="565.0" y1="385.0" x2="945.0" y2="385.0" stroke="#D5D8DE" stroke-width="1"/>
+    <line x1="565.0" y1="332.4" x2="945.0" y2="332.4" stroke="#D5D8DE" stroke-width="1"/>
+    <line x1="565.0" y1="279.8" x2="945.0" y2="279.8" stroke="#D5D8DE" stroke-width="1"/>
+    <line x1="565.0" y1="227.2" x2="945.0" y2="227.2" stroke="#D5D8DE" stroke-width="1"/>
+    <line x1="565.0" y1="174.6" x2="945.0" y2="174.6" stroke="#D5D8DE" stroke-width="1"/>
+    <line x1="565.0" y1="122.0" x2="945.0" y2="122.0" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="593.3" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">0.55</text>
+    <text x="674.1" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">0.65</text>
+    <text x="755.0" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">0.71</text>
+    <text x="835.9" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">0.76</text>
+    <text x="916.7" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">0.85</text>
+    <text x="755.0" y="430.0" font-size="12" fill="#596273" text-anchor="middle" font-weight="400">Mean pairwise cosine similarity within the group  (quintiles)</text>
+    <polyline points="593.3,320.4 674.1,211.0 755.0,182.3 835.9,166.8 916.7,151.0" fill="none" stroke="#5078C8" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="593.3" cy="320.4" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="593.3" y="309.4" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.686</text>
+    <circle cx="674.1" cy="211.0" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="674.1" y="200.0" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.832</text>
+    <circle cx="755.0" cy="182.3" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="755.0" y="171.3" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.870</text>
+    <circle cx="835.9" cy="166.8" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="835.9" y="155.8" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.890</text>
+    <circle cx="916.7" cy="151.0" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="916.7" y="140.0" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.911</text>
+    <polyline points="593.3,352.2 674.1,239.1 755.0,204.5 835.9,185.6 916.7,169.7" fill="none" stroke="#C8811C" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="593.3" cy="352.2" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="593.3" y="370.2" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.644</text>
+    <circle cx="674.1" cy="239.1" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="674.1" y="257.1" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.794</text>
+    <circle cx="755.0" cy="204.5" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="755.0" y="222.5" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.840</text>
+    <circle cx="835.9" cy="185.6" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="835.9" y="203.6" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.865</text>
+    <circle cx="916.7" cy="169.7" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="916.7" y="187.7" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.886</text>
+    <circle cx="103.0" cy="108.0" r="4.5" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="113.0" y="112.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">Llama-3.3-70B</text>
+    <circle cx="212.2" cy="108.0" r="4.5" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="222.2" y="112.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">Llama-3.1-8B</text>
+    <text x="38.0" y="476.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">u is the realized Disc utility of the chosen statement; u* is the ideal utility for the same group of arguments.</text>
+    <text x="38.0" y="492.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">894 statements (Llama-3.3-70B) and 1092 (Llama-3.1-8B). Runs cover disjoint sub-topic populations.</text>
+  </g>
+</svg>

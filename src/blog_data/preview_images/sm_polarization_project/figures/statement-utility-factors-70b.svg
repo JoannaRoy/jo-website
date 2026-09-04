@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="510" viewBox="0 0 980 510">
+  <rect width="980" height="510" fill="white"/>
+  <g font-family="Helvetica, Arial, sans-serif" fill="#1F2937">
+    <text x="38.0" y="38.0" font-size="21" fill="#1F2937" text-anchor="start" font-weight="700">Factors scored against generated statement utility</text>
+    <text x="38.0" y="61.0" font-size="13" fill="#596273" text-anchor="start" font-weight="400">Llama-3.3-70B, 894 slate statements. Left: mean u / u* by candidate count and group tightness. Right: R² of each factor alone.</text>
+    <line x1="90.0" y1="385.0" x2="470.0" y2="385.0" stroke="#9AA1AC" stroke-width="1"/>
+    <line x1="90.0" y1="122.0" x2="90.0" y2="385.0" stroke="#9AA1AC" stroke-width="1"/>
+    <line x1="90.0" y1="385.0" x2="470.0" y2="385.0" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="389.0" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.60</text>
+    <line x1="90.0" y1="332.4" x2="470.0" y2="332.4" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="336.4" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.67</text>
+    <line x1="90.0" y1="279.8" x2="470.0" y2="279.8" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="283.8" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.74</text>
+    <line x1="90.0" y1="227.2" x2="470.0" y2="227.2" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="231.2" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.81</text>
+    <line x1="90.0" y1="174.6" x2="470.0" y2="174.6" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="178.6" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.88</text>
+    <line x1="90.0" y1="122.0" x2="470.0" y2="122.0" stroke="#D5D8DE" stroke-width="1"/>
+    <text x="80.0" y="126.0" font-size="11" fill="#596273" text-anchor="end" font-weight="400">0.95</text>
+    <text x="113.3" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">6</text>
+    <text x="180.0" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">5</text>
+    <text x="246.7" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">4</text>
+    <text x="313.3" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">3</text>
+    <text x="380.0" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">2</text>
+    <text x="446.7" y="405.0" font-size="11" fill="#596273" text-anchor="middle" font-weight="400">1</text>
+    <text x="280.0" y="430.0" font-size="12" fill="#596273" text-anchor="middle" font-weight="400">k_remaining  (candidate statements generated that round)</text>
+    <text transform="translate(36.0,253.5) rotate(-90)" font-size="12" fill="#596273" text-anchor="middle">Mean  u / u*</text>
+    <polyline points="113.3,143.0 180.0,152.7 246.7,165.1 313.3,181.9 380.0,207.8 446.7,297.7" fill="none" stroke="#5078C8" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="113.3" cy="143.0" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="113.3" y="132.0" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.922</text>
+    <circle cx="180.0" cy="152.7" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="180.0" y="141.7" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.909</text>
+    <circle cx="246.7" cy="165.1" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="246.7" y="154.1" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.893</text>
+    <circle cx="313.3" cy="181.9" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="313.3" y="170.9" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.870</text>
+    <circle cx="380.0" cy="207.8" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="380.0" y="196.8" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.836</text>
+    <circle cx="446.7" cy="297.7" r="4" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="446.7" y="286.7" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.716</text>
+    <polyline points="113.3,160.6 180.0,166.8 246.7,181.6 313.3,198.7 380.0,236.0 446.7,382.0" fill="none" stroke="#C8811C" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="113.3" cy="160.6" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="113.3" y="178.6" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.899</text>
+    <circle cx="180.0" cy="166.8" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="180.0" y="184.8" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.890</text>
+    <circle cx="246.7" cy="181.6" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="246.7" y="199.6" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.871</text>
+    <circle cx="313.3" cy="198.7" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="313.3" y="216.7" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.848</text>
+    <circle cx="380.0" cy="236.0" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="380.0" y="254.0" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.798</text>
+    <circle cx="446.7" cy="382.0" r="4" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="446.7" y="400.0" font-size="10" fill="#596273" text-anchor="middle" font-weight="400">0.604</text>
+    <circle cx="103.0" cy="108.0" r="4.5" fill="#7698E1" stroke="#5078C8" stroke-width="1.1"/>
+    <text x="113.0" y="112.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">tighter half of that round&#x27;s groups</text>
+    <circle cx="353.0" cy="108.0" r="4.5" fill="#E8A33D" stroke="#C8811C" stroke-width="1.1"/>
+    <text x="363.0" y="112.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">more scattered half</text>
+    <line x1="655.0" y1="385.0" x2="940.0" y2="385.0" stroke="#596273" stroke-width="1"/>
+    <text x="655.0" y="105.0" font-size="13" fill="#596273" text-anchor="start" font-weight="400">Variance explained by each factor alone  (R²)</text>
+    <rect x="656.0" y="125.0" width="245.0" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="142.4" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Group tightness</text>
+    <text x="907.0" y="142.4" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.532</text>
+    <rect x="656.0" y="157.9" width="229.1" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="175.3" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Candidates that round</text>
+    <text x="891.1" y="175.3" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.498</text>
+    <rect x="656.0" y="190.8" width="11.8" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="208.2" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Offset from sub-topic centre</text>
+    <text x="673.8" y="208.2" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.026</text>
+    <rect x="656.0" y="223.6" width="3.7" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="241.1" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Variance share on group PC1</text>
+    <text x="665.7" y="241.1" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.008</text>
+    <rect x="656.0" y="256.5" width="3.4" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="273.9" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Mean argument length</text>
+    <text x="665.4" y="273.9" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.007</text>
+    <rect x="656.0" y="289.4" width="2.3" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="306.8" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Sub-topic size</text>
+    <text x="664.3" y="306.8" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.005</text>
+    <rect x="656.0" y="322.2" width="1.5" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="339.7" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Group size</text>
+    <text x="663.5" y="339.7" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.003</text>
+    <rect x="656.0" y="355.1" width="1.2" height="24.9" rx="3" fill="#E8A33D" stroke="#C8811C" stroke-width="0.7"/>
+    <text x="647.0" y="372.6" font-size="10" fill="#596273" text-anchor="end" font-weight="400">Statement length</text>
+    <text x="663.2" y="372.6" font-size="10" fill="#596273" text-anchor="start" font-weight="400">0.003</text>
+    <text x="38.0" y="460.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">Tightness is mean pairwise cosine similarity between a group&#x27;s arguments; u / u* is the realized share of the ideal utility.</text>
+    <text x="38.0" y="476.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">The top two factors are not independent: they correlate at +0.75, because each round removes the tightest remaining cluster. Bars are therefore</text>
+    <text x="38.0" y="492.0" font-size="11" fill="#596273" text-anchor="start" font-weight="400">single-factor fits, not a decomposition. The left panel separates them, splitting each round at its own median tightness.</text>
+  </g>
+</svg>

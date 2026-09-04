@@ -13,9 +13,12 @@ import { resolveBlogImageSrc } from "@/hooks/blogImages";
 
 const blogSanitizeSchema = {
   ...defaultSchema,
+  tagNames: [...(defaultSchema?.tagNames ?? []), "video"],
   attributes: {
     ...defaultSchema.attributes,
     img: [...(defaultSchema?.attributes?.img ?? []), "title", "loading", "decoding"],
+    video: ["src", "title", "controls", "loop", "muted", "playsinline", "preload", "poster"],
+    source: [...(defaultSchema?.attributes?.source ?? []), "src", "type"],
   },
 };
 
@@ -209,6 +212,34 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
           }
 
           return imageEl;
+        },
+        video: ({ src, title, children, ...props }) => {
+          const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
+          const { caption, maxWidthPx } = parseBlogImageTitle(title);
+          const videoStyle = maxWidthPx ? { maxWidth: `${maxWidthPx}px` } : undefined;
+
+          const videoEl = (
+            <video
+              {...props}
+              src={resolved}
+              controls
+              playsInline
+              preload="metadata"
+              className="max-w-full h-auto rounded-lg border border-gray-200 mx-auto block"
+              style={videoStyle}
+            >
+              {children}
+            </video>
+          );
+
+          return (
+            <figure className="my-4 md:my-6">
+              {videoEl}
+              {caption ? (
+                <figcaption className="mt-2 text-center text-sm text-gray-600">{caption}</figcaption>
+              ) : null}
+            </figure>
+          );
         },
         table: ({ children, ...props }) => (
           <div className="my-4 md:my-6 overflow-x-auto rounded-lg border border-gray-200">

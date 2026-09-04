@@ -11,7 +11,7 @@ But my decision to turn these into reality was a tad less straightforward.
 
 On the one hand, I was fairly sure that making a blog would be a net positive in my life. The reasons _for_ starting a blog are relatively simple:
 
-1. **I’ve always loved reading and writing** — although academically I tended to gravitate towards math/physics, I find I’m happiest when I can find some balance between the two (ie social sciences and science). I think when we learn about both, we can use one to learn about the other.
+1. **I’ve always loved reading and writing** — although academically I tended to gravitate towards sciences/less-so towards social sciences, I find I’m happiest when I can find some balance between the two. I think when we learn about both, we can use one to learn about the other.
 2. **I also like being creative**, so the idea of expressing myself not only through words, but also through videos / drawings / etc is appealing to me. This blog will have mix of different types of posts (some visual, some written, a little vlog or audio entry here and there, etc etc) 🎨
 3. **Likewise, I find it very frustrating when I have an idea or opinion that I can’t communicate clearly to someone else.** A blog would be a great way to practice expressing my opinions and ideas about any topic that matters to me, so that I have less trouble communicating them in the future. Practice makes perfect 🤓
 4. **I’m in a new country — I’m seeing so many new things and meeting so many new people, but I don’t know as many people as I did in Canada.** So much is changing, both around me and in me, and I’d love to have a place to reflect on and store this information. (yes, that place could be a journal, but I do like the thought of opening up a discussion on my reflections, rather than babbling somewhere I am unlikely to ever revisit. I also like the idea of being held accountable - I will hold my writing to a higher standard if I think others may read it, and this alone will help me improve and potentially take a more critical lens).
@@ -19,7 +19,7 @@ On the one hand, I was fairly sure that making a blog would be a net positive in
 
 But despite this relatively convincing case for pursuing blog authorship, I also had hesitations.
 
-These hesitations are not enough to stop me from making one (wouldn’t be a crazy plot twist: if I made a whole entire blog website, just to write one blog single article, concluding that I will not in fact write a blog :D) — but, I do think these hesitations (a) were useful to think/write about before starting the actual blog content, and (b) will inform the content and format of the blog going forward — so I wanted to mention them here:
+These hesitations are not enough to stop me from making one (wouldn’t that be a crazy plot twist: if I made a whole entire blog website, just to write one blog single article, concluding that I will not in fact write a blog :D) — but, I do think these hesitations (a) were useful to think/write about before starting the actual blog content, and (b) will inform the content and format of the blog going forward — so I wanted to mention them here:
 
 1. **I wasn't (still am not) completely sure what I want to talk about.**
 
@@ -29,7 +29,7 @@ I imagine it will take some time for me to “find my voice” on here. I can be
 
 2. **I have so many miscellaneous ideas and thoughts, and the task of sorting though all of them feels daunting**.
 
-I was hesitant to start a blog/share my ideas because putting it into a post feels too permanent, as if me writing it here means I have to keep that opinion/that it has to be ‘correct’ or my definitive opinion on a given topic. That said, I’m hoping it can actually be the opposite — that my sharing thoughts and opinions here can open them up to critique or a wider discussion. My thoughts, ideas, and opinions will change; and hopefully the clarify with which I can communicate them will improve too.
+I was hesitant to start a blog/share my ideas because putting it into a post feels too permanent, as if me writing it here means I have to keep that opinion/that it has to be ‘correct’ or my definitive opinion on a given topic. That said, I’m hoping it can actually be the opposite — that my sharing thoughts and opinions here can open them up to critique or a wider discussion. My thoughts, ideas, and opinions will change; and hopefully the clarity with which I can communicate them will improve too.
 
 I find I’m really good at listening to other people and understanding where they’re coming from, but less good at taking all of those opinions and perspectives, filtering through them, and communicating my own coherent opinions and ideas about the topic. The result is that I change my mind a lot, as I listen to more perspectives on a topic and empathise with each: My opinion just feels like some (weighted) average of all the different perspectives I’ve heard form other people, rather than a representation of my own thoughts on the topic as they relate to/intersect with my values and experiences.
 

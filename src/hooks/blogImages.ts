@@ -1,8 +1,11 @@
-const rawModules = import.meta.glob("../blog_data/preview_images/**/*.{png,jpg,jpeg,gif,webp}", {
-  eager: true,
-  query: "?url",
-  import: "default",
-}) as Record<string, string>;
+const rawModules = import.meta.glob(
+  "../blog_data/preview_images/**/*.{png,jpg,jpeg,gif,webp,mp4,webm}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+) as Record<string, string>;
 
 const PREFIX = "../blog_data/preview_images/";
 
@@ -17,9 +20,11 @@ export function resolveBlogImageSrc(src: string, postSlug: string | undefined): 
   if (/^https?:\/\//i.test(trimmed)) return trimmed;
 
   const candidates: string[] = [trimmed];
-  if (postSlug && !trimmed.includes("/")) {
+  if (postSlug) {
     const folder = postSlug.split("/").pop();
-    if (folder) candidates.push(`${folder}/${trimmed}`);
+    if (folder && !trimmed.startsWith(`${folder}/`)) {
+      candidates.push(`${folder}/${trimmed}`);
+    }
   }
   for (const key of candidates) {
     const resolved = urlByKey.get(key);
