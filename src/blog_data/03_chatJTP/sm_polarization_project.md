@@ -50,10 +50,10 @@ This work makes three main contributions:
 ### 1.2. System Demo
 
 Below is a screen recording of a demo version of the system, generated using the Meta-Llama-3.1-8B-Instruct-Turbo model, 
-- The first tab allows you to enter a 'post' to see what the system would output on your text -- this works best if you mention one of the topics that was included in the dataset (see Section 3.0 ;). 
+- The first tab allows you to enter a 'post' to see what the system would output on your text. 
 - The second tab shows the generated argument graph -- clicking on the topics opens their respective subtopics and statement slates. 
 
-<video title="Figure 1a. Screen recording of the demo: querying a post and browsing the argument graph. | w=1000" controls src="figures/demo_vid.mp4"></video>
+<video title="Figure 1a. Screen recording of the demo: querying a post and browsing the argument graph. | w=800" controls src="figures/demo_vid.mp4"></video>
 
 Of course, the actual system would not look like this. It would ideally be embedded into a social media app (and the full graph would not be visible, as it would be much larger and more overwhelming). Also, the sample post I offered was quite short, but I imagine this being useful when someone has done a very polarizing post (eg. a rant post about something) -- so that people reading it can also see the alternative discussions that are going on. 
 
@@ -72,7 +72,7 @@ Execution is split into two phases:
 1. *Batch phase:* This phase happens asynchronously, and is a prerequisite for the *query phase*. Arguments made in other posts on the platform are classified according to topic and sub-topic, and organized into a graph; **Figure 1** summarizes the resulting structure, and Section 2.1 describes the pipeline in detail. 
 2. *Query phase:* This phase uses the graph generated in the *batch phase* to present the user with alternative perspectives on a given post. **Figure 2** shows a sample flow, and Section 2.2 describes the execution.
 
-![Argument graph structure.](argument_graph.png "Figure 1. Argument graph structure. | w=1000")
+![Argument graph structure.](argument_graph.png "Figure 1. Argument graph structure. | w=600")
 
 ### 2.1. Batch Phase
 
@@ -202,7 +202,7 @@ Using the same mechanism in the query phase, the input post's stance can also be
 
 ### 2.2. Query Phase
 
-![Example query flow.](query_flow.png "Figure 2. Example query flow. Yellow boxes indicate user-facing interface states; blue boxes indicate embedding and projection steps used to retrieve topics and position the post along the selected stance axis. | w=1000")
+![Example query flow.](query_flow.png "Figure 2. Example query flow. Yellow boxes indicate user-facing interface states; blue boxes indicate embedding and projection steps used to retrieve topics and position the post along the selected stance axis. | w=600")
 
 The flow for this phase is outlined in **Figure 2**. The query phase reuses the graph produced during the batch phase: semantic embedding is used for topic retrieval, while preference embedding is used after topic selection to locate the input post relative to the selected sub-topic's stance axis.
 
@@ -225,7 +225,7 @@ ai, aisafety, carnivore, climate, climatechange, democracy, disinformation, envi
 
 Post timestamps range from 20 February 2016 to 29 June 2026, and the breakdown of status posts per queried topic tag are visualized in **Figure 3** (one post can contain multiple tags - 2,994 posts contain at least two of the 17 queried tags - so the counts overlap between posts).
 
-![Dataset topic spread.](figures/dataset_tag_spread.png "Figure 3. Breakdown of status posts per tag for the Mastodon.py dataset of 10,916 statuses.  | w=1000")
+![Dataset topic spread.](figures/dataset_tag_spread.png "Figure 3. Breakdown of status posts per tag for the Mastodon.py dataset of 10,916 statuses.  | w=600")
 
 The full pipeline was executed twice, using Meta-Llama-3.1-8B-Instruct-Turbo and Llama-3.3-70B-Instruct-Turbo models run via Deepinfra's serverless models. 
 
@@ -295,15 +295,15 @@ $$
 
 The results of this evaluation are included in **Figure 4** and **Figure 5** below. 
 
-![Generated statement utility against the ceiling (8B).](figures/statement-utility-gap-8b.png "Figure 4. Generated statement utility against the ceiling its group allows (Llama-3.1-8B-Instruct-Turbo). | w=1000")
+![Generated statement utility against the ceiling (8B).](figures/statement-utility-gap-8b.png "Figure 4. Generated statement utility against the ceiling its group allows (Llama-3.1-8B-Instruct-Turbo). | w=600")
 
-![Generated statement utility against the ceiling (70B).](figures/statement-utility-gap-70b.png "Figure 5. Generated statement utility against the ceiling its group allows (Llama-3.3-70B-Instruct-Turbo). | w=1000") 
+![Generated statement utility against the ceiling (70B).](figures/statement-utility-gap-70b.png "Figure 5. Generated statement utility against the ceiling its group allows (Llama-3.3-70B-Instruct-Turbo). | w=600") 
 
 I will reserve a full, formal analysis for if (when?) I write a paper on this topic. But some preliminary observations from this data were that:
 - The gaps between optimal (u*) and actual (u) deteriorated with each round (see **Figure 6** below). This is expected since intuitively, as the arguments in a given group become increasingly different from one another, it is more difficult to generate a single representative statement. What I find interesting is how closely the 8B and 70B curves follow one another -- it suggests that just 'using a better model' won't just solve the problem, but perhaps there are improvements to the system design (eg. subtopic clustering granularity) which could be more impactful. 
 - Similarly, the mean gaps between optimal (u*) and actual (u) $\mathrm{Disc}$ statements were 0.163 and 0.135 for the 8B and 70B parameter models, respectively (which seems a relatively small difference, although I know that is not a rigorous statement whatsoever) -- and anecdotally, I could not discern much difference in quality between the model outputs. 
 
-![Generated statement utility by round and by group tightness.](figures/round-utility-by-model.png "Figure 6. Generated statement utility by candidate count (left) and by group tightness (right), Llama-3.3-70B against Llama-3.1-8B. | w=1000")
+![Generated statement utility by round and by group tightness.](figures/round-utility-by-model.png "Figure 6. Generated statement utility by candidate count (left) and by group tightness (right), Llama-3.3-70B against Llama-3.1-8B. | w=600")
 
 ### 3.3 Generative Social Choice (Gen Step): Clustering Algorithm 🟢
 
@@ -335,13 +335,13 @@ Once again, this test is not perfect for a couple of reasons:
 
 The results of this evaluation are included in **Figure 7** and **Figure 8** below. 
 
-![Clustering versus exhaustive search (8B).](figures/exhaustive-group-search-8b.png "Figure 7. Clustering versus exhaustive search for the best quota-sized group (Llama-3.1-8B-Instruct-Turbo). | w=1000")
+![Clustering versus exhaustive search (8B).](figures/exhaustive-group-search-8b.png "Figure 7. Clustering versus exhaustive search for the best quota-sized group (Llama-3.1-8B-Instruct-Turbo). | w=600")
 
-![Clustering versus exhaustive search (70B).](figures/exhaustive-group-search-70b.png "Figure 8. Clustering versus exhaustive search for the best quota-sized group (Llama-3.3-70B-Instruct-Turbo). | w=1000") 
+![Clustering versus exhaustive search (70B).](figures/exhaustive-group-search-70b.png "Figure 8. Clustering versus exhaustive search for the best quota-sized group (Llama-3.3-70B-Instruct-Turbo). | w=600") 
 
 These results are relatively consistent between models, which is expected since LLMs are not used for this step. Interestingly, when we compared these results to a k-means baseline, the k-means clustering generally outperformed our algorithm (see **Figure 9** below) -- so I suppose we will shift to k-means for future iterations of this pipeline. That said, the median $\gamma(\widehat{T})/\gamma(T^\star)$ ratios of our algorithm vs k-means were 98.7% vs 99.9%, respectively -- so neither seemed to be a notable detriment to performance. 
 
-![Farthest-point clustering versus a k-means baseline.](figures/clustering-baseline-comparison.png "Figure 9. Farthest-point clustering versus a k-means baseline. | w=1000")
+![Farthest-point clustering versus a k-means baseline.](figures/clustering-baseline-comparison.png "Figure 9. Farthest-point clustering versus a k-means baseline. | w=600")
 
 ### 3.4 PC1 as Axis of Disagreement 🟡
 

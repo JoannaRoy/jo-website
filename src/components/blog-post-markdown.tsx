@@ -1,5 +1,13 @@
 import { defaultSchema } from "hast-util-sanitize";
-import { Children, isValidElement, type ReactNode } from "react";
+import {
+  Children,
+  isValidElement,
+  useRef,
+  useState,
+  type ImgHTMLAttributes,
+  type ReactNode,
+  type VideoHTMLAttributes,
+} from "react";
 import Markdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
@@ -41,6 +49,178 @@ interface BlogPostMarkdownProps {
   markdown: string;
   postSlug?: string;
 }
+
+const ExpandIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-4 w-4"
+  >
+    <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+    <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+    <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+    <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-5 w-5"
+  >
+    <path d="M18 6 6 18" />
+    <path d="M6 6l12 12" />
+  </svg>
+);
+
+const BlogVideo = ({
+  src,
+  title,
+  children,
+  postSlug,
+  ...props
+}: VideoHTMLAttributes<HTMLVideoElement> & { title?: string; postSlug?: string }) => {
+  const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
+  const { caption, maxWidthPx } = parseBlogImageTitle(title);
+  // min(...) keeps the declared max-width on desktop without forcing overflow on narrow mobile screens.
+  const videoStyle = maxWidthPx ? { maxWidth: `min(${maxWidthPx}px, 100%)` } : undefined;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleFullscreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (typeof (video as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen === "function") {
+      (video as HTMLVideoElement & { webkitEnterFullscreen: () => void }).webkitEnterFullscreen();
+    }
+  };
+
+  return (
+    <figure className="my-4 md:my-6">
+      <div className="relative mx-auto" style={videoStyle}>
+        <video
+          {...props}
+          ref={videoRef}
+          src={resolved}
+          controls
+          playsInline
+          preload="metadata"
+          className="max-w-full h-auto rounded-lg border border-gray-200 block"
+        >
+          {children}
+        </video>
+        <button
+          type="button"
+          onClick={handleFullscreen}
+          aria-label="View fullscreen"
+          className="absolute top-2 right-2 rounded-md bg-black/60 p-1.5 text-white transition-colors hover:bg-black/80"
+        >
+          <ExpandIcon />
+        </button>
+      </div>
+      {caption ? (
+        <figcaption className="mt-2 text-center text-sm text-gray-600">{caption}</figcaption>
+      ) : null}
+    </figure>
+  );
+};
+
+const BlogImage = ({
+  src,
+  alt,
+  title,
+  postSlug,
+  ...props
+}: ImgHTMLAttributes<HTMLImageElement> & { title?: string; postSlug?: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
+  const { caption, maxWidthPx } = parseBlogImageTitle(title);
+  // min(...) keeps the declared max-width on desktop without forcing overflow on narrow mobile screens.
+  const wrapperStyle = maxWidthPx ? { maxWidth: `min(${maxWidthPx}px, 100%)` } : undefined;
+
+  const imageButton = (
+    <div
+      className={"relative mx-auto block" + (caption ? "" : " my-4 md:my-6")}
+      style={wrapperStyle}
+    >
+      <img
+        {...props}
+        src={resolved}
+        alt={alt ?? ""}
+        className="block h-auto w-full cursor-zoom-in rounded-lg border border-gray-200"
+        loading="lazy"
+        decoding="async"
+        onClick={() => setIsOpen(true)}
+      />
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        aria-label="View fullscreen"
+        className="absolute top-2 right-2 rounded-md bg-black/60 p-1.5 text-white opacity-80 transition-opacity hover:bg-black/80 hover:opacity-100"
+      >
+        <ExpandIcon />
+      </button>
+    </div>
+  );
+
+  const content = caption ? (
+    <figure className="my-4 md:my-6">
+      {imageButton}
+      <figcaption className="mt-2 text-center text-sm text-gray-600">{caption}</figcaption>
+    </figure>
+  ) : (
+    imageButton
+  );
+
+  return (
+    <>
+      {content}
+      {isOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black/90 p-4"
+          role="dialog"
+          aria-modal="true"
+          tabIndex={-1}
+          ref={(node) => node?.focus()}
+          onClick={() => setIsOpen(false)}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") setIsOpen(false);
+          }}
+        >
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              setIsOpen(false);
+            }}
+            aria-label="Close"
+            className="absolute top-4 right-4 rounded-md bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+          >
+            <CloseIcon />
+          </button>
+          <img
+            src={resolved}
+            alt={alt ?? ""}
+            className="max-h-full max-w-full cursor-zoom-out object-contain"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      ) : null}
+    </>
+  );
+};
 
 const reactNodeToText = (node: ReactNode): string => {
   if (node === null || node === undefined || typeof node === "boolean") return "";
@@ -110,7 +290,7 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
           }
           const hasImage = node?.children?.some(
             (c: { type?: string; tagName?: string }) =>
-              c.type === "element" && c.tagName === "img",
+              c.type === "element" && (c.tagName === "img" || c.tagName === "video"),
           );
           if (hasImage) {
             return <div className="my-3 md:my-4" {...props}>{children}</div>;
@@ -176,71 +356,14 @@ export const BlogPostMarkdown = ({ markdown, postSlug }: BlogPostMarkdownProps) 
             {children}
           </li>
         ),
-        img: ({ src, alt, title, ...props }) => {
-          const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
-          const { caption, maxWidthPx } = parseBlogImageTitle(title);
-          const imgStyle = maxWidthPx ? { maxWidth: `${maxWidthPx}px` } : undefined;
-          const scrollable = maxWidthPx !== undefined;
-          const imgClassName =
-            (scrollable ? "md:max-w-full" : "max-w-full") +
-            " h-auto rounded-lg border border-gray-200 " +
-            (caption || scrollable ? "mx-auto block" : "my-4 md:my-6");
-
-          const imageEl = (
-            <img
-              {...props}
-              src={resolved}
-              alt={alt ?? ""}
-              className={imgClassName}
-              style={imgStyle}
-              loading="lazy"
-              decoding="async"
-            />
-          );
-
-          if (caption) {
-            return (
-              <figure className="my-4 md:my-6">
-                {scrollable ? <div className="overflow-x-auto">{imageEl}</div> : imageEl}
-                <figcaption className="mt-2 text-center text-sm text-gray-600">{caption}</figcaption>
-              </figure>
-            );
-          }
-
-          if (scrollable) {
-            return <figure className="my-4 md:my-6 overflow-x-auto">{imageEl}</figure>;
-          }
-
-          return imageEl;
-        },
-        video: ({ src, title, children, ...props }) => {
-          const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
-          const { caption, maxWidthPx } = parseBlogImageTitle(title);
-          const videoStyle = maxWidthPx ? { maxWidth: `${maxWidthPx}px` } : undefined;
-
-          const videoEl = (
-            <video
-              {...props}
-              src={resolved}
-              controls
-              playsInline
-              preload="metadata"
-              className="max-w-full h-auto rounded-lg border border-gray-200 mx-auto block"
-              style={videoStyle}
-            >
-              {children}
-            </video>
-          );
-
-          return (
-            <figure className="my-4 md:my-6">
-              {videoEl}
-              {caption ? (
-                <figcaption className="mt-2 text-center text-sm text-gray-600">{caption}</figcaption>
-              ) : null}
-            </figure>
-          );
-        },
+        img: ({ src, alt, title, ...props }) => (
+          <BlogImage src={src} alt={alt} title={title} postSlug={postSlug} {...props} />
+        ),
+        video: ({ src, title, children, ...props }) => (
+          <BlogVideo src={src} title={title} postSlug={postSlug} {...props}>
+            {children}
+          </BlogVideo>
+        ),
         table: ({ children, ...props }) => (
           <div className="my-4 md:my-6 overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full min-w-[32rem] border-collapse text-left text-sm" {...props}>
