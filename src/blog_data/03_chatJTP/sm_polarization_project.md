@@ -49,11 +49,11 @@ This work makes three main contributions:
 
 ### 1.2. System Demo
 
-Below is a screen recording of a demo version of the system, generated using the Meta-Llama-3.1-8B-Instruct-Turbo model, 
+Below is a screen recording of a demo version of the system:
 - The first tab allows you to enter a 'post' to see what the system would output on your text. 
 - The second tab shows the generated argument graph -- clicking on the topics opens their respective subtopics and statement slates. 
 
-<video title="Figure 1a. Screen recording of the demo: querying a post and browsing the argument graph. | w=800" controls src="figures/demo_vid.mp4"></video>
+<video title="Figure 1a. Screen recording of the demo: querying a post and browsing the argument graph. (I feel obligated to add a disclaimer that the views in this video are not necessarily my own, but rather they are collected from a random sampling of posts and/or used in this video as a demo/sample of what *could* realistically be a polarizing post on social media) | w=800" controls src="figures/demo_vid.mp4"></video>
 
 Of course, the actual system would not look like this. It would ideally be embedded into a social media app (and the full graph would not be visible, as it would be much larger and more overwhelming). Also, the sample post I offered was quite short, but I imagine this being useful when someone has done a very polarizing post (eg. a rant post about something) -- so that people reading it can also see the alternative discussions that are going on. 
 
