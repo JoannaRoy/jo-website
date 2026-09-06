@@ -18,9 +18,40 @@ type ContentCardProps = {
   tags?: string[];
   category?: string;
   categoryColor?: string;
+  categoryTooltip?: string;
   isFeatured?: boolean;
   viewStats?: { views: number; loading: boolean };
 };
+
+export const CategoryTag = ({
+  label,
+  color,
+  tooltip,
+  isFeatured,
+  className = "",
+}: {
+  label: string;
+  color?: string;
+  tooltip?: string;
+  isFeatured?: boolean;
+  className?: string;
+}) => (
+  <span
+    className={`group/tag relative inline-flex items-center gap-1 w-fit text-xs px-2 py-0.5 rounded ${tooltip ? "cursor-help" : ""} ${className}`}
+    style={{ color: color || "#6b7280", backgroundColor: color ? `${color}25` : "#e5e7eb" }}
+  >
+    {isFeatured && <span>★</span>}
+    {label}
+    {tooltip && (
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute left-0 top-full z-30 mt-1.5 hidden w-72 max-w-[min(18rem,calc(100vw-2rem))] rounded-md bg-gray-900 px-2.5 py-2 text-left text-xs font-normal leading-relaxed text-white shadow-lg group-hover/tag:block"
+      >
+        {tooltip}
+      </span>
+    )}
+  </span>
+);
 
 export const ContentCard = ({
   title,
@@ -32,6 +63,7 @@ export const ContentCard = ({
   tags,
   category,
   categoryColor,
+  categoryTooltip,
   isFeatured,
   viewStats,
 }: ContentCardProps) => {
@@ -54,7 +86,7 @@ export const ContentCard = ({
       onKeyDown={isExpandable ? handleKeyDown : undefined}
       tabIndex={isExpandable ? 0 : undefined}
     >
-      <div className="flex items-start gap-3 sm:gap-4 overflow-hidden">
+      <div className="flex items-start gap-3 sm:gap-4">
         {image && (
           <img
             src={image}
@@ -63,7 +95,7 @@ export const ContentCard = ({
           />
         )}
 
-        <div className="flex flex-col grow min-w-0 overflow-hidden">
+        <div className="flex flex-col grow min-w-0">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 mb-1">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 flex-wrap min-w-0">
               <h3 className="text-sm md:text-lg font-semibold text-gray-900 break-words">
@@ -100,13 +132,13 @@ export const ContentCard = ({
           </div>
 
           {category && (
-            <span
-              className="text-xs px-2 py-0.5 rounded w-fit mb-2 inline-flex items-center gap-1"
-              style={{ color: categoryColor || "#6b7280", backgroundColor: categoryColor ? `${categoryColor}25` : "#e5e7eb" }}
-            >
-              {isFeatured && <span>★</span>}
-              {category}
-            </span>
+            <CategoryTag
+              label={category}
+              color={categoryColor}
+              tooltip={categoryTooltip}
+              isFeatured={isFeatured}
+              className="mb-2"
+            />
           )}
 
           {tags && tags.length > 0 && (

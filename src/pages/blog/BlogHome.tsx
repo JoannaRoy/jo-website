@@ -49,28 +49,32 @@ const getPreviewText = (content: string, maxLength = 100): string => {
 const allPosts = [
   ...featuredArticles.map((a) => ({
     slug: a.id,
+    statsSlug: a.id,
     to: a.to,
     title: a.title,
     date: a.date,
     previewImage: a.previewImage,
     chapter: a.category,
     chapterColor: "#fbbf24",
+    chapterDescription: undefined,
     isFeatured: true,
     chapterOrder: -1,
     preview: a.preview,
     isExternal: false,
   })),
-  ...Object.entries(BlogContent).flatMap(([header, posts], chapterIndex) =>
+  ...Object.entries(BlogContent).flatMap(([header, posts]) =>
     posts.map((post, postIndex) => ({
       slug: post.slug,
+      statsSlug: post.statsSlug,
       to: post.data.externalUrl || `/blog/${post.slug}`,
       title: post.data.title,
       date: post.data.date,
       previewImage: post.data.previewImage,
       chapter: post.formattedHeader,
       chapterColor: chapterColorMap[header],
+      chapterDescription: post.chapterDescription,
       isFeatured: false,
-      chapterOrder: chapterIndex * 100 + postIndex,
+      chapterOrder: post.seriesOrder * 100 + postIndex,
       preview: getPreviewText(post.content),
       isExternal: !!post.data.externalUrl,
     }))
@@ -79,7 +83,7 @@ const allPosts = [
 
 const internalPostSlugsForViews = allPosts
   .filter((p) => !p.isExternal)
-  .map((p) => p.slug);
+  .map((p) => p.statsSlug);
 
 const Blog = () => {
   const { data: viewCounts = {}, isLoading: viewsLoading } =
@@ -102,7 +106,7 @@ const Blog = () => {
 
   return (
     <PageGrid columns={1}>
-      <div className="w-full px-3 sm:px-6 md:px-12 lg:px-20 py-2 md:py-3 overflow-hidden">
+      <div className="w-full px-3 sm:px-6 md:px-12 lg:px-20 py-2 md:py-3 overflow-x-hidden">
         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-10">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
             Blog
@@ -120,6 +124,7 @@ const Blog = () => {
                   image={post.previewImage ? getPreviewImageUrl(post.previewImage) : undefined}
                   category={post.chapter}
                   categoryColor={post.chapterColor}
+                  categoryTooltip={post.chapterDescription}
                   isFeatured={post.isFeatured}
                   description={post.preview}
                 />
@@ -132,10 +137,11 @@ const Blog = () => {
                   image={post.previewImage ? getPreviewImageUrl(post.previewImage) : undefined}
                   category={post.chapter}
                   categoryColor={post.chapterColor}
+                  categoryTooltip={post.chapterDescription}
                   isFeatured={post.isFeatured}
                   description={post.preview}
                   viewStats={{
-                    views: viewCounts[post.slug] ?? 0,
+                    views: viewCounts[post.statsSlug] ?? 0,
                     loading: viewsLoading,
                   }}
                 />

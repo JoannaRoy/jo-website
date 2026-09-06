@@ -1,11 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { CategoryTag } from "@/components/content-card";
 import { BlogPostMarkdown } from "@/components/blog-post-markdown";
 import { ArrowLeft } from "@/components/icons/arrow-left";
 import { PageGrid } from "@/components/item-grids";
 import { ReactionBar } from "@/components/reaction-bar";
 import { ViewCount } from "@/components/view-count";
 import { useViewCount } from "@/hooks/useViewCount";
-import { BlogContent } from "@/pages/blog/BlogContent";
+import { BlogContent, blogFolderByLegacy } from "@/pages/blog/BlogContent";
 
 const chapterColorMap: Record<string, string> = {};
 const chapterColors = ["#f472b6", "#60a5fa", "#22c55e", "#fbbf24", "#a78bfa"];
@@ -16,10 +17,19 @@ Object.keys(BlogContent).forEach((h, index) => {
 const BlogPost = () => {
   const { header, title } = useParams();
   const navigate = useNavigate();
-  const slug = `${header}/${title}`;
-  const post = BlogContent[header as string].find((post) => post.slug === slug);
-  const { views, loading: viewsLoading } = useViewCount(slug, true);
-  const chapterColor = header ? chapterColorMap[header] : undefined;
+  const canonicalHeader = header ? (blogFolderByLegacy[header] ?? header) : header;
+  const legacyFolder = header ? blogFolderByLegacy[header] : undefined;
+  const slug = `${canonicalHeader}/${title}`;
+  const post = canonicalHeader
+    ? BlogContent[canonicalHeader]?.find((post) => post.slug === slug)
+    : undefined;
+  const statsSlug = post?.statsSlug ?? slug;
+  const { views, loading: viewsLoading } = useViewCount(statsSlug, !legacyFolder);
+  const chapterColor = canonicalHeader ? chapterColorMap[canonicalHeader] : undefined;
+
+  if (legacyFolder && title) {
+    return <Navigate to={`/blog/${legacyFolder}/${title}`} replace />;
+  }
 
   const handleBackClick = () => {
     navigate("/blog");
@@ -38,13 +48,14 @@ const BlogPost = () => {
         </button>
         <div>
           <div className="mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-3">
-            <span
-              className="text-xs px-2 py-0.5 rounded"
-              style={{ color: chapterColor || "#9ca3af", backgroundColor: chapterColor ? `${chapterColor}15` : "#f3f4f6" }}
-            >
-              {post?.formattedHeader}
-            </span>
-            <ReactionBar slug={slug} />
+            {post?.formattedHeader && (
+              <CategoryTag
+                label={post.formattedHeader}
+                color={chapterColor}
+                tooltip={post.chapterDescription}
+              />
+            )}
+            <ReactionBar slug={statsSlug} />
           </div>
           
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full mb-8 md:mb-10 gap-3 py-4">

@@ -8,8 +8,8 @@ import blogMetadataCsv from "../../blog_data/blog_metadata.csv?raw";
 const TRUE = "true";
 
 interface BlogMetadataRow {
-  chapter_number: string;
-  chapter_title: string;
+  folder: string;
+  legacy_folder: string;
   chapter_description: string;
 }
 
@@ -23,7 +23,9 @@ interface BlogPost {
   };
   content: string;
   slug: string;
+  statsSlug: string;
   formattedHeader: string;
+  seriesOrder: number;
   chapterDescription?: string;
 }
 
@@ -32,6 +34,20 @@ interface BlogContentStructure {
 }
 
 globalThis.Buffer = Buffer;
+
+const metadataRows = Papa.parse<BlogMetadataRow>(blogMetadataCsv, {
+  header: true,
+}).data.filter((row) => row.folder);
+
+const metadataByFolder = Object.fromEntries(
+  metadataRows.map((row, index) => [row.folder, { ...row, order: index }])
+);
+
+export const blogFolderByLegacy: Record<string, string> = Object.fromEntries(
+  metadataRows
+    .filter((row) => row.legacy_folder)
+    .map((row) => [row.legacy_folder, row.folder])
+);
 
 const markdownFiles = import.meta.glob("../../blog_data/*/*.md", {
   query: "?raw",
@@ -46,22 +62,17 @@ const unsortedContent = Object.entries(markdownFiles).reduce(
     }
     const { data, content: markdownContent } = matter(content as string);
     const header = filePath.replace("../../blog_data/", "").split("/")[0];
-    const formattedHeader = header ? (header
-      .replace(/^0/, "")
-        .replace(/^[0-9]{2}(?=\D)/, "chapter $&:")
-        .replace(/^[0-9]{1}(?=\D)/, "chapter $&:")
-        .replace(/_/g, " ")) : "";
+    const metadata = header ? metadataByFolder[header] : undefined;
+    const formattedHeader = header ? header.replace(/_/g, " ") : "";
     const slug = filePath.replace("../../blog_data/", "").replace(".md", "");
+    const filename = slug.split("/").slice(1).join("/");
+    const statsSlug = metadata?.legacy_folder
+      ? `${metadata.legacy_folder}/${filename}`
+      : slug;
 
     if (!acc[header]) {
       acc[header] = [];
     }
-    const result = Papa.parse<BlogMetadataRow>(blogMetadataCsv, {
-      header: true,
-    });
-    const chapterDescription = result.data.find(
-      (row) => row.chapter_title === header
-    )?.chapter_description;
 
     if (data.draft !== TRUE) {
       acc[header].push({
@@ -74,8 +85,10 @@ const unsortedContent = Object.entries(markdownFiles).reduce(
         },
         content: markdownContent,
         slug: slug,
-        formattedHeader: formattedHeader,
-        chapterDescription: chapterDescription,
+        statsSlug,
+        formattedHeader,
+        seriesOrder: metadata?.order ?? Number.MAX_SAFE_INTEGER,
+        chapterDescription: metadata?.chapter_description,
       });
     }
     return acc; 
