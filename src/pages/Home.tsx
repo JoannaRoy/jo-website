@@ -111,7 +111,7 @@ const Home: React.FC = () => {
                   } as React.CSSProperties
                 }
               >
-                Welcome to my little corner of the internet :)
+                Welcome to my little corner of the internet :D
               </p>
             </div>
           </div>
