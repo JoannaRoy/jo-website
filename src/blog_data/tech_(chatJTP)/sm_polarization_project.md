@@ -24,12 +24,12 @@ Limiting echo chambers online (in the context of this project, on social media),
 
 We accomplish this by constructing an 'Argument Graph' that organizes extracted arguments from all posts made on the platform and in a structured, queryable format. Then, given a polarizing post, we query representative statements for all other arguments on the same topic and append them to the post. **Figure 1** shows the structure of the Argument Graph. 
 
-The main focus of this article will be on constructing and evaluating the graph itself, whose generation relies on topic clustering, generative social choice, preference embeddings, among other concepts (many of which I have learned in the making of this project!). While it is possible that a state-of-the-art LLM could accomplish this task quite well, this implementation does not rely on them. We sought to break the process down into small enough sub-tasks that each can be interpreted, independently evaluated and, when an LLM is needed, it doesn't need to be a frontier model. The demo version of this system was generated on open-source models, and cost less than 50 cents (for the 70B model) and 20 cents (for the 8B model) to generate for ~10k posts. This was important for a number of reasons: 
-- **Cost**. Frontier models are expensive and energy-intensive, particularly if this project hopes to scale to any live social media platform -- locally-hostable (smaller), open-source models aren't tied to the pricing (or availability) of frontier labs and have a smaller environmental footprint.
+The main focus of this article will be on constructing and evaluating the graph itself, whose generation relies on topic clustering, generative social choice, preference embeddings, among other concepts (many of which I have learned in the making of this project!). While it is possible that a state-of-the-art LLM could accomplish this task quite well, this implementation does not rely on them. We sought to break the process down into small enough sub-tasks that each can be interpreted, independently evaluated and, when an LLM is needed, it doesn't need to be a frontier model. This was important for a number of reasons: 
+- **Cost**. Frontier models are expensive and energy-intensive, particularly if this project hopes to scale to any live social media platform -- locally-hostable (smaller), open-source models aren't tied to the pricing (or availability) of frontier labs and have a smaller environmental footprint. The demo version of this system was generated on open-source models, and cost less than 50 cents (for the 70B model) and 20 cents (for the 8B model) to generate for ~10k posts.
 - **Accessibility and privacy**. Relying on local models also keeps the project more accessible and privacy-preserving -- e.g., an admin of a Fediverse server could reliably generate the graph for their own platform, without ever having to send their users' posts off to a third party.
 - **Interpretability**. The ability to examine intermediate outputs makes the system more trustworthy and enables more robust evaluation at each step. The resulting graph, topics, and slate statements are also independently useful -- they are informative for this topic, or in any other research problems that might benefit from structured opinion data.
 
-With this in mind, the overarching goal of this system would ideally reduce polarization by pulling people more towards mutual understanding and fostering empathy, while increasing our ability to think critically about social media feeds. Upon seeing other users' opinions about the topic, it's possible the user continues to hold their initial stance, but also possible they do so in a less polarized way, or even take a new stance on the topic. Most algorithms *filter out* content such that peoples' feeds tend to be more aligned with their existing views -- this project intentionally *brings in* content that differs from or opposes their existing views, in hopes it will motivate people to question and refine them.
+With this in mind, the overarching goal of this system would ideally reduce polarization by pulling people more towards mutual understanding and fostering empathy, while increasing our ability to think critically about social media feeds. Upon seeing other users' opinions about the topic, it's possible the user continues to hold their initial stance, but also possible they do so in a less polarized way, or even take a new stance on the topic. 
 
 Here are some (of many) projects with similar goals that I have referenced:
 
@@ -98,13 +98,15 @@ The goal of this step is to cluster the arguments extracted in *Stage 1: Argumen
 
 1. *Topic clustering:* Each argument, along with its associated topic sentence, is passed to BERTopic [6] for high-level topic assignment.
 2. *Sub-topic semantic clustering:* Within each topic, arguments are further clustered by semantic similarity via UMAP and HDBSCAN (following BERTopic), tuned finer grained than for topic clustering. Semantic embeddings are used so that arguments similar in topic but different in stance are grouped together. HDBSCAN outliers are reassigned to their nearest non-outlier centroid via cosine distance. 
-3. *Principal Component Analysis:* Ideally, each sub-topic cluster should discuss one issue, and contain arguments ranging from one extreme stance to the other. In other words, it should have a single dominant axis along which arguments agree/disagree with one another. However, semantically coherent clusters can mix more than one issue, and should be split if this is the case.
+3. *Principal Component Analysis:*<sup>&ast;</sup> Ideally, each sub-topic cluster should discuss one issue, and contain arguments ranging from one extreme stance to the other. In other words, it should have a single dominant axis along which arguments agree/disagree with one another. However, semantically coherent clusters can mix more than one issue, and should be split if this is the case.
 
    We therefore estimate an *axis of disagreement* by (i) embedding each argument in the cluster with a preference embedder [7], and (ii) applying PCA to the resulting $N \times 768$ matrix and taking PC1 as this axis.
 
    This use of PCA follows Pol.is [8], which maps participants in a 2D opinion space obtained from a participants $\times$ comments vote matrix and, in its Uber case study, observed that PC1 aligned with the dominant pro/anti division. Because we lack votes, preference embeddings of arguments stand in for that vote matrix.
 
    If the PC1/PC2 variance ratio falls below a threshold, the cluster is treated as mixing multiple issues and recursively re-clustered (UMAP + HDBSCAN) up to a maximum depth. Further evaluation for this choice is provided in Section 3.1.
+  
+<sup>&ast;</sup> This is admittedly the most speculative aspect of the project thus far. I don't think it is exactly 'right' (ie. accomplishing what I want it to) as is (I also have yet to evaluate it properly, see the *Evaluation* section for more), but I've kept it here since I think it's at minimum an interesting avenue to explore. 
 
 #### Stage 3: Slate generation
 
@@ -345,7 +347,7 @@ These results are relatively consistent between models, which is expected since 
 
 ### 3.4 PC1 as Axis of Disagreement 🟡
 
-> *Evaluation Question:* Within a focused sub-topic, is preference structure approximately one-dimensional, and does unsupervised PC1 recover that dimension? 
+> *Evaluation Question:* Within a focused sub-topic, is preference structure approximately one-dimensional, and does PC1 recover that dimension? 
 
 This evaluation question comes primarily from the sub-topic cluster splitting step of *Stage 2: Topic and sub-topic clustering*, which seeks to isolate a set of arguments within each topic that each lie along a common axis. 
 

@@ -36,7 +36,7 @@ const tabs = [
           <a href="https://trail-ml.com" className="underline hover:text-gray-900">
             trail
           </a>
-          , a Munich-based AI Governance start-up. I am interested in technical AI governance and policy. Specifically, in 
+          , a Munich-based AI Governance start-up. In my work, I am interested in technical AI governance and policy. Specifically, in 
           (a) how incoming tech regulations can be written in an ‘implementable’ way, and 
           (b) how existing tech regulations should be translated to practice – going from what’s written in the policy to operationalizable/monitorable technical specifications. 
           I am currently focused on how software can be built and used to facilitate this.
