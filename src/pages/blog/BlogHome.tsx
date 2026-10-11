@@ -4,9 +4,10 @@ import { PageGrid } from "@/components/item-grids";
 import { useBatchViewCounts } from "@/hooks/useBatchViewCounts";
 import { useSortToggle } from "@/hooks/useSortToggle";
 import { BlogContent } from "@/pages/blog/BlogContent";
+import { resolveBlogImageSrc } from "@/hooks/blogImages";
 
 const getPreviewImageUrl = (imageName: string) =>
-  new URL(`../../blog_data/preview_images/${imageName}`, import.meta.url).href;
+  resolveBlogImageSrc(imageName, undefined);
 
 const chapterColorMap: Record<string, string> = {};
 const chapterColors = ["#f472b6", "#60a5fa", "#22c55e", "#fbbf24", "#a78bfa"];

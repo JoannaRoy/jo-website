@@ -146,13 +146,15 @@ const BlogImage = ({
 }: ImgHTMLAttributes<HTMLImageElement> & { title?: string; postSlug?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const resolved = src ? resolveBlogImageSrc(src, postSlug) : undefined;
-  const { caption, maxWidthPx } = parseBlogImageTitle(title);
+  const alignLeft = /\s*\|\s*align=left\s*$/.test(title ?? "");
+  const imageTitle = alignLeft ? title?.replace(/\s*\|\s*align=left\s*$/, "") : title;
+  const { caption, maxWidthPx } = parseBlogImageTitle(imageTitle);
   // min(...) keeps the declared max-width on desktop without forcing overflow on narrow mobile screens.
   const wrapperStyle = maxWidthPx ? { maxWidth: `min(${maxWidthPx}px, 100%)` } : undefined;
 
   const imageButton = (
     <div
-      className={"relative mx-auto block" + (caption ? "" : " my-4 md:my-6")}
+      className={"relative block " + (alignLeft ? "mr-auto" : "mx-auto") + (caption ? "" : " my-4 md:my-6")}
       style={wrapperStyle}
     >
       <img
