@@ -1,8 +1,8 @@
 ---
-title: "trail 💙💚"
+title: "trail poem :) 💙💚"
 date: "2026-10-10"
 preview image: "trail/photo-15.jpg"
-description: "A poem for the trail team."
+description: "A poem about my time at trail"
 ---
 
 In Toronto, around two years back  
@@ -187,8 +187,8 @@ Coffee appreciated
 ![Trail memory 14](trail/photo-14.jpg "| w=120 | align=left")
 
 
-And now .. I guess we made it?  
-So let us celebrate it! 💚  
+So now that we've made it,  
+Let's celebrate it! 💚  
 
 ![Trail memory 15](trail/photo-15.jpg "| w=320 | align=left")
 
