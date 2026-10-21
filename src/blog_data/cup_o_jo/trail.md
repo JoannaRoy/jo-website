@@ -97,7 +97,7 @@ But working with them was supreme
 ![Trail memory 7](trail/photo-07.jpg "| w=320 | align=left")
 
 
-See, Nick is not*just* the most German  
+See, Nick is not *just* the most German  
 He’s also diligent and determined  
 Manager of the office  
 He brings in trail’s profits  
@@ -137,7 +137,7 @@ Whom I look up to more than she knows
 
 See, we’ve had our share of silly fights  
 Should my desk be brown, or white?  
-She’s*throwing* things away  
+She’s *throwing* things away  
 My salad dressing is NOT OKAY  
 But I also know she gave (many) late nights  
 
