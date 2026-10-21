@@ -1,9 +1,25 @@
 ---
-title: "trail poem :) 💙💚"
+title: "a poem for trail"
 date: "2026-10-10"
 preview image: "trail/photo-15.jpg"
 description: "A poem about my time at trail"
 ---
+
+trail recently got acquired (woohoo!). We are now part of [Collibra](https://www.collibra.com/), a company which was founded ~18 years ago to focus on data governance, but which has recently moved into AI governance as well (which is where team trail will contribute going forward). 
+
+In light of this, I am feeling a bittersweet mix of nostalgia for the last couple years with trail and excitement for the future with Collibra. 
+
+trail was a special company which I feel very (very) lucky to have been a part of —- it’s not often you get to work with such an ambitious, fun, tight-knit, passionate team of people. I can confidently say that coming to Munich to work with them is one of the best decisions I’ve made, and I’m really proud of what we accomplished. 
+
+Of course, I know that much of this will also carry into our new chapter at Collibra, and I’m also excited for everything that will bring. Everyone has been really welcoming so far, and I know we will learn a lot from their team and all the work they’ve already done on both data and AI governance. 
+
+![Trail memory 0](trail/photo-00.jpeg "team trail at a mountain hütte on our retreat last year! | w=320")
+
+So anyways, in the midst of all these feelings, I tried to capture a bit of the nostalgia part with the following poem:
+
+---
+
+**trail 💙💚**
 
 In Toronto, around two years back  
 I was on my phone, scrolling through slack  
