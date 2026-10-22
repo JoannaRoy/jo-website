@@ -50,3 +50,5 @@ Here is a list of nice little happy things:
 - when you put on a new pair of glasses and suddenly the world looks sooooooo much clearer!!
 - the sound when you open a new jar
 - and also when you pour new beans into the coffee grinder
+- a perfectly ripe avocado 
+
