@@ -51,4 +51,4 @@ Here is a list of nice little happy things:
 - the sound when you open a new jar
 - and also when you pour new beans into the coffee grinder
 - a perfectly ripe avocado 
-
+- the moment at a concert when you recognize which song they're playing and you (and so many other ppl) start singing 🕺
